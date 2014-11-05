@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ReliMobileModelStoreContainer" CdmEntityContainer="ReliMobileEntities">
+    <EntitySetMapping Name="messages1">
+      <EntityTypeMapping TypeName="ReliMobileModel.message">
+        <MappingFragment StoreEntitySet="messages">
+          <ScalarProperty Name="messageId" ColumnName="messageId" />
+          <ScalarProperty Name="messageContent" ColumnName="messageContent" />
+          <ScalarProperty Name="imageUrl" ColumnName="imageUrl" />
+          <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+          <ScalarProperty Name="sendFromUserId" ColumnName="sendFromUserId" />
+          <ScalarProperty Name="sendToUserId" ColumnName="sendToUserId" />
+          <ScalarProperty Name="isReceived" ColumnName="isReceived" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="ReliMobileModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="是否为集团员工" ColumnName="是否为集团员工" />
+          <ScalarProperty Name="所属中心" ColumnName="所属中心" />
+          <ScalarProperty Name="所属公司" ColumnName="所属公司" />
+          <ScalarProperty Name="姓名" ColumnName="姓名" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="warnings">
+      <EntityTypeMapping TypeName="ReliMobileModel.warning">
+        <MappingFragment StoreEntitySet="warnings">
+          <ScalarProperty Name="reportedAt" ColumnName="reportedAt" />
+          <ScalarProperty Name="warningMessage" ColumnName="warningMessage" />
+          <ScalarProperty Name="warningTitle" ColumnName="warningTitle" />
+          <ScalarProperty Name="warningId" ColumnName="warningId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roles">
+      <EntityTypeMapping TypeName="ReliMobileModel.role">
+        <MappingFragment StoreEntitySet="webpages_Roles">
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="webpages_UsersInRoles" TypeName="ReliMobileModel.webpages_UsersInRoles" StoreEntitySet="webpages_UsersInRoles">
+      <EndProperty Name="user">
+        <ScalarProperty Name="userId" ColumnName="UserId" />
+      </EndProperty>
+      <EndProperty Name="role">
+        <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="Weather_0">
+      <EntityTypeMapping TypeName="ReliMobileModel.Weather_0">
+        <MappingFragment StoreEntitySet="Weather_0">
+          <ScalarProperty Name="通州" ColumnName="通州" />
+          <ScalarProperty Name="雕塑园" ColumnName="雕塑园" />
+          <ScalarProperty Name="奥体中心" ColumnName="奥体中心" />
+          <ScalarProperty Name="和平西桥" ColumnName="和平西桥" />
+          <ScalarProperty Name="观象台" ColumnName="观象台" />
+          <ScalarProperty Name="龙潭湖" ColumnName="龙潭湖" />
+          <ScalarProperty Name="玉渊潭" ColumnName="玉渊潭" />
+          <ScalarProperty Name="车道沟" ColumnName="车道沟" />
+          <ScalarProperty Name="石景山" ColumnName="石景山" />
+          <ScalarProperty Name="朝阳" ColumnName="朝阳" />
+          <ScalarProperty Name="海淀" ColumnName="海淀" />
+          <ScalarProperty Name="大观园" ColumnName="大观园" />
+          <ScalarProperty Name="官园" ColumnName="官园" />
+          <ScalarProperty Name="四惠桥" ColumnName="四惠桥" />
+          <ScalarProperty Name="宝能" ColumnName="宝能" />
+          <ScalarProperty Name="左热" ColumnName="左热" />
+          <ScalarProperty Name="方庄" ColumnName="方庄" />
+          <ScalarProperty Name="双榆树" ColumnName="双榆树" />
+          <ScalarProperty Name="古观象台" ColumnName="古观象台" />
+          <ScalarProperty Name="天安门" ColumnName="天安门" />
+          <ScalarProperty Name="时间" ColumnName="时间" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="weather_1">
+      <EntityTypeMapping TypeName="ReliMobileModel.weather_1">
+        <MappingFragment StoreEntitySet="weather_1">
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="昨日实况一天平均温" ColumnName="昨日实况一天平均温" />
+          <ScalarProperty Name="昨日实况夜间最低温" ColumnName="昨日实况夜间最低温" />
+          <ScalarProperty Name="昨日实况白天最高温" ColumnName="昨日实况白天最高温" />
+          <ScalarProperty Name="夜间风力" ColumnName="夜间风力" />
+          <ScalarProperty Name="夜间天气" ColumnName="夜间天气" />
+          <ScalarProperty Name="白天风力" ColumnName="白天风力" />
+          <ScalarProperty Name="白天天气" ColumnName="白天天气" />
+          <ScalarProperty Name="今日预报一天平均温" ColumnName="今日预报一天平均温" />
+          <ScalarProperty Name="今日预报夜间最低温" ColumnName="今日预报夜间最低温" />
+          <ScalarProperty Name="今日预报白天最高温" ColumnName="今日预报白天最高温" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Weather_4">
+      <EntityTypeMapping TypeName="ReliMobileModel.Weather_4">
+        <MappingFragment StoreEntitySet="Weather_4">
+          <ScalarProperty Name="实际最低" ColumnName="实际最低" />
+          <ScalarProperty Name="实际最高" ColumnName="实际最高" />
+          <ScalarProperty Name="预报最低" ColumnName="预报最低" />
+          <ScalarProperty Name="预报最高" ColumnName="预报最高" />
+          <ScalarProperty Name="观象台平均" ColumnName="观象台平均" />
+          <ScalarProperty Name="朝阳平均" ColumnName="朝阳平均" />
+          <ScalarProperty Name="预报平均" ColumnName="预报平均" />
+          <ScalarProperty Name="日期" ColumnName="日期" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Weather_7">
+      <EntityTypeMapping TypeName="ReliMobileModel.Weather_7">
+        <MappingFragment StoreEntitySet="Weather_7">
+          <ScalarProperty Name="风力" ColumnName="风力" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="最高温" ColumnName="最高温" />
+          <ScalarProperty Name="最低温" ColumnName="最低温" />
+          <ScalarProperty Name="风向" ColumnName="风向" />
+          <ScalarProperty Name="天气" ColumnName="天气" />
+          <ScalarProperty Name="日期" ColumnName="日期" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stations">
+      <EntityTypeMapping TypeName="ReliMobileModel.Station">
+        <MappingFragment StoreEntitySet="Stations">
+          <ScalarProperty Name="预计全天GJ" ColumnName="预计全天GJ" />
+          <ScalarProperty Name="报警" ColumnName="报警" />
+          <ScalarProperty Name="来源ID" ColumnName="来源ID" />
+          <ScalarProperty Name="Date0" ColumnName="Date0" />
+          <ScalarProperty Name="日单耗" ColumnName="日单耗" />
+          <ScalarProperty Name="截止昨日实际Area" ColumnName="截止昨日实际Area" />
+          <ScalarProperty Name="截止昨日计划Area" ColumnName="截止昨日计划Area" />
+          <ScalarProperty Name="昨日投入Area" ColumnName="昨日投入Area" />
+          <ScalarProperty Name="昨日计划Area" ColumnName="昨日计划Area" />
+          <ScalarProperty Name="核算热指标" ColumnName="核算热指标" />
+          <ScalarProperty Name="昨日计划GJ" ColumnName="昨日计划GJ" />
+          <ScalarProperty Name="预估采暖季单耗" ColumnName="预估采暖季单耗" />
+          <ScalarProperty Name="供暖季核算GJ" ColumnName="供暖季核算GJ" />
+          <ScalarProperty Name="计划供热面积" ColumnName="计划供热面积" />
+          <ScalarProperty Name="面积操作类型" ColumnName="面积操作类型" />
+          <ScalarProperty Name="面积计划类别" ColumnName="面积计划类别" />
+          <ScalarProperty Name="预估采暖季热指标" ColumnName="预估采暖季热指标" />
+          <ScalarProperty Name="昨日核算热指标" ColumnName="昨日核算热指标" />
+          <ScalarProperty Name="昨日实际热指标" ColumnName="昨日实际热指标" />
+          <ScalarProperty Name="实际热指标" ColumnName="实际热指标" />
+          <ScalarProperty Name="今日投入Area" ColumnName="今日投入Area" />
+          <ScalarProperty Name="今日计划Area" ColumnName="今日计划Area" />
+          <ScalarProperty Name="昨日核算GJ" ColumnName="昨日核算GJ" />
+          <ScalarProperty Name="今日核算GJ" ColumnName="今日核算GJ" />
+          <ScalarProperty Name="upHour" ColumnName="upHour" />
+          <ScalarProperty Name="供暖季GJ" ColumnName="供暖季GJ" />
+          <ScalarProperty Name="昨日计划热指标" ColumnName="昨日计划热指标" />
+          <ScalarProperty Name="计划热指标" ColumnName="计划热指标" />
+          <ScalarProperty Name="昨日热水GJ" ColumnName="昨日热水GJ" />
+          <ScalarProperty Name="DevItemId" ColumnName="DevItemId" />
+          <ScalarProperty Name="投入面积" ColumnName="投入面积" />
+          <ScalarProperty Name="站面积" ColumnName="站面积" />
+          <ScalarProperty Name="GJ_SH" ColumnName="GJ_SH" />
+          <ScalarProperty Name="GJ_C" ColumnName="GJ_C" />
+          <ScalarProperty Name="参考热指标" ColumnName="参考热指标" />
+          <ScalarProperty Name="gps" ColumnName="gps" />
+          <ScalarProperty Name="E3" ColumnName="E3" />
+          <ScalarProperty Name="upFlag" ColumnName="upFlag" />
+          <ScalarProperty Name="spcname" ColumnName="spcname" />
+          <ScalarProperty Name="采集时间" ColumnName="采集时间" />
+          <ScalarProperty Name="总瞬时流量" ColumnName="总瞬时流量" />
+          <ScalarProperty Name="总瞬时热量" ColumnName="总瞬时热量" />
+          <ScalarProperty Name="总累计流量" ColumnName="总累计流量" />
+          <ScalarProperty Name="总累计热量" ColumnName="总累计热量" />
+          <ScalarProperty Name="一次回压" ColumnName="一次回压" />
+          <ScalarProperty Name="一次供压" ColumnName="一次供压" />
+          <ScalarProperty Name="一次回温" ColumnName="一次回温" />
+          <ScalarProperty Name="一次供温" ColumnName="一次供温" />
+          <ScalarProperty Name="采暖季单耗" ColumnName="采暖季单耗" />
+          <ScalarProperty Name="昨日GJ" ColumnName="昨日GJ" />
+          <ScalarProperty Name="今日计划GJ" ColumnName="今日计划GJ" />
+          <ScalarProperty Name="今日热水GJ" ColumnName="今日热水GJ" />
+          <ScalarProperty Name="今日热水表底GJ" ColumnName="今日热水表底GJ" />
+          <ScalarProperty Name="万平方米流量" ColumnName="万平方米流量" />
+          <ScalarProperty Name="今日累计单耗" ColumnName="今日累计单耗" />
+          <ScalarProperty Name="今日GJ" ColumnName="今日GJ" />
+          <ScalarProperty Name="今日表底GJ" ColumnName="今日表底GJ" />
+          <ScalarProperty Name="投入面积B" ColumnName="投入面积B" />
+          <ScalarProperty Name="投入面积A" ColumnName="投入面积A" />
+          <ScalarProperty Name="数据来源" ColumnName="数据来源" />
+          <ScalarProperty Name="是否蒸汽站" ColumnName="是否蒸汽站" />
+          <ScalarProperty Name="管理类型" ColumnName="管理类型" />
+          <ScalarProperty Name="引入小室号" ColumnName="引入小室号" />
+          <ScalarProperty Name="系统设备表" ColumnName="系统设备表" />
+          <ScalarProperty Name="周边环境示意图" ColumnName="周边环境示意图" />
+          <ScalarProperty Name="供热范围示意图" ColumnName="供热范围示意图" />
+          <ScalarProperty Name="工艺流程图" ColumnName="工艺流程图" />
+          <ScalarProperty Name="面积B" ColumnName="面积B" />
+          <ScalarProperty Name="面积A" ColumnName="面积A" />
+          <ScalarProperty Name="生产热源" ColumnName="生产热源" />
+          <ScalarProperty Name="生产热源ID" ColumnName="生产热源ID" />
+          <ScalarProperty Name="热力站行政区" ColumnName="热力站行政区" />
+          <ScalarProperty Name="是否重点站" ColumnName="是否重点站" />
+          <ScalarProperty Name="是否并网供热" ColumnName="是否并网供热" />
+          <ScalarProperty Name="是否热水站" ColumnName="是否热水站" />
+          <ScalarProperty Name="支线" ColumnName="支线" />
+          <ScalarProperty Name="干线" ColumnName="干线" />
+          <ScalarProperty Name="公司" ColumnName="公司" />
+          <ScalarProperty Name="公司ID" ColumnName="公司ID" />
+          <ScalarProperty Name="管理单位" ColumnName="管理单位" />
+          <ScalarProperty Name="管理单位ID" ColumnName="管理单位ID" />
+          <ScalarProperty Name="用热地址" ColumnName="用热地址" />
+          <ScalarProperty Name="热力站名称" ColumnName="热力站名称" />
+          <ScalarProperty Name="热力站编码" ColumnName="热力站编码" />
+          <ScalarProperty Name="热力站编号" ColumnName="热力站编号" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

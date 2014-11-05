@@ -1,0 +1,6 @@
+﻿<div class='btn-group topmenu'>
+    @Html.ActionLink("全网", "RealTime", new { selectedRegion = 1 }, new { @class = Model.SelectedRegion == 1 ? "btn selected" : "btn" })
+    @Html.ActionLink("东部", "RealTime", new { selectedRegion = 2 }, new { @class = Model.SelectedRegion == 2 ? "btn selected" : "btn" })
+    @Html.ActionLink("西部", "RealTime", new { selectedRegion = 3 }, new { @class = Model.SelectedRegion == 3 ? "btn selected" : "btn" })
+    @Html.ActionLink("独网", "RealTime", new { selectedRegion = 4 }, new { @class = Model.SelectedRegion == 4 ? "btn selected" : "btn" })
+</div>

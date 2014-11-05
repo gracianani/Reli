@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ReliMobileModelStoreContainer" CdmEntityContainer="ReliMobileEntities">
+    <EntitySetMapping Name="messages">
+      <EntityTypeMapping TypeName="ReliMobileModel.message">
+        <MappingFragment StoreEntitySet="messages">
+          <ScalarProperty Name="replyToMessageId" ColumnName="replyToMessageId" />
+          <ScalarProperty Name="messageId" ColumnName="messageId" />
+          <ScalarProperty Name="messageContent" ColumnName="messageContent" />
+          <ScalarProperty Name="imageUrl" ColumnName="imageUrl" />
+          <ScalarProperty Name="createdAt" ColumnName="createdAt" />
+          <ScalarProperty Name="sendFromUserId" ColumnName="sendFromUserId" />
+          <ScalarProperty Name="sendToUserId" ColumnName="sendToUserId" />
+          <ScalarProperty Name="isReceived" ColumnName="isReceived" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="warnings">
+      <EntityTypeMapping TypeName="ReliMobileModel.warning">
+        <MappingFragment StoreEntitySet="warnings">
+          <ScalarProperty Name="warningId" ColumnName="warningId" />
+          <ScalarProperty Name="warningTitle" ColumnName="warningTitle" />
+          <ScalarProperty Name="warningMessage" ColumnName="warningMessage" />
+          <ScalarProperty Name="reportedAt" ColumnName="reportedAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="ReliMobileModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="是否为集团员工" ColumnName="是否为集团员工" />
+          <ScalarProperty Name="所属中心" ColumnName="所属中心" />
+          <ScalarProperty Name="所属公司" ColumnName="所属公司" />
+          <ScalarProperty Name="姓名" ColumnName="姓名" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

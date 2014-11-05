@@ -1,0 +1,109 @@
+/* Main Colors
+=================================================================== */
+/* Main Colors
+=================================================================== */
+.blue {
+  color: #378fc9;
+}
+.lightBlue {
+  color: #67c2ef;
+}
+.green {
+  color: #bdea74;
+}
+.darkGreen {
+  color: #7fb30c;
+}
+.pink {
+  color: #e84c8a;
+}
+.orange {
+  color: #ec6313;
+}
+.lightOrange {
+  color: #fabb3d;
+}
+.red {
+  color: #ff5454;
+}
+.yellow {
+  color: #eae874;
+}
+.white {
+  color: white;
+}
+.grey {
+  color: #c7cbd5;
+}
+.crimson {
+  color: #9e3f3d;
+}
+.backgroundColor.blue {
+  background: #378fc9;
+}
+.backgroundColor.lightBlue {
+  background: #67c2ef;
+}
+.backgroundColor.green {
+  background: #bdea74;
+}
+.backgroundColor.darkGreen {
+  background: #7fb30c;
+}
+.backgroundColor.pink {
+  background: #e84c8a;
+}
+.backgroundColor.orange {
+  background: #ec6313;
+}
+.backgroundColor.lightOrange {
+  background: #fabb3d;
+}
+.backgroundColor.red {
+  background: #ff5454;
+}
+.backgroundColor.yellow {
+  background: #eae874;
+}
+.backgroundColor.white {
+  background: white;
+}
+.backgroundColor.grey {
+  background: #c7cbd5;
+}
+.backgroundColor.crimson {
+  background: #9e3f3d;
+}
+.backgroundColorTitle.blue .title {
+  background: #378fc9;
+}
+.backgroundColorTitle.lightBlue .title {
+  background: #67c2ef;
+}
+.backgroundColorTitle.green .title {
+  background: #bdea74;
+}
+.backgroundColorTitle.darkGreen .title {
+  background: #7fb30c;
+}
+.backgroundColorTitle.pink .title {
+  background: #e84c8a;
+}
+.backgroundColorTitle.orange .title {
+  background: #ec6313;
+}
+.backgroundColorTitle.lightOrange .title {
+  background: #fabb3d;
+}
+.backgroundColorTitle.red .title {
+  background: #ff5454;
+}
+.backgroundColorTitle.yellow .title {
+  background: #eae874;
+}
+.backgroundColorTitle.white .title {
+  background: white;
+}
+.backgroundColorTitle.grey .title {
+  background: #c7cbd5;
+}

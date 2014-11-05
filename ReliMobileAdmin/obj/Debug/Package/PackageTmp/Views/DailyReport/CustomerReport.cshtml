@@ -1,0 +1,107 @@
+﻿
+@model ReliMobileAdmin.Models.ProductionReportViewModel
+
+@{
+    ViewBag.Title = "CustomerReport";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="../../Content/themes/simpliq/css/uploadify.css" rel="stylesheet" type="text/css" />
+<h1>客服日报  @Html.Hidden("reportType", Model.ReportType)</h1>
+
+<div class="row-fluid">
+    <div class="span8">
+        
+        <table class="table backgroundColor whtie table-bordered" id="reports">
+            <tr>
+                <th>
+                   文件名
+                </th>
+                <th>
+                   上传时间
+                </th>
+                <th>
+                   文件类型
+                </th>
+                <th>
+                   操作
+                </th>
+            </tr>
+            @foreach(var reportItem in @Model.Reports)
+            {
+                <tr>
+                    <td class="title"> @reportItem.FileName.Substring(0, reportItem.FileName.IndexOf("."))</td>
+                    <td> @reportItem.CreatedAt.ToString("MM月dd日, tt", new System.Globalization.CultureInfo("zh-cn")) @reportItem.CreatedAt.ToString("HH:mm")</td>
+                    <td><span class="label label-important extension">@reportItem.Extension</span></td> 
+                    <td>
+                        <a class="btn btn-success download"><i class="icon-download"></i></a> 
+                        <a class="btn btn-danger delete"><i class="icon-trash"></i></a>
+                     </td>
+                </tr>
+            }
+        </table>
+    </div>
+	<div class="span4">
+		@using (Html.BeginForm("Upload", "", FormMethod.Post, new { enctype = "multipart/form-data" }))
+		{
+			<input type="file" name="file_upload" id="file_upload" multiple="true"/>
+		}
+	</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $('#file_upload').uploadify({
+            'swf': '../uploadify.swf',
+            'height': 30,
+            'buttonText': '上传文件',
+            'uploader': '/DailyReport/Upload',
+            'formData': { 'reportType': $("input[name=reportType]").val() },
+            'onUploadSuccess': function (file, data, response) {
+                var result = JSON.parse(JSON.parse(data))
+                $("#reports tr:eq(0)").after("<tr>" +
+                    "<td>" + file.name.substring(0, file.name.lastIndexOf(".")) + "</td>" +
+                    "<td>" + result.creationDate + "</td>" +
+                    "<td><span class='label label-important extension'>" + file.type + "</span></td>" +
+                    '<td><a class="btn btn-success dowload"><i class="icon-download"></i></a> <a class="btn btn-danger delete"><i class="icon-trash"></i></a></td</tr>');
+            }
+        });
+
+        $(".icon-trash, .delete").click(function () {
+            var self = this;
+            $.ajax({
+                url: '/DailyReport/Delete',
+                method: 'Delete',
+                contentType: 'application/json',
+                data: JSON.stringify({ "fileName": $(self).parents('tr').find(".title").html(), "extension": $(self).parents('tr').find(".extension").html(), 'reportType': $("input[name=reportType]").val() }),
+                success: function (d) {
+                    var result = JSON.parse(d);
+                    if (result.isDeleted) {
+                        $(self).parents('tr').fadeTo("slow", 0.00, function () {
+                            $(this).slideUp("slow", function () {
+                                $(this).remove();
+                            });
+                        });
+                    }
+                }
+            });
+        });
+
+        $(".icon-download, .download").click(function () {
+            var $self = $(this);
+            var oldName = '<i class="icon-download"></i>';
+            $.ajax({
+                url: '/DailyReport/Download',
+                method: 'GET',
+                contentType: 'application/json',
+                dataType: "json",
+                data: { "fileName": $self.parents('tr').find(".title").html(), "extension": $self.parents('tr').find(".extension").html(), 'reportType': $("input[name=reportType]").val() },
+                success: function (d) {
+                    window.location = d.fileName;
+                    $(self).find("span").html(oldName);
+                }
+            });
+        });
+    });
+
+</script>

@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ReliMobileModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="ReliMobileEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="messages" EntityType="ReliMobileModel.message" />
+    <EntitySet Name="warnings" EntityType="ReliMobileModel.warning" />
+    <EntitySet Name="users" EntityType="ReliMobileModel.user" />
+    <AssociationSet Name="FK__messages__sendFr__1CF15040" Association="ReliMobileModel.FK__messages__sendFr__1CF15040">
+      <End Role="user" EntitySet="users" />
+      <End Role="message" EntitySet="messages" />
+    </AssociationSet>
+    <AssociationSet Name="FK__messages__sendTo__1DE57479" Association="ReliMobileModel.FK__messages__sendTo__1DE57479">
+      <End Role="user" EntitySet="users" />
+      <End Role="message" EntitySet="messages" />
+    </AssociationSet>
+    <AssociationSet Name="FK__messages__replyT__403A8C7D" Association="ReliMobileModel.FK__messages__replyT__403A8C7D">
+      <End Role="message" EntitySet="messages" />
+      <End Role="message1" EntitySet="messages" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="message">
+    <Key>
+      <PropertyRef Name="messageId" />
+    </Key>
+    <Property Name="messageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="messageContent" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="imageUrl" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="createdAt" Type="DateTime" Nullable="false" />
+    <Property Name="sendFromUserId" Type="Int32" Nullable="false" />
+    <Property Name="sendToUserId" Type="Int32" Nullable="false" />
+    <Property Name="isReceived" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="sendFromUser" Relationship="ReliMobileModel.FK__messages__sendFr__1CF15040" FromRole="message" ToRole="user" />
+    <NavigationProperty Name="sendToUser" Relationship="ReliMobileModel.FK__messages__sendTo__1DE57479" FromRole="message" ToRole="user" />
+    <Property Type="Int32" Name="replyToMessageId" />
+    <NavigationProperty Name="repliedByMessages" Relationship="ReliMobileModel.FK__messages__replyT__403A8C7D" FromRole="message" ToRole="message1" />
+  </EntityType>
+  <EntityType Name="warning">
+    <Key>
+      <PropertyRef Name="warningId" />
+    </Key>
+    <Property Name="warningId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="warningTitle" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="warningMessage" Type="String" Nullable="false" MaxLength="300" Unicode="true" FixedLength="false" />
+    <Property Name="reportedAt" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="userId" />
+    </Key>
+    <Property Type="Int32" Name="userId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="email" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="姓名" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="所属公司" />
+    <Property Type="Int32" Name="所属中心" />
+    <Property Type="Boolean" Name="是否为集团员工" />
+    <NavigationProperty Name="messages" Relationship="ReliMobileModel.FK__messages__sendFr__1CF15040" FromRole="user" ToRole="message" />
+  </EntityType>
+  <Association Name="FK__messages__sendFr__1CF15040">
+    <End Type="ReliMobileModel.user" Role="user" Multiplicity="1" />
+    <End Type="ReliMobileModel.message" Role="message" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="message">
+        <PropertyRef Name="sendFromUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__messages__sendTo__1DE57479">
+    <End Type="ReliMobileModel.user" Role="user" Multiplicity="1" />
+    <End Type="ReliMobileModel.message" Role="message" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="message">
+        <PropertyRef Name="sendToUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__messages__replyT__403A8C7D">
+    <End Type="ReliMobileModel.message" Role="message" Multiplicity="0..1" />
+    <End Type="ReliMobileModel.message" Role="message1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="message">
+        <PropertyRef Name="messageId" />
+      </Principal>
+      <Dependent Role="message1">
+        <PropertyRef Name="replyToMessageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

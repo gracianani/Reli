@@ -1,0 +1,20 @@
+﻿@{
+    WebSecurity.InitializeDatabaseConnection("membership", "Users", "UserId", "Email", autoCreateTables: true);
+
+    var roles = (SimpleRoleProvider)Roles.Provider;
+    var membership = (SimpleMembershipProvider)Membership.Provider;
+    if (!roles.RoleExists("系统管理员"))
+    {
+        roles.CreateRole("系统管理员");
+    }
+    if (membership.GetUser("gracian.ani@gmail.com", false) == null)
+    {
+        membership.CreateUserAndAccount("gracian.ani@gmail.com", "88458170");
+    }
+    if (!roles.GetRolesForUser("gracian.ani@gmail.com").Contains("系统管理员"))
+    {
+        roles.AddUsersToRoles(new[] { "gracian.ani@gmail.com" }, new[] { "系统管理员" });
+    }    
+    
+    
+}

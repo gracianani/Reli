@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ReliMobileModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ReliMobileModelStoreContainer">
+    <EntitySet Name="messages" EntityType="ReliMobileModel.Store.messages" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Stations" EntityType="ReliMobileModel.Store.Stations" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="users" EntityType="ReliMobileModel.Store.users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="warnings" EntityType="ReliMobileModel.Store.warnings" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Weather_0" EntityType="ReliMobileModel.Store.Weather_0" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="weather_1" EntityType="ReliMobileModel.Store.weather_1" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Weather_4" EntityType="ReliMobileModel.Store.Weather_4" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Weather_7" EntityType="ReliMobileModel.Store.Weather_7" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="webpages_Roles" EntityType="ReliMobileModel.Store.webpages_Roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="webpages_UsersInRoles" EntityType="ReliMobileModel.Store.webpages_UsersInRoles" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK__messages__sendFr__1CF15040" Association="ReliMobileModel.Store.FK__messages__sendFr__1CF15040">
+      <End Role="users" EntitySet="users" />
+      <End Role="messages" EntitySet="messages" />
+    </AssociationSet>
+    <AssociationSet Name="FK__messages__sendTo__1DE57479" Association="ReliMobileModel.Store.FK__messages__sendTo__1DE57479">
+      <End Role="users" EntitySet="users" />
+      <End Role="messages" EntitySet="messages" />
+    </AssociationSet>
+    <AssociationSet Name="fk_RoleId" Association="ReliMobileModel.Store.fk_RoleId">
+      <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+      <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="fk_UserId" Association="ReliMobileModel.Store.fk_UserId">
+      <End Role="users" EntitySet="users" />
+      <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="messages">
+    <Key>
+      <PropertyRef Name="messageId" />
+    </Key>
+    <Property Name="messageId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="messageContent" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="imageUrl" Type="varchar" MaxLength="100" />
+    <Property Name="createdAt" Type="datetime" Nullable="false" />
+    <Property Name="sendFromUserId" Type="int" Nullable="false" />
+    <Property Name="sendToUserId" Type="int" Nullable="false" />
+    <Property Name="isReceived" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stations">
+    <Key>
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Name="ItemID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="热力站编号" Type="nvarchar" MaxLength="50" />
+    <Property Name="热力站编码" Type="nvarchar" MaxLength="50" />
+    <Property Name="热力站名称" Type="nvarchar" MaxLength="250" />
+    <Property Name="用热地址" Type="nvarchar" MaxLength="250" />
+    <Property Name="管理单位ID" Type="int" />
+    <Property Name="管理单位" Type="nvarchar" MaxLength="250" />
+    <Property Name="公司ID" Type="int" />
+    <Property Name="公司" Type="nvarchar" MaxLength="250" />
+    <Property Name="干线" Type="nvarchar" MaxLength="250" />
+    <Property Name="支线" Type="nvarchar" MaxLength="250" />
+    <Property Name="是否热水站" Type="bit" />
+    <Property Name="是否并网供热" Type="bit" />
+    <Property Name="是否重点站" Type="bit" />
+    <Property Name="热力站行政区" Type="nvarchar" MaxLength="50" />
+    <Property Name="生产热源ID" Type="int" />
+    <Property Name="生产热源" Type="nvarchar" MaxLength="250" />
+    <Property Name="面积A" Type="decimal" Scale="2" />
+    <Property Name="面积B" Type="decimal" Scale="2" />
+    <Property Name="工艺流程图" Type="nvarchar" MaxLength="250" />
+    <Property Name="供热范围示意图" Type="nvarchar" MaxLength="250" />
+    <Property Name="周边环境示意图" Type="nvarchar" MaxLength="250" />
+    <Property Name="系统设备表" Type="nvarchar" MaxLength="250" />
+    <Property Name="引入小室号" Type="nvarchar" MaxLength="250" />
+    <Property Name="管理类型" Type="nvarchar" MaxLength="50" />
+    <Property Name="是否蒸汽站" Type="nvarchar" MaxLength="50" />
+    <Property Name="数据来源" Type="nvarchar" MaxLength="50" />
+    <Property Name="投入面积A" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="投入面积B" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="今日表底GJ" Type="decimal" Precision="10" Scale="1" />
+    <Property Name="今日GJ" Type="decimal" Precision="10" Scale="1" />
+    <Property Name="今日累计单耗" Type="decimal" Precision="8" Scale="3" />
+    <Property Name="万平方米流量" Type="decimal" Precision="8" Scale="2" />
+    <Property Name="今日热水表底GJ" Type="decimal" Precision="10" Scale="1" />
+    <Property Name="今日热水GJ" Type="decimal" Precision="10" Scale="1" />
+    <Property Name="今日计划GJ" Type="decimal" Precision="10" Scale="1" />
+    <Property Name="昨日GJ" Type="decimal" Precision="10" Scale="1" />
+    <Property Name="采暖季单耗" Type="decimal" Precision="8" Scale="3" />
+    <Property Name="一次供温" Type="decimal" Precision="5" Scale="1" />
+    <Property Name="一次回温" Type="decimal" Precision="5" Scale="1" />
+    <Property Name="一次供压" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="一次回压" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="总累计热量" Type="decimal" Precision="10" Scale="1" />
+    <Property Name="总累计流量" Type="decimal" Precision="10" />
+    <Property Name="总瞬时热量" Type="decimal" Precision="8" Scale="2" />
+    <Property Name="总瞬时流量" Type="decimal" Precision="8" Scale="1" />
+    <Property Name="采集时间" Type="smalldatetime" />
+    <Property Name="spcname" Type="int" />
+    <Property Name="upFlag" Type="smallint" />
+    <Property Name="E3" Type="smallint" />
+    <Property Name="gps" Type="varchar" MaxLength="250" />
+    <Property Name="参考热指标" Type="decimal" Precision="8" Scale="2" />
+    <Property Name="GJ_C" Type="decimal" Precision="10" Scale="1" />
+    <Property Name="GJ_SH" Type="decimal" Precision="10" Scale="1" />
+    <Property Name="站面积" Type="decimal" Precision="19" Scale="2" StoreGeneratedPattern="Computed" />
+    <Property Name="投入面积" Type="decimal" Precision="11" Scale="2" StoreGeneratedPattern="Computed" />
+    <Property Name="DevItemId" Type="int" />
+    <Property Name="昨日热水GJ" Type="decimal" Precision="10" Scale="1" />
+    <Property Name="计划热指标" Type="decimal" Precision="6" Scale="2" />
+    <Property Name="昨日计划热指标" Type="decimal" Precision="6" Scale="2" />
+    <Property Name="供暖季GJ" Type="decimal" Precision="10" Scale="1" />
+    <Property Name="upHour" Type="smallint" />
+    <Property Name="今日核算GJ" Type="decimal" Precision="8" Scale="1" />
+    <Property Name="昨日核算GJ" Type="decimal" Precision="8" Scale="1" />
+    <Property Name="今日计划Area" Type="decimal" Scale="2" />
+    <Property Name="今日投入Area" Type="decimal" Scale="2" />
+    <Property Name="实际热指标" Type="decimal" Precision="6" Scale="2" />
+    <Property Name="昨日实际热指标" Type="decimal" Precision="6" Scale="2" />
+    <Property Name="昨日核算热指标" Type="decimal" Precision="6" Scale="2" />
+    <Property Name="预估采暖季热指标" Type="decimal" Precision="6" Scale="2" />
+    <Property Name="面积计划类别" Type="nvarchar" MaxLength="10" />
+    <Property Name="面积操作类型" Type="nvarchar" MaxLength="10" />
+    <Property Name="计划供热面积" Type="decimal" Scale="2" />
+    <Property Name="供暖季核算GJ" Type="decimal" Precision="6" Scale="2" />
+    <Property Name="预估采暖季单耗" Type="decimal" Precision="6" Scale="2" />
+    <Property Name="昨日计划GJ" Type="decimal" Precision="8" Scale="1" />
+    <Property Name="核算热指标" Type="decimal" Precision="6" Scale="2" />
+    <Property Name="昨日计划Area" Type="decimal" Scale="2" />
+    <Property Name="昨日投入Area" Type="decimal" Scale="2" />
+    <Property Name="截止昨日计划Area" Type="decimal" Scale="2" />
+    <Property Name="截止昨日实际Area" Type="decimal" Scale="2" />
+    <Property Name="日单耗" Type="decimal" Precision="8" Scale="4" />
+    <Property Name="Date0" Type="date" Nullable="false" />
+    <Property Name="来源ID" Type="tinyint" />
+    <Property Name="报警" Type="nvarchar" MaxLength="100" />
+    <Property Name="预计全天GJ" Type="decimal" Scale="1" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="userId" />
+    </Key>
+    <Property Name="userId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="email" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="姓名" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="所属公司" Type="int" />
+    <Property Name="所属中心" Type="int" />
+    <Property Name="是否为集团员工" Type="bit" />
+  </EntityType>
+  <EntityType Name="warnings">
+    <Key>
+      <PropertyRef Name="warningId" />
+    </Key>
+    <Property Name="warningId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="warningTitle" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="warningMessage" Type="nvarchar" Nullable="false" MaxLength="300" />
+    <Property Name="reportedAt" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Weather_0">
+    <Key>
+      <PropertyRef Name="时间" />
+    </Key>
+    <Property Name="时间" Type="smalldatetime" Nullable="false" />
+    <Property Name="天安门" Type="decimal" Precision="4" Scale="1" />
+    <Property Name="古观象台" Type="decimal" Precision="4" Scale="1" />
+    <Property Name="双榆树" Type="decimal" Precision="4" Scale="1" />
+    <Property Name="方庄" Type="decimal" Precision="4" Scale="1" />
+    <Property Name="左热" Type="decimal" Precision="4" Scale="1" />
+    <Property Name="宝能" Type="decimal" Precision="4" Scale="1" />
+    <Property Name="四惠桥" Type="decimal" Precision="4" Scale="1" />
+    <Property Name="官园" Type="decimal" Precision="4" Scale="1" />
+    <Property Name="大观园" Type="decimal" Precision="4" Scale="1" />
+    <Property Name="海淀" Type="decimal" Precision="4" Scale="1" />
+    <Property Name="朝阳" Type="decimal" Precision="4" Scale="1" />
+    <Property Name="石景山" Type="decimal" Precision="4" Scale="1" />
+    <Property Name="车道沟" Type="decimal" Precision="4" Scale="1" />
+    <Property Name="玉渊潭" Type="decimal" Precision="4" Scale="1" />
+    <Property Name="龙潭湖" Type="decimal" Precision="4" Scale="1" />
+    <Property Name="观象台" Type="decimal" Precision="4" Scale="1" />
+    <Property Name="和平西桥" Type="decimal" Precision="4" Scale="1" />
+    <Property Name="奥体中心" Type="decimal" Precision="4" Scale="1" />
+    <Property Name="雕塑园" Type="decimal" Precision="4" Scale="1" />
+    <Property Name="通州" Type="decimal" Precision="4" Scale="1" />
+  </EntityType>
+  <EntityType Name="weather_1">
+    <Key>
+      <PropertyRef Name="ItemId" />
+    </Key>
+    <Property Name="今日预报白天最高温" Type="decimal" Precision="5" Scale="1" />
+    <Property Name="今日预报夜间最低温" Type="decimal" Precision="5" Scale="1" />
+    <Property Name="今日预报一天平均温" Type="decimal" Precision="5" Scale="1" />
+    <Property Name="白天天气" Type="nvarchar" MaxLength="240" />
+    <Property Name="白天风力" Type="nvarchar" MaxLength="240" />
+    <Property Name="夜间天气" Type="nvarchar" MaxLength="240" />
+    <Property Name="夜间风力" Type="nvarchar" MaxLength="240" />
+    <Property Name="昨日实况白天最高温" Type="decimal" Precision="5" Scale="1" />
+    <Property Name="昨日实况夜间最低温" Type="decimal" Precision="5" Scale="1" />
+    <Property Name="昨日实况一天平均温" Type="decimal" Precision="5" Scale="1" />
+    <Property Name="ItemId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Weather_4">
+    <Key>
+      <PropertyRef Name="日期" />
+    </Key>
+    <Property Name="日期" Type="date" Nullable="false" />
+    <Property Name="预报平均" Type="decimal" Precision="5" Scale="1" />
+    <Property Name="朝阳平均" Type="decimal" Precision="5" Scale="1" />
+    <Property Name="观象台平均" Type="decimal" Precision="5" Scale="1" />
+    <Property Name="预报最高" Type="decimal" Precision="5" Scale="1" />
+    <Property Name="预报最低" Type="decimal" Precision="5" Scale="1" />
+    <Property Name="实际最高" Type="decimal" Precision="5" Scale="1" />
+    <Property Name="实际最低" Type="decimal" Precision="5" Scale="1" />
+  </EntityType>
+  <EntityType Name="Weather_7">
+    <Key>
+      <PropertyRef Name="日期" />
+      <PropertyRef Name="ItemId" />
+    </Key>
+    <Property Name="日期" Type="datetime" Nullable="false" />
+    <Property Name="天气" Type="nvarchar" MaxLength="60" />
+    <Property Name="风向" Type="nvarchar" MaxLength="60" />
+    <Property Name="最低温" Type="decimal" Precision="5" Scale="1" />
+    <Property Name="最高温" Type="decimal" Precision="5" Scale="1" />
+    <Property Name="ItemId" Type="smallint" Nullable="false" />
+    <Property Name="风力" Type="nvarchar" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="webpages_Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="webpages_UsersInRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__messages__sendFr__1CF15040">
+    <End Role="users" Type="ReliMobileModel.Store.users" Multiplicity="1" />
+    <End Role="messages" Type="ReliMobileModel.Store.messages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="messages">
+        <PropertyRef Name="sendFromUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__messages__sendTo__1DE57479">
+    <End Role="users" Type="ReliMobileModel.Store.users" Multiplicity="1" />
+    <End Role="messages" Type="ReliMobileModel.Store.messages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="messages">
+        <PropertyRef Name="sendToUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_RoleId">
+    <End Role="webpages_Roles" Type="ReliMobileModel.Store.webpages_Roles" Multiplicity="1" />
+    <End Role="webpages_UsersInRoles" Type="ReliMobileModel.Store.webpages_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="webpages_Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="webpages_UsersInRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_UserId">
+    <End Role="users" Type="ReliMobileModel.Store.users" Multiplicity="1" />
+    <End Role="webpages_UsersInRoles" Type="ReliMobileModel.Store.webpages_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="webpages_UsersInRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

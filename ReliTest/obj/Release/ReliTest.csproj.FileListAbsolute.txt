@@ -1,0 +1,5 @@
+C:\Users\yaqiZhao\documents\visual studio 2010\projects\ReliDemo\ReliTest\bin\Release\ReliTest.dll
+C:\Users\yaqiZhao\documents\visual studio 2010\projects\ReliDemo\ReliTest\bin\Release\ReliTest.pdb
+C:\Users\yaqiZhao\documents\visual studio 2010\projects\ReliDemo\ReliTest\obj\Release\ReliTest.csprojResolveAssemblyReference.cache
+C:\Users\yaqiZhao\documents\visual studio 2010\projects\ReliDemo\ReliTest\obj\Release\ReliTest.dll
+C:\Users\yaqiZhao\documents\visual studio 2010\projects\ReliDemo\ReliTest\obj\Release\ReliTest.pdb

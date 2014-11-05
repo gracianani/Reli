@@ -1,0 +1,391 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\inetpub\vhosts\ReliWebServices</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>07/17/2013 16:06:58</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/css/mixins.css">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/font/fontawesome-webfont-0.eot">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/font/fontawesome-webfont-53900.eot">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/font/fontawesome-webfont-53900.ttf">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/font/fontawesome-webfont-53900.woff">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/font/fontawesome-webfont.eot">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/font/fontawesome-webfont.svg">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/font/fontawesome-webfont.ttf">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/font/fontawesome-webfont.woff">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/font/FontAwesome.otf">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/font/glyphicons-regular-0.eot">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/font/glyphicons-regular.eot">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/font/glyphicons-regular.svg">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/font/glyphicons-regular.ttf">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/font/glyphicons-regular.woff">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/font/glyphiconshalflings-regular-0.eot">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/font/glyphiconshalflings-regular.eot">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/font/glyphiconshalflings-regular.svg">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/font/glyphiconshalflings-regular.ttf">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/font/glyphiconshalflings-regular.woff">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/less/buttons.less">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/less/calendar.less">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/less/charts.less">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/less/chat.less">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/less/circle-stats.less">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/less/colors.css">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/less/colors.less">
+      <publishTime>01/17/2014 19:19:43</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/less/custom.css">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/less/custom.less">
+      <publishTime>01/22/2014 12:07:32</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/less/dashboard-list.less">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/less/discussions.less">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/less/footer.less">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/less/forms.less">
+      <publishTime>10/16/2013 10:35:03</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/less/header.less">
+      <publishTime>10/24/2013 14:25:08</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/less/import.less">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/less/justgage.less">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/less/main.less">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/less/mixins.less">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/less/navigation.less">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/less/notifications_labels.less">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/less/others.less">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/less/page-login.less">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/less/page-messages.less">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/less/page-tasks.less">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/less/quick-buttons.less">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/less/sliders_progress_bars.less">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/less/smallstats.less">
+      <publishTime>09/12/2013 13:22:43</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/less/tabs.less">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/less/tickets.less">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/less/todo.less">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/css/less/wizard.less">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/font/fontawesome-webfont-0.eot">
+      <publishTime>07/19/2013 15:50:10</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/font/fontawesome-webfont-53900.eot">
+      <publishTime>07/19/2013 15:50:10</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/font/fontawesome-webfont-53900.ttf">
+      <publishTime>07/19/2013 15:50:10</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/font/fontawesome-webfont-53900.woff">
+      <publishTime>07/19/2013 15:50:10</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/font/fontawesome-webfont.eot">
+      <publishTime>07/19/2013 15:50:10</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/font/fontawesome-webfont.svg">
+      <publishTime>07/19/2013 15:50:10</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/font/fontawesome-webfont.ttf">
+      <publishTime>07/19/2013 15:50:10</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/font/fontawesome-webfont.woff">
+      <publishTime>07/19/2013 15:50:10</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/font/FontAwesome.otf">
+      <publishTime>07/19/2013 15:50:10</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/font/glyphicons-regular-0.eot">
+      <publishTime>07/19/2013 15:50:10</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/font/glyphicons-regular.eot">
+      <publishTime>07/19/2013 15:50:10</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/font/glyphicons-regular.svg">
+      <publishTime>07/19/2013 15:50:10</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/font/glyphicons-regular.ttf">
+      <publishTime>07/19/2013 15:50:10</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/font/glyphicons-regular.woff">
+      <publishTime>07/19/2013 15:50:10</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/font/glyphiconshalflings-regular-0.eot">
+      <publishTime>07/19/2013 15:50:10</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/font/glyphiconshalflings-regular.eot">
+      <publishTime>07/19/2013 15:50:10</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/font/glyphiconshalflings-regular.svg">
+      <publishTime>07/19/2013 15:50:10</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/font/glyphiconshalflings-regular.ttf">
+      <publishTime>07/19/2013 15:50:10</publishTime>
+    </File>
+    <File Include="bin/Content/themes/simpliq/font/glyphiconshalflings-regular.woff">
+      <publishTime>07/19/2013 15:50:10</publishTime>
+    </File>
+    <File Include="bin/EPPlus.dll">
+      <publishTime>09/26/2013 17:58:56</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.ServiceLocation.dll">
+      <publishTime>07/21/2013 15:53:59</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.ServiceLocation.pdb">
+      <publishTime>07/21/2013 15:53:59</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>07/17/2013 16:06:52</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.WebPages.OAuth.dll">
+      <publishTime>07/11/2012 02:03:34</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.WebPages.OAuth.xml">
+      <publishTime>05/31/2012 15:00:36</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>07/21/2013 15:53:59</publishTime>
+    </File>
+    <File Include="bin/NuGet.Core.dll">
+      <publishTime>07/11/2012 01:56:56</publishTime>
+    </File>
+    <File Include="bin/ReliDemo.dll">
+      <publishTime>07/31/2014 17:04:55</publishTime>
+    </File>
+    <File Include="bin/ReliDemo.pdb">
+      <publishTime>07/31/2014 17:04:55</publishTime>
+    </File>
+    <File Include="bin/ReliWebService.dll">
+      <publishTime>07/31/2014 21:55:18</publishTime>
+    </File>
+    <File Include="bin/ReliWebService.pdb">
+      <publishTime>07/31/2014 21:55:18</publishTime>
+    </File>
+    <File Include="bin/Scripts/simpliq/jquery.colorhelpers.js">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Scripts/simpliq/jquery.flot.canvas.js">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Scripts/simpliq/jquery.flot.crosshair.js">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Scripts/simpliq/jquery.flot.errorbars.js">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Scripts/simpliq/jquery.flot.fillbetween.js">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Scripts/simpliq/jquery.flot.image.js">
+      <publishTime>08/13/2013 17:25:17</publishTime>
+    </File>
+    <File Include="bin/Scripts/simpliq/jquery.flot.navigate.js">
+      <publishTime>08/13/2013 17:25:18</publishTime>
+    </File>
+    <File Include="bin/Scripts/simpliq/jquery.flot.selection.js">
+      <publishTime>08/13/2013 17:25:18</publishTime>
+    </File>
+    <File Include="bin/Scripts/simpliq/jquery.flot.symbol.js">
+      <publishTime>08/13/2013 17:25:18</publishTime>
+    </File>
+    <File Include="bin/Scripts/simpliq/jquery.flot.threshold.js">
+      <publishTime>08/13/2013 17:25:18</publishTime>
+    </File>
+    <File Include="bin/StructureMap.dll">
+      <publishTime>07/21/2013 15:53:59</publishTime>
+    </File>
+    <File Include="bin/StructureMap.pdb">
+      <publishTime>07/21/2013 15:53:59</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.dll">
+      <publishTime>07/17/2013 16:06:55</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>07/21/2013 15:53:59</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>07/17/2013 16:06:54</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.xml">
+      <publishTime>05/30/2012 15:00:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>07/21/2013 15:53:59</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.WebHost.dll">
+      <publishTime>07/21/2013 15:53:59</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>07/17/2013 16:06:55</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>07/17/2013 16:06:58</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>07/17/2013 16:06:53</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.xml">
+      <publishTime>05/30/2012 15:00:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Administration.dll">
+      <publishTime>08/01/2012 23:06:22</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Administration.xml">
+      <publishTime>05/31/2012 15:00:36</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>07/17/2013 16:06:54</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.xml">
+      <publishTime>06/22/2012 15:00:28</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>07/17/2013 16:06:54</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>07/17/2013 16:06:54</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.xml">
+      <publishTime>05/30/2012 15:00:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.xml">
+      <publishTime>05/30/2012 15:00:26</publishTime>
+    </File>
+    <File Include="bin/WebActivator.dll">
+      <publishTime>07/21/2013 15:53:59</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>07/17/2013 16:06:58</publishTime>
+    </File>
+    <File Include="bin/WebMatrix.Data.dll">
+      <publishTime>07/11/2012 02:03:34</publishTime>
+    </File>
+    <File Include="bin/WebMatrix.Data.xml">
+      <publishTime>03/08/2012 23:20:12</publishTime>
+    </File>
+    <File Include="bin/WebMatrix.WebData.dll">
+      <publishTime>07/11/2012 02:03:36</publishTime>
+    </File>
+    <File Include="bin/WebMatrix.WebData.xml">
+      <publishTime>05/30/2012 15:00:26</publishTime>
+    </File>
+    <File Include="DatabaseScripts/1_AddHeatIndex.sql">
+      <publishTime>01/22/2014 00:59:00</publishTime>
+    </File>
+    <File Include="DatabaseScripts/AddConfigurationTable.sql">
+      <publishTime>01/09/2014 00:38:11</publishTime>
+    </File>
+    <File Include="DatabaseScripts/AlterStationIndex.sql">
+      <publishTime>01/10/2014 18:46:20</publishTime>
+    </File>
+    <File Include="DatabaseScripts/Alter_Constants.sql">
+      <publishTime>01/09/2014 16:14:21</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>09/25/2013 17:36:32</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>11/26/2013 00:17:33</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>02/14/2014 18:38:53</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

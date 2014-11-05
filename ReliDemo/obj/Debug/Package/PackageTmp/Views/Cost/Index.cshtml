@@ -1,0 +1,35 @@
+﻿@model ReliDemo.ViewModels.CostViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>成本分析</h2>
+
+
+		<table class="table  table-bordered box backgroundColor white">
+			<thead>
+				<tr><th rowspan="2"></th><th colspan="3">今日</th><th colspan="3">昨日</th><th colspan="3">供暖季累计</th></tr>
+				<tr><th>全网</th><th>燃煤</th><th>燃气</th><th>全网</th><th>燃煤</th><th>燃气</th><th>全网</th><th>燃煤</th><th>燃气</th></tr>
+			</thead>
+			<tbody>
+				
+				<tr><td>供热量(GJ)</td><td>@Model.TodayGJ</td><td>@Model.TodayCoalGJ</td><td>@Model.TodayGasGJ</td><td>@Model.YesterdayGJ</td><td>@Model.YesterdayCoalGJ</td><td>@Model.YesterdayGasGJ</td><td>@Model.SeasonGJ</td><td>@Model.SeasonCoalGJ</td><td>@Model.SeasonGasGJ</td></tr>
+				<tr><td>购热成本(万元)</td><td> @Model.TodayPrice </td><td> @Model.TodayCoalPrice </td><td> @Model.TodayGasGJ </td><td>@Model.YesterdayPrice</td><td> @Model.YesterdayCoalPrice </td><td> @Model.YesterdayGasPrice </td><td> @Model.SeasonPrice </td><td> @Model.SeasonCoalPrice </td><td>@Model.SeasonGasPrice </td></tr>
+			</tbody>
+		</table>
+
+
+		<hr />
+		<table class="table  table-bordered box backgroundColor white table-hover table-clickhighlight table-dblclickactive datatable">
+			<thead>
+				<tr><th rowspan="2">热源厂</th><th rowspan="2">机组类型</th><th colspan="2">今日</th><th colspan="2">昨日</th><th colspan="2">供暖季累计</th></tr>
+				<tr><th>供热量</th><th>购热成本</th><th>供热量</th><th>购热成本</th><th>供热量</th><th>购热成本</th></tr>
+			</thead>
+			<tbody>
+				@foreach (var heatsource in Model.HeatSourceRecents)
+                {
+                    <tr><td><a href="#">@heatsource.热源名称</a></td><td>@heatsource.HeatSource.机组类型</td><td> @heatsource.今日GJ </td><td>@heatsource.今日热价</td><td> @heatsource.昨日GJ </td><td> @heatsource.昨日热价 </td><td> @heatsource.供暖季GJ </td><td> @heatsource.供暖季热价 </td></tr>
+                }
+			</tbody>
+		</table>
+

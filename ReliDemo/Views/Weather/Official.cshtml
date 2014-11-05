@@ -1,0 +1,220 @@
+﻿@model ReliDemo.ViewModels.WeatherStationsLastestViewModel
+@{
+    ViewBag.Title = "气象检测数据";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+.rb-grid
+{
+    list-style: none;
+    text-align: center;
+    margin: 0 auto;
+}
+.rb-grid li {
+    width: 45%;
+    height: 50px;
+    margin: 0 1% 1% 0;
+    background: #9e3f3d;
+    color: #fff;
+    display: inline-block;
+    float: left;
+    padding: 5px 2%;
+    cursor: pointer;
+    position: relative;
+	text-align:left;
+}
+.rb-grid .rb-col2
+{
+    width: 95%;
+    margin: 0 0 1%;
+	padding: 5px 2%;
+	height: 50px;
+}
+.rb-grid {
+    height: 15em;
+}
+
+.rb-grid li:nth-child(1),.rb-grid li:nth-child(13)  { background:#00558e; }
+.rb-grid li:nth-child(2),.rb-grid li:nth-child(14) { background: #0074c1; }
+.rb-grid li:nth-child(3),.rb-grid li:nth-child(15) { background: #3399CC; }
+.rb-grid li:nth-child(4),.rb-grid li:nth-child(16) { background: #33CCCC; }
+.rb-grid li:nth-child(5),.rb-grid li:nth-child(17) { background:  #339966; }
+.rb-grid li:nth-child(6),.rb-grid li:nth-child(18) { background: #7fb30c; }
+.rb-grid li:nth-child(7),.rb-grid li:nth-child(19) { background: #fabb3d; }
+.rb-grid li:nth-child(8),.rb-grid li:nth-child(20) { background:  #ff5454; }
+.rb-grid li:nth-child(9),.rb-grid li:nth-child(21) { background:#ec6313; }
+.rb-grid li:nth-child(10),.rb-grid li:nth-child(22) { background: #C24747; }
+.rb-grid li:nth-child(11),.rb-grid li:nth-child(23) { background:#9e3f3d; }
+.rb-grid li a {
+	color:#FFF;
+	
+}
+.rb-grid li h3{
+    font-size: 1.5em;
+    font-weight:normal;
+    font-family: "Microsoft YaHei";
+	color:#FFF;
+	line-height:24px;
+	margin:0;
+}
+.rb-temp {
+	display: block;
+	font-size: 1.2em;
+	font-weight:bold;
+	font-family: 'Lucida Sans Unicode',Tahoma, Helvetica, Arial, sans-serif;
+	line-height:20px;
+}
+
+#weathermap 
+{
+    height:687px;
+	margin-bottom:20px;
+}
+</style>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.5&ak=C17ce0c9f897bac7d7bb25196aca89d2"></script>
+
+<h2>气象监测数据 <span style="font-size:14px"> 上次更新时间 @string.Format("{0:yyyy-MM-dd HH:mm:ss tt}", Model.UpdatedAt ) </span></h2>
+
+<div class="row-fluid">
+
+<div class="span12">
+
+<div class="row-fluid">
+    <div class="span8" onDesktop="span8" onTablet="span12">
+        <div id="weathermap"></div>
+    </div>
+    <div onDesktop="span4"  onTablet="span12 noMarginLeft">
+    <ul class="rb-grid">
+    @foreach (var latest in Model.WeatherStations)
+    {
+        <li class="icon-clima-2 @if(latest.WeatherStationName == "朝阳") {<text> rb-col2 makeFirst</text> }">
+      
+            <h3>@latest.WeatherStationName</h3>
+            <span class="rb-temp">@latest.Temperatures.First().Temperature ℃</span>
+        </li>
+    }
+    </ul>
+    </div>
+</div>
+
+</div>
+</div>
+<script type="text/javascript">
+    var poi = [
+        {
+            "name": "双榆树",
+            "latlng": [116.346729,39.97884]
+        },
+        {
+            "name": "古观象台",
+            "latlng": [116.440638, 39.913348]
+        },
+        {
+            "name": "和平西桥",
+            "latlng": [116.424463, 39.974502]
+        },
+        {
+            "name": "四惠桥",
+            "latlng": [16.488634, 39.913888]
+        },
+        {
+            "name": "大观园",
+            "latlng": [116.362798, 39.876875]
+        },
+        {
+            "name": "天安门",
+            "latlng": [116.403719, 39.915175]
+        },
+        {
+            "name": "奥体中心",
+            "latlng": [116.400191, 39.992442]
+        },
+        {
+            "name": "官园",
+            "latlng": [116.364366, 39.937944]
+        },
+        {
+            "name": "宝能",
+            "latlng": [116.31198,39.895373] //[116.31198,39.897373]
+        },
+        {
+            "name": "左热",
+            "latlng": [116.444053, 39.964238]
+        },
+        {
+            "name": "方庄",
+            "latlng": [116.45232,39.857036]//[116.45232,39.859036]
+        },
+        {
+            "name": "朝阳",
+            "latlng": [116.488692, 39.963792]
+        },
+        {
+            "name": "海淀",
+            "latlng": [116.275077, 40.047165]
+        },
+        {
+            "name": "玉渊潭",
+            "latlng": [116.317231, 39.920971]
+        },
+        {
+            "name": "石景山",
+            "latlng": [116.206307, 39.917644]
+        },
+        {
+            "name": "观象台",
+            "latlng": [116.480087,39.813819]
+        },
+        {
+            "name": "车道沟",
+            "latlng": [116.308386, 39.950792]
+        },
+        {
+            "name": "雕塑园",
+            "latlng": [116.251328, 39.905773]
+        },
+        {
+            "name": "龙潭湖",
+            "latlng": [116.444631, 39.887525]
+        }
+    ]; 
+    // 百度地图API功能
+    var map = new BMap.Map("weathermap");            // 创建Map实例
+    var center = new BMap.Point(116.354, 39.935);    // 创建点坐标
+    map.centerAndZoom(center, 12);   
+    //map.enableScrollWheelZoom();                            //启用滚轮放大缩小
+	map.disableDoubleClickZoom();
+	map.disableDragging();
+    var markers = [];
+    for (var i = 0; i < poi.length; i++) {
+        var point = new BMap.Point(poi[i].latlng[0], poi[i].latlng[1]);    // 创建点坐标
+        var marker = new BMap.Marker(point);  // 创建标注
+        map.addOverlay(marker);              // 将标注添加到地图中
+        var label = new BMap.Label(poi[i].name + "<br/> " + $(".rb-grid li:eq( " + i + " ) span").html(), { offset: new BMap.Size(0, -50) });
+        label.setStyle({
+            color: "white",
+			backgroundColor:"#378fc9",
+            fontSize: "16px",
+			padding:"5px",
+			borderRadius:"5px",
+            height: "40px",
+            lineHeight: "20px",
+            fontFamily: "微软雅黑",
+			border:"1px solid #FFF",
+			boxShadow:"1px 1px 2px rgba(0,0,0,0.5)"
+        });
+        marker.setLabel(label);
+        marker.addEventListener("click", function () {
+            var index = markers.indexOf(this);
+            var infoWindow = new BMap.InfoWindow(poi[index].name + $(".rb-grid li:eq( " + index + " ) span").html() );
+            this.openInfoWindow(infoWindow);
+        });
+        markers.push(marker);
+    }
+
+    //map.addControl(new BMap.NavigationControl());  //添加默认缩放平移控件
+	var gridList = $('.rb-grid');
+	$('.makeFirst').prependTo(gridList);
+    
+</script>

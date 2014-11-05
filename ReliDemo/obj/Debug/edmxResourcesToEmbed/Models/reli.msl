@@ -1,0 +1,942 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="xz2013_newModelStoreContainer" CdmEntityContainer="xz2013Entities">
+    <EntitySetMapping Name="Companies">
+      <EntityTypeMapping TypeName="xz2013_newModel.Company">
+        <MappingFragment StoreEntitySet="Companies">
+          <ScalarProperty Name="核算多耗" ColumnName="核算多耗" />
+          <ScalarProperty Name="计划多耗" ColumnName="计划多耗" />
+          <ScalarProperty Name="A_Valid" ColumnName="A_Valid" />
+          <ScalarProperty Name="Area_JK_YD" ColumnName="Area_JK_YD" />
+          <ScalarProperty Name="总站数" ColumnName="总站数" />
+          <ScalarProperty Name="有效监控站数" ColumnName="有效监控站数" />
+          <ScalarProperty Name="实际热指标_JK" ColumnName="实际热指标_JK" />
+          <ScalarProperty Name="供暖季累计GJ_JK" ColumnName="供暖季累计GJ_JK" />
+          <ScalarProperty Name="预估采暖季单耗_JK" ColumnName="预估采暖季单耗_JK" />
+          <ScalarProperty Name="供暖季累计单耗_JK" ColumnName="供暖季累计单耗_JK" />
+          <ScalarProperty Name="今日累计GJ_JK" ColumnName="今日累计GJ_JK" />
+          <ScalarProperty Name="预计全天GJ" ColumnName="预计全天GJ" />
+          <ScalarProperty Name="昨日计划GJ_JK" ColumnName="昨日计划GJ_JK" />
+          <ScalarProperty Name="昨日累计GJ_JK" ColumnName="昨日累计GJ_JK" />
+          <ScalarProperty Name="日单耗" ColumnName="日单耗" />
+          <ScalarProperty Name="时间" ColumnName="时间" />
+          <ScalarProperty Name="昨日核算GJ" ColumnName="昨日核算GJ" />
+          <ScalarProperty Name="昨日核算GJ_JK" ColumnName="昨日核算GJ_JK" />
+          <ScalarProperty Name="截止昨日实际Area" ColumnName="截止昨日实际Area" />
+          <ScalarProperty Name="截止昨日计划Area" ColumnName="截止昨日计划Area" />
+          <ScalarProperty Name="昨日投入Area" ColumnName="昨日投入Area" />
+          <ScalarProperty Name="昨日计划Area" ColumnName="昨日计划Area" />
+          <ScalarProperty Name="昨日核算热指标" ColumnName="昨日核算热指标" />
+          <ScalarProperty Name="昨日实际热指标" ColumnName="昨日实际热指标" />
+          <ScalarProperty Name="昨日计划热指标" ColumnName="昨日计划热指标" />
+          <ScalarProperty Name="昨日计划GJ" ColumnName="昨日计划GJ" />
+          <ScalarProperty Name="昨日累计GJ" ColumnName="昨日累计GJ" />
+          <ScalarProperty Name="预估采暖季单耗" ColumnName="预估采暖季单耗" />
+          <ScalarProperty Name="面积操作类型" ColumnName="面积操作类型" />
+          <ScalarProperty Name="面积计划类别" ColumnName="面积计划类别" />
+          <ScalarProperty Name="计划热指标" ColumnName="计划热指标" />
+          <ScalarProperty Name="参考热指标" ColumnName="参考热指标" />
+          <ScalarProperty Name="Area_JK" ColumnName="Area_JK" />
+          <ScalarProperty Name="预估采暖季热指标" ColumnName="预估采暖季热指标" />
+          <ScalarProperty Name="核算热指标" ColumnName="核算热指标" />
+          <ScalarProperty Name="今日投入Area" ColumnName="今日投入Area" />
+          <ScalarProperty Name="今日计划Area" ColumnName="今日计划Area" />
+          <ScalarProperty Name="实际热指标" ColumnName="实际热指标" />
+          <ScalarProperty Name="总瞬时热量" ColumnName="总瞬时热量" />
+          <ScalarProperty Name="总瞬时流量" ColumnName="总瞬时流量" />
+          <ScalarProperty Name="供暖季累计单耗" ColumnName="供暖季累计单耗" />
+          <ScalarProperty Name="万平方米流量" ColumnName="万平方米流量" />
+          <ScalarProperty Name="今日计划GJ" ColumnName="今日计划GJ" />
+          <ScalarProperty Name="今日计划GJ_JK" ColumnName="今日计划GJ_JK" />
+          <ScalarProperty Name="今日累计GJ" ColumnName="今日累计GJ" />
+          <ScalarProperty Name="供暖季累计GJ" ColumnName="供暖季累计GJ" />
+          <ScalarProperty Name="实际停热面积" ColumnName="实际停热面积" />
+          <ScalarProperty Name="计划停热面积" ColumnName="计划停热面积" />
+          <ScalarProperty Name="实际供热面积" ColumnName="实际供热面积" />
+          <ScalarProperty Name="计划供热面积" ColumnName="计划供热面积" />
+          <ScalarProperty Name="总面积" ColumnName="总面积" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="公司" ColumnName="公司" />
+          <ScalarProperty Name="备注" ColumnName="备注" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="xz2013_newModel.Customer">
+        <MappingFragment StoreEntitySet="Customers">
+          <ScalarProperty Name="DevStationId" ColumnName="DevStationId" />
+          <ScalarProperty Name="DevItemId" ColumnName="DevItemId" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="收费编号" ColumnName="收费编号" />
+          <ScalarProperty Name="生产编号" ColumnName="生产编号" />
+          <ScalarProperty Name="用户名称" ColumnName="用户名称" />
+          <ScalarProperty Name="公司地址" ColumnName="公司地址" />
+          <ScalarProperty Name="用热地址" ColumnName="用热地址" />
+          <ScalarProperty Name="用户类型" ColumnName="用户类型" />
+          <ScalarProperty Name="收费性质" ColumnName="收费性质" />
+          <ScalarProperty Name="A面积" ColumnName="A面积" />
+          <ScalarProperty Name="A超面积" ColumnName="A超面积" />
+          <ScalarProperty Name="B面积" ColumnName="B面积" />
+          <ScalarProperty Name="B超面积" ColumnName="B超面积" />
+          <ScalarProperty Name="A轻体" ColumnName="A轻体" />
+          <ScalarProperty Name="B轻体" ColumnName="B轻体" />
+          <ScalarProperty Name="有无热水" ColumnName="有无热水" />
+          <ScalarProperty Name="已销户" ColumnName="已销户" />
+          <ScalarProperty Name="重点用户" ColumnName="重点用户" />
+          <ScalarProperty Name="帐套性质" ColumnName="帐套性质" />
+          <ScalarProperty Name="热水收费性质" ColumnName="热水收费性质" />
+          <ScalarProperty Name="热力站ID" ColumnName="热力站ID" />
+          <ScalarProperty Name="热力站名称" ColumnName="热力站名称" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HeatSourceAccuHistories">
+      <EntityTypeMapping TypeName="xz2013_newModel.HeatSourceAccuHistory">
+        <MappingFragment StoreEntitySet="HeatSourceAccuHistory">
+          <ScalarProperty Name="供暖季热价" ColumnName="供暖季热价" />
+          <ScalarProperty Name="供暖季GJ" ColumnName="供暖季GJ" />
+          <ScalarProperty Name="今日热价" ColumnName="今日热价" />
+          <ScalarProperty Name="机组号" ColumnName="机组号" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="日期" ColumnName="日期" />
+          <ScalarProperty Name="生产热源ID" ColumnName="生产热源ID" />
+          <ScalarProperty Name="日累计热量" ColumnName="日累计热量" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Station1stHistory">
+      <EntityTypeMapping TypeName="xz2013_newModel.Station1stHistory">
+        <MappingFragment StoreEntitySet="Station1stHistory">
+          <ScalarProperty Name="实际热指标" ColumnName="实际热指标" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="热力站ID" ColumnName="热力站ID" />
+          <ScalarProperty Name="时间" ColumnName="时间" />
+          <ScalarProperty Name="一次供温" ColumnName="一次供温" />
+          <ScalarProperty Name="一次回温" ColumnName="一次回温" />
+          <ScalarProperty Name="一次供压" ColumnName="一次供压" />
+          <ScalarProperty Name="一次回压" ColumnName="一次回压" />
+          <ScalarProperty Name="总累计热量" ColumnName="总累计热量" />
+          <ScalarProperty Name="总累计流量" ColumnName="总累计流量" />
+          <ScalarProperty Name="总瞬时热量" ColumnName="总瞬时热量" />
+          <ScalarProperty Name="总瞬时流量" ColumnName="总瞬时流量" />
+          <ScalarProperty Name="万平方米流量" ColumnName="万平方米流量" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Station2ndHistory">
+      <EntityTypeMapping TypeName="xz2013_newModel.Station2ndHistory">
+        <MappingFragment StoreEntitySet="Station2ndHistory">
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="热力站ID" ColumnName="热力站ID" />
+          <ScalarProperty Name="时间" ColumnName="时间" />
+          <ScalarProperty Name="机组号" ColumnName="机组号" />
+          <ScalarProperty Name="供温" ColumnName="供温" />
+          <ScalarProperty Name="回温" ColumnName="回温" />
+          <ScalarProperty Name="累计热量" ColumnName="累计热量" />
+          <ScalarProperty Name="累计流量" ColumnName="累计流量" />
+          <ScalarProperty Name="瞬时热量" ColumnName="瞬时热量" />
+          <ScalarProperty Name="瞬时流量" ColumnName="瞬时流量" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Station2ndRecent">
+      <EntityTypeMapping TypeName="xz2013_newModel.Station2ndRecent">
+        <MappingFragment StoreEntitySet="Station2ndRecent">
+          <ScalarProperty Name="站名" ColumnName="站名" />
+          <ScalarProperty Name="dataFrom" ColumnName="dataFrom" />
+          <ScalarProperty Name="upFlag" ColumnName="upFlag" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="热力站ID" ColumnName="热力站ID" />
+          <ScalarProperty Name="机组名" ColumnName="机组名" />
+          <ScalarProperty Name="机组号" ColumnName="机组号" />
+          <ScalarProperty Name="供温" ColumnName="供温" />
+          <ScalarProperty Name="回温" ColumnName="回温" />
+          <ScalarProperty Name="供压" ColumnName="供压" />
+          <ScalarProperty Name="回压" ColumnName="回压" />
+          <ScalarProperty Name="累计热量" ColumnName="累计热量" />
+          <ScalarProperty Name="累计流量" ColumnName="累计流量" />
+          <ScalarProperty Name="瞬时热量" ColumnName="瞬时热量" />
+          <ScalarProperty Name="瞬时流量" ColumnName="瞬时流量" />
+          <ScalarProperty Name="spcname" ColumnName="spcname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StationAccuHistories">
+      <EntityTypeMapping TypeName="xz2013_newModel.StationAccuHistory">
+        <MappingFragment StoreEntitySet="StationAccuHistory">
+          <ScalarProperty Name="报警" ColumnName="报警" />
+          <ScalarProperty Name="核算多耗" ColumnName="核算多耗" />
+          <ScalarProperty Name="计划多耗" ColumnName="计划多耗" />
+          <ScalarProperty Name="万流avg" ColumnName="万流avg" />
+          <ScalarProperty Name="瞬流avg" ColumnName="瞬流avg" />
+          <ScalarProperty Name="瞬热avg" ColumnName="瞬热avg" />
+          <ScalarProperty Name="回压avg" ColumnName="回压avg" />
+          <ScalarProperty Name="供压avg" ColumnName="供压avg" />
+          <ScalarProperty Name="回温avg" ColumnName="回温avg" />
+          <ScalarProperty Name="供温avg" ColumnName="供温avg" />
+          <ScalarProperty Name="upHour" ColumnName="upHour" />
+          <ScalarProperty Name="面积操作类型" ColumnName="面积操作类型" />
+          <ScalarProperty Name="面积计划类别" ColumnName="面积计划类别" />
+          <ScalarProperty Name="今日投入Area" ColumnName="今日投入Area" />
+          <ScalarProperty Name="今日计划Area" ColumnName="今日计划Area" />
+          <ScalarProperty Name="实际面积" ColumnName="实际面积" />
+          <ScalarProperty Name="投入面积" ColumnName="投入面积" />
+          <ScalarProperty Name="计划热指标" ColumnName="计划热指标" />
+          <ScalarProperty Name="核算热指标" ColumnName="核算热指标" />
+          <ScalarProperty Name="实际热指标" ColumnName="实际热指标" />
+          <ScalarProperty Name="日单耗" ColumnName="日单耗" />
+          <ScalarProperty Name="核算GJ" ColumnName="核算GJ" />
+          <ScalarProperty Name="实际温度" ColumnName="实际温度" />
+          <ScalarProperty Name="预报温度" ColumnName="预报温度" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="日期" ColumnName="日期" />
+          <ScalarProperty Name="热力站ID" ColumnName="热力站ID" />
+          <ScalarProperty Name="采暖GJ" ColumnName="采暖GJ" />
+          <ScalarProperty Name="热水GJ" ColumnName="热水GJ" />
+          <ScalarProperty Name="计划GJ" ColumnName="计划GJ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TotalNetHistories">
+      <EntityTypeMapping TypeName="xz2013_newModel.TotalNetHistory">
+        <MappingFragment StoreEntitySet="TotalNetHistory">
+          <ScalarProperty Name="核算多耗" ColumnName="核算多耗" />
+          <ScalarProperty Name="计划多耗" ColumnName="计划多耗" />
+          <ScalarProperty Name="面积操作类型" ColumnName="面积操作类型" />
+          <ScalarProperty Name="面积计划类别" ColumnName="面积计划类别" />
+          <ScalarProperty Name="今日投入Area" ColumnName="今日投入Area" />
+          <ScalarProperty Name="今日计划Area" ColumnName="今日计划Area" />
+          <ScalarProperty Name="实际热指标" ColumnName="实际热指标" />
+          <ScalarProperty Name="核算热指标" ColumnName="核算热指标" />
+          <ScalarProperty Name="核算GJ" ColumnName="核算GJ" />
+          <ScalarProperty Name="供暖季热价" ColumnName="供暖季热价" />
+          <ScalarProperty Name="今日热价" ColumnName="今日热价" />
+          <ScalarProperty Name="当日累计单耗" ColumnName="当日累计单耗" />
+          <ScalarProperty Name="供暖季累计单耗" ColumnName="供暖季累计单耗" />
+          <ScalarProperty Name="参考热指标" ColumnName="参考热指标" />
+          <ScalarProperty Name="计划热指标" ColumnName="计划热指标" />
+          <ScalarProperty Name="供暖季累计GJ" ColumnName="供暖季累计GJ" />
+          <ScalarProperty Name="实际停热面积" ColumnName="实际停热面积" />
+          <ScalarProperty Name="计划停热面积" ColumnName="计划停热面积" />
+          <ScalarProperty Name="实际供热面积" ColumnName="实际供热面积" />
+          <ScalarProperty Name="计划供热面积" ColumnName="计划供热面积" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+          <ScalarProperty Name="总面积" ColumnName="总面积" />
+          <ScalarProperty Name="总瞬时热量" ColumnName="总瞬时热量" />
+          <ScalarProperty Name="总瞬时流量" ColumnName="总瞬时流量" />
+          <ScalarProperty Name="万平方米流量" ColumnName="万平方米流量" />
+          <ScalarProperty Name="累计GJ" ColumnName="累计GJ" />
+          <ScalarProperty Name="计划GJ" ColumnName="计划GJ" />
+          <ScalarProperty Name="时间" ColumnName="时间" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TotalNetRecents">
+      <EntityTypeMapping TypeName="xz2013_newModel.TotalNetRecent">
+        <MappingFragment StoreEntitySet="TotalNetRecent">
+          <ScalarProperty Name="核算多耗" ColumnName="核算多耗" />
+          <ScalarProperty Name="计划多耗" ColumnName="计划多耗" />
+          <ScalarProperty Name="预计全天GJ" ColumnName="预计全天GJ" />
+          <ScalarProperty Name="截止昨日实际Area" ColumnName="截止昨日实际Area" />
+          <ScalarProperty Name="截止昨日计划Area" ColumnName="截止昨日计划Area" />
+          <ScalarProperty Name="昨日投入Area" ColumnName="昨日投入Area" />
+          <ScalarProperty Name="昨日计划Area" ColumnName="昨日计划Area" />
+          <ScalarProperty Name="昨日核算热指标" ColumnName="昨日核算热指标" />
+          <ScalarProperty Name="昨日实际热指标" ColumnName="昨日实际热指标" />
+          <ScalarProperty Name="昨日计划热指标" ColumnName="昨日计划热指标" />
+          <ScalarProperty Name="预估采暖季单耗" ColumnName="预估采暖季单耗" />
+          <ScalarProperty Name="面积操作类型" ColumnName="面积操作类型" />
+          <ScalarProperty Name="面积计划类别" ColumnName="面积计划类别" />
+          <ScalarProperty Name="预估采暖季热指标" ColumnName="预估采暖季热指标" />
+          <ScalarProperty Name="核算热指标" ColumnName="核算热指标" />
+          <ScalarProperty Name="实际热指标" ColumnName="实际热指标" />
+          <ScalarProperty Name="今日投入Area" ColumnName="今日投入Area" />
+          <ScalarProperty Name="今日计划Area" ColumnName="今日计划Area" />
+          <ScalarProperty Name="昨日核算GJ" ColumnName="昨日核算GJ" />
+          <ScalarProperty Name="今日核算GJ" ColumnName="今日核算GJ" />
+          <ScalarProperty Name="供暖季热价" ColumnName="供暖季热价" />
+          <ScalarProperty Name="昨日热价" ColumnName="昨日热价" />
+          <ScalarProperty Name="今日热价" ColumnName="今日热价" />
+          <ScalarProperty Name="当日累计单耗" ColumnName="当日累计单耗" />
+          <ScalarProperty Name="供暖季累计单耗" ColumnName="供暖季累计单耗" />
+          <ScalarProperty Name="计划热指标" ColumnName="计划热指标" />
+          <ScalarProperty Name="参考热指标" ColumnName="参考热指标" />
+          <ScalarProperty Name="供暖季累计GJ" ColumnName="供暖季累计GJ" />
+          <ScalarProperty Name="实际停热面积" ColumnName="实际停热面积" />
+          <ScalarProperty Name="计划停热面积" ColumnName="计划停热面积" />
+          <ScalarProperty Name="实际供热面积" ColumnName="实际供热面积" />
+          <ScalarProperty Name="计划供热面积" ColumnName="计划供热面积" />
+          <ScalarProperty Name="昨日计划GJ" ColumnName="昨日计划GJ" />
+          <ScalarProperty Name="时间" ColumnName="时间" />
+          <ScalarProperty Name="今日计划GJ" ColumnName="今日计划GJ" />
+          <ScalarProperty Name="昨日累计GJ" ColumnName="昨日累计GJ" />
+          <ScalarProperty Name="今日累计GJ" ColumnName="今日累计GJ" />
+          <ScalarProperty Name="万平方米流量" ColumnName="万平方米流量" />
+          <ScalarProperty Name="总瞬时流量" ColumnName="总瞬时流量" />
+          <ScalarProperty Name="总瞬时热量" ColumnName="总瞬时热量" />
+          <ScalarProperty Name="总面积" ColumnName="总面积" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="xz2013_newModel.User">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="是否为集团员工" ColumnName="是否为集团员工" />
+          <ScalarProperty Name="所属中心" ColumnName="所属中心" />
+          <ScalarProperty Name="所属公司" ColumnName="所属公司" />
+          <ScalarProperty Name="姓名" ColumnName="姓名" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Weather_0">
+      <EntityTypeMapping TypeName="xz2013_newModel.Weather_0">
+        <MappingFragment StoreEntitySet="Weather_0">
+          <ScalarProperty Name="通州" ColumnName="通州" />
+          <ScalarProperty Name="雕塑园" ColumnName="雕塑园" />
+          <ScalarProperty Name="奥体中心" ColumnName="奥体中心" />
+          <ScalarProperty Name="和平西桥" ColumnName="和平西桥" />
+          <ScalarProperty Name="观象台" ColumnName="观象台" />
+          <ScalarProperty Name="龙潭湖" ColumnName="龙潭湖" />
+          <ScalarProperty Name="玉渊潭" ColumnName="玉渊潭" />
+          <ScalarProperty Name="车道沟" ColumnName="车道沟" />
+          <ScalarProperty Name="石景山" ColumnName="石景山" />
+          <ScalarProperty Name="朝阳" ColumnName="朝阳" />
+          <ScalarProperty Name="海淀" ColumnName="海淀" />
+          <ScalarProperty Name="大观园" ColumnName="大观园" />
+          <ScalarProperty Name="官园" ColumnName="官园" />
+          <ScalarProperty Name="四惠桥" ColumnName="四惠桥" />
+          <ScalarProperty Name="宝能" ColumnName="宝能" />
+          <ScalarProperty Name="左热" ColumnName="左热" />
+          <ScalarProperty Name="方庄" ColumnName="方庄" />
+          <ScalarProperty Name="双榆树" ColumnName="双榆树" />
+          <ScalarProperty Name="古观象台" ColumnName="古观象台" />
+          <ScalarProperty Name="天安门" ColumnName="天安门" />
+          <ScalarProperty Name="时间" ColumnName="时间" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HeatSourceHistories">
+      <EntityTypeMapping TypeName="xz2013_newModel.HeatSourceHistory">
+        <MappingFragment StoreEntitySet="HeatSourceHistory">
+          <ScalarProperty Name="今日GJ" ColumnName="今日GJ" />
+          <ScalarProperty Name="瞬时回水热量" ColumnName="瞬时回水热量" />
+          <ScalarProperty Name="累计回水热量" ColumnName="累计回水热量" />
+          <ScalarProperty Name="瞬时回水流量" ColumnName="瞬时回水流量" />
+          <ScalarProperty Name="累计回水流量" ColumnName="累计回水流量" />
+          <ScalarProperty Name="累计补水量" ColumnName="累计补水量" />
+          <ScalarProperty Name="瞬时补水量" ColumnName="瞬时补水量" />
+          <ScalarProperty Name="瞬时热量" ColumnName="瞬时热量" />
+          <ScalarProperty Name="瞬时供水热量" ColumnName="瞬时供水热量" />
+          <ScalarProperty Name="瞬时供水流量" ColumnName="瞬时供水流量" />
+          <ScalarProperty Name="累计热量" ColumnName="累计热量" />
+          <ScalarProperty Name="累计供水热量" ColumnName="累计供水热量" />
+          <ScalarProperty Name="累计供水流量" ColumnName="累计供水流量" />
+          <ScalarProperty Name="回压" ColumnName="回压" />
+          <ScalarProperty Name="供压" ColumnName="供压" />
+          <ScalarProperty Name="回温" ColumnName="回温" />
+          <ScalarProperty Name="供温" ColumnName="供温" />
+          <ScalarProperty Name="时间" ColumnName="时间" />
+          <ScalarProperty Name="机组号" ColumnName="机组号" />
+          <ScalarProperty Name="生产热源ID" ColumnName="生产热源ID" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HeatSourceRecents">
+      <EntityTypeMapping TypeName="xz2013_newModel.HeatSourceRecent">
+        <MappingFragment StoreEntitySet="HeatSourceRecent">
+          <ScalarProperty Name="单价" ColumnName="单价" />
+          <ScalarProperty Name="dirFlag" ColumnName="dirFlag" />
+          <ScalarProperty Name="供暖季热价" ColumnName="供暖季热价" />
+          <ScalarProperty Name="供暖季GJ" ColumnName="供暖季GJ" />
+          <ScalarProperty Name="昨日热价" ColumnName="昨日热价" />
+          <ScalarProperty Name="今日热价" ColumnName="今日热价" />
+          <ScalarProperty Name="upFlag" ColumnName="upFlag" />
+          <ScalarProperty Name="采集时间" ColumnName="采集时间" />
+          <ScalarProperty Name="今日表底GJ" ColumnName="今日表底GJ" />
+          <ScalarProperty Name="昨日GJ" ColumnName="昨日GJ" />
+          <ScalarProperty Name="今日GJ" ColumnName="今日GJ" />
+          <ScalarProperty Name="瞬时回水热量" ColumnName="瞬时回水热量" />
+          <ScalarProperty Name="累计回水热量" ColumnName="累计回水热量" />
+          <ScalarProperty Name="瞬时回水流量" ColumnName="瞬时回水流量" />
+          <ScalarProperty Name="累计回水流量" ColumnName="累计回水流量" />
+          <ScalarProperty Name="累计补水量" ColumnName="累计补水量" />
+          <ScalarProperty Name="瞬时补水量" ColumnName="瞬时补水量" />
+          <ScalarProperty Name="瞬时热量" ColumnName="瞬时热量" />
+          <ScalarProperty Name="瞬时供水热量" ColumnName="瞬时供水热量" />
+          <ScalarProperty Name="瞬时供水流量" ColumnName="瞬时供水流量" />
+          <ScalarProperty Name="累计热量" ColumnName="累计热量" />
+          <ScalarProperty Name="累计供水热量" ColumnName="累计供水热量" />
+          <ScalarProperty Name="累计供水流量" ColumnName="累计供水流量" />
+          <ScalarProperty Name="回压" ColumnName="回压" />
+          <ScalarProperty Name="供压" ColumnName="供压" />
+          <ScalarProperty Name="回温" ColumnName="回温" />
+          <ScalarProperty Name="供温" ColumnName="供温" />
+          <ScalarProperty Name="热源名称" ColumnName="热源名称" />
+          <ScalarProperty Name="机组号" ColumnName="机组号" />
+          <ScalarProperty Name="机组名" ColumnName="机组名" />
+          <ScalarProperty Name="生产热源ID" ColumnName="生产热源ID" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HeatSources">
+      <EntityTypeMapping TypeName="xz2013_newModel.HeatSource">
+        <MappingFragment StoreEntitySet="HeatSources">
+          <ScalarProperty Name="采集时间" ColumnName="采集时间" />
+          <ScalarProperty Name="是否并网供热" ColumnName="是否并网供热" />
+          <ScalarProperty Name="备注" ColumnName="备注" />
+          <ScalarProperty Name="蒸汽线名称" ColumnName="蒸汽线名称" />
+          <ScalarProperty Name="水线名称" ColumnName="水线名称" />
+          <ScalarProperty Name="机组类型" ColumnName="机组类型" />
+          <ScalarProperty Name="燃气尖峰炉数" ColumnName="燃气尖峰炉数" />
+          <ScalarProperty Name="燃煤尖峰炉数" ColumnName="燃煤尖峰炉数" />
+          <ScalarProperty Name="内外部" ColumnName="内外部" />
+          <ScalarProperty Name="东西部" ColumnName="东西部" />
+          <ScalarProperty Name="热源名称" ColumnName="热源名称" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stations">
+      <EntityTypeMapping TypeName="xz2013_newModel.Station">
+        <MappingFragment StoreEntitySet="Stations">
+          <ScalarProperty Name="核算多耗" ColumnName="核算多耗" />
+          <ScalarProperty Name="计划多耗" ColumnName="计划多耗" />
+          <ScalarProperty Name="收费性质" ColumnName="收费性质" />
+          <ScalarProperty Name="GJ_Limit" ColumnName="GJ_Limit" />
+          <ScalarProperty Name="预计全天GJ" ColumnName="预计全天GJ" />
+          <ScalarProperty Name="报警" ColumnName="报警" />
+          <ScalarProperty Name="来源ID" ColumnName="来源ID" />
+          <ScalarProperty Name="Date0" ColumnName="Date0" />
+          <ScalarProperty Name="日单耗" ColumnName="日单耗" />
+          <ScalarProperty Name="截止昨日实际Area" ColumnName="截止昨日实际Area" />
+          <ScalarProperty Name="截止昨日计划Area" ColumnName="截止昨日计划Area" />
+          <ScalarProperty Name="昨日投入Area" ColumnName="昨日投入Area" />
+          <ScalarProperty Name="昨日计划Area" ColumnName="昨日计划Area" />
+          <ScalarProperty Name="核算热指标" ColumnName="核算热指标" />
+          <ScalarProperty Name="昨日计划GJ" ColumnName="昨日计划GJ" />
+          <ScalarProperty Name="预估采暖季单耗" ColumnName="预估采暖季单耗" />
+          <ScalarProperty Name="供暖季核算GJ" ColumnName="供暖季核算GJ" />
+          <ScalarProperty Name="计划供热面积" ColumnName="计划供热面积" />
+          <ScalarProperty Name="面积操作类型" ColumnName="面积操作类型" />
+          <ScalarProperty Name="面积计划类别" ColumnName="面积计划类别" />
+          <ScalarProperty Name="预估采暖季热指标" ColumnName="预估采暖季热指标" />
+          <ScalarProperty Name="昨日核算热指标" ColumnName="昨日核算热指标" />
+          <ScalarProperty Name="昨日实际热指标" ColumnName="昨日实际热指标" />
+          <ScalarProperty Name="实际热指标" ColumnName="实际热指标" />
+          <ScalarProperty Name="今日投入Area" ColumnName="今日投入Area" />
+          <ScalarProperty Name="今日计划Area" ColumnName="今日计划Area" />
+          <ScalarProperty Name="昨日核算GJ" ColumnName="昨日核算GJ" />
+          <ScalarProperty Name="今日核算GJ" ColumnName="今日核算GJ" />
+          <ScalarProperty Name="upHour" ColumnName="upHour" />
+          <ScalarProperty Name="供暖季GJ" ColumnName="供暖季GJ" />
+          <ScalarProperty Name="昨日计划热指标" ColumnName="昨日计划热指标" />
+          <ScalarProperty Name="计划热指标" ColumnName="计划热指标" />
+          <ScalarProperty Name="昨日热水GJ" ColumnName="昨日热水GJ" />
+          <ScalarProperty Name="DevItemId" ColumnName="DevItemId" />
+          <ScalarProperty Name="参考热指标" ColumnName="参考热指标" />
+          <ScalarProperty Name="投入面积" ColumnName="投入面积" />
+          <ScalarProperty Name="站面积" ColumnName="站面积" />
+          <ScalarProperty Name="GJ_SH" ColumnName="GJ_SH" />
+          <ScalarProperty Name="GJ_C" ColumnName="GJ_C" />
+          <ScalarProperty Name="gps" ColumnName="gps" />
+          <ScalarProperty Name="E3" ColumnName="E3" />
+          <ScalarProperty Name="upFlag" ColumnName="upFlag" />
+          <ScalarProperty Name="spcname" ColumnName="spcname" />
+          <ScalarProperty Name="采集时间" ColumnName="采集时间" />
+          <ScalarProperty Name="总瞬时流量" ColumnName="总瞬时流量" />
+          <ScalarProperty Name="总瞬时热量" ColumnName="总瞬时热量" />
+          <ScalarProperty Name="总累计流量" ColumnName="总累计流量" />
+          <ScalarProperty Name="总累计热量" ColumnName="总累计热量" />
+          <ScalarProperty Name="一次回压" ColumnName="一次回压" />
+          <ScalarProperty Name="一次供压" ColumnName="一次供压" />
+          <ScalarProperty Name="一次回温" ColumnName="一次回温" />
+          <ScalarProperty Name="一次供温" ColumnName="一次供温" />
+          <ScalarProperty Name="采暖季单耗" ColumnName="采暖季单耗" />
+          <ScalarProperty Name="昨日GJ" ColumnName="昨日GJ" />
+          <ScalarProperty Name="今日计划GJ" ColumnName="今日计划GJ" />
+          <ScalarProperty Name="今日热水GJ" ColumnName="今日热水GJ" />
+          <ScalarProperty Name="今日热水表底GJ" ColumnName="今日热水表底GJ" />
+          <ScalarProperty Name="万平方米流量" ColumnName="万平方米流量" />
+          <ScalarProperty Name="今日累计单耗" ColumnName="今日累计单耗" />
+          <ScalarProperty Name="今日GJ" ColumnName="今日GJ" />
+          <ScalarProperty Name="今日表底GJ" ColumnName="今日表底GJ" />
+          <ScalarProperty Name="投入面积B" ColumnName="投入面积B" />
+          <ScalarProperty Name="投入面积A" ColumnName="投入面积A" />
+          <ScalarProperty Name="数据来源" ColumnName="数据来源" />
+          <ScalarProperty Name="是否蒸汽站" ColumnName="是否蒸汽站" />
+          <ScalarProperty Name="管理类型" ColumnName="管理类型" />
+          <ScalarProperty Name="引入小室号" ColumnName="引入小室号" />
+          <ScalarProperty Name="系统设备表" ColumnName="系统设备表" />
+          <ScalarProperty Name="周边环境示意图" ColumnName="周边环境示意图" />
+          <ScalarProperty Name="供热范围示意图" ColumnName="供热范围示意图" />
+          <ScalarProperty Name="工艺流程图" ColumnName="工艺流程图" />
+          <ScalarProperty Name="面积B" ColumnName="面积B" />
+          <ScalarProperty Name="面积A" ColumnName="面积A" />
+          <ScalarProperty Name="生产热源" ColumnName="生产热源" />
+          <ScalarProperty Name="生产热源ID" ColumnName="生产热源ID" />
+          <ScalarProperty Name="热力站行政区" ColumnName="热力站行政区" />
+          <ScalarProperty Name="是否重点站" ColumnName="是否重点站" />
+          <ScalarProperty Name="是否并网供热" ColumnName="是否并网供热" />
+          <ScalarProperty Name="是否热水站" ColumnName="是否热水站" />
+          <ScalarProperty Name="支线" ColumnName="支线" />
+          <ScalarProperty Name="干线" ColumnName="干线" />
+          <ScalarProperty Name="公司" ColumnName="公司" />
+          <ScalarProperty Name="公司ID" ColumnName="公司ID" />
+          <ScalarProperty Name="管理单位" ColumnName="管理单位" />
+          <ScalarProperty Name="管理单位ID" ColumnName="管理单位ID" />
+          <ScalarProperty Name="用热地址" ColumnName="用热地址" />
+          <ScalarProperty Name="热力站名称" ColumnName="热力站名称" />
+          <ScalarProperty Name="热力站编码" ColumnName="热力站编码" />
+          <ScalarProperty Name="热力站编号" ColumnName="热力站编号" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="webpages_Roles">
+      <EntityTypeMapping TypeName="xz2013_newModel.webpages_Roles">
+        <MappingFragment StoreEntitySet="webpages_Roles">
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="webpages_UsersInRoles" TypeName="xz2013_newModel.webpages_UsersInRoles" StoreEntitySet="webpages_UsersInRoles">
+      <EndProperty Name="User">
+        <ScalarProperty Name="userId" ColumnName="UserId" />
+      </EndProperty>
+      <EndProperty Name="webpages_Roles">
+        <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="weather_1">
+      <EntityTypeMapping TypeName="xz2013_newModel.weather_1">
+        <MappingFragment StoreEntitySet="weather_1">
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="昨日实况一天平均温" ColumnName="昨日实况一天平均温" />
+          <ScalarProperty Name="昨日实况夜间最低温" ColumnName="昨日实况夜间最低温" />
+          <ScalarProperty Name="昨日实况白天最高温" ColumnName="昨日实况白天最高温" />
+          <ScalarProperty Name="夜间风力" ColumnName="夜间风力" />
+          <ScalarProperty Name="夜间天气" ColumnName="夜间天气" />
+          <ScalarProperty Name="白天风力" ColumnName="白天风力" />
+          <ScalarProperty Name="白天天气" ColumnName="白天天气" />
+          <ScalarProperty Name="今日预报一天平均温" ColumnName="今日预报一天平均温" />
+          <ScalarProperty Name="今日预报夜间最低温" ColumnName="今日预报夜间最低温" />
+          <ScalarProperty Name="今日预报白天最高温" ColumnName="今日预报白天最高温" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Weather_2">
+      <EntityTypeMapping TypeName="xz2013_newModel.Weather_2">
+        <MappingFragment StoreEntitySet="Weather_2">
+          <ScalarProperty Name="十七时" ColumnName="十七时" />
+          <ScalarProperty Name="六时" ColumnName="六时" />
+          <ScalarProperty Name="日期" ColumnName="日期" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Weather_4">
+      <EntityTypeMapping TypeName="xz2013_newModel.Weather_4">
+        <MappingFragment StoreEntitySet="Weather_4">
+          <ScalarProperty Name="实际最低" ColumnName="实际最低" />
+          <ScalarProperty Name="实际最高" ColumnName="实际最高" />
+          <ScalarProperty Name="预报最低" ColumnName="预报最低" />
+          <ScalarProperty Name="预报最高" ColumnName="预报最高" />
+          <ScalarProperty Name="观象台平均" ColumnName="观象台平均" />
+          <ScalarProperty Name="朝阳平均" ColumnName="朝阳平均" />
+          <ScalarProperty Name="预报平均" ColumnName="预报平均" />
+          <ScalarProperty Name="日期" ColumnName="日期" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CompanyHistoeys">
+      <EntityTypeMapping TypeName="xz2013_newModel.CompanyHistoey">
+        <MappingFragment StoreEntitySet="CompanyHistoey">
+          <ScalarProperty Name="核算多耗" ColumnName="核算多耗" />
+          <ScalarProperty Name="计划多耗" ColumnName="计划多耗" />
+          <ScalarProperty Name="日单耗" ColumnName="日单耗" />
+          <ScalarProperty Name="面积操作类型" ColumnName="面积操作类型" />
+          <ScalarProperty Name="面积计划类别" ColumnName="面积计划类别" />
+          <ScalarProperty Name="今日投入Area" ColumnName="今日投入Area" />
+          <ScalarProperty Name="今日计划Area" ColumnName="今日计划Area" />
+          <ScalarProperty Name="计划热指标" ColumnName="计划热指标" />
+          <ScalarProperty Name="核算热指标" ColumnName="核算热指标" />
+          <ScalarProperty Name="实际热指标" ColumnName="实际热指标" />
+          <ScalarProperty Name="核算GJ" ColumnName="核算GJ" />
+          <ScalarProperty Name="核算GJ_JK" ColumnName="核算GJ_JK" />
+          <ScalarProperty Name="总瞬时热量" ColumnName="总瞬时热量" />
+          <ScalarProperty Name="总瞬时热量_JK" ColumnName="总瞬时热量_JK" />
+          <ScalarProperty Name="总瞬时流量" ColumnName="总瞬时流量" />
+          <ScalarProperty Name="总瞬时流量_JK" ColumnName="总瞬时流量_JK" />
+          <ScalarProperty Name="万平方米流量" ColumnName="万平方米流量" />
+          <ScalarProperty Name="今日计划GJ" ColumnName="今日计划GJ" />
+          <ScalarProperty Name="今日计划GJ_JK" ColumnName="今日计划GJ_JK" />
+          <ScalarProperty Name="今日累计GJ" ColumnName="今日累计GJ" />
+          <ScalarProperty Name="今日累计GJ_JK" ColumnName="今日累计GJ_JK" />
+          <ScalarProperty Name="实际停热面积" ColumnName="实际停热面积" />
+          <ScalarProperty Name="计划停热面积" ColumnName="计划停热面积" />
+          <ScalarProperty Name="实际供热面积" ColumnName="实际供热面积" />
+          <ScalarProperty Name="计划供热面积" ColumnName="计划供热面积" />
+          <ScalarProperty Name="总面积" ColumnName="总面积" />
+          <ScalarProperty Name="公司ID" ColumnName="公司ID" />
+          <ScalarProperty Name="日期" ColumnName="日期" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StationIndexHistories">
+      <EntityTypeMapping TypeName="xz2013_newModel.StationIndexHistory">
+        <MappingFragment StoreEntitySet="StationIndexHistory">
+          <ScalarProperty Name="参考热指标" ColumnName="参考热指标" />
+          <ScalarProperty Name="实际热指标10" ColumnName="实际热指标10" />
+          <ScalarProperty Name="实际热指标" ColumnName="实际热指标" />
+          <ScalarProperty Name="年度" ColumnName="年度" />
+          <ScalarProperty Name="热力站ID" ColumnName="热力站ID" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Managerships">
+      <EntityTypeMapping TypeName="xz2013_newModel.Managership">
+        <MappingFragment StoreEntitySet="SubCompanies">
+          <ScalarProperty Name="核算多耗" ColumnName="核算多耗" />
+          <ScalarProperty Name="计划多耗" ColumnName="计划多耗" />
+          <ScalarProperty Name="A_Valid" ColumnName="A_Valid" />
+          <ScalarProperty Name="Area_JK_YD" ColumnName="Area_JK_YD" />
+          <ScalarProperty Name="总站数" ColumnName="总站数" />
+          <ScalarProperty Name="有效监控站数" ColumnName="有效监控站数" />
+          <ScalarProperty Name="实际热指标_JK" ColumnName="实际热指标_JK" />
+          <ScalarProperty Name="供暖季累计GJ_JK" ColumnName="供暖季累计GJ_JK" />
+          <ScalarProperty Name="预估采暖季单耗_JK" ColumnName="预估采暖季单耗_JK" />
+          <ScalarProperty Name="供暖季累计单耗_JK" ColumnName="供暖季累计单耗_JK" />
+          <ScalarProperty Name="预计全天GJ" ColumnName="预计全天GJ" />
+          <ScalarProperty Name="昨日计划GJ_JK" ColumnName="昨日计划GJ_JK" />
+          <ScalarProperty Name="昨日累计GJ_JK" ColumnName="昨日累计GJ_JK" />
+          <ScalarProperty Name="日单耗" ColumnName="日单耗" />
+          <ScalarProperty Name="时间" ColumnName="时间" />
+          <ScalarProperty Name="昨日核算GJ" ColumnName="昨日核算GJ" />
+          <ScalarProperty Name="昨日核算GJ_JK" ColumnName="昨日核算GJ_JK" />
+          <ScalarProperty Name="截止昨日实际Area" ColumnName="截止昨日实际Area" />
+          <ScalarProperty Name="截止昨日计划Area" ColumnName="截止昨日计划Area" />
+          <ScalarProperty Name="昨日投入Area" ColumnName="昨日投入Area" />
+          <ScalarProperty Name="昨日计划Area" ColumnName="昨日计划Area" />
+          <ScalarProperty Name="预估采暖季单耗" ColumnName="预估采暖季单耗" />
+          <ScalarProperty Name="昨日计划GJ" ColumnName="昨日计划GJ" />
+          <ScalarProperty Name="昨日累计GJ" ColumnName="昨日累计GJ" />
+          <ScalarProperty Name="昨日核算热指标" ColumnName="昨日核算热指标" />
+          <ScalarProperty Name="昨日实际热指标" ColumnName="昨日实际热指标" />
+          <ScalarProperty Name="昨日计划热指标" ColumnName="昨日计划热指标" />
+          <ScalarProperty Name="面积操作类型" ColumnName="面积操作类型" />
+          <ScalarProperty Name="面积计划类别" ColumnName="面积计划类别" />
+          <ScalarProperty Name="计划热指标" ColumnName="计划热指标" />
+          <ScalarProperty Name="参考热指标" ColumnName="参考热指标" />
+          <ScalarProperty Name="Area_JK" ColumnName="Area_JK" />
+          <ScalarProperty Name="预估采暖季热指标" ColumnName="预估采暖季热指标" />
+          <ScalarProperty Name="核算热指标" ColumnName="核算热指标" />
+          <ScalarProperty Name="今日投入Area" ColumnName="今日投入Area" />
+          <ScalarProperty Name="今日计划Area" ColumnName="今日计划Area" />
+          <ScalarProperty Name="实际热指标" ColumnName="实际热指标" />
+          <ScalarProperty Name="总瞬时热量" ColumnName="总瞬时热量" />
+          <ScalarProperty Name="总瞬时流量" ColumnName="总瞬时流量" />
+          <ScalarProperty Name="供暖季累计单耗" ColumnName="供暖季累计单耗" />
+          <ScalarProperty Name="万平方米流量" ColumnName="万平方米流量" />
+          <ScalarProperty Name="今日计划GJ" ColumnName="今日计划GJ" />
+          <ScalarProperty Name="今日计划GJ_JK" ColumnName="今日计划GJ_JK" />
+          <ScalarProperty Name="今日累计GJ" ColumnName="今日累计GJ" />
+          <ScalarProperty Name="今日累计GJ_JK" ColumnName="今日累计GJ_JK" />
+          <ScalarProperty Name="供暖季累计GJ" ColumnName="供暖季累计GJ" />
+          <ScalarProperty Name="实际停热面积" ColumnName="实际停热面积" />
+          <ScalarProperty Name="计划停热面积" ColumnName="计划停热面积" />
+          <ScalarProperty Name="实际供热面积" ColumnName="实际供热面积" />
+          <ScalarProperty Name="计划供热面积" ColumnName="计划供热面积" />
+          <ScalarProperty Name="总面积" ColumnName="总面积" />
+          <ScalarProperty Name="备注" ColumnName="备注" />
+          <ScalarProperty Name="公司" ColumnName="公司" />
+          <ScalarProperty Name="公司ID" ColumnName="公司ID" />
+          <ScalarProperty Name="管理单位" ColumnName="管理单位" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_HeatStation_Type">
+      <EntityTypeMapping TypeName="xz2013_newModel.T_HeatStation_Type">
+        <MappingFragment StoreEntitySet="T_HeatStation_Type">
+          <ScalarProperty Name="DevItemId" ColumnName="DevItemId" />
+          <ScalarProperty Name="备注" ColumnName="备注" />
+          <ScalarProperty Name="合计面积" ColumnName="合计面积" />
+          <ScalarProperty Name="特殊机构不能分开面积" ColumnName="特殊机构不能分开面积" />
+          <ScalarProperty Name="特殊机构独立分开面积" ColumnName="特殊机构独立分开面积" />
+          <ScalarProperty Name="机关不能停公建面积" ColumnName="机关不能停公建面积" />
+          <ScalarProperty Name="分不开的居民面积" ColumnName="分不开的居民面积" />
+          <ScalarProperty Name="分不开的公建面积" ColumnName="分不开的公建面积" />
+          <ScalarProperty Name="独立操作居民面积" ColumnName="独立操作居民面积" />
+          <ScalarProperty Name="独立操作公建面积" ColumnName="独立操作公建面积" />
+          <ScalarProperty Name="热力站总面积" ColumnName="热力站总面积" />
+          <ScalarProperty Name="热力站名称" ColumnName="热力站名称" />
+          <ScalarProperty Name="热力站ID" ColumnName="热力站ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_PRO_Day_Plan">
+      <EntityTypeMapping TypeName="xz2013_newModel.T_PRO_Day_Plan">
+        <MappingFragment StoreEntitySet="T_PRO_Day_Plan">
+          <ScalarProperty Name="计划类别" ColumnName="计划类别" />
+          <ScalarProperty Name="DevItemId" ColumnName="DevItemId" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="计划时间" ColumnName="计划时间" />
+          <ScalarProperty Name="总面积" ColumnName="总面积" />
+          <ScalarProperty Name="B类面积" ColumnName="B类面积" />
+          <ScalarProperty Name="A类面积" ColumnName="A类面积" />
+          <ScalarProperty Name="热力站ID" ColumnName="热力站ID" />
+          <ScalarProperty Name="用户ID" ColumnName="用户ID" />
+          <ScalarProperty Name="收费编号" ColumnName="收费编号" />
+          <ScalarProperty Name="采暖季" ColumnName="采暖季" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TotalNetIndexHistories">
+      <EntityTypeMapping TypeName="xz2013_newModel.TotalNetIndexHistory">
+        <MappingFragment StoreEntitySet="TotalNetIndexHistory">
+          <ScalarProperty Name="年度" ColumnName="年度" />
+          <ScalarProperty Name="参考热指标" ColumnName="参考热指标" />
+          <ScalarProperty Name="实际热指标10" ColumnName="实际热指标10" />
+          <ScalarProperty Name="实际热指标" ColumnName="实际热指标" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="webpages_Membership">
+      <EntityTypeMapping TypeName="xz2013_newModel.webpages_Membership">
+        <MappingFragment StoreEntitySet="webpages_Membership">
+          <ScalarProperty Name="PasswordVerificationTokenExpirationDate" ColumnName="PasswordVerificationTokenExpirationDate" />
+          <ScalarProperty Name="PasswordVerificationToken" ColumnName="PasswordVerificationToken" />
+          <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+          <ScalarProperty Name="PasswordChangedDate" ColumnName="PasswordChangedDate" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="PasswordFailuresSinceLastSuccess" ColumnName="PasswordFailuresSinceLastSuccess" />
+          <ScalarProperty Name="LastPasswordFailureDate" ColumnName="LastPasswordFailureDate" />
+          <ScalarProperty Name="IsConfirmed" ColumnName="IsConfirmed" />
+          <ScalarProperty Name="ConfirmationToken" ColumnName="ConfirmationToken" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="webpages_OAuthMembership">
+      <EntityTypeMapping TypeName="xz2013_newModel.webpages_OAuthMembership">
+        <MappingFragment StoreEntitySet="webpages_OAuthMembership">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ProviderUserId" ColumnName="ProviderUserId" />
+          <ScalarProperty Name="Provider" ColumnName="Provider" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="heatsourceCapacities">
+      <EntityTypeMapping TypeName="xz2013_newModel.heatsourceCapacity">
+        <MappingFragment StoreEntitySet="heatsourceCapacity">
+          <ScalarProperty Name="已出力GJ" ColumnName="已出力GJ" />
+          <ScalarProperty Name="供热能力GJ" ColumnName="供热能力GJ" />
+          <ScalarProperty Name="生产热源ID" ColumnName="生产热源ID" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="configurations">
+      <EntityTypeMapping TypeName="xz2013_newModel.configuration">
+        <MappingFragment StoreEntitySet="configuration">
+          <ScalarProperty Name="流量超标线" ColumnName="流量超标线" />
+          <ScalarProperty Name="回温超标线" ColumnName="回温超标线" />
+          <ScalarProperty Name="比核算多耗超标线" ColumnName="比核算多耗超标线" />
+          <ScalarProperty Name="比计划多耗超标线" ColumnName="比计划多耗超标线" />
+          <ScalarProperty Name="configurationId" ColumnName="configurationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Weather_3">
+      <EntityTypeMapping TypeName="xz2013_newModel.Weather_3">
+        <MappingFragment StoreEntitySet="Weather_3">
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="夜间平均" ColumnName="夜间平均" />
+          <ScalarProperty Name="白天平均" ColumnName="白天平均" />
+          <ScalarProperty Name="全天平均" ColumnName="全天平均" />
+          <ScalarProperty Name="夜间最低" ColumnName="夜间最低" />
+          <ScalarProperty Name="白天最高" ColumnName="白天最高" />
+          <ScalarProperty Name="时间" ColumnName="时间" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Weather_7">
+      <EntityTypeMapping TypeName="xz2013_newModel.Weather_7">
+        <MappingFragment StoreEntitySet="Weather_7">
+          <ScalarProperty Name="风力" ColumnName="风力" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="最高温" ColumnName="最高温" />
+          <ScalarProperty Name="最低温" ColumnName="最低温" />
+          <ScalarProperty Name="风向" ColumnName="风向" />
+          <ScalarProperty Name="天气" ColumnName="天气" />
+          <ScalarProperty Name="日期" ColumnName="日期" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StationManualInputs">
+      <EntityTypeMapping TypeName="IsTypeOf(xz2013_newModel.StationManualInput)">
+        <MappingFragment StoreEntitySet="ChaoBiao">
+          <ScalarProperty Name="itemId" ColumnName="itemId" />
+          <ScalarProperty Name="time0" ColumnName="time0" />
+          <ScalarProperty Name="故障" ColumnName="故障" />
+          <ScalarProperty Name="有无生活水" ColumnName="有无生活水" />
+          <ScalarProperty Name="管理单位" ColumnName="管理单位" />
+          <ScalarProperty Name="管理方式" ColumnName="管理方式" />
+          <ScalarProperty Name="站内面积" ColumnName="站内面积" />
+          <ScalarProperty Name="热指标" ColumnName="热指标" />
+          <ScalarProperty Name="部门" ColumnName="部门" />
+          <ScalarProperty Name="热量差量" ColumnName="热量差量" />
+          <ScalarProperty Name="累计热量" ColumnName="累计热量" />
+          <ScalarProperty Name="流量差量" ColumnName="流量差量" />
+          <ScalarProperty Name="瞬热" ColumnName="瞬热" />
+          <ScalarProperty Name="瞬流" ColumnName="瞬流" />
+          <ScalarProperty Name="累计流量" ColumnName="累计流量" />
+          <ScalarProperty Name="回温" ColumnName="回温" />
+          <ScalarProperty Name="回压" ColumnName="回压" />
+          <ScalarProperty Name="供压" ColumnName="供压" />
+          <ScalarProperty Name="供温" ColumnName="供温" />
+          <ScalarProperty Name="站名" ColumnName="站名" />
+          <ScalarProperty Name="生产编号" ColumnName="生产编号" />
+          <ScalarProperty Name="采集时间" ColumnName="采集时间" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Constants">
+      <EntityTypeMapping TypeName="xz2013_newModel.Constant">
+        <MappingFragment StoreEntitySet="Constants">
+          <ScalarProperty Name="time17" ColumnName="time17" />
+          <ScalarProperty Name="inCainuan" ColumnName="inCainuan" />
+          <ScalarProperty Name="OperationStart" ColumnName="OperationStart" />
+          <ScalarProperty Name="PlanStart" ColumnName="PlanStart" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="Accu_time" ColumnName="Accu_time" />
+          <ScalarProperty Name="燃油热价" ColumnName="燃油热价" />
+          <ScalarProperty Name="燃煤热价" ColumnName="燃煤热价" />
+          <ScalarProperty Name="燃气热价" ColumnName="燃气热价" />
+          <ScalarProperty Name="结束供热时间" ColumnName="结束供热时间" />
+          <ScalarProperty Name="起始供热时间" ColumnName="起始供热时间" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Weather_10">
+      <EntityTypeMapping TypeName="xz2013_newModel.Weather_10">
+        <MappingFragment StoreEntitySet="Weather_10">
+          <ScalarProperty Name="类型" ColumnName="类型" />
+          <ScalarProperty Name="预报内容" ColumnName="预报内容" />
+          <ScalarProperty Name="预报时间" ColumnName="预报时间" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubCompanyHistoeys">
+      <EntityTypeMapping TypeName="xz2013_newModel.SubCompanyHistoey">
+        <MappingFragment StoreEntitySet="SubCompanyHistoey">
+          <ScalarProperty Name="核算多耗" ColumnName="核算多耗" />
+          <ScalarProperty Name="计划多耗" ColumnName="计划多耗" />
+          <ScalarProperty Name="实际热指标_JK" ColumnName="实际热指标_JK" />
+          <ScalarProperty Name="面积操作类型" ColumnName="面积操作类型" />
+          <ScalarProperty Name="面积计划类别" ColumnName="面积计划类别" />
+          <ScalarProperty Name="今日投入Area" ColumnName="今日投入Area" />
+          <ScalarProperty Name="今日计划Area" ColumnName="今日计划Area" />
+          <ScalarProperty Name="计划热指标" ColumnName="计划热指标" />
+          <ScalarProperty Name="核算热指标" ColumnName="核算热指标" />
+          <ScalarProperty Name="实际热指标" ColumnName="实际热指标" />
+          <ScalarProperty Name="核算GJ" ColumnName="核算GJ" />
+          <ScalarProperty Name="核算GJ_JK" ColumnName="核算GJ_JK" />
+          <ScalarProperty Name="总瞬时热量" ColumnName="总瞬时热量" />
+          <ScalarProperty Name="总瞬时热量_JK" ColumnName="总瞬时热量_JK" />
+          <ScalarProperty Name="总瞬时流量" ColumnName="总瞬时流量" />
+          <ScalarProperty Name="总瞬时流量_JK" ColumnName="总瞬时流量_JK" />
+          <ScalarProperty Name="万平方米流量" ColumnName="万平方米流量" />
+          <ScalarProperty Name="今日计划GJ" ColumnName="今日计划GJ" />
+          <ScalarProperty Name="今日计划GJ_JK" ColumnName="今日计划GJ_JK" />
+          <ScalarProperty Name="今日累计GJ" ColumnName="今日累计GJ" />
+          <ScalarProperty Name="今日累计GJ_JK" ColumnName="今日累计GJ_JK" />
+          <ScalarProperty Name="实际停热面积" ColumnName="实际停热面积" />
+          <ScalarProperty Name="计划停热面积" ColumnName="计划停热面积" />
+          <ScalarProperty Name="实际供热面积" ColumnName="实际供热面积" />
+          <ScalarProperty Name="计划供热面积" ColumnName="计划供热面积" />
+          <ScalarProperty Name="总面积" ColumnName="总面积" />
+          <ScalarProperty Name="公司ID" ColumnName="公司ID" />
+          <ScalarProperty Name="中心ID" ColumnName="中心ID" />
+          <ScalarProperty Name="日期" ColumnName="日期" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StationIndexes">
+      <EntityTypeMapping TypeName="xz2013_newModel.StationIndex">
+        <MappingFragment StoreEntitySet="StationIndex">
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="g2010" ColumnName="g2010" />
+          <ScalarProperty Name="g2011" ColumnName="g2011" />
+          <ScalarProperty Name="g2012" ColumnName="g2012" />
+          <ScalarProperty Name="三年平均" ColumnName="三年平均" />
+          <ScalarProperty Name="三年最低" ColumnName="三年最低" />
+          <ScalarProperty Name="参考" ColumnName="参考" />
+          <ScalarProperty Name="浮动率" ColumnName="浮动率" />
+          <ScalarProperty Name="选择" ColumnName="选择" />
+          <ScalarProperty Name="去年" ColumnName="去年" />
+          <ScalarProperty Name="前年" ColumnName="前年" />
+          <ScalarProperty Name="大前年" ColumnName="大前年" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HeatIndexAudits">
+      <EntityTypeMapping TypeName="xz2013_newModel.HeatIndexAudit">
+        <MappingFragment StoreEntitySet="HeatIndexAudit">
+          <ScalarProperty Name="UpdatedByUserId" ColumnName="UpdatedByUserId" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="参考热指标" ColumnName="参考热指标" />
+          <ScalarProperty Name="热力站ID" ColumnName="热力站ID" />
+          <ScalarProperty Name="HeatIndexAutidId" ColumnName="HeatIndexAutidId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TemperatureAudits">
+      <EntityTypeMapping TypeName="xz2013_newModel.TemperatureAudit">
+        <MappingFragment StoreEntitySet="TemperatureAudit">
+          <ScalarProperty Name="UpdatedByUserId" ColumnName="UpdatedByUserId" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="Temperature" ColumnName="Temperature" />
+          <ScalarProperty Name="TemperatureAuditId" ColumnName="TemperatureAuditId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoomTemperatures">
+      <EntityTypeMapping TypeName="xz2013_newModel.RoomTemperature">
+        <MappingFragment StoreEntitySet="RoomTemperature">
+          <ScalarProperty Name="导入文件名" ColumnName="导入文件名" />
+          <ScalarProperty Name="序号" ColumnName="序号" />
+          <ScalarProperty Name="热力站编号" ColumnName="热力站编号" />
+          <ScalarProperty Name="是否满意" ColumnName="是否满意" />
+          <ScalarProperty Name="测温单位" ColumnName="测温单位" />
+          <ScalarProperty Name="测温日期" ColumnName="测温日期" />
+          <ScalarProperty Name="所属热源" ColumnName="所属热源" />
+          <ScalarProperty Name="联系电话" ColumnName="联系电话" />
+          <ScalarProperty Name="测试户姓名" ColumnName="测试户姓名" />
+          <ScalarProperty Name="室内温度" ColumnName="室内温度" />
+          <ScalarProperty Name="开窗" ColumnName="开窗" />
+          <ScalarProperty Name="节能建筑" ColumnName="节能建筑" />
+          <ScalarProperty Name="建筑年代" ColumnName="建筑年代" />
+          <ScalarProperty Name="暖气状况" ColumnName="暖气状况" />
+          <ScalarProperty Name="房间号" ColumnName="房间号" />
+          <ScalarProperty Name="朝向" ColumnName="朝向" />
+          <ScalarProperty Name="层次" ColumnName="层次" />
+          <ScalarProperty Name="楼号" ColumnName="楼号" />
+          <ScalarProperty Name="热力站名称" ColumnName="热力站名称" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,535 @@
+﻿@model ReliDemo.ViewModels.StationsStatisticsViewModel
+@{
+    ViewBag.Title = "热力站热耗统计";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+ <h2 style='font-family: "Microsoft Yahei",sans-serif;
+font-size: 24px;
+margin-bottom: 0.9em;
+line-height: 30px;'>@ViewBag.Title 
+</h2>
+@using (Html.BeginForm("Statistics", "Stations", new RouteValueDictionary() { { "searchType", "1" } },  FormMethod.Get)) {
+<div class="row-fluid">
+        @Html.DropDownList("regions", new SelectList(Model.Regions, "Id", "Name"), "全部区域",  new { @class = "span2" })
+        <text>&nbsp;</text>
+        @Html.DropDownList("companies", new SelectList(Model.Companies, "Id", "Name"), "全部公司", new { @class = "span2" })
+        <text>&nbsp;</text>
+        @Html.DropDownList("managerships", new SelectList(Model.Managerships, "Id", "Name"), "全部中心", new { id = "managerships", @class = "span2" })
+        <text>&nbsp;</text>
+        @Html.DropDownList("heatsources", new SelectList(ReliDemo.Infrastructure.Helpers.HeatSourceHelper.HeatSources, "生产热源ID", "生产热源"), "全部热源", new { id = "heatsources", @class = "span2" })
+        <text>&nbsp;</text>
+	    @Html.DropDownList("收费性质", new SelectList(ReliDemo.Infrastructure.Helpers.ChargeHelper.AllCharge), "请选择收费性质", new { @class = "span2" })
+		<text>&nbsp;</text>
+	    @Html.DropDownList("是否重点站", new SelectList(Model.重点站, "Id","Name"), "是否重点站", new {  @class = "span2" })
+		<text>&nbsp;</text>
+
+	     @Html.DropDownList("数据来源", new SelectList(ReliDemo.Infrastructure.Helpers.DataFromHelper.数据来源), "数据来源", new {  @class = "span2" })
+
+</div>
+<div class="row-fluid">
+    <div class="box span6" onDesktop="span6" onTablet="span12 noMarginLeft">
+		<div class="box-content form-inline">
+		<label class="inline"><strong>实际比计划多耗%：</strong>从</label>
+		<input type="text" class="input-mini inline" name="实际比计划From" value="@Model.实际比计划From" />
+		<label class="inline">% 到</label>
+		<input type="text" class="input-mini inline" name="实际比计划To" value="@Model.实际比计划To"/>
+		<label class="inline">%</label>
+		</div>
+	</div>
+    <div class="box span6" onDesktop="span6" onTablet="span12 noMarginLeft">
+		<div class="box-content form-inline">
+		<label class="inline"><strong>实际比核算多耗%：</strong>从</label>
+		<input type="text" class="input-mini inline" name="实际比核算From" value="@Model.实际比核算From" />
+		<label class="inline">% 到</label>
+		<input type="text" class="input-mini inline" name="实际比核算To" value="@Model.实际比核算To"/>
+		<label class="inline">%</label>
+		</div>
+	</div>
+</div>
+<div class="row-fluid">
+    <div class="box span8" onDesktop="span8" onTablet="span12">
+    <ul class="nav nav-tabs box-header">
+		<li class="@if(Model.SelectedSearchMethod.HasValue && Model.SelectedSearchMethod.Value == 1){ <text>active</text> }"><a href="#daily" data-toggle="tab">按日查询</a></li>
+        <li class="@if(Model.SelectedSearchMethod.HasValue && Model.SelectedSearchMethod.Value == 4){ <text>active</text> }"><a href="#custom"  data-toggle="tab">按时间段查询</a></li>
+	</ul>
+    <div id="myTabContent" class="tab-content box-content">
+		<div class="tab-pane @if(Model.SelectedSearchMethod.HasValue && Model.SelectedSearchMethod.Value == 1){ <text>active</text> } form-inline" id="daily">
+            <label class="radio"> <input type="radio" id="yesterday" name="searchSpan" value="yesterday" @if(Model.SearchSpan == "yesterday" ){<text>checked</text>} /> 昨天 </label>
+            <label class="radio"> <input type="radio" id="last2day" name="searchSpan" value="last2day" @if(Model.SearchSpan == "last2day" ){<text>checked</text>} /> 前天 </label>
+            <label class="radio"> 
+            <div class="input-append date" >
+                <label class="radio"> <input type="radio" id="customday" name="searchSpan" value="customday" @if(Model.SearchSpan == "customday" ){<text>checked</text>} /> 自选日期 </label>
+				<span class="add-on"><i class="icon-calendar"></i></span>
+				<input type="text" class="form-control date-picker input-small" id="date_customday" value="@if (Model.FromDate.HasValue) { <text>@Model.FromDate.Value.ToString("yyyy/MM/dd")</text>}" name="date_customday" data-date-format="yyyy/mm/dd" data-provide="datepicker-inline" />
+			</div>
+            </label>
+        </div>
+        <div class="tab-pane @if(Model.SelectedSearchMethod.HasValue && Model.SelectedSearchMethod.Value == 4){ <text>active</text> } form-inline " id="custom">
+			<label class="radio"> 
+                <div class="input-prepend date" >
+                    <label class="radio"> <input type="radio" id="customAll" name="searchSpan" value="customAll"  @if(Model.SearchSpan == "customAll" ){<text>checked</text>} /> 自选日期  </label>
+			        <span class="add-on"><i class="icon-calendar"></i></span>
+                    <input type="text" class="form-control input-xlarge" id="daterange" name="daterange" value="@if(Model.SearchSpan == "customAll" ){ <text>@Model.FromDate.Value.ToShortDateString() - @Model.ToDate.Value.ToShortDateString()</text> }"  >
+			    </div>
+            </label>
+        </div>
+    </div>
+    </div>
+	<div class="span2" onDesktop="span2" onTablet="span12 noMarginLeft heightAuto">
+        <button type="submit" id="submitFilter" class="btn btn-primary stationStatBtn" ><i class="icon-search"></i> 搜索</button>
+	</div>
+    <div class="span2" onDesktop="span2" onTablet="span12 noMarginLeft heightAuto">
+        <a id="export" href='javascript:void(0)' class="btn btn-success stationStatBtn" style="margin:0;padding:0"><i class="icon-download-alt"></i> 导出报表</a>
+    </div>
+</div>
+
+}  
+<div class="alert alert-info clearfix">
+<div style="display:inline-block;float:left;position:relative;top:5px;"> 查询结果：数据 @Model.TotalCount 条。 每页显示：</div>
+<ul class="nav nav-pills" id="pills" style="float:left;display:inline-block;margin-bottom:0;">
+<li @if (Model.PageSize == 10)
+    {
+    <text> class="active" </text> 
+    } >
+    @Html.ActionLink("10", "Statistics", new { startIndex = Model.PageIndex, pageSize = 10, regions = Model.SelectedRegion, 
+        companies = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsource = Model.SelectedHeatSourceId, searchSpan = Model.SearchSpan,
+                                                date_customday = Model.FromDate,
+                                                daterange = string.Format("{0} - {1}", Model.FromDate, Model.ToDate),
+                                                实际比核算From = Model.实际比核算From,
+                                                实际比核算To = Model.实际比核算To,
+                                                实际比计划From = Model.实际比计划From,
+                                                实际比计划To = Model.实际比计划To,
+                                                收费性质 = Model.收费性质,
+                                                是否重点站 = Model.是否重点站,
+                                                数据来源 = Model.数据来源
+})
+</li>
+<li @if (Model.PageSize == 50)
+    {
+    <text> class="active" </text> 
+    } >
+    @Html.ActionLink("50", "Statistics", new { startIndex = Model.PageIndex, pageSize = 50, regions = Model.SelectedRegion, 
+        companies = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsource = Model.SelectedHeatSourceId, searchSpan = Model.SearchSpan,
+                                                date_customday = Model.FromDate,
+                                                daterange = string.Format("{0} - {1}", Model.FromDate, Model.ToDate),
+                                                实际比核算From = Model.实际比核算From,
+                                                实际比核算To = Model.实际比核算To,
+                                                实际比计划From = Model.实际比计划From,
+                                                实际比计划To = Model.实际比计划To,
+                                                收费性质 = Model.收费性质,
+                                                是否重点站 = Model.是否重点站,
+                                                数据来源 = Model.数据来源
+})
+</li>
+<li @if (Model.PageSize == 100)
+    {
+    <text> class="active" </text> 
+    }>
+    @Html.ActionLink("100", "Statistics", new { startIndex = Model.PageIndex, pageSize = 100, regions = Model.SelectedRegion, 
+    companies = Model.SelectedCompanyId, managerships = Model.SelectedManagershipId, heatsource = Model.SelectedHeatSourceId, searchSpan = Model.SearchSpan,
+                                                 date_customday = Model.FromDate,
+                                                 daterange = string.Format("{0} - {1}", Model.FromDate, Model.ToDate),
+                                                 实际比核算From = Model.实际比核算From,
+                                                 实际比核算To = Model.实际比核算To,
+                                                 实际比计划From = Model.实际比计划From,
+                                                 实际比计划To = Model.实际比计划To,
+                                                 收费性质 = Model.收费性质,
+                                                 是否重点站 = Model.是否重点站,
+                                                 数据来源 = Model.数据来源
+})
+</li>
+</ul>
+</div>
+@if (Model.SearchSpan != "customAll")
+{ 
+<div class="scrollableTableContainer" >
+<table class="table  table-bordered table-hover  table-condensed table-clickhighlight datatable" style="background:white">
+<thead><tr>
+        <th>
+            @Html.DisplayName("热力站名称")
+        </th>
+        <th>
+            @Html.DisplayName("日期")
+        </th>
+        <th>
+            @Html.DisplayName("计划供热量")<span class="symbol">(GJ)</span>
+        </th>
+        <th>
+            @Html.DisplayName("核算供热量")<span class="symbol">(GJ)</span>
+        </th>
+        <th>
+            @Html.DisplayName("实际供热量")<span class="symbol">(GJ)</span>
+        </th>
+        <th>
+            @Html.DisplayName("热水")<span class="symbol">(GJ)</span>
+        </th>
+        <th>
+            @Html.DisplayName("计算热指标")<br /><span class="symbol">(Kcal/h*㎡)</span>
+        </th>
+        <th>
+            @Html.DisplayName("计划热指标")<br /><span class="symbol">(Kcal/h*㎡)</span>
+        </th>
+        <th>
+            @Html.DisplayName("核算热指标")<br /><span class="symbol">(Kcal/h*㎡)</span>
+        </th>
+        <th>
+            @Html.DisplayName("实际热指标")<br /><span class="symbol">(Kcal/h*㎡)</span>
+        </th>
+        <th>
+            @Html.DisplayName("实际比计划多耗")<br /><span class="symbol">(GJ)</span>
+        </th>
+        <th>
+            @Html.DisplayName("实际比计划多耗百分比")<span class="symbol">(%)</span>
+        </th>
+        <th>
+            @Html.DisplayName("实际比核算多耗")<span class="symbol">(GJ)</span>
+        </th>
+        <th>
+            @Html.DisplayName("实际比核算多耗百分比")<span class="symbol">(%)</span>
+        </th>
+        <th>
+            @Html.DisplayName("预报温度")<span class="symbol">(℃)</span>
+        </th>
+        <th>
+            @Html.DisplayName("实际温度")<span class="symbol">(℃)</span>
+        </th>
+        <th>公司</th>
+        <th>中心</th>
+        <th>
+            @Html.DisplayName("收费性质")
+        </th>
+        <th>
+            @Html.DisplayName("是否重点站")
+        </th>
+        <th>
+            @Html.DisplayName("数据来源")
+        </th>
+    </tr></thead>
+@foreach (var p in Model.StationsStatistic)
+{
+    <tr>
+        <td>
+            @Html.ActionLink(p.Station.热力站名称, "StationRealTime", new { stationId = p.ItemID })
+        </td>
+        <td class="time">
+            @p.日期.ToString("yyyy-MM-dd")
+        </td>
+        <td class="textAlighRight">
+            @Convert.ToDecimal(p.计划GJ).ToString("0.00")
+        </td>
+        <td class="textAlighRight">
+            @Convert.ToDecimal(p.核算GJ).ToString("0.00")
+        </td>
+        <td class="textAlighRight">
+            @Convert.ToDecimal(p.采暖GJ).ToString("0.00")
+        </td>
+        <td class="textAlighRight">
+            @Convert.ToDecimal(p.热水GJ).ToString("0.00")
+        </td>
+        <td class="textAlighRight">
+            @Convert.ToDecimal(p.Station.参考热指标).ToString("0.00")
+        </td>
+        <td class="textAlighRight">
+            @Convert.ToDecimal(p.计划热指标).ToString("0.00")
+        </td>
+        <td class="textAlighRight">
+            @Convert.ToDecimal(p.核算热指标).ToString("0.00")
+        </td>
+        <td class="textAlighRight">
+            @Convert.ToDecimal(p.实际热指标).ToString("0.00")
+        </td>
+        <td class="textAlighRight">
+            @Convert.ToDecimal(p.实际比计划多耗).ToString("0.00")
+        </td>
+        <td class="textAlighRight">
+            @Convert.ToDecimal(p.实际比计划多耗percent).ToString("0.00")
+        </td>
+        <td class="textAlighRight">
+            @Convert.ToDecimal(p.实际比核算多耗).ToString("0.00")
+        </td>
+        <td class="textAlighRight">
+            @Convert.ToDecimal(p.实际比核算多耗percent).ToString("0.00")
+        </td> 
+        <td class="textAlighRight">
+            @Convert.ToDecimal(p.预报温度).ToString("0.0")
+        </td>  
+        <td class="textAlighRight">
+            @Convert.ToDecimal(p.实际温度).ToString("0.0")
+        </td>
+        <td class="textAlighRight">
+            @p.Station.公司
+        </td> 
+        <td class="textAlighRight">
+            @p.Station.管理单位
+        </td> 
+        <td class="textAlighRight">
+            @p.Station.收费性质
+        </td> 
+        <td class="textAlighRight">
+            @(p.Station.是否重点站.HasValue ? (p.Station.是否重点站.Value ? "是" : "否") : "")
+        </td>  
+        <td class="textAlighRight">
+            @if (@p.Station.数据来源 == null)
+  {
+			<span class="label label-info"><i class="icon-pencil"></i> 人工抄表站</span> 
+  }
+  else
+  {
+			<span class="label label-important"><i class="icon-eye-open"></i> @p.Station.数据来源</span>
+  }
+        </td>
+        
+    </tr>
+}
+</table>
+</div>
+
+}
+else
+{
+<div>
+<table class="table  table-bordered table-hover  table-condensed table-clickhighlight datatable" style="background:white">
+<thead><tr>
+    <th>热力站名称</th>
+    <th>日期</th>
+    <th>计划供热量(GJ)</th>
+    <th>核算供热量(GJ)</th>
+    <th>实际供热量(GJ)</th>
+    <th>公司</th>
+    <th>中心</th>
+    <th>
+        @Html.DisplayName("收费性质")
+    </th>
+    <th>
+        @Html.DisplayName("是否重点站")
+    </th>
+    <th>
+        @Html.DisplayName("数据来源")
+    </th>
+</tr>
+</thead>
+@{
+      foreach (var stat in Model.StationsMerged)
+      {
+        <tr>
+        <td> @stat.热力站名称 </td>
+        <td> @stat.时间段</td>
+        <td class="textAlighRight"> @stat.计划GJ </td>
+        <td class="textAlighRight"> @stat.核算GJ </td>
+        <td class="textAlighRight"> @stat.实际GJ </td>
+        <td class="textAlighRight">
+            @stat.Station.公司
+        </td>
+        <td class="textAlighRight">
+            @stat.Station.管理单位
+        </td>
+        <td class="textAlighRight">
+            @stat.Station.收费性质
+        </td> 
+        <td class="textAlighRight">
+            @(stat.Station.是否重点站.HasValue ? (stat.Station.是否重点站.Value ? "是" : "否") : "")
+        </td>  
+        <td class="textAlighRight">
+            @if (@stat.Station.数据来源 == null)
+            {
+			    <span class="label label-info"><i class="icon-pencil"></i> 人工抄表站</span> 
+            }
+            else
+            {
+			    <span class="label label-important"><i class="icon-eye-open"></i> @stat.Station.数据来源</span>
+            }
+        </td>
+        </tr>
+      }
+}
+</table>
+</div>
+}
+
+<div class="row-fluid">
+<div class="pagination pagination-centered">
+    <ul>
+       
+        @if (Model.PageIndex >= 10)
+        {
+            <li>@Html.ActionLink("« 前十页", "Statistics", new
+           {
+               startIndex = Model.PageIndex - 10,
+               pageSize = 10,
+               regions = Model.SelectedRegion,
+               companies = Model.SelectedCompanyId,
+               managerships = Model.SelectedManagershipId,
+               heatsource = Model.SelectedHeatSourceId,
+               searchSpan = Model.SearchSpan,
+               date_customday = Model.FromDate,
+               daterange = string.Format("{0} - {1}", Model.FromDate, Model.ToDate),
+               实际比核算From = Model.实际比核算From,
+               实际比核算To = Model.实际比核算To,
+               实际比计划From = Model.实际比计划From,
+               实际比计划To = Model.实际比计划To,
+               收费性质 = Model.收费性质,
+               是否重点站 = Model.是否重点站,
+               数据来源 = Model.数据来源
+           })</li>
+        }
+		 <li>@Html.ActionLink("« 上一页", "Statistics", new
+  {
+      startIndex = Model.PageIndex - 1,
+      pageSize = Model.PageSize,
+      regions = Model.SelectedRegion,
+      companies = Model.SelectedCompanyId,
+      managerships = Model.SelectedManagershipId,
+      heatsource = Model.SelectedHeatSourceId,
+      searchSpan = Model.SearchSpan,
+      date_customday = Model.FromDate,
+      daterange = string.Format("{0} - {1}", Model.FromDate, Model.ToDate),
+      实际比核算From = Model.实际比核算From,
+      实际比核算To = Model.实际比核算To,
+      实际比计划From = Model.实际比计划From,
+      实际比计划To = Model.实际比计划To,
+      收费性质 = Model.收费性质,
+      是否重点站 = Model.是否重点站,
+      数据来源 = Model.数据来源
+  })</li>
+        @for (int i = Model.PageIndex / 10 * 10; (i < Model.PageIndex / 10 * 10 + 10) && i < Model.TotalPages; i++)
+        {
+            <li @if (Model.PageIndex == i)
+                { <text>class="active"</text> } >
+
+                @Html.ActionLink((i + 1).ToString(), "Statistics", new
+           {
+               startIndex = i,
+               pageSize = Model.PageSize,
+               regions = Model.SelectedRegion,
+               companies = Model.SelectedCompanyId,
+               managerships = Model.SelectedManagershipId,
+               heatsource = Model.SelectedHeatSourceId,
+               searchSpan = Model.SearchSpan,
+               date_customday = Model.FromDate,
+               daterange = string.Format("{0} - {1}", Model.FromDate, Model.ToDate),
+               实际比核算From = Model.实际比核算From,
+               实际比核算To = Model.实际比核算To,
+               实际比计划From = Model.实际比计划From,
+               实际比计划To = Model.实际比计划To,
+               收费性质 = Model.收费性质,
+               是否重点站 = Model.是否重点站,
+               数据来源 = Model.数据来源
+           })
+            </li>
+        }
+		<li>@Html.ActionLink("下一页 »", "Statistics", new
+ {
+     startIndex = Model.PageIndex + 1,
+     pageSize = Model.PageSize,
+     regions = Model.SelectedRegion,
+     companies = Model.SelectedCompanyId,
+     managerships = Model.SelectedManagershipId,
+     heatsource = Model.SelectedHeatSourceId,
+     searchSpan = Model.SearchSpan,
+     date_customday = Model.FromDate,
+     daterange = string.Format("{0} - {1}", Model.FromDate, Model.ToDate),
+     实际比核算From = Model.实际比核算From,
+     实际比核算To = Model.实际比核算To,
+     实际比计划From = Model.实际比计划From,
+     实际比计划To = Model.实际比计划To,
+     收费性质 = Model.收费性质,
+     是否重点站 = Model.是否重点站,
+     数据来源 = Model.数据来源
+ })</li>
+        @if (Model.PageIndex < Model.TotalPages - 10)
+        {
+            <li>@Html.ActionLink("后十页 »", "Statistics", new
+           {
+               startIndex = (Model.PageIndex / 10 + 1) * 10,
+               pageSize = Model.PageSize,
+               regions = Model.SelectedRegion,
+               companies = Model.SelectedCompanyId,
+               managerships = Model.SelectedManagershipId,
+               heatsource = Model.SelectedHeatSourceId,
+               searchSpan = Model.SearchSpan,
+               date_customday = Model.FromDate,
+               daterange = string.Format("{0} - {1}", Model.FromDate, Model.ToDate),
+               实际比核算From = Model.实际比核算From,
+               实际比核算To = Model.实际比核算To,
+               实际比计划From = Model.实际比计划From,
+               实际比计划To = Model.实际比计划To,
+               收费性质 = Model.收费性质,
+               是否重点站 = Model.是否重点站,
+               数据来源 = Model.数据来源
+           })</li>
+        }
+       
+    </ul>
+</div>
+</div>
+
+<script>
+    $(function () {
+        $('#export').click(function () {
+            var url = 'DownloadReport?' +
+                'regions=' + $("#regions").val() +
+                '&companies=' + $("#companies").val() +
+                '&managerships=' + $("#managerships").val() +
+                '&heatsources=' + $("#heatsources").val() +
+                '&实际比核算From=' + $('input[name=实际比核算From]').val() +
+                '&实际比核算To=' + $('input[name=实际比核算To]').val() +
+                '&实际比计划From=' + $('input[name=实际比计划From]').val() +
+                '&实际比计划To=' + $('input[name=实际比计划To]').val() +
+                '&收费性质=' + $('select[name=收费性质]').val() +
+                '&是否重点站=' + $('select[name=是否重点站]').val() +
+                '&数据来源=' + $('select[name=数据来源]').val() +
+                '&date_customday=' + $('#date_customday').val() +
+                '&searchSpan=' + $("#myTabContent").find("span.checked > input").val() +
+                '&daterange=' + $('#daterange').val();
+            $.ajax({
+                url: url,
+                beforeSend: function () {
+                    $('#export').html("正在生成报表...");
+                },
+                success: function (i) {
+                    window.location = i.fileName;
+                    $('#export').html('<i class="icon-download-alt"></i> 导出报表');
+                }
+            });
+        });
+
+        $("select[name=companies]").change(function () {
+            $.ajax({
+                url: "/Stations/GetManagershipsByCompanyId",
+                type: "post",
+                data: { companyId: $(this).val() },
+                success: function (response, textStatus, jqXHR) {
+                    console.log(response);
+                    $("#managerships").html("<option value>请选择管理单位</option>" + response.replace(/(^\s+|\s+$)/g, '')).css("display", "");
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                },
+                complete: function () {
+                }
+            });
+        });
+        $(".table tr").dblclick(function (e) {
+            var url = $(e.currentTarget).find("td:first a").attr("href");
+            if (url) {
+                window.location = url;
+            }
+        });
+        $("#daterange").daterangepicker({
+            format: 'YYYY年MM月DD日',
+            locale: {
+                applyLabel: '确定',
+                cancelLabel: '取消',
+                fromLabel: '从',
+                toLabel: '到',
+                weekLabel: 'W',
+                customRangeLabel: '自定义日期',
+                daysOfWeek: moment()._lang._weekdaysMin.slice(),
+                monthNames: moment()._lang._monthsShort.slice(),
+                firstDay: 0
+            }
+        },
+        function (start, end) {
+            $("#customAll").attr("checked", "checked").parent().addClass("checked");
+        });
+    });
+</script>

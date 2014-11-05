@@ -1,0 +1,174 @@
+﻿@model ReliDemo.ViewModels.ManualDataInputViewModel
+
+@{
+    ViewBag.Title = "ManualDataInput";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    select 
+    {
+        width:100px;
+    }
+    input
+    {
+        width:50px;
+    }
+    .table td
+    {
+        vertical-align: bottom;
+    }
+</style>
+<div class="row-fluid">
+    <h1>人工抄表
+    </h1>
+    <div class="span8"></div>
+</div>
+<div class="row-fluid ">
+    <div class="input-group col-sm-4">
+    @using (Html.BeginForm("ManualDataInput", "Stations", FormMethod.Get))
+    {
+        @Html.DropDownListFor(model=>model.Selected生产编号, new SelectList(Model.Stations, "热力站编码", "热力站编码"), "生产编号检索", new { @class = "input-inline input-medium" })
+        <text>&nbsp;</text>
+        @Html.TextBox("stationName", @Model.热力站名称, new { placeholder = "热力站名称检索", @class = "input-inline  input-medium" })
+        <text>&nbsp;</text>
+        @Html.DropDownList("热力站编号", new SelectList(Model.Stations, "热力站编码", "热力站编码"), "热表编号", new { @class = "input-inline input-medium" })
+        <text>&nbsp;</text>
+        @Html.TextBox("errorDescription", @Model.故障状态, new { @class = "input-inline input-medium" , placeholder = "故障状态"})
+        <text>&nbsp;</text>
+		<div class="input-prepend">
+        <span class="input-group-addon"><i class="icon-calendar"></i></span>
+		<input type="text" class="form-control input-xlarge input-inline" id="daterange" name="daterange" value='@if(Model.FromDate.HasValue) {<text> @string.Format("{0:yyyy年MM月dd日} - {1:yyyy年MM月dd日}", Model.FromDate, Model.ToDate) </text>}' />
+        </div>
+        <input type="submit" value="搜索" class="btn  btn-primary input-inline" style="vertical-align: top;"/>
+    }
+
+    @using (Html.BeginForm("UploadManualDataInput", "Stations", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <input type="file" name="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"  />
+        <input type="submit" value="上传文件" class="btn btn-primary" />
+    }
+    </div>
+</div>
+<div class="row-fluid">
+        每页显示：
+<ul class="nav nav-pills" id="pills">
+<li @if (Model.StationManualInput.PageSize == 10)
+    {
+    <text> class="active" </text> 
+    } >
+    @Html.ActionLink("10", "ManualDataInput", new { pageIndex = Model.StationManualInput.PageIndex, pageSize = 10, code = Model.Selected生产编号, stationName = Model.热力站名称, errorDescirption = Model.故障状态, daterange = string.Format("{0} - {1}", Model.FromDate, Model.ToDate) })
+</li>
+<li @if (Model.StationManualInput.PageSize == 50)
+    {
+    <text> class="active" </text> 
+    } >
+    @Html.ActionLink("50", "ManualDataInput", new { pageIndex = Model.StationManualInput.PageIndex, pageSize = 50, code = Model.Selected生产编号, stationName = Model.热力站名称, errorDescirption = Model.故障状态, daterange = string.Format("{0} - {1}", Model.FromDate, Model.ToDate) })
+</li>
+<li @if (Model.StationManualInput.PageSize == 100)
+    {
+    <text> class="active" </text> 
+    }>
+    @Html.ActionLink("100", "ManualDataInput", new { pageIndex = Model.StationManualInput.PageIndex, pageSize = 100, code = Model.Selected生产编号, stationName = Model.热力站名称, errorDescirption = Model.故障状态, daterange = string.Format("{0} - {1}", Model.FromDate, Model.ToDate) })
+</li>
+
+</ul>
+</div>
+<div class="row-fluid">
+<div class="scrollableTableContainer">
+<table class="table  table-bordered table-hover  table-condensed table-clickhighlight datatable" style="background:white">
+        <thead><tr>
+            <th>生产编号</th>
+            <th>热力站名称</th>
+            <th>采集时间</th>
+            <th>供压</th>
+            <th>回压</th>
+            <th>供温</th>
+            <th>回温</th>
+            <th>瞬时流量</th>
+            <th>瞬时热量</th>
+            <th>累计流量</th>
+            <th>流量差量</th>
+            <th>累计热量</th>
+            <th>热量差量</th>
+            <th>热指标</th>
+            <th>站内面积</th>
+            <th>部门</th>
+            <th>管理方式</th>
+            <th>管理单位</th>
+            <th>有无生活水</th>
+            <th>故障状态</th>
+        </tr>
+		</thead>
+        @foreach (var manualInput in Model.StationManualInput)
+        {
+            <tr>
+                <td> @manualInput.生产编号</td>
+                <td> @manualInput.站名</td>
+                <td> @manualInput.采集时间</td>
+                <td> @manualInput.供压</td>
+                <td> @manualInput.回压</td>
+                <td> @manualInput.供温</td>
+                <td> @manualInput.回温</td>
+                <td> @manualInput.瞬流</td>
+                <td> @manualInput.瞬热</td>
+                <td> @manualInput.累计流量</td>
+                <td> @manualInput.流量差量</td>
+                <td> @manualInput.累计热量</td>
+                <td> @manualInput.热量差量</td>
+                <td> @manualInput.热指标</td>
+                <td> @manualInput.站内面积</td>
+                <td> @manualInput.部门</td>
+                <td> @manualInput.管理方式</td>
+                <td> @manualInput.管理单位</td>
+                <td> @manualInput.有无生活水</td>
+                <td> @manualInput.故障</td>
+            </tr>
+        }
+    </table>
+	</div>
+</div>
+<div class="row-fluid">
+<div class="pagination pagination-centered">
+    <ul>
+       
+        @if (Model.StationManualInput.PageIndex >= 10)
+        {
+            <li>@Html.ActionLink("« 前十页", "ManualDataInput", new { pageIndex = Model.StationManualInput.PageIndex - 10, pageSize = 10, code = Model.Selected生产编号, stationName = Model.热力站名称, errorDescirption = Model.故障状态, daterange = string.Format("{0} - {1}", Model.FromDate, Model.ToDate) })</li>
+        }
+		 <li>@Html.ActionLink("« 上一页", "ManualDataInput", new { pageIndex = Model.StationManualInput.PageIndex - 1, pageSize = Model.StationManualInput.PageSize, code = Model.Selected生产编号, stationName = Model.热力站名称, errorDescirption = Model.故障状态, daterange = string.Format("{0} - {1}", Model.FromDate, Model.ToDate) })</li>
+        @for (int i = Model.StationManualInput.PageIndex / 10 * 10; (i < Model.StationManualInput.PageIndex / 10 * 10 + 10) && i < Model.StationManualInput.TotalPages; i++)
+        {
+            <li @if (Model.StationManualInput.PageIndex == i)
+                { <text>class="active"</text> } >
+
+                @Html.ActionLink((i + 1).ToString(), "ManualDataInput", new { pageIndex = i, pageSize = Model.StationManualInput.PageSize, code = Model.Selected生产编号, stationName = Model.热力站名称, errorDescirption = Model.故障状态, daterange = string.Format("{0} - {1}", Model.FromDate, Model.ToDate) })
+            </li>
+        }
+		<li>@Html.ActionLink("下一页 »", "ManualDataInput", new { pageIndex = Model.StationManualInput.PageIndex + 1, pageSize = Model.StationManualInput.PageSize, code = Model.Selected生产编号, stationName = Model.热力站名称, errorDescirption = Model.故障状态, daterange = string.Format("{0} - {1}", Model.FromDate, Model.ToDate) })</li>
+        @if (Model.StationManualInput.PageIndex < Model.StationManualInput.TotalPages - 10)
+        {
+            <li>@Html.ActionLink("后十页 »", "ManualDataInput", new { pageIndex = (Model.StationManualInput.PageIndex / 10 + 1) * 10, pageSize = Model.StationManualInput.PageSize, code = Model.Selected生产编号, stationName = Model.热力站名称, errorDescirption = Model.故障状态, daterange = string.Format("{0} - {1}", Model.FromDate, Model.ToDate)})</li>
+        }
+       
+    </ul>
+</div>
+</div>
+<script>
+
+    $(function () {
+        $("#daterange").daterangepicker({
+            format: 'YYYY年MM月DD日',
+            locale: {
+                applyLabel: '确定',
+                cancelLabel: '取消',
+                fromLabel: '从',
+                toLabel: '到',
+                weekLabel: 'W',
+                customRangeLabel: '自定义日期',
+                daysOfWeek: moment()._lang._weekdaysMin.slice(),
+                monthNames: moment()._lang._monthsShort.slice(),
+                firstDay: 0
+            }
+        });
+    });
+</script>

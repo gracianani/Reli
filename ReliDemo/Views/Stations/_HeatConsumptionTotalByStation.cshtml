@@ -1,0 +1,54 @@
+﻿@model IEnumerable<ReliDemo.Models.HeatConsumptionTotalItem>
+
+<div class="box">
+    <div class="box-header  backgroundColorHeader crimson">
+		<h2><i class="icon-align-justify"></i><span class="break"></span>
+            热力站统计
+        </h2>
+		<div class="box-icon">
+		</div>
+	</div>
+    <div class="box-content">
+		<table class="table makeTableHeaderAsBoxHeader">
+			<thead>
+				<tr>    
+                    <th>&nbsp;</th>
+                    <th class="textAlighRight"><a href="#">今日</a></th>
+                    <th class="textAlighRight"><a href="#">昨日</a></th>
+				</tr>
+			</thead> 
+            <tbody>
+                @foreach (var GJItem in Model)
+                {
+                    var toFix = 2;
+                    <tr  class="
+						@if ( GJItem.Title.Contains("(GJ)")) {
+                        toFix = 0;
+						<text>groupColorBlue</text>
+						}else if ( GJItem.Title.Contains("热指标")) {
+						<text>groupColorGold</text>
+						}else if ( GJItem.Title.Contains("单耗")) {
+						<text>groupColorGreen</text>
+                        toFix = 4;
+                        }
+					">
+                        <td>@GJItem.Title</td>
+                        <td class="textAlighRight"> @if (GJItem.Title.Contains("核算") ){
+							<text>--</text>
+						} else {
+							<text>@( toFix == 0 ? Convert.ToInt32(GJItem.今日).ToString() : toFix == 4 ? Convert.ToDecimal(GJItem.今日).ToString("0.0000") : Convert.ToDecimal(GJItem.今日).ToString("0.00") )</text>
+						}</td> 
+                        <td 
+						 @if (GJItem.Title.Contains("差值") )
+                               {
+                                <text>class="textAlighRight differenceValue"</text>
+                         } else {
+								 <text>class="textAlighRight"</text>
+						 }
+						>@( toFix == 0 ? Convert.ToInt32(GJItem.昨日).ToString() : toFix ==4 ? Convert.ToDecimal(GJItem.昨日).ToString("0.0000") : Convert.ToDecimal(GJItem.昨日).ToString("0.00") )</td> 
+				    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

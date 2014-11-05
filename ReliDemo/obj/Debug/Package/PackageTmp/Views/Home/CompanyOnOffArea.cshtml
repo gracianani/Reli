@@ -1,0 +1,76 @@
+﻿@model ReliDemo.ViewModels.CompanyAreaOnOffViewModel
+
+@{
+    ViewBag.Title = "CompanyOnOffArea";
+}
+
+<div id="dashboard-company-area-barchart" style="height:220px"></div>
+<div id="dashboard-company-area-legend" style="margin-top:10px"></div>
+@Html.Hidden("companyTotal", Model.CompanyAreaTotalData)
+@Html.Hidden("companyOn", Model.CompanyAreaOnData)
+
+<script type="text/javascript">
+	function getShortName(fullName) {
+		if ( fullName == "创合供热公司") {
+			return "创合";
+		}
+		if ( fullName =="合格服务商") {
+			return "合服";
+		}
+		if ( fullName =="科利源供热公司") {
+			return "科利源";
+		}
+		if ( fullName =="特诚公司") {
+			return "特诚";
+		}
+		if ( fullName =="特力昆公司") {
+			return "特力昆";
+		}
+		if ( fullName =="天禹供热公司") {
+			return "天禹";
+		}
+		if ( fullName =="销售公司") {
+			return "销售";
+		}
+		return fullName;
+	}
+    jQuery(document).ready(function ($) {
+        var companyTotal = $.parseJSON($("input[name=companyTotal]").val());
+        var companyOn = $.parseJSON($("input[name=companyOn]").val());
+		console.log(companyTotal);
+		for (var i = 0 ; i < companyTotal.length; i++ ) {
+			companyTotal[i][0] = getShortName(companyTotal[i][0]);
+			companyOn[i][0] = getShortName(companyOn[i][0]);
+		}
+        var companyAreaBarchartData =  [
+		    { label: "总面积", data: companyTotal,bars:{fillColor:"#c7cbd5"} },
+		    { label: "实际投入面积", data: companyOn,bars:{fillColor:"#36a9e1"} }
+	    ];
+
+        $.plot("#dashboard-company-area-barchart", companyAreaBarchartData, {
+            series: {
+                stack: false,
+                bars: {
+                    show: true,
+                    barWidth: 0.6,
+					borderWidth:0,
+                    align: "center"
+                }
+            },
+            xaxis: {
+                show: true,
+                mode: "categories",
+                tickLength: 0,
+                color: "#F00",
+                tickColor: "#F00"
+            },
+            grid: { tickColor: "#eee", borderWidth: 0
+            },
+            colors: ["#c7cbd5", "#36a9e1"],
+			legend: {
+				container:$('#dashboard-company-area-legend'),
+				noColumns:2
+			}
+        }); //end plot
+    });
+</script>

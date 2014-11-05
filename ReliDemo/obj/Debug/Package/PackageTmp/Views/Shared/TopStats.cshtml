@@ -1,0 +1,125 @@
+﻿@model ReliDemo.ViewModels.TopStatsViewModel
+
+	<div class="row-fluid">
+		<div class="span6" onDesktop="span6" onTablet="span12">
+			<div class="row-fluid">
+				<div class="smallstat box span12">
+					<i class="icon-user orange"></i>
+					<span class="title">@Model.当前时间.ToString("yyyy年MM月dd日")  @Model.当前时间.ToString("dddd",new System.Globalization.CultureInfo("zh-cn"))  </span>
+					<span class="value">@Model.当前用户.姓名 <small>@Model.当前用户.权限们</small></span>
+					<span class="time">累计供热 @Model.TotalHeatSupplyDays 天 供热开始日期: @Model.起始供热时间.ToString("yyyy-MM-dd") </span>
+				</div><!--box-->
+				<div class=" smallstat box span6 noMarginLeft" id="todaysGJ">
+					<i class="icon-fire crimson"></i>
+					<span class="title">今日累计供热量</span>
+					<span class="value highlightRed">@Model.今日累计供热量<small>GJ</small></span>
+					<span class="time highlightRed">截至 @Model.当前时间.ToString("yyyy-MM-dd tt HH:mm:ss")</span>
+				</div>
+				<div class="smallstat box span6">
+					<i class="icon-fire crimson"></i>
+					<span class="title">昨日累计供热量</span> 
+					<span class="value">@Model.昨日累计供热量<small>GJ</small></span>
+					<span class="time">　</span>
+				</div>
+
+				<div class=" smallstat box span12 noMarginLeft weatherBox">
+					<i class="gold"><span class="weathericon weather-@((int)Model.WeatherType)"></span></i>
+					<span class="title" title="今天白天: @Model.TodaysWeather，风力：@Model.TodaysWind">今天白天: <strong>@Model.TodaysWeather </strong>, 风力：@Model.TodaysWind (@Model.WeatherPublishedAt.ToString("tt HH:mm")发布)</span>
+					<span class="title" title="白天至夜间温度: @Model.TodaysHighestTemperature ℃ 至 @Model.TodaysLowestTemperature ℃">白天至夜间温度: @Model.TodaysHighestTemperature ℃ 至 @Model.TodaysLowestTemperature ℃</span>
+					<span class="title" title="平均气温: 今日 @Model.TodaysAverageTemperature℃ ，昨日 ">平均气温: 今日 <strong>@Model.TodaysAverageTemperature℃ </strong>，昨日 @Model.YesterdayAverateTemperature℃ </span>
+				</div>
+			</div>
+		</div>
+		<div class="span6" onDesktop="span6" onTablet="span12 noMarginLeft">
+			<div class="row-fluid">
+
+				<div class=" smallstat box span6 noMarginLeft">
+						<i class="icon-calendar-empty blue"></i>
+						<span class="title">供热总面积</span>
+						<span class="value">@Convert.ToDecimal(Model.投停面积信息.总供热面积).ToString("0.00")<small>万㎡</small></span>
+						<span class="time red">计算用监测面积：@Convert.ToDecimal(Model.投停面积信息.计算用监控面积).ToString("0.00") 万㎡　</span>
+				</div>
+				<div class=" smallstat box span6">
+						<i class="icon-calendar blue"></i>
+						<span class="title">实际投入面积</span>
+						<span class="value">@Convert.ToDecimal(Model.投停面积信息.当日实际供热总面积).ToString("0.00") <small>万㎡</small></span>
+						<span class="time alignvalue">未投入面积 @Convert.ToDecimal(Model.投停面积信息.总供热面积 - Model.投停面积信息.当日实际供热总面积).ToString("0.00") 万㎡</span>
+				</div>
+
+				<div class="box span12 noMarginLeft">
+					<div class="box-header backgroundColorHeader blue">
+					<h2><i class="icon-calendar"></i><span class="break"></span></h2>
+					</div>
+					<div class="box-content" style="padding-bottom:25px">
+						<table class="table makeTableHeaderAsBoxHeader">
+							<thead>
+								<tr>
+									<th></th><th>今日</th><th>昨日</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+                                    @if (Model.投停面积信息.当日计划是否投)
+                                    {
+									    <td>计划投入面积 </td>
+                                        <td>@Convert.ToDecimal(Model.投停面积信息.当日计划投入面积).ToString("0.00")<small>万m<sup>2</sup></small></td>
+                                        <td>@Convert.ToDecimal(Model.投停面积信息.前日计划投入面积).ToString("0.00")<small>万m<sup>2</sup></small></td>
+                                    }
+                                    else
+                                    {
+                                        <td>计划停热面积 </td>
+                                        <td>@Convert.ToDecimal(Model.投停面积信息.当日计划停热面积).ToString("0.00")<small>万m<sup>2</sup></small></td>
+                                        <td>@Convert.ToDecimal(Model.投停面积信息.前日计划停热面积).ToString("0.00")<small>万m<sup>2</sup></small></td>
+                                    }
+								</tr>
+								<tr>
+                                    @if (Model.投停面积信息.当日实际是否投)
+                                    {
+									    <td>实际投入面积</td>
+                                        <td>@Convert.ToDecimal(Model.投停面积信息.当日实际投入面积).ToString("0.00")<small>万m<sup>2</sup></small></td>
+                                        <td>@Convert.ToDecimal(Model.投停面积信息.前日实际投入面积).ToString("0.00")<small>万m<sup>2</sup></small></td>
+                                    }
+                                    else
+                                    {
+									    <td>实际停热面积</td>
+                                        <td>@Convert.ToDecimal(Model.投停面积信息.当日实际投入面积).ToString("0.00")<small>万m<sup>2</sup></small></td>
+                                        <td>@Convert.ToDecimal(Model.投停面积信息.前日实际停热面积).ToString("0.00")<small>万m<sup>2</sup></small></td>
+                                    }
+								</tr>
+								<tr>
+									    <td>未投入面积</td>
+                                        <td>@Convert.ToDecimal(Model.投停面积信息.当日计划投入面积 - Model.投停面积信息.当日实际投入面积).ToString("0.00")<small>万m<sup>2</sup></small></td>
+                                        <td>@Convert.ToDecimal(Model.投停面积信息.前日计划投入面积 - Model.投停面积信息.前日实际投入面积).ToString("0.00")<small>万m<sup>2</sup></small></td>
+								</tr>
+							</tbody>
+						</table>
+					</div><!--box-content-->
+				</div><!--box-->
+			</div>
+		</div>
+	</div>
+
+@Html.HiddenFor(m => m.CompanyId)
+@Html.HiddenFor(m=>m.ManagershipId)
+
+<script>
+    /* ---------- dashboard ---------- */
+    jQuery(document).ready(function ($) {
+        setInterval("getTodaysGJ()", 5*60*1000)
+    });
+    function getTodaysGJ() {
+        $.ajax({
+            url: "http://172.16.3.80:11223/HeatConsumptionService/GetTodaysGJ/" + $("input[name=CompanyId]").val() + "/" + $("input[name=ManagershipId]").val(),
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            dataType: "jsonp",
+            data: '',
+            success: function (data) {
+                var updatedAt = new Date(data.UpdatedAt.match(/\d+/)[0] * 1);
+                $("#todaysGJ span.time").html('更新时间:' + updatedAt.getFullYear() + '-' + (updatedAt.getMonth() + 1) + '-' + updatedAt.getDate() + ' ' + updatedAt.getHours() + ":" + updatedAt.getMinutes() + ":" + updatedAt.getSeconds() + (updatedAt.getHours() >= 12 ? 'PM' : 'AM'));
+                $("#todaysGJ span.value").html(data.Value + "<small>" + data.Unit + "</small>");
+                $("#todaysGJ").highlightAfterUpdate();
+            }
+        });
+    }
+</script>

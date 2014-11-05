@@ -1,0 +1,174 @@
+﻿@model  IEnumerable<ReliDemo.Models.ITemperatureGraphItem>
+
+<style>
+#graph-legend table{
+	margin:0 auto;
+}
+</style>
+<div class="graphWrapper">
+<div id="graph"  style="height:310px">
+</div>
+<div id="graph-legend" ></div>
+<div class="forecastlabel">预报</div>
+<div class="actuallabel">历史</div>
+</div>
+@Html.Hidden("forecastAverage", 
+        "[" + string.Join(",", Model.Where(i=>i.forecastAverage.HasValue).OrderBy(i=>i.日期).Select(i=> string.Format("{{\"time\": \"{0:yyyy-MM-dd HH:mm:ss}\", \"temperature\" : {1}, \"weathertype\" : {2} }}", i.日期, i.forecastAverage,(int)i.weatherType)).ToArray() ) + "]"
+)
+@Html.Hidden("forecastHighest",
+                   "[" + string.Join(",", Model.Where(i => i.forecastHighest.HasValue).Select(i => string.Format("{{\"time\": \"{0:yyyy-MM-dd HH:mm:ss}\", \"temperature\" : {1}}}", i.日期, i.forecastHighest)).ToArray()) + "]"
+)
+@Html.Hidden("forecastLowest",
+                           "[" + string.Join(",", Model.Where(i => i.forecastLowest.HasValue).Select(i => string.Format("{{\"time\": \"{0:yyyy-MM-dd HH:mm:ss}\", \"temperature\" : {1}}}", i.日期, i.forecastLowest)).ToArray()) + "]"
+)
+@Html.Hidden("actualAverage",
+                               "[" + string.Join(",", Model.Where(i => i.actualAverage.HasValue).Select(i => string.Format("{{\"time\": \"{0:yyyy-MM-dd HH:mm:ss}\", \"temperature\" : {1}}}", i.日期, i.actualAverage)).ToArray()) + "]"
+)
+
+@Html.Hidden("maxTemp", Math.Max( Math.Max( Math.Max(Model.Max(i=>i.forecastHighest) ?? 0, Model.Max(i=>i.forecastAverage) ?? 0 ), Model.Max( i=>i.actualHighest) ?? 0), Model.Max(i=>i.actualAverage) ?? 0) )
+@Html.Hidden("minTemp", Math.Min( Math.Min( Math.Min(Model.Min(i=>i.forecastLowest) ?? 0, Model.Min(i=>i.forecastAverage) ?? 0 ), Model.Min( i=>i.actualLowest) ?? 0), Model.Min(i=>i.actualAverage) ?? 0) )
+<script type="text/javascript">
+    function redrawGraph() {
+
+    }
+
+    $(document).ready(function () {
+        var forecastAverageData = $.parseJSON($("input[name=forecastAverage]").val());
+		var EIGHT_HOURS = 1000 * 60 * 60 * 8;
+        var forecastAverage = [];
+        for (var i = 0; i < forecastAverageData.length; i++) {
+            forecastAverage.push([(new Date(forecastAverageData[i].time).getTime() + EIGHT_HOURS), forecastAverageData[i].temperature, forecastAverageData[i].weathertype]);
+        }
+
+        var forecastHighestData = $.parseJSON($("input[name=forecastHighest]").val());
+        var forecastHighest = [];
+        for (var i = 0; i < forecastHighestData.length; i++) {
+            forecastHighest.push([(new Date(forecastHighestData[i].time).getTime() + EIGHT_HOURS), forecastHighestData[i].temperature]);
+        }
+        var forecastLowestData = $.parseJSON($("input[name=forecastLowest]").val());
+        var forecastLowest = [];
+        for (var i = 0; i < forecastLowestData.length; i++) {
+            forecastLowest.push([(new Date(forecastLowestData[i].time).getTime() + EIGHT_HOURS), forecastLowestData[i].temperature]);
+        }
+        var actualAverageData = $.parseJSON($("input[name=actualAverage]").val());
+        var actualAverage = [];
+        for (var i = 0; i < actualAverageData.length; i++) {
+            actualAverage.push([(new Date(actualAverageData[i].time).getTime() + EIGHT_HOURS), actualAverageData[i].temperature]);
+        }
+        var heatTempChartGrid = {
+            tickColor: "#eee",
+			backgroundColor:{colors:["#fef8eb","#ecf4fa"]},
+            borderWidth: 0,
+            hoverable: true,
+            clickable: true
+        };
+
+
+        var maxTemp = parseFloat( $("#maxTemp").val() )+ 2;
+        var minTemp = parseFloat($("#minTemp").val()) - 2;
+
+        var tempChartOptions = {
+            xaxis: {
+                mode: "time",
+                minTickSize: [1, "day"],
+                timeformat: "%m月%d日"
+            },
+            yaxis: { max: maxTemp, min: minTemp },
+            grid: heatTempChartGrid,
+            colors: ["#ec6313", "#fabb3d", "#00558e", "#378fc9"],
+            legend: {
+                container: $("#graph-legend"),
+                show: true,
+                noColumns: 4
+            }
+        };
+
+        var temperatureChartData = [];
+        temperatureChartData.push({
+            label: "预报平均温度(℃)",
+            data: forecastAverage,
+            lines: { show: true },
+            points: { show: true }
+        });
+        temperatureChartData.push({
+            label: "预报最高温度(℃)",
+            data: forecastHighest,
+            lines: { show: true },
+            points: { show: true }
+        });
+        temperatureChartData.push({
+            label: "预报最低温度(℃)",
+            data: forecastLowest,
+            lines: { show: true },
+            points: { show: true }
+        });
+        temperatureChartData.push({
+            label: "实际平均温度(℃)",
+            data: actualAverage,
+            lines: { show: true },
+            points: { show: true, fill: true }
+        });
+		var now = new Date().getTime() + EIGHT_HOURS;
+        temperatureChartData.push({
+            data: [[now, 30], [now, -25]],
+            lines: { show: true },
+            points: { show: false },
+            color: "rgba(0,0,0,0.3)"
+        });
+        var dashboardHeatTempChart = $.plot($("#graph"), temperatureChartData, tempChartOptions);
+
+        var points = dashboardHeatTempChart.getData();
+
+        var graphx = $('#graph').offset().left;
+        graphx = graphx + 30; // replace with offset of canvas on graph
+        var graphy = $('#graph').offset().top;
+        graphy = graphy + 10; // how low you want the label to hang underneath the point
+        var weatherIcon = "";
+        for (var k = 0; k < points.length; k++) {
+            for (var m = 0; m < points[k].data.length; m++) {
+                if (points[k].data[m][0] != null && points[k].data[m][1] != null) {
+                    if (k == 0 ) {
+						//forecast tempreture line
+						if ( points[k].data[m][2] != 0 ) {
+							weatherIcon = '<div class="weathericon weather-' +points[k].data[m][2]  + '"></div>';
+							showInfoWindow( points[k].xaxis.p2c(points[k].data[m][0]) , points[k].yaxis.p2c(points[k].data[m][1]) -35, weatherIcon + '<div> '+ points[k].data[m][1] +'°</div>', "#ec6313")
+						}
+                    } else if ( k == 1 ){
+                       showInfoWindow( points[k].xaxis.p2c(points[k].data[m][0]) ,15, '<div> '+ points[k].data[m][1] +'°</div>', "#ec6313");
+                    } else if ( k == 2 ) {
+						showInfoWindow( points[k].xaxis.p2c(points[k].data[m][0]) ,265, '<div> '+ points[k].data[m][1] +'°</div>', "#ec6313");
+					}
+                }
+            }
+        }
+
+    });
+	$("<div id='tooltip'></div>").appendTo("body");
+
+   $("#graph").bind("plothover", function (event, pos, item) {
+            if (item) {
+                var x = item.datapoint[0];
+                $("#tooltip").html(item.series.label + " : " + item.datapoint[1])
+				.css({ top: item.pageY + 5, left: item.pageX + 5 })
+				.fadeIn(200);
+            } else {
+                $("#tooltip").hide();
+            }
+	});
+    function showInfoWindow(x, y, contents, colour) {
+        $('<div class="weatherIconWindow">' + contents + '</div>').css({
+            position: 'absolute',
+			'font-family':'Arial',
+            top: y,
+            left: x,
+			'width':'45px',
+			'text-align':'center',
+            'border-radius': '5px',
+            color: '#333',
+            padding: '2px',
+			'font-size':'10px',
+			'line-height':'12px'
+        }).appendTo("#graph");
+    } 
+    
+</script>

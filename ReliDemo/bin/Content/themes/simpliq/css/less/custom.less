@@ -1,0 +1,744 @@
+/* dashboard
+=================================================================== */
+body {
+	font-family: 'Lucida Sans Unicode',Tahoma, Helvetica, Arial, sans-serif;
+}
+h1,h2,h3 {
+	font-family: 'Microsoft Yahei','Yahei','Lucida Sans Unicode',Tahoma, Helvetica, Arial, sans-serif;
+}
+#tooltip {
+   position: absolute;
+   display: none;
+   border: 1px solid white;
+   padding: 3px;
+   background-color: @blue;
+   color:white;
+   font-size:14px;
+   border-radius:3px;
+   z-index:99;
+}
+#content {
+	> h2 {
+	font-size:24px;
+	line-height:1.5em;
+	font-family:"Microsoft Yahei","Yahei",sans-serif;
+	margin-bottom:0.9em;
+	}
+}
+.fullWidth {
+	width: 100%;
+	display: block;
+	tr {
+		width: 100%;
+		display: block;
+	}
+}
+.smallstat {
+	.date-overlay {
+		width: 22%;
+		padding-left: 1%;
+		height: 50px;
+		margin-right: 2%;
+		.border-radius(2px);
+		float: left;
+
+	}
+	.data {
+		float: left;
+		width: 25%;
+	}
+	a:hover {
+		text-decoration: none;
+	}
+	&:hover {
+		text-decoration: none;
+	}
+	small {
+			font-size:14px;
+			vertical-align:bottom;
+			line-height:24px;
+	}
+	.time {
+		font-size:12px;
+		float:none;
+		clear:both;
+		display:block;
+		line-height:14px;
+		height:14px;
+		overflow:hidden;
+	}
+	.alignvalue {
+		padding-left:60px;
+	}
+	.title {
+			font-size: 14px;
+			vertical-align:bottom;
+			height:20px;
+			overflow:hidden;
+		}
+	.value {
+
+			font-size: 22px;
+			vertical-align:bottom;
+			line-height:24px;
+			height:24px;
+			overflow:hidden;
+			display:block;
+	}
+	&.weatherBox .title {
+		font-size:12px;
+		height:16px;
+		overflow:hidden;
+		line-height:16px;
+		margin-top:0;
+		vertical-align:middle;
+	}
+}
+
+
+.table {
+	margin-bottom: 0;
+	.right {
+		text-align: right;
+	}
+}
+.table-condensed {
+	input {
+		margin-bottom:0;
+	}
+	select {
+	margin-bottom:0;
+	}
+}
+.backgroundColorHeader {
+	&.blue { 
+	background: @blue; 
+	@backgroundColor:@blue;
+		
+		.box-icon {
+			background: darken(@backgroundColor,10%);
+			i {
+				border-left-color: darken(@backgroundColor,10%);
+			}
+		}
+	}
+	&.lightBlue { background: @lightBlue; }
+	&.green { background: @green; }
+	&.darkGreen { background: @darkGreen; }
+	&.pink { background: @pink; }
+	&.lightOrange { background: @lightOrange; }
+	&.red { background: @red; }
+	&.yellow { background: @yellow; }
+	&.white { background: white; }
+	&.grey { 
+		background: @grey; 
+		@backgroundColor: @grey;
+		h2 {
+			color:darken(@backgroundColor,50%);
+		}
+		.box-icon {
+			background: darken(@backgroundColor,20%);
+			i {
+				border-left-color: darken(@backgroundColor,20%);
+			}
+		}
+		h2 i {
+			background: darken(@backgroundColor,20%);
+		}
+	}
+	&.crimson { 
+	background: @crimson; 
+	@backgroundColor:@crimson;
+		
+		.box-icon {
+			background: darken(@backgroundColor,10%);
+			i {
+				border-left-color: darken(@backgroundColor,10%);
+			}
+		}
+		h2 i {
+			background: darken(@backgroundColor,10%);
+		}
+	}
+	&.gold { 
+	background: @gold; 
+	@backgroundColor:@gold;
+		
+		.box-icon {
+			background: darken(@backgroundColor,10%);
+			i {
+				border-left-color: darken(@backgroundColor,10%);
+			}
+		}
+		h2 i {
+			background: darken(@backgroundColor,10%);
+		}
+	}
+	&.orange { 
+	background: @orange; 
+	@backgroundColor:@orange;
+		
+		.box-icon {
+			background: darken(@backgroundColor,10%);
+			i {
+				border-left-color: darken(@backgroundColor,10%);
+			}
+		}
+		h2 i {
+			background: darken(@backgroundColor,10%);
+		}
+	}
+	&.red { 
+	background: @red; 
+	@backgroundColor:@red;
+		
+		.box-icon {
+			background: darken(@backgroundColor,10%);
+			i {
+				border-left-color: darken(@backgroundColor,10%);
+			}
+		}
+		h2 i {
+			background: darken(@backgroundColor,10%);
+		}
+	}
+}
+
+
+.box {
+	margin-bottom:15px;
+	.box-header{
+		.box-subTitle {
+			float: right;
+			font-size: 16px;
+			line-height: 20px;
+			padding: 8px 0;
+			margin: 0 20px 0 0;
+		}
+
+		h2 {
+			font-size:16px;
+			font-weight:normal;
+			line-height:16px;
+		}
+		.btn-small {
+			padding:0 10px;
+			line-height:20px;
+		}
+		&.nav-tabs {
+			font-weight:bold;
+			margin-bottom:0;
+			border-bottom:none;
+			a {
+				color:white;
+			}
+			.active>a{
+				color:black;
+			}
+			li:hover>a {
+				color:@blue;
+			}
+		}
+		
+	}
+
+	.form-inline label {
+		padding-right:10px;
+	}
+	&.mergeWithBottom {
+		margin-bottom:0;
+	}
+}
+
+.makeTableHeaderAsBoxHeader {
+	position: relative;
+	top:-46px;
+	margin-bottom: -46px;
+	border-top:none!important;
+	border-right:none!important;
+	thead th {
+		color: #FFF!important;
+		background: none!important;
+		border:none!important;
+		a {
+			color: #FFF;
+		}
+	}
+	tbody tr:first-child td {
+		border-top: none;
+	}
+}
+.centerhead {
+	th {
+		text-align:center;
+	}
+}
+/* highlight
+========================*/
+.highlighting {
+	.highlightBlue {
+		color:@blue;
+	}
+	.highlightRed {
+		color:@red;
+	}
+}
+/* table
+=================================================================== */
+.table {
+	&.table-bordered {
+		-webkit-border-radius:0;
+		-moz-border-radius:0;
+		border-radius: 0;
+		
+		thead:first-child tr:first-child>th:first-child,tbody:first-child tr:first-child>td:first-child,tbody:first-child tr:first-child>th:first-child,thead:last-child tr:last-child>th:first-child,tbody:last-child tr:last-child>td:first-child, tbody:last-child tr:last-child>th:first-child, tfoot:last-child tr:last-child>td:first-child, tfoot:last-child tr:last-child>th:first-child {
+			-webkit-border-radius:0;
+			-moz-border-radius:0;
+			border-radius: 0;
+		}
+	}
+	th {
+		background-color:#ededed;
+		color: #000;
+		font-weight: bold;
+	}
+	td {
+		color: #111;
+	}
+	.sorting_asc {
+		background-image:url("@{baseurl}/sort_asc.png");
+		background-repeat:no-repeat;
+		background-position:right center;
+	}
+	.sorting_desc {
+		background-image:url("@{baseurl}/sort_desc.png");
+		background-repeat:no-repeat;
+		background-position:right center;
+	}
+	.sorting {
+		background-image:url("@{baseurl}/sort_both.png");
+		background-repeat:no-repeat;
+		background-position:right center;
+	}
+}
+
+/* station
+========================*/
+.subNav {
+	margin-left: 0;
+	
+	li {
+		float: left;
+		display: inline-block;
+		margin: 0;
+		padding: 5px 15px;
+		line-height: 24px;
+		background: #393f4c;
+		border-right:1px solid rgba(255,255,255,0.1);
+		border-left: 1px solid rgba(0,0,0,0.5);
+		&.current {
+			background-color: @mainColor;
+		}
+		&:first-child {
+			border-radius: 4px 0 0 4px;
+			border-left: none;
+		}
+		&:last-child {
+			border-radius: 0 4px 4px 0;
+			border-right: none;
+		}
+		a {
+			color: #fff;
+		}
+		a:hover {
+			text-decoration: none;
+		}
+	}
+}
+.table-zebra {
+	td {
+		color: #333;
+	}
+	tr {
+		td:nth-child(2n) {
+			background-color: @lightGrey;
+		}
+	}
+	tr:nth-child(2n) {
+		background-color: @lightGrey;
+		td:nth-child(2n) {
+			background-color: white;
+		}
+	}
+	em {
+		font-style: normal;
+		color: #000;
+		font-size: 18px;
+		
+	}
+	a {
+			color: @blue;
+	}
+
+}
+
+.pieChartWithCenterText {
+	position:relative;
+	.centerText {
+		position:absolute;
+		top:45%;
+		left:0;
+		width:100%;
+		line-height:24px;
+		text-align:center;
+		z-index:100;
+		color:#000;
+	}
+
+}
+.topmenu {
+	position:relative;
+	top:15px;
+	margin-bottom:20px;
+	.btn {
+		background-color:#393f4c;
+		color:#FFF;
+	}
+	.btn:hover,.selected {
+		background-color:#0071c0;
+	}
+}
+.stationTitle {
+	margin-bottom:20px;
+	
+}
+
+/* table 
+===========================*/
+.scrollableTableContainer {
+	width:100%;
+	overflow:scroll;
+	overflow-x:scroll;
+	overflow-y:visible;
+	table  {
+		th,td {
+			min-width:140px;
+			width:auto;
+			max-width:none;
+		}
+
+	}
+	.table {
+		width:auto;
+		max-width:none;
+	}
+}
+.table {
+	.groupColorBlue{
+		background-color:lighten(@blue,45%);
+	}
+	.groupColorGold{
+		background-color:lighten(@gold,35%);
+	}
+	.groupColorGreen{
+		background-color:lighten(@green,28%);
+	}
+	.alert td {
+		font-weight:bold;
+
+	}
+	.time {
+		font-size:10px;
+		letter-spacing:-1px;
+	}
+}
+.table-hover {
+	tbody tr:hover>td {
+		background-color:lighten(@blue,45%);
+		color:black;
+	}
+
+}
+::-webkit-input-placeholder {
+	color:#666!important;
+}
+:-moz-placeholder {
+	color:#666!important;
+}
+::-moz-placeholder {
+	color:#666!important;
+}
+:-ms-input-placeholder {
+	color:#666!important;
+}
+
+/* Station
+=============================*/
+.stationStatBtn {
+height:87px;
+line-height:80px;
+font-weight:bold;
+margin-bottom:20px;
+overflow:hidden;
+width:100%;
+}
+.heightAuto .stationStatBtn {
+height:auto!important;
+line-height:30px;
+}
+
+/* Sidebar
+============================*/
+.dropmenu{
+	[class^="icon-"],[class*=" icon-"] {
+		background-color:white;
+		color:#383e4b;
+		padding:2px 2px;
+		border-radius:2px;
+		width:14px;
+		display:inline-block;
+		text-align:center;
+	}
+	
+}
+.icon-companyname:before {
+		content:""!important;
+		display:none;
+}
+.icon-companyname {
+		background-color:white;
+		color:#383e4b;
+		padding:2px 2px;
+		border-radius:5px;
+		width:14px;
+		font-size:12px;
+		display:inline-block;
+		text-align:center;
+}
+a.box {
+	display:inline-block;
+}
+
+/* alert
+======================*/
+.alert-block {
+	a {
+		color:#c09853;
+	}
+}
+
+legend {
+margin-bottom:0px;
+}
+
+/* Sidebar
+============================*/
+.weathericon {
+	width:24px;
+	height:24px;
+	display:block;
+	margin:0 auto;
+	&.weather-0 {
+		/* Unknow */
+		background:url("@{baseurl}/weather24/018.png") center center no-repeat;
+	}
+	&.weather-1 {
+		background:url("@{baseurl}/weather24/001.png") center center no-repeat;
+	}
+	&.weather-2 {
+		background:url("@{baseurl}/weather24/003.png") center center no-repeat;
+	}
+	&.weather-3 {
+		background:url("@{baseurl}/weather24/002.png") center center no-repeat;
+	}
+	&.weather-4 {
+		background:url("@{baseurl}/weather24/004.png") center center no-repeat;
+	}
+	&.weather-5 {
+		background:url("@{baseurl}/weather24/004.png") center center no-repeat;
+	}
+	&.weather-6 {
+		background:url("@{baseurl}/weather24/004.png") center center no-repeat;
+	}
+	&.weather-7 {
+		background:url("@{baseurl}/weather24/003.png") center center no-repeat;
+	}
+	&.weather-8 {
+		background:url("@{baseurl}/weather24/003.png") center center no-repeat;
+	}
+	&.weather-9 {
+		background:url("@{baseurl}/weather24/007.png") center center no-repeat;
+	}
+	&.weather-10 {
+		background:url("@{baseurl}/weather24/007.png") center center no-repeat;
+	}
+	&.weather-11 {
+		background:url("@{baseurl}/weather24/008.png") center center no-repeat;
+	}
+	&.weather-12 {
+		background:url("@{baseurl}/weather24/008.png") center center no-repeat;
+	}
+	&.weather-13 {
+		background:url("@{baseurl}/weather24/009.png") center center no-repeat;
+	}
+	&.weather-14 {
+		background:url("@{baseurl}/weather24/009.png") center center no-repeat;
+	}
+	&.weather-15 {
+		background:url("@{baseurl}/weather24/015.png") center center no-repeat;
+	}
+	&.weather-16 {
+		background:url("@{baseurl}/weather24/016.png") center center no-repeat;
+	}
+	&.weather-17 {
+		background:url("@{baseurl}/weather24/011.png") center center no-repeat;
+	}
+	&.weather-18 {
+		background:url("@{baseurl}/weather24/012.png") center center no-repeat;
+	}
+	&.weather-19 {
+		background:url("@{baseurl}/weather24/014.png") center center no-repeat;
+	}
+	&.weather-20 {
+		background:url("@{baseurl}/weather24/013.png") center center no-repeat;
+	}
+	&.weather-21 {
+		background:url("@{baseurl}/weather24/017.png") center center no-repeat;
+	}
+	&.weather-22 {
+		background:url("@{baseurl}/weather24/015.png") center center no-repeat;
+	}
+	&.weather-23 {
+		background:url("@{baseurl}/weather24/Ice.png") center center no-repeat;
+	}
+	&.weather-24 {
+		background:url("@{baseurl}/weather24/Ice.png") center center no-repeat;
+	}
+	&.weather-25 {
+		background:url("@{baseurl}/weather24/Fog.png") center center no-repeat;
+	}
+	&.weather-26 {
+		background:url("@{baseurl}/weather24/Fog.png") center center no-repeat;
+	}
+	&.weather-27 {
+		background:url("@{baseurl}/weather24/006.png") center center no-repeat;
+	}
+	&.weather-28 {
+		background:url("@{baseurl}/weather24/006.png") center center no-repeat;
+	}
+	&.weather-29 {
+		background:url("@{baseurl}/weather24/006.png") center center no-repeat;
+	}
+	&.weather-30 {
+		background:url("@{baseurl}/weather24/006.png") center center no-repeat;
+	}
+	&.weather-31 {
+		background:url("@{baseurl}/weather24/006.png") center center no-repeat;
+	}
+	&.weather-32 {
+		background:url("@{baseurl}/weather24/006.png") center center no-repeat;
+	}
+	&.weather-33 {
+		background:url("@{baseurl}/weather24/010.png") center center no-repeat;
+	}
+	&.weather-34 {
+		background:url("@{baseurl}/weather24/024.png") center center no-repeat;
+	}
+}
+.graphWrapper {
+	position:relative;
+	.forecastlabel,.actuallabel {
+		border-radius:3px;
+		border:1px solid white;
+		position:absolute;
+		top:0;
+		color:white;
+		padding:5px 10px;
+		font-size:14px;
+	}
+	.forecastlabel {
+		right:0;
+		background-color:@red;
+
+	}
+	.actuallabel{
+		left:40px;
+		background-color:@blue;
+	}
+}
+
+/* dialog */
+.dialog-overlay {
+	position:absolute;
+	position:fixed;
+	width:100%;
+	height:100%;
+	left:0;
+	top:0;
+	background-color:rgba(0,0,0,0.5);
+	display:none;
+
+	.dialog {
+		width:750px;
+		height:80%;
+		position:absolute;
+		left:50%;
+		top:10%;
+		margin-left: -375px;
+		overflow-y:scroll;
+		background-color:white;
+	}
+	.dialog-header {
+		background:@blue;
+		color:#FFF;
+		padding:10px;
+	}
+	.dialog-content {
+		padding:10px;
+	}
+	.dialog-close {
+		font-size:20px;
+		color:#fff;
+		position:absolute;
+		right:20px;
+		top:20px;
+		cursor:pointer;
+	}
+}
+.dialog-trigger{
+	cursor:pointer;
+}
+
+#dashborad-heat-temp-dataselect {
+	font-size:12px;
+}
+#sidebar-switch {
+	position:absolute;
+	position:fixed;
+	top:40%;
+	left:14.52991452991453%;
+	z-index:2;
+	background: @darkGrey;
+	width:18px;
+	padding:2px;
+	height:18px;
+	line-height:20px;
+	border-radius:0 2px 2px 0;
+	display:block;
+	text-decoration:none;
+	&.close {
+		left:0!important;
+		background: @darkGrey;
+		opacity:1;
+		text-shadow:none!important;
+		font-weight:normal;
+	}
+}
+.textAlighRight{text-align:right!important}
+
+
+.pills-label {
+display:inline-block;float:left;position:relative;top:5px;
+}
+
+.noBottomMargin { margin-bottom:0}
