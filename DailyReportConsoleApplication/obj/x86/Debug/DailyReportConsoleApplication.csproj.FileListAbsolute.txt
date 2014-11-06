@@ -108,3 +108,6 @@ C:\Users\yaqiZhao\documents\visual studio 2010\projects\ReliDemo\DailyReportCons
 C:\Users\yaqiZhao\documents\visual studio 2010\projects\ReliDemo\DailyReportConsoleApplication\bin\Debug\Newtonsoft.Json.xml
 C:\Users\yaqiZhao\documents\visual studio 2010\projects\ReliDemo\DailyReportConsoleApplication\obj\x86\Debug\DailyReportConsoleApplication.exe
 C:\Users\yaqiZhao\documents\visual studio 2010\projects\ReliDemo\DailyReportConsoleApplication\obj\x86\Debug\DailyReportConsoleApplication.pdb
+C:\Users\yaqiZhao\Documents\Visual Studio 2013\Projects\ReliDemo\DailyReportConsoleApplication\bin\Debug\DailyReportConsoleApplication.exe.config
+C:\Users\yaqiZhao\Documents\Visual Studio 2013\Projects\ReliDemo\DailyReportConsoleApplication\obj\x86\Debug\DailyReportConsoleApplication.exe
+C:\Users\yaqiZhao\Documents\Visual Studio 2013\Projects\ReliDemo\DailyReportConsoleApplication\obj\x86\Debug\DailyReportConsoleApplication.pdb

@@ -33,7 +33,29 @@ namespace ReliDemo.Controllers
         public ActionResult Preview(int reportType, string date)
         {
             var stationService = new StationsService();
-            return View(new ReportsViewModel() { ReportTypeId=reportType, Report = stationService.GetDailyReport(DateTime.Parse(date)), Day = DateTime.Parse(date) , Title = ((ReportType)reportType).ToString() });
+            IEnumerable<StationDetailReport> report;
+            DateTime day = DateTime.Parse(date);
+            if (reportType == (int)ReportType.总明细)
+            {
+                report = stationService.GetDailyReport(DateTime.Parse(date));
+            }
+            else if (reportType == (int)ReportType.故障明细)
+            {
+                report = stationService.GetFailureStations(DateTime.Parse(date));
+            }
+            else if (reportType == (int)ReportType.回温超标明细)
+            {
+                report = stationService.GetExceed45Stations(DateTime.Parse(date));
+            }
+            else if (reportType == (int)ReportType.实际超核算明细)
+            {
+                report = stationService.Get超核算Stations(DateTime.Parse(date));
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+            return View(new ReportsViewModel() { ReportTypeId = reportType, Report = report, Day = DateTime.Parse(date), Title = ((ReportType)reportType).ToString() });
         }
 
         public ActionResult PreviewTwo(int reportType, string date)
