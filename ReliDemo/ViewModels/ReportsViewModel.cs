@@ -12,6 +12,51 @@ namespace ReliDemo.ViewModels
         public DateTime Day { get; set; }
         public string Title { get; set; }
         public int ReportTypeId { get; set; }
+
+        private int _totalCount;
+        public int TotalCount
+        {
+            get
+            {
+                return _totalCount;
+            }
+            set
+            {
+                _totalCount = value;
+            }
+        }
+        private int _pageSize;
+        public int PageSize
+        {
+            get
+            {
+                return _pageSize;
+            }
+            set
+            {
+                _pageSize = value;
+            }
+        }
+
+        private int _pageIndex;
+        public int PageIndex
+        {
+            get
+            {
+                return _pageIndex;
+            }
+            set
+            {
+                _pageIndex = value;
+            }
+        }
+        public int TotalPages
+        {
+            get
+            {
+                return (int)Math.Ceiling(TotalCount / (double)PageSize);
+            }
+        }
     }
 
     public class StatViewModel
@@ -128,18 +173,51 @@ namespace ReliDemo.ViewModels
         public string 热源 { get; set; }
         public int? SelectedManagershipId { get; set; }
         public int? SelectedCompanyId { get; set; }
+
+        private int _totalCount;
+        public int TotalCount
+        {
+            get
+            {
+                return _totalCount;
+            }
+            set
+            {
+                _totalCount = value;
+            }
+        }
+        private int _pageSize;
+        public int PageSize
+        {
+            get
+            {
+                return _pageSize;
+            }
+            set
+            {
+                _pageSize = value;
+            }
+        }
+
+        private int _pageIndex;
+        public int PageIndex
+        {
+            get
+            {
+                return _pageIndex;
+            }
+            set
+            {
+                _pageIndex = value;
+            }
+        }
+        public int TotalPages
+        {
+            get
+            {
+                return (int)Math.Ceiling(TotalCount / (double)PageSize);
+            }
+        }
     }
 
-    public class GeneralAnalizeViewModel
-    {
-        public IList<GeneralAnalizeReportItem> ReportData { get; set; }
-        public DateTime From { get; set; }
-        public DateTime To { get; set; }
-        public string Title { get; set; }
-        public int ReportTypeId { get; set; }
-        public IList<IdAndName> Companies { get; set; }
-        public IList<IdAndName> Managerships { get; set; }
-        public IList<IdAndName> 重点站 { get; set; }
-        public int CompanyId { get; set; }
-    }
 }

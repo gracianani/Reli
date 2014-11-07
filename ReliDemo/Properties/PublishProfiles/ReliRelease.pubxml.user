@@ -15,6 +15,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="App_Data/2-modifyReports.sql">
       <publishTime>10/17/2014 00:26:50</publishTime>
     </File>
+    <File Include="App_Data/3-remodifyReport.sql">
+      <publishTime>11/07/2014 17:42:12</publishTime>
+    </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>07/17/2013 16:06:58</publishTime>
     </File>
@@ -244,7 +247,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/21/2013 15:53:59</publishTime>
     </File>
     <File Include="bin/ReliDemo.dll">
-      <publishTime>11/05/2014 13:59:41</publishTime>
+      <publishTime>11/07/2014 19:24:32</publishTime>
     </File>
     <File Include="bin/Scripts/simpliq/jquery.colorhelpers.js">
       <publishTime>08/13/2013 17:25:17</publishTime>
@@ -1378,7 +1381,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/17/2014 12:57:29</publishTime>
     </File>
     <File Include="Views/Configuration/Index.cshtml">
-      <publishTime>01/22/2014 17:49:56</publishTime>
+      <publishTime>11/07/2014 19:14:09</publishTime>
     </File>
     <File Include="Views/Cost/Index.cshtml">
       <publishTime>11/11/2013 13:24:58</publishTime>
@@ -1420,10 +1423,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/21/2014 11:42:09</publishTime>
     </File>
     <File Include="Views/Reports/Index.cshtml">
-      <publishTime>10/21/2014 15:21:30</publishTime>
+      <publishTime>11/07/2014 19:01:47</publishTime>
     </File>
     <File Include="Views/Reports/Preview.cshtml">
-      <publishTime>10/12/2014 10:46:26</publishTime>
+      <publishTime>11/07/2014 14:33:45</publishTime>
     </File>
     <File Include="Views/Reports/PreviewCompletion.cshtml">
       <publishTime>10/21/2014 17:09:28</publishTime>
@@ -1435,7 +1438,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/12/2014 10:50:59</publishTime>
     </File>
     <File Include="Views/Reports/PreviewStationAnalize.cshtml">
-      <publishTime>10/21/2014 17:03:18</publishTime>
+      <publishTime>11/07/2014 17:28:20</publishTime>
     </File>
     <File Include="Views/Reports/PreviewThree.cshtml">
       <publishTime>09/25/2014 23:17:18</publishTime>
@@ -1522,7 +1525,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/13/2014 01:49:19</publishTime>
     </File>
     <File Include="Views/Stations/Statistics.cshtml">
-      <publishTime>10/22/2014 23:21:50</publishTime>
+      <publishTime>11/07/2014 17:24:49</publishTime>
     </File>
     <File Include="Views/Stations/_HeatConsumptionTotalByStation.cshtml">
       <publishTime>11/26/2013 16:21:16</publishTime>
@@ -1549,7 +1552,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/19/2013 18:40:11</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/05/2014 13:59:42</publishTime>
+      <publishTime>11/07/2014 19:24:32</publishTime>
     </File>
     <File Include="_AppStart.cshtml">
       <publishTime>10/20/2013 09:57:46</publishTime>

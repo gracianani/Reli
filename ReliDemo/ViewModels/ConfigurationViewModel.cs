@@ -17,6 +17,20 @@ namespace ReliDemo.ViewModels
             }
         }
 
+        public DateTime 报表默认开始时间
+        {
+            get
+            {
+                return ConfigurationService.Instance.报表默认开始时间;
+            }
+        }
+        public DateTime 报表默认结束时间
+        {
+            get
+            {
+                return ConfigurationService.Instance.报表默认结束时间;
+            }
+        }
         private IEnumerable<TemperatureAudit> _操作记录;
         public IEnumerable<TemperatureAudit> 操作记录
         {

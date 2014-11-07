@@ -14,58 +14,8 @@ namespace ReliDemo.Infrastructure.Services
     public class StationsService
     {
         private xz2013Entities db = new xz2013Entities();
-        private const string 总明细Sql = @"select a.itemid,a.[热力站名称],a.spcname,a.[管理单位],a.公司,a.[参考热指标],a.[数据来源] ,a.[是否重点站],a.[收费性质],a.[生产热源], a.GJ_Limit
-                        ,c.回温avg  as 一次回温平均 ,c.供温avg as 一次供温平均,c.供压avg as 一次供压平均, c.回压avg as 一次回压平均, c.*
-                        from stations a
-                        join StationAccuHistory c on a.itemID = c.热力站ID and c.日期>=@fromDate and c.日期<@toDate 
-                        where (c.报警 is null or c.报警 = '') and c.采暖GJ < a.GJ_Limit and 
-                            (a.[生产热源ID]=1 or a.[生产热源ID]=22) ";
 
-        private const string 故障Sql = @"select a.itemid,a.[热力站名称],a.spcname,a.[管理单位],a.公司,a.[参考热指标],a.[数据来源] ,a.[是否重点站],a.[收费性质],a.[生产热源], a.GJ_Limit
-                        ,c.回温avg  as 一次回温平均 ,c.供温avg as 一次供温平均,c.供压avg as 一次供压平均, c.回压avg as 一次回压平均, c.*
-                        from stations a
-                        join StationAccuHistory c on a.itemID = c.热力站ID and c.日期>=@fromDate and c.日期<@toDate 
-                        where (c.报警 is not null and c.报警 <> '' or c.采暖GJ >= a.GJ_Limit ) and 
-                            (a.[生产热源ID]=1 or a.[生产热源ID]=22)";
-        public string 回温Sql = @"select a.*,b.*
-                                 from 
-                                (select 
-	                                a.itemid,
-	                                a.[热力站名称],
-	                                a.spcname,
-	                                a.[管理单位],
-	                                a.公司,
-	                                a.[参考热指标],
-	                                a.[数据来源],
-	                                a.[是否重点站] ,
-	                                a.[收费性质],
-	                                a.[生产热源], 
-	                                a.GJ_Limit,
-	                                AVG(c.[一次回温]) as 一次回温平均 ,
-	                                avg(c.[一次供温]) as 一次供温平均,
-	                                avg(c.[一次供压]) as 一次供压平均,
-	                                avg(c.[一次回压]) as 一次回压平均
-	                                from stations a 
-	                                join Station1stHistory c on c.热力站ID = a.itemId and c.时间 >= @fromDate and c.时间 < @toDate
-	                                where  
-		                                c.总瞬时流量<3000 and 
-		                                c.总累计热量<(c.总累计流量*2) and 
-		                                c.[一次回温]>45 and 
-		                                c.[一次回温]<900 and 
-		                                (a.[生产热源ID]=1 or a.[生产热源ID]=22)
-	                                GROUP BY a.spcname,a.[热力站名称],a.itemid,a.[管理单位],a.公司,a.[参考热指标],a.[数据来源],a.[是否重点站] ,a.[收费性质],a.[生产热源],a.GJ_Limit
-	                                )a
-                                join StationAccuHistory b on a.itemid=b.热力站ID and b.日期=@fromDate  
-                                where b.采暖GJ < a.GJ_Limit
-                                order by a.itemid";
-
-        public string 实际超核算Sql = @"select a.itemid,a.[热力站名称],a.spcname,a.[管理单位],a.公司,a.[参考热指标],a.[数据来源] ,a.[是否重点站],a.[收费性质],a.[生产热源], a.GJ_Limit
-                        ,c.回温avg  as 一次回温平均 ,c.供温avg as 一次供温平均,c.供压avg as 一次供压平均, c.回压avg as 一次回压平均, c.*
-                        from stations a
-                        join StationAccuHistory c on a.itemID = c.热力站ID and c.日期>=@fromDate and c.日期<@toDate 
-                        where (c.报警 is  null or c.报警 <> '') and c.采暖GJ >= a.GJ_Limit and 
-                            (a.[生产热源ID]=1 or a.[生产热源ID]=22)  and  c.[核算GJ]<c.[采暖GJ]  
-                                    order by a.itemid";
+        
 
         public string 温度统计 = @"select 
 	                            测温日期,
@@ -225,29 +175,6 @@ namespace ReliDemo.Infrastructure.Services
             return db.StationAccuHistories.Where(i => i.日期 >= from && i.日期 <= to && i.Station != null && i.Station.ItemID == stationId);
         }
 
-        public IEnumerable<StationDetailReport> GetDailyReport(DateTime day)
-        {
-            var result = new List<StationDetailReport>();
-            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["membership"].ConnectionString))
-            {
-                conn.Open();
-                using (SqlCommand cmd = conn.CreateCommand())
-                {
-                    cmd.CommandText = 总明细Sql;
-                    cmd.CommandType = System.Data.CommandType.Text;
-                    cmd.Parameters.Add(new SqlParameter("fromDate", day.ToString("yyyy-MM-dd") ));
-                    cmd.Parameters.Add(new SqlParameter("toDate", day.AddDays(1).ToString("yyyy-MM-dd")));
-                    using (var reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            result.Add(new StationDetailReport(reader));
-                        }
-                    }
-                }
-            }
-            return result;
-        }
 
         public IEnumerable<StationTemperatureStats> GetTemperatureStats(string stationName)
         {
@@ -294,77 +221,7 @@ namespace ReliDemo.Infrastructure.Services
             return result;
         }
 
-        public IEnumerable<StationDetailReport> GetFailureStations(DateTime day)
-        {
-            var result = new List<StationDetailReport>();
-            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["membership"].ConnectionString))
-            {
-                conn.Open();
-                using (SqlCommand cmd = conn.CreateCommand())
-                {
-                    cmd.CommandText = 故障Sql;
-                    cmd.CommandType = System.Data.CommandType.Text;
-                    cmd.Parameters.Add(new SqlParameter("fromDate", day.ToString("yyyy-MM-dd")));
-                    cmd.Parameters.Add(new SqlParameter("toDate", day.AddDays(1).ToString("yyyy-MM-dd")));
-                    using (var reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            result.Add(new StationDetailReport(reader));
-                        }
-                    }
-                }
-            }
-            return result;
-        }
-
-        public IEnumerable<StationDetailReport> Get超核算Stations(DateTime day)
-        {
-            var result = new List<StationDetailReport>();
-            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["membership"].ConnectionString))
-            {
-                conn.Open();
-                using (SqlCommand cmd = conn.CreateCommand())
-                {
-                    cmd.CommandText = 实际超核算Sql;
-                    cmd.CommandType = System.Data.CommandType.Text;
-                    cmd.Parameters.Add(new SqlParameter("fromDate", day.ToString("yyyy-MM-dd")));
-                    cmd.Parameters.Add(new SqlParameter("toDate", day.AddDays(1).ToString("yyyy-MM-dd")));
-                    using (var reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            result.Add(new StationDetailReport(reader));
-                        }
-                    }
-                }
-            }
-            return result;
-        }
-
-        public IEnumerable<StationDetailReport> GetExceed45Stations(DateTime day)
-        {
-            var result = new List<StationDetailReport>();
-            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["membership"].ConnectionString))
-            {
-                conn.Open();
-                using (SqlCommand cmd = conn.CreateCommand())
-                {
-                    cmd.CommandText = 回温Sql;
-                    cmd.CommandType = System.Data.CommandType.Text;
-                    cmd.Parameters.Add(new SqlParameter("fromDate", day.ToString("yyyy-MM-dd")));
-                    cmd.Parameters.Add(new SqlParameter("toDate", day.AddDays(1).ToString("yyyy-MM-dd")));
-                    using (var reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            result.Add(new StationDetailReport(reader));
-                        }
-                    }
-                }
-            }
-            return result;
-        }
+        
 
         public IEnumerable<RoomTemperature> GetRoomTemperature()
         {

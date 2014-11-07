@@ -39,6 +39,61 @@ line-height: 30px;'>
 
     <div id="validationErrorReport" class="alert alert-error hidden inline" style="display:inline">请填写“时间”。</div>
 </div>
+<div class="alert alert-info clearfix">
+    <div style="display:inline-block;float:left;position:relative;top:5px;"> 查询结果：数据 @Model.TotalCount 条。 每页显示：</div>
+    <ul class="nav nav-pills" id="pills" style="float:left;display:inline-block;margin-bottom:0;">
+        <li @if (Model.PageSize == 10) { <text> class="active" </text>     }>
+            @Html.ActionLink("10", "PreviewStationAnalize", new
+        {
+            reportType = Model.ReportTypeId,
+            dateFrom = Model.From.ToString("yyyy-MM-dd"),
+            dateTo = Model.To.ToString("yyyy-MM-dd"),
+            pageIndex = Model.PageIndex,
+            pageSize = 10,
+            companyId = Model.SelectedCompanyId,
+            managerShipId = Model.SelectedManagershipId,
+            热源 = Model.热源,
+            收费性质 = Model.收费性质,
+            是否重点站 = Model.是否重点站,
+            数据来源 = Model.数据来源
+        })
+                </li>
+                <li @if (Model.PageSize == 50) { <text> class="active" </text>     }>
+                    @Html.ActionLink("50", "PreviewStationAnalize", new
+        {
+            reportType = Model.ReportTypeId,
+            dateFrom = Model.From.ToString("yyyy-MM-dd"),
+            dateTo = Model.To.ToString("yyyy-MM-dd"),
+            pageIndex = Model.PageIndex,
+            pageSize = 50,
+            companyId = Model.SelectedCompanyId,
+            managerShipId = Model.SelectedManagershipId,
+            热源 = Model.热源,
+            收费性质 = Model.收费性质,
+            是否重点站 = Model.是否重点站,
+            数据来源 = Model.数据来源
+        })
+                </li>
+                <li @if (Model.PageSize == 100) { <text> class="active" </text>     }>
+                    @Html.ActionLink("100", "PreviewStationAnalize", new
+        {
+            reportType = Model.ReportTypeId,
+            dateFrom = Model.From.ToString("yyyy-MM-dd"),
+            dateTo = Model.To.ToString("yyyy-MM-dd"),
+            pageIndex = Model.PageIndex,
+            pageSize = 100,
+            companyId = Model.SelectedCompanyId,
+            managerShipId = Model.SelectedManagershipId,
+            热源 = Model.热源,
+            收费性质 = Model.收费性质,
+            是否重点站 = Model.是否重点站,
+            数据来源 = Model.数据来源
+        })
+        </li>
+    </ul>
+</div>
+
+
 <div class="scrollableTableContainer">
     @{
         <table class="table  table-bordered table-hover  table-condensed table-clickhighlight datatable" style="background:white">
@@ -122,6 +177,105 @@ line-height: 30px;'>
     }
 </div>
 
+
+<div class="row-fluid">
+    <div class="pagination pagination-centered">
+        <ul>
+
+            @if (Model.PageIndex >= 10)
+            {
+                <li>
+                    @Html.ActionLink("« 前十页", "PreviewStationAnalize", new
+           {
+               reportType = Model.ReportTypeId,
+               dateFrom = Model.From.ToString("yyyy-MM-dd"),
+               dateTo = Model.To.ToString("yyyy-MM-dd"),
+               pageIndex = Model.PageIndex - 10,
+               pageSize = Model.PageSize,
+               companyId = Model.SelectedCompanyId,
+               managerShipId = Model.SelectedManagershipId,
+               热源 = Model.热源,
+               收费性质 = Model.收费性质,
+               是否重点站 = Model.是否重点站,
+               数据来源 = Model.数据来源
+           })
+            </li>
+            }
+            <li>
+                @Html.ActionLink("« 上一页", "PreviewStationAnalize", new
+  {
+      reportType = Model.ReportTypeId,
+      dateFrom = Model.From.ToString("yyyy-MM-dd"),
+      dateTo = Model.To.ToString("yyyy-MM-dd"),
+      pageIndex = Model.PageIndex - 1,
+      pageSize = Model.PageSize,
+      companyId = Model.SelectedCompanyId,
+      managerShipId = Model.SelectedManagershipId,
+      热源 = Model.热源,
+      收费性质 = Model.收费性质,
+      是否重点站 = Model.是否重点站,
+      数据来源 = Model.数据来源
+  })
+        </li>
+        @for (int i = Model.PageIndex / 10 * 10; (i < Model.PageIndex / 10 * 10 + 10) && i < Model.TotalPages; i++)
+        {
+            <li @if (Model.PageIndex == i) { <text> class="active" </text>  }>
+
+                @Html.ActionLink((i + 1).ToString(), "PreviewStationAnalize", new
+           {
+               reportType = Model.ReportTypeId,
+               dateFrom = Model.From.ToString("yyyy-MM-dd"),
+               dateTo = Model.To.ToString("yyyy-MM-dd"),
+               pageIndex = i,
+               pageSize = Model.PageSize,
+               companyId = Model.SelectedCompanyId,
+               managerShipId = Model.SelectedManagershipId,
+               热源 = Model.热源,
+               收费性质 = Model.收费性质,
+               是否重点站 = Model.是否重点站,
+               数据来源 = Model.数据来源
+           })
+            </li>
+        }
+        <li>
+            @Html.ActionLink("下一页 »", "PreviewStationAnalize", new
+ {
+     reportType = Model.ReportTypeId,
+     dateFrom = Model.From.ToString("yyyy-MM-dd"),
+     dateTo = Model.To.ToString("yyyy-MM-dd"),
+     pageIndex = Model.PageIndex +1,
+     pageSize = Model.PageSize,
+     companyId = Model.SelectedCompanyId,
+     managerShipId = Model.SelectedManagershipId,
+     热源 = Model.热源,
+     收费性质 = Model.收费性质,
+     是否重点站 = Model.是否重点站,
+     数据来源 = Model.数据来源
+ })
+    </li>
+    @if (Model.PageIndex < Model.TotalPages - 10)
+    {
+        <li>
+            @Html.ActionLink("后十页 »", "PreviewStationAnalize", new
+           {
+               reportType = Model.ReportTypeId,
+               dateFrom = Model.From.ToString("yyyy-MM-dd"),
+               dateTo = Model.To.ToString("yyyy-MM-dd"),
+               pageIndex = (Model.PageIndex / 10 + 1) * 10,
+               pageSize = Model.PageSize,
+               companyId = Model.SelectedCompanyId,
+               managerShipId = Model.SelectedManagershipId,
+               热源 = Model.热源,
+               收费性质 = Model.收费性质,
+               是否重点站 = Model.是否重点站,
+               数据来源 = Model.数据来源
+           })
+    </li>
+    }
+
+</ul>
+</div>
+</div>
 
 <script>
     $(function () {

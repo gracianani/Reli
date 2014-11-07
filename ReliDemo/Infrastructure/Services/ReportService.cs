@@ -11,6 +11,37 @@ namespace ReliDemo.Infrastructure.Services
     public class ReportService
     {
         private xz2013Entities db = new xz2013Entities();
+        public string 回温Sql = @"select a.*,b.*
+                                 from 
+                                (select 
+	                                a.itemid,
+	                                a.[热力站名称],
+	                                a.spcname,
+	                                a.[管理单位],
+	                                a.公司,
+	                                a.[参考热指标],
+	                                a.[数据来源],
+	                                a.[是否重点站] ,
+	                                a.[收费性质],
+	                                a.[生产热源], 
+	                                a.GJ_Limit,
+	                                AVG(c.[一次回温]) as 一次回温平均 ,
+	                                avg(c.[一次供温]) as 一次供温平均,
+	                                avg(c.[一次供压]) as 一次供压平均,
+	                                avg(c.[一次回压]) as 一次回压平均
+	                                from stations a 
+	                                join Station1stHistory c on c.热力站ID = a.itemId and c.时间 >= @fromDate and c.时间 < @toDate
+	                                where  
+		                                c.总瞬时流量<3000 and 
+		                                c.总累计热量<(c.总累计流量*2) and 
+		                                c.[一次回温]>45 and 
+		                                c.[一次回温]<900 and 
+		                                (a.[生产热源ID]=1 or a.[生产热源ID]=22)
+	                                GROUP BY a.spcname,a.[热力站名称],a.itemid,a.[管理单位],a.公司,a.[参考热指标],a.[数据来源],a.[是否重点站] ,a.[收费性质],a.[生产热源],a.GJ_Limit
+	                                )a
+                                join StationAccuHistory b on a.itemid=b.热力站ID and b.日期=@fromDate  
+                                where b.采暖GJ < a.GJ_Limit
+                                order by a.itemid";
 
         public List<DailyReportItem> GetDailyReportData(DateTime fromDate, DateTime toDate, int 是否重点站, string 热源, string 收费性质, string 数据来源)
         {
@@ -134,10 +165,12 @@ namespace ReliDemo.Infrastructure.Services
             return result;
         }
 
-        public List<StationAnalizeReportItem> GetStationAnalizeReportData(DateTime fromDate, DateTime toDate, int 是否重点站 = 2, string 热源 = "ALL", string 收费性质 = "ALL", string 数据来源 = "ALL",
+        public List<StationAnalizeReportItem> GetStationAnalizeReportData(DateTime fromDate, DateTime toDate, int startIndex, int pageSize, out int total, int 是否重点站 = 2, string 热源 = "ALL", string 收费性质 = "ALL", 
+            string 数据来源 = "ALL",
             int companyId = -1, int managershipId = -1)
         {
             var result = new List<StationAnalizeReportItem>();
+            total = 0;
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["membership"].ConnectionString))
             {
                 conn.Open();
@@ -153,6 +186,8 @@ namespace ReliDemo.Infrastructure.Services
                     cmd.Parameters.Add(new SqlParameter("收费性质", 收费性质));
                     cmd.Parameters.Add(new SqlParameter("是否重点站", 是否重点站));
                     cmd.Parameters.Add(new SqlParameter("数据来源", 数据来源));
+                    cmd.Parameters.Add(new SqlParameter("rowNumber", startIndex * pageSize + 1));
+                    cmd.Parameters.Add(new SqlParameter("pageSize", pageSize));
                     using (var reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
@@ -207,13 +242,146 @@ namespace ReliDemo.Infrastructure.Services
 
                             result.Add(stationAnalizeReportItem);
                         }
+
+                        if (reader.NextResult())
+                        {
+                            reader.Read();
+                            total = reader.GetInt32(0);
+                        }
                     }
                 }
 
             }
             return result;
         }
+        public IEnumerable<StationDetailReport> GetDailyReport(DateTime day, int startIndex, int pageSize, out int total)
+        {
+            var result = new List<StationDetailReport>();
+            total = 0;
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["membership"].ConnectionString))
+            {
+                conn.Open();
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "[Proc_Rpt_总明细]";
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter("start_date", day.ToString("yyyy-MM-dd")));
+                    cmd.Parameters.Add(new SqlParameter("end_date", day.AddDays(1).ToString("yyyy-MM-dd")));
+                    cmd.Parameters.Add(new SqlParameter("rowNumber", startIndex * pageSize+ 1));
+                    cmd.Parameters.Add(new SqlParameter("pageSize", pageSize));
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            result.Add(new StationDetailReport(reader));
+                        }
+                        if (reader.NextResult())
+                        {
+                            reader.Read();
+                            total = reader.GetInt32(0);
+                        }
+                    }
+                }
+            }
+            return result;
+        }
 
+
+        public IEnumerable<StationDetailReport> GetFailureStations(DateTime day, int startIndex, int pageSize, out int total)
+        {
+            var result = new List<StationDetailReport>();
+            total = 0;
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["membership"].ConnectionString))
+            {
+                conn.Open();
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "[Proc_Rpt_故障明细]";
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter("start_date", day.ToString("yyyy-MM-dd")));
+                    cmd.Parameters.Add(new SqlParameter("end_date", day.AddDays(1).ToString("yyyy-MM-dd")));
+                    cmd.Parameters.Add(new SqlParameter("rowNumber", startIndex * pageSize + 1));
+                    cmd.Parameters.Add(new SqlParameter("pageSize", pageSize));
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            result.Add(new StationDetailReport(reader));
+                        }
+                        if (reader.NextResult())
+                        {
+                            reader.Read();
+                            total = reader.GetInt32(0);
+                        }
+                    }
+                }
+            }
+            return result;
+        }
+
+        public IEnumerable<StationDetailReport> Get超核算Stations(DateTime day, int startIndex, int pageSize, out int total)
+        {
+            var result = new List<StationDetailReport>();
+            total = 0;
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["membership"].ConnectionString))
+            {
+                conn.Open();
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "[Proc_Rpt_实际超核算明细]";
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter("start_date", day.ToString("yyyy-MM-dd")));
+                    cmd.Parameters.Add(new SqlParameter("end_date", day.AddDays(1).ToString("yyyy-MM-dd")));
+                    cmd.Parameters.Add(new SqlParameter("rowNumber", startIndex * pageSize + 1));
+                    cmd.Parameters.Add(new SqlParameter("pageSize", pageSize));
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            result.Add(new StationDetailReport(reader));
+                        }
+                        if (reader.NextResult())
+                        {
+                            reader.Read();
+                            total = reader.GetInt32(0);
+                        }
+                    }
+                }
+            }
+            return result;
+        }
+
+        public IEnumerable<StationDetailReport> GetExceed45Stations(DateTime day, int startIndex, int pageSize, out int total)
+        {
+            var result = new List<StationDetailReport>();
+            total = 0;
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["membership"].ConnectionString))
+            {
+                conn.Open();
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "[dbo].[Proc_Rpt_回温超标明细]";
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter("start_date", day.ToString("yyyy-MM-dd")));
+                    cmd.Parameters.Add(new SqlParameter("end_date", day.AddDays(1).ToString("yyyy-MM-dd")));
+                    cmd.Parameters.Add(new SqlParameter("rowNumber", startIndex * pageSize + 1));
+                    cmd.Parameters.Add(new SqlParameter("pageSize", pageSize));
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            result.Add(new StationDetailReport(reader));
+                        } 
+                        if (reader.NextResult())
+                        {
+                            reader.Read();
+                            total = reader.GetInt32(0);
+                        }
+                    }
+                }
+            }
+            return result;
+        }
     }
 
 }

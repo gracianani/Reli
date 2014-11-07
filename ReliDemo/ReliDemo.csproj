@@ -210,7 +210,6 @@
     <Compile Include="Models\Reports\DailyProductionReport.cs" />
     <Compile Include="Models\Reports\DailyReport.cs" />
     <Compile Include="Models\Reports\DetailReport.cs" />
-    <Compile Include="Models\Reports\GeneralAnalizeReport.cs" />
     <Compile Include="Models\Reports\HeatConsumptionDetailsReport.cs" />
     <Compile Include="Models\Reports\HeatConsumptionReportBase.cs" />
     <Compile Include="Models\Reports\HeatConsumptionSummaryReport.cs" />
@@ -267,6 +266,7 @@
   <ItemGroup>
     <Content Include="App_Data\1-addRepots.sql" />
     <Content Include="App_Data\2-modifyReports.sql" />
+    <Content Include="App_Data\3-remodifyReport.sql" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />

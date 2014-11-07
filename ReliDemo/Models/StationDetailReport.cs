@@ -46,6 +46,10 @@ namespace ReliDemo.Models
 
         internal StationDetailReport(IDataReader reader)
         {
+            if (reader.IsDBNull(reader.GetOrdinal("收费性质")) || reader.IsDBNull(reader.GetOrdinal("参考热指标")) || reader.IsDBNull(reader.GetOrdinal("数据来源")) || 
+                reader.IsDBNull(reader.GetOrdinal("是否重点站"))) {
+                return;
+            }
             热力站名称 = reader.GetString(reader.GetOrdinal("热力站名称"));
             管理单位 = reader.GetString(reader.GetOrdinal("管理单位"));
             公司 = reader.GetString(reader.GetOrdinal("公司"));

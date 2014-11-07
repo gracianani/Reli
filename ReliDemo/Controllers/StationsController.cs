@@ -164,7 +164,7 @@ namespace ReliDemo.Controllers
         public ActionResult Statistics(string searchSpan="yesterday", string date_customday="", string daterange="",string stat ="", int startIndex = 0, int pageSize = 10,
              string 热源="ALL", int? companies = null, int? managerships = null,
             int? 实际比核算From = null, int? 实际比核算To = null, int? 实际比计划From = null, int? 实际比计划To = null,
-            string 收费性质="", int 是否重点站=2, string 数据来源="")
+            string 收费性质="", int 是否重点站=2, string 数据来源="ALL")
         {
             int selectedSearchMethod = 1;
             DateTime fromdate = DateTime.Today;

@@ -3,69 +3,52 @@
 }
 
 <h2>常用报表</h2>
-<!-- <div class="clearfix form-inline">
-	<label>请选择报表时间</label>
-	<div class="input-append date" >
-        <span class="add-on"><i class="icon-calendar"></i></span>
-        <input type="text" class="form-control date-picker input-small" id="report-date" name="report-date" data-date-format="yyyy-mm-dd" data-provide="datepicker-inline" />
-
-        <input type="text" class="form-control date-picker input-small" id="report-todate" name="report-todate" data-date-format="yyyy-mm-dd" data-provide="datepicker-inline" />
-
-        <select id="stationanalize_company" class="span3">
-            <option value="0">创合</option>
-            <option value="4">特力昆</option>
-            <option value="5">天禹</option>
-            <option value="6">销售</option>
-        </select>
-	</div>
-
-    <div id="validationErrorReport" class="alert alert-error hidden inline" style="display:inline">请填写“时间”。</div>
-</div>
-<hr />-->
+<h4>汇总报表</h4>
 <div class="row-fluid">
-    <a href="/Reports/PreviewTwo?reportType=21&date=2014-1-1" target="_blank" class="smallstat box" ondesktop="span3 noMarginLeft" ontablet="span6">
+    <a href="/Reports/PreviewStationAnalize?reportType=29&dateFrom=@ViewBag.报表默认开始时间&dateTo=@ViewBag.报表默认结束时间&companyId=-1" data-reporttype="29" data-reportbase="PreviewStationAnalize" target="_blank" class="smallstat box " ondesktop="span3" ontablet="span6 noMarginLeft">
+        <i class="icon-building crimson"></i>
+        <span class="title">站执行到位率统计</span>
+    </a>
+    <a href="/Reports/PreviewDaily?reportType=32&dateFrom=@ViewBag.报表默认开始时间&dateTo=@ViewBag.报表默认结束时间" data-reporttype="32" data-reportbase="PreviewDaily" target="_blank" class="smallstat box " ondesktop="span3" ontablet="span6">
+        <i class="icon-calendar darkGreen"></i>
+        <span class="title">各单位执行到位率统计(日)</span>
+    </a>
+    <a href="/Reports/PreviewCompletion?reportType=30&dateFrom=@ViewBag.报表默认开始时间&dateTo=@ViewBag.报表默认结束时间" data-reporttype="30" data-reportbase="PreviewCompletion" target="_blank" class="smallstat box " ondesktop="span3" ontablet="span6">
+        <i class="icon-calendar darkGreen"></i>
+        <span class="title">各单位执行到位率统计(汇总)</span>
+    </a>
+
+</div>
+<hr />
+<h4>每日统计</h4>
+<div class="row-fluid">
+    <a href="/Reports/PreviewTwo?reportType=21&date=@ViewBag.每日统计日期" target="_blank" class="smallstat box" ondesktop="span3 noMarginLeft" ontablet="span6">
         <i class="icon-tasks yellow"></i>
         <span class="title">有效监测站统计</span>
     </a>
-    <a href="/Reports/PreviewTwo?reportType=23&date=2014-1-1" target="_blank" class="smallstat box" ondesktop="span3 " ontablet="span6">
+    <a href="/Reports/PreviewTwo?reportType=23&date=@ViewBag.每日统计日期" target="_blank" class="smallstat box" ondesktop="span3 " ontablet="span6">
         <i class="icon-tasks yellow"></i>
         <span class="title">非重点站、计量收费站统计</span>
     </a>
 
 </div>
-<hr />
 <div class="row-fluid">
     
-    <a href="/Reports/Preview?reportType=26&date=2014-1-1" target="_blank" class="smallstat box" ondesktop="span3" ontablet="span6 noMarginLeft">
+    <a href="/Reports/Preview?reportType=26&date=@ViewBag.每日统计日期" target="_blank" class="smallstat box" ondesktop="span3" ontablet="span6 noMarginLeft">
         <i class="icon-list blue"></i>
         <span class="title">总明细</span>
     </a>
-    <a href="/Reports/Preview?reportType=27&date=2014-1-1" target="_blank" class="smallstat box " ondesktop="span3" ontablet="span6">
+    <a href="/Reports/Preview?reportType=27&date=@ViewBag.每日统计日期" target="_blank" class="smallstat box " ondesktop="span3" ontablet="span6">
         <i class="icon-search blue"></i>
         <span class="title">故障明细</span>
     </a>
-    <a href="/Reports/Preview?reportType=24&date=2014-1-1" target="_blank" class="smallstat box " ondesktop="span3" ontablet="span6">
+    <a href="/Reports/Preview?reportType=24&date=@ViewBag.每日统计日期" target="_blank" class="smallstat box " ondesktop="span3" ontablet="span6">
         <i class="icon-cog blue"></i>
         <span class="title">回温超标明细</span>
     </a>
-    <a href="/Reports/Preview?reportType=25&date=2014-1-1" target="_blank" class="smallstat box " ondesktop="span3" ontablet="span6">
+    <a href="/Reports/Preview?reportType=25&date=@ViewBag.每日统计日期" target="_blank" class="smallstat box " ondesktop="span3" ontablet="span6">
         <i class="icon-pencil blue"></i>
         <span class="title">实际超核算明细</span>
-    </a>
-</div>
-<hr />
-<div class="row-fluid">
-    <a href="/Reports/PreviewStationAnalize?reportType=29&dateFrom=2013-11-1&dateTo=2014-4-15" data-reporttype="29" data-reportbase="PreviewStationAnalize" target="_blank" class="smallstat box " ondesktop="span3" ontablet="span6 noMarginLeft">
-        <i class="icon-building crimson"></i>
-        <span class="title">热力站分析表</span>
-    </a>
-    <a href="/Reports/PreviewCompletion?reportType=30&dateFrom=2013-11-1&dateTo=2014-4-15" data-reporttype="30" data-reportbase="PreviewCompletion" target="_blank" class="smallstat box " ondesktop="span3" ontablet="span6">
-        <i class="icon-calendar darkGreen"></i>
-        <span class="title">公司到位率统计表</span>
-    </a>
-    <a href="/Reports/PreviewDaily?reportType=32&dateFrom=2013-11-1&dateTo=2014-4-15" data-reporttype="32" data-reportbase="PreviewDaily" target="_blank" class="smallstat box " ondesktop="span3" ontablet="span6">
-        <i class="icon-calendar darkGreen"></i>
-        <span class="title">一站一日一计划表</span>
     </a>
 </div>
 
