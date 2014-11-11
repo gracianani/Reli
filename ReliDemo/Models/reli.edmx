@@ -4,10 +4,10 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="xz2013_newModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl" Alias="Self" Namespace="xz2013_newModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008">
         <EntityContainer Name="xz2013_newModelStoreContainer">
-          <EntitySet Name="ChaoBiao" EntityType="xz2013_newModel.Store.ChaoBiao" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Companies" EntityType="xz2013_newModel.Store.Companies" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ChaoBiao" EntityType="xz2013_newModel.Store.ChaoBiao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Companies" EntityType="xz2013_newModel.Store.Companies" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CompanyHistoey" EntityType="xz2013_newModel.Store.CompanyHistoey" store:Type="Tables" store:Schema="dbo" store:Name="CompanyHistoey">
             <DefiningQuery>SELECT 
       [CompanyHistoey].[ItemID] AS [ItemID], 
@@ -43,21 +43,21 @@
       [CompanyHistoey].[核算多耗] AS [核算多耗]
       FROM [dbo].[CompanyHistoey] AS [CompanyHistoey]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="configuration" EntityType="xz2013_newModel.Store.configuration" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Constants" EntityType="xz2013_newModel.Store.Constants" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Customers" EntityType="xz2013_newModel.Store.Customers" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="HeatIndexAudit" EntityType="xz2013_newModel.Store.HeatIndexAudit" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="HeatSourceAccuHistory" EntityType="xz2013_newModel.Store.HeatSourceAccuHistory" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="heatsourceCapacity" EntityType="xz2013_newModel.Store.heatsourceCapacity" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="HeatSourceHistory" EntityType="xz2013_newModel.Store.HeatSourceHistory" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="HeatSourceRecent" EntityType="xz2013_newModel.Store.HeatSourceRecent" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="HeatSources" EntityType="xz2013_newModel.Store.HeatSources" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="RoomTemperature" EntityType="xz2013_newModel.Store.RoomTemperature" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Station1stHistory" EntityType="xz2013_newModel.Store.Station1stHistory" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Station2ndHistory" EntityType="xz2013_newModel.Store.Station2ndHistory" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Station2ndRecent" EntityType="xz2013_newModel.Store.Station2ndRecent" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="StationAccuHistory" EntityType="xz2013_newModel.Store.StationAccuHistory" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="StationIndex" EntityType="xz2013_newModel.Store.StationIndex" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="configuration" EntityType="xz2013_newModel.Store.configuration" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Constants" EntityType="xz2013_newModel.Store.Constants" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customers" EntityType="xz2013_newModel.Store.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HeatIndexAudit" EntityType="xz2013_newModel.Store.HeatIndexAudit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HeatSourceAccuHistory" EntityType="xz2013_newModel.Store.HeatSourceAccuHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="heatsourceCapacity" EntityType="xz2013_newModel.Store.heatsourceCapacity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HeatSourceHistory" EntityType="xz2013_newModel.Store.HeatSourceHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HeatSourceRecent" EntityType="xz2013_newModel.Store.HeatSourceRecent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HeatSources" EntityType="xz2013_newModel.Store.HeatSources" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoomTemperature" EntityType="xz2013_newModel.Store.RoomTemperature" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Station1stHistory" EntityType="xz2013_newModel.Store.Station1stHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Station2ndHistory" EntityType="xz2013_newModel.Store.Station2ndHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Station2ndRecent" EntityType="xz2013_newModel.Store.Station2ndRecent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StationAccuHistory" EntityType="xz2013_newModel.Store.StationAccuHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StationIndex" EntityType="xz2013_newModel.Store.StationIndex" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StationIndexHistory" EntityType="xz2013_newModel.Store.StationIndexHistory" store:Type="Tables" store:Schema="dbo" store:Name="StationIndexHistory">
             <DefiningQuery>SELECT 
       [StationIndexHistory].[ItemID] AS [ItemID], 
@@ -68,9 +68,9 @@
       [StationIndexHistory].[参考热指标] AS [参考热指标]
       FROM [dbo].[StationIndexHistory] AS [StationIndexHistory]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="StationManualInput" EntityType="xz2013_newModel.Store.StationManualInput" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Stations" EntityType="xz2013_newModel.Store.Stations" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="SubCompanies" EntityType="xz2013_newModel.Store.SubCompanies" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="StationManualInput" EntityType="xz2013_newModel.Store.StationManualInput" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stations" EntityType="xz2013_newModel.Store.Stations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubCompanies" EntityType="xz2013_newModel.Store.SubCompanies" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SubCompanyHistoey" EntityType="xz2013_newModel.Store.SubCompanyHistoey" store:Type="Tables" store:Schema="dbo" store:Name="SubCompanyHistoey">
             <DefiningQuery>SELECT 
       [SubCompanyHistoey].[ItemID] AS [ItemID], 
@@ -105,9 +105,9 @@
       [SubCompanyHistoey].[核算多耗] AS [核算多耗]
       FROM [dbo].[SubCompanyHistoey] AS [SubCompanyHistoey]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="T_HeatStation_Type" EntityType="xz2013_newModel.Store.T_HeatStation_Type" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="T_PRO_Day_Plan" EntityType="xz2013_newModel.Store.T_PRO_Day_Plan" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TemperatureAudit" EntityType="xz2013_newModel.Store.TemperatureAudit" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="T_HeatStation_Type" EntityType="xz2013_newModel.Store.T_HeatStation_Type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_PRO_Day_Plan" EntityType="xz2013_newModel.Store.T_PRO_Day_Plan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TemperatureAudit" EntityType="xz2013_newModel.Store.TemperatureAudit" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TotalNetHistory" EntityType="xz2013_newModel.Store.TotalNetHistory" store:Type="Tables" store:Schema="dbo" store:Name="TotalNetHistory">
             <DefiningQuery>SELECT 
       [TotalNetHistory].[ItemID] AS [ItemID], 
@@ -149,26 +149,26 @@
       [TotalNetIndexHistory].[年度] AS [年度]
       FROM [dbo].[TotalNetIndexHistory] AS [TotalNetIndexHistory]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="TotalNetRecent" EntityType="xz2013_newModel.Store.TotalNetRecent" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="users" EntityType="xz2013_newModel.Store.users" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Weather_0" EntityType="xz2013_newModel.Store.Weather_0" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="weather_1" EntityType="xz2013_newModel.Store.weather_1" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Weather_10" EntityType="xz2013_newModel.Store.Weather_10" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Weather_2" EntityType="xz2013_newModel.Store.Weather_2" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Weather_3" EntityType="xz2013_newModel.Store.Weather_3" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Weather_4" EntityType="xz2013_newModel.Store.Weather_4" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Weather_7" EntityType="xz2013_newModel.Store.Weather_7" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="webpages_Membership" EntityType="xz2013_newModel.Store.webpages_Membership" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="webpages_OAuthMembership" EntityType="xz2013_newModel.Store.webpages_OAuthMembership" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="webpages_Roles" EntityType="xz2013_newModel.Store.webpages_Roles" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="webpages_UsersInRoles" EntityType="xz2013_newModel.Store.webpages_UsersInRoles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TotalNetRecent" EntityType="xz2013_newModel.Store.TotalNetRecent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="xz2013_newModel.Store.users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Weather_0" EntityType="xz2013_newModel.Store.Weather_0" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="weather_1" EntityType="xz2013_newModel.Store.weather_1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Weather_10" EntityType="xz2013_newModel.Store.Weather_10" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Weather_2" EntityType="xz2013_newModel.Store.Weather_2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Weather_3" EntityType="xz2013_newModel.Store.Weather_3" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Weather_4" EntityType="xz2013_newModel.Store.Weather_4" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Weather_7" EntityType="xz2013_newModel.Store.Weather_7" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="webpages_Membership" EntityType="xz2013_newModel.Store.webpages_Membership" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="webpages_OAuthMembership" EntityType="xz2013_newModel.Store.webpages_OAuthMembership" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="webpages_Roles" EntityType="xz2013_newModel.Store.webpages_Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="webpages_UsersInRoles" EntityType="xz2013_newModel.Store.webpages_UsersInRoles" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="fk_RoleId" Association="xz2013_newModel.Store.fk_RoleId">
-            <End Role="webpages_Roles" EntitySet="webpages_Roles" />
-            <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+            <End EntitySet="webpages_Roles" Role="webpages_Roles" />
+            <End EntitySet="webpages_UsersInRoles" Role="webpages_UsersInRoles" />
           </AssociationSet>
           <AssociationSet Name="fk_UserId" Association="xz2013_newModel.Store.fk_UserId">
-            <End Role="users" EntitySet="users" />
-            <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+            <End EntitySet="users" Role="users" />
+            <End EntitySet="webpages_UsersInRoles" Role="webpages_UsersInRoles" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="ChaoBiao">
@@ -176,86 +176,86 @@
             <PropertyRef Name="itemId" />
           </Key>
           <Property Name="采集时间" Type="smalldatetime" />
-          <Property Name="生产编号" Type="nvarchar" MaxLength="50" />
-          <Property Name="站名" Type="nvarchar" MaxLength="250" />
-          <Property Name="供温" Type="decimal" Precision="5" Scale="1" />
-          <Property Name="供压" Type="decimal" Precision="5" Scale="2" />
-          <Property Name="回压" Type="decimal" Precision="5" Scale="2" />
-          <Property Name="回温" Type="decimal" Precision="5" Scale="1" />
-          <Property Name="累计流量" Type="decimal" Precision="10" />
-          <Property Name="瞬流" Type="decimal" Precision="8" Scale="1" />
-          <Property Name="瞬热" Type="decimal" Precision="8" Scale="1" />
-          <Property Name="流量差量" Type="decimal" Precision="8" />
-          <Property Name="累计热量" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="热量差量" Type="decimal" Precision="8" Scale="1" />
-          <Property Name="部门" Type="nvarchar" MaxLength="50" />
-          <Property Name="热指标" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="站内面积" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="管理方式" Type="nvarchar" MaxLength="10" />
-          <Property Name="管理单位" Type="nvarchar" MaxLength="250" />
-          <Property Name="有无生活水" Type="nvarchar" MaxLength="8" />
-          <Property Name="故障" Type="nvarchar" MaxLength="250" />
+          <Property Name="生产编号" MaxLength="50" Type="nvarchar" />
+          <Property Name="站名" MaxLength="250" Type="nvarchar" />
+          <Property Name="供温" Precision="5" Scale="1" Type="decimal" />
+          <Property Name="供压" Precision="5" Scale="2" Type="decimal" />
+          <Property Name="回压" Precision="5" Scale="2" Type="decimal" />
+          <Property Name="回温" Precision="5" Scale="1" Type="decimal" />
+          <Property Name="累计流量" Precision="10" Type="decimal" />
+          <Property Name="瞬流" Precision="8" Scale="1" Type="decimal" />
+          <Property Name="瞬热" Precision="8" Scale="1" Type="decimal" />
+          <Property Name="流量差量" Precision="8" Type="decimal" />
+          <Property Name="累计热量" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="热量差量" Precision="8" Scale="1" Type="decimal" />
+          <Property Name="部门" MaxLength="50" Type="nvarchar" />
+          <Property Name="热指标" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="站内面积" Precision="10" Scale="2" Type="decimal" />
+          <Property Name="管理方式" MaxLength="10" Type="nvarchar" />
+          <Property Name="管理单位" MaxLength="250" Type="nvarchar" />
+          <Property Name="有无生活水" MaxLength="8" Type="nvarchar" />
+          <Property Name="故障" MaxLength="250" Type="nvarchar" />
           <Property Name="time0" Type="smalldatetime" />
-          <Property Name="itemId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="itemId" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
         </EntityType>
         <EntityType Name="Companies">
           <Key>
             <PropertyRef Name="ItemID" />
           </Key>
-          <Property Name="ItemID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="公司" Type="nvarchar" MaxLength="250" />
-          <Property Name="备注" Type="nvarchar" MaxLength="250" />
-          <Property Name="总面积" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="计划供热面积" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="实际供热面积" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="计划停热面积" Type="decimal" Precision="12" Scale="2" StoreGeneratedPattern="Computed" />
-          <Property Name="实际停热面积" Type="decimal" Precision="12" Scale="2" StoreGeneratedPattern="Computed" />
+          <Property Name="ItemID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="公司" MaxLength="250" Type="nvarchar" />
+          <Property Name="备注" MaxLength="250" Type="nvarchar" />
+          <Property Name="总面积" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="计划供热面积" Precision="10" Scale="2" Type="decimal" />
+          <Property Name="实际供热面积" Precision="10" Scale="2" Type="decimal" />
+          <Property Name="计划停热面积" Precision="12" Scale="2" StoreGeneratedPattern="Computed" Type="decimal" />
+          <Property Name="实际停热面积" Precision="12" Scale="2" StoreGeneratedPattern="Computed" Type="decimal" />
           <Property Name="供暖季累计GJ" Type="int" />
-          <Property Name="今日累计GJ_JK" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="今日累计GJ" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="今日计划GJ_JK" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="今日计划GJ" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="万平方米流量" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="供暖季累计单耗" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="实际热指标" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="总瞬时流量" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="总瞬时热量" Type="decimal" Precision="8" Scale="1" />
-          <Property Name="今日计划Area" Type="decimal" Scale="2" />
-          <Property Name="今日投入Area" Type="decimal" Scale="2" />
-          <Property Name="核算热指标" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="预估采暖季热指标" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="Area_JK" Type="decimal" Scale="2" />
-          <Property Name="参考热指标" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="计划热指标" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="面积计划类别" Type="nvarchar" MaxLength="10" />
-          <Property Name="面积操作类型" Type="nvarchar" MaxLength="10" />
-          <Property Name="预估采暖季单耗" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="昨日累计GJ" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="昨日计划GJ" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="昨日计划热指标" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="昨日实际热指标" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="昨日核算热指标" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="昨日计划Area" Type="decimal" Scale="2" />
-          <Property Name="昨日投入Area" Type="decimal" Scale="2" />
-          <Property Name="截止昨日计划Area" Type="decimal" Scale="2" />
-          <Property Name="截止昨日实际Area" Type="decimal" Scale="2" />
-          <Property Name="昨日核算GJ_JK" Type="decimal" Precision="8" Scale="1" />
-          <Property Name="昨日核算GJ" Type="decimal" Scale="1" />
+          <Property Name="今日累计GJ_JK" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="今日累计GJ" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="今日计划GJ_JK" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="今日计划GJ" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="万平方米流量" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="供暖季累计单耗" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="实际热指标" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="总瞬时流量" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="总瞬时热量" Precision="8" Scale="1" Type="decimal" />
+          <Property Name="今日计划Area" Scale="2" Type="decimal" />
+          <Property Name="今日投入Area" Scale="2" Type="decimal" />
+          <Property Name="核算热指标" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="预估采暖季热指标" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="Area_JK" Scale="2" Type="decimal" />
+          <Property Name="参考热指标" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="计划热指标" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="面积计划类别" MaxLength="10" Type="nvarchar" />
+          <Property Name="面积操作类型" MaxLength="10" Type="nvarchar" />
+          <Property Name="预估采暖季单耗" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="昨日累计GJ" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="昨日计划GJ" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="昨日计划热指标" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="昨日实际热指标" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="昨日核算热指标" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="昨日计划Area" Scale="2" Type="decimal" />
+          <Property Name="昨日投入Area" Scale="2" Type="decimal" />
+          <Property Name="截止昨日计划Area" Scale="2" Type="decimal" />
+          <Property Name="截止昨日实际Area" Scale="2" Type="decimal" />
+          <Property Name="昨日核算GJ_JK" Precision="8" Scale="1" Type="decimal" />
+          <Property Name="昨日核算GJ" Scale="1" Type="decimal" />
           <Property Name="时间" Type="datetime" />
-          <Property Name="日单耗" Type="decimal" Precision="8" Scale="4" />
-          <Property Name="昨日累计GJ_JK" Type="decimal" Scale="1" />
-          <Property Name="昨日计划GJ_JK" Type="decimal" Scale="1" />
+          <Property Name="日单耗" Precision="8" Scale="4" Type="decimal" />
+          <Property Name="昨日累计GJ_JK" Scale="1" Type="decimal" />
+          <Property Name="昨日计划GJ_JK" Scale="1" Type="decimal" />
           <Property Name="预计全天GJ" Type="decimal" />
-          <Property Name="供暖季累计单耗_JK" Type="decimal" Precision="8" Scale="4" />
-          <Property Name="预估采暖季单耗_JK" Type="decimal" Precision="8" Scale="4" />
+          <Property Name="供暖季累计单耗_JK" Precision="8" Scale="4" Type="decimal" />
+          <Property Name="预估采暖季单耗_JK" Precision="8" Scale="4" Type="decimal" />
           <Property Name="供暖季累计GJ_JK" Type="int" />
-          <Property Name="实际热指标_JK" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="实际热指标_JK" Precision="8" Scale="2" Type="decimal" />
           <Property Name="有效监控站数" Type="int" />
           <Property Name="总站数" Type="int" />
-          <Property Name="Area_JK_YD" Type="decimal" Scale="2" />
-          <Property Name="A_Valid" Type="decimal" Scale="2" />
-          <Property Name="计划多耗" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="核算多耗" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="Area_JK_YD" Scale="2" Type="decimal" />
+          <Property Name="A_Valid" Scale="2" Type="decimal" />
+          <Property Name="计划多耗" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="核算多耗" Precision="8" Scale="2" Type="decimal" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'xz2013.dbo.CompanyHistoey' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -264,47 +264,47 @@
           <Key>
             <PropertyRef Name="ItemID" />
           </Key>
-          <Property Name="ItemID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ItemID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
           <Property Name="日期" Type="date" />
           <Property Name="公司ID" Type="int" />
-          <Property Name="总面积" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="计划供热面积" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="实际供热面积" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="计划停热面积" Type="decimal" Precision="12" Scale="2" StoreGeneratedPattern="Computed" />
-          <Property Name="实际停热面积" Type="decimal" Precision="12" Scale="2" StoreGeneratedPattern="Computed" />
-          <Property Name="今日累计GJ_JK" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="今日累计GJ" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="今日计划GJ_JK" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="今日计划GJ" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="万平方米流量" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="总瞬时流量_JK" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="总瞬时流量" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="总瞬时热量_JK" Type="decimal" Precision="8" Scale="1" />
-          <Property Name="总瞬时热量" Type="decimal" Precision="8" Scale="1" />
-          <Property Name="核算GJ_JK" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="核算GJ" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="实际热指标_JK" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="实际热指标_M" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="实际热指标" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="核算热指标" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="计划热指标" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="今日计划Area" Type="decimal" Scale="2" />
-          <Property Name="今日投入Area" Type="decimal" Scale="2" />
-          <Property Name="面积计划类别" Type="nvarchar" MaxLength="10" />
-          <Property Name="面积操作类型" Type="nvarchar" MaxLength="10" />
-          <Property Name="日单耗" Type="decimal" Precision="8" Scale="4" />
-          <Property Name="计划多耗" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="核算多耗" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="总面积" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="计划供热面积" Precision="10" Scale="2" Type="decimal" />
+          <Property Name="实际供热面积" Precision="10" Scale="2" Type="decimal" />
+          <Property Name="计划停热面积" Precision="12" Scale="2" StoreGeneratedPattern="Computed" Type="decimal" />
+          <Property Name="实际停热面积" Precision="12" Scale="2" StoreGeneratedPattern="Computed" Type="decimal" />
+          <Property Name="今日累计GJ_JK" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="今日累计GJ" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="今日计划GJ_JK" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="今日计划GJ" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="万平方米流量" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="总瞬时流量_JK" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="总瞬时流量" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="总瞬时热量_JK" Precision="8" Scale="1" Type="decimal" />
+          <Property Name="总瞬时热量" Precision="8" Scale="1" Type="decimal" />
+          <Property Name="核算GJ_JK" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="核算GJ" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="实际热指标_JK" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="实际热指标_M" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="实际热指标" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="核算热指标" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="计划热指标" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="今日计划Area" Scale="2" Type="decimal" />
+          <Property Name="今日投入Area" Scale="2" Type="decimal" />
+          <Property Name="面积计划类别" MaxLength="10" Type="nvarchar" />
+          <Property Name="面积操作类型" MaxLength="10" Type="nvarchar" />
+          <Property Name="日单耗" Precision="8" Scale="4" Type="decimal" />
+          <Property Name="计划多耗" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="核算多耗" Precision="8" Scale="2" Type="decimal" />
         </EntityType>
         <EntityType Name="configuration">
           <Key>
             <PropertyRef Name="configurationId" />
           </Key>
-          <Property Name="configurationId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="比计划多耗超标线" Type="decimal" Nullable="false" Precision="10" Scale="2" />
-          <Property Name="比核算多耗超标线" Type="decimal" Nullable="false" Precision="10" Scale="2" />
-          <Property Name="回温超标线" Type="decimal" Nullable="false" Precision="10" Scale="2" />
-          <Property Name="流量超标线" Type="decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="configurationId" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="比计划多耗超标线" Nullable="false" Precision="10" Scale="2" Type="decimal" />
+          <Property Name="比核算多耗超标线" Nullable="false" Precision="10" Scale="2" Type="decimal" />
+          <Property Name="回温超标线" Nullable="false" Precision="10" Scale="2" Type="decimal" />
+          <Property Name="流量超标线" Nullable="false" Precision="10" Scale="2" Type="decimal" />
         </EntityType>
         <EntityType Name="Constants">
           <Key>
@@ -312,11 +312,11 @@
           </Key>
           <Property Name="起始供热时间" Type="date" />
           <Property Name="结束供热时间" Type="date" />
-          <Property Name="燃气热价" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="燃煤热价" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="燃油热价" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="燃气热价" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="燃煤热价" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="燃油热价" Precision="6" Scale="2" Type="decimal" />
           <Property Name="Accu_time" Type="date" />
-          <Property Name="ItemId" Type="int" Nullable="false" />
+          <Property Name="ItemId" Nullable="false" Type="int" />
           <Property Name="PlanStart" Type="int" />
           <Property Name="OperationStart" Type="int" />
           <Property Name="inCainuan" Type="int" />
@@ -326,27 +326,27 @@
           <Key>
             <PropertyRef Name="ItemID" />
           </Key>
-          <Property Name="ItemID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="收费编号" Type="nvarchar" MaxLength="50" />
-          <Property Name="生产编号" Type="nvarchar" MaxLength="50" />
-          <Property Name="用户名称" Type="nvarchar" MaxLength="250" />
-          <Property Name="公司地址" Type="nvarchar" MaxLength="250" />
-          <Property Name="用热地址" Type="nvarchar" MaxLength="250" />
-          <Property Name="用户类型" Type="nvarchar" MaxLength="50" />
-          <Property Name="收费性质" Type="nvarchar" MaxLength="50" />
-          <Property Name="A面积" Type="decimal" Nullable="false" Scale="2" />
-          <Property Name="A超面积" Type="decimal" Nullable="false" Scale="2" />
-          <Property Name="B面积" Type="decimal" Nullable="false" Scale="2" />
-          <Property Name="B超面积" Type="decimal" Nullable="false" Scale="2" />
-          <Property Name="A轻体" Type="decimal" Nullable="false" Scale="2" />
-          <Property Name="B轻体" Type="decimal" Nullable="false" Scale="2" />
-          <Property Name="有无热水" Type="bit" Nullable="false" />
-          <Property Name="已销户" Type="bit" Nullable="false" />
-          <Property Name="重点用户" Type="nvarchar" MaxLength="20" />
-          <Property Name="帐套性质" Type="nvarchar" MaxLength="50" />
-          <Property Name="热水收费性质" Type="nvarchar" MaxLength="50" />
+          <Property Name="ItemID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="收费编号" MaxLength="50" Type="nvarchar" />
+          <Property Name="生产编号" MaxLength="50" Type="nvarchar" />
+          <Property Name="用户名称" MaxLength="250" Type="nvarchar" />
+          <Property Name="公司地址" MaxLength="250" Type="nvarchar" />
+          <Property Name="用热地址" MaxLength="250" Type="nvarchar" />
+          <Property Name="用户类型" MaxLength="50" Type="nvarchar" />
+          <Property Name="收费性质" MaxLength="50" Type="nvarchar" />
+          <Property Name="A面积" Nullable="false" Scale="2" Type="decimal" />
+          <Property Name="A超面积" Nullable="false" Scale="2" Type="decimal" />
+          <Property Name="B面积" Nullable="false" Scale="2" Type="decimal" />
+          <Property Name="B超面积" Nullable="false" Scale="2" Type="decimal" />
+          <Property Name="A轻体" Nullable="false" Scale="2" Type="decimal" />
+          <Property Name="B轻体" Nullable="false" Scale="2" Type="decimal" />
+          <Property Name="有无热水" Nullable="false" Type="bit" />
+          <Property Name="已销户" Nullable="false" Type="bit" />
+          <Property Name="重点用户" MaxLength="20" Type="nvarchar" />
+          <Property Name="帐套性质" MaxLength="50" Type="nvarchar" />
+          <Property Name="热水收费性质" MaxLength="50" Type="nvarchar" />
           <Property Name="热力站ID" Type="int" />
-          <Property Name="热力站名称" Type="nvarchar" MaxLength="250" />
+          <Property Name="热力站名称" MaxLength="250" Type="nvarchar" />
           <Property Name="DevItemId" Type="int" />
           <Property Name="DevStationId" Type="int" />
         </EntityType>
@@ -354,20 +354,20 @@
           <Key>
             <PropertyRef Name="HeatIndexAutidId" />
           </Key>
-          <Property Name="HeatIndexAutidId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="热力站ID" Type="int" Nullable="false" />
-          <Property Name="参考热指标" Type="decimal" Nullable="false" Precision="8" Scale="2" />
-          <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
-          <Property Name="UpdatedByUserId" Type="int" Nullable="false" />
+          <Property Name="HeatIndexAutidId" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="热力站ID" Nullable="false" Type="int" />
+          <Property Name="参考热指标" Nullable="false" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="UpdatedAt" Nullable="false" Type="datetime" />
+          <Property Name="UpdatedByUserId" Nullable="false" Type="int" />
         </EntityType>
         <EntityType Name="HeatSourceAccuHistory">
           <Key>
             <PropertyRef Name="ItemID" />
           </Key>
-          <Property Name="ItemID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="日期" Type="date" Nullable="false" />
-          <Property Name="生产热源ID" Type="int" Nullable="false" />
-          <Property Name="日累计热量" Type="decimal" Precision="10" />
+          <Property Name="ItemID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="日期" Nullable="false" Type="date" />
+          <Property Name="生产热源ID" Nullable="false" Type="int" />
+          <Property Name="日累计热量" Precision="10" Type="decimal" />
           <Property Name="机组号" Type="int" />
           <Property Name="今日热价" Type="money" />
           <Property Name="供暖季GJ" Type="int" />
@@ -377,7 +377,7 @@
           <Key>
             <PropertyRef Name="ItemId" />
           </Key>
-          <Property Name="ItemId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ItemId" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
           <Property Name="生产热源ID" Type="int" />
           <Property Name="供热能力GJ" Type="int" />
           <Property Name="已出力GJ" Type="int" />
@@ -386,80 +386,80 @@
           <Key>
             <PropertyRef Name="ItemID" />
           </Key>
-          <Property Name="ItemID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ItemID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
           <Property Name="生产热源ID" Type="int" />
           <Property Name="机组号" Type="int" />
           <Property Name="时间" Type="smalldatetime" />
-          <Property Name="供温" Type="decimal" Precision="8" Scale="1" />
-          <Property Name="回温" Type="decimal" Precision="8" Scale="1" />
-          <Property Name="供压" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="回压" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="供温" Precision="8" Scale="1" Type="decimal" />
+          <Property Name="回温" Precision="8" Scale="1" Type="decimal" />
+          <Property Name="供压" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="回压" Precision="8" Scale="2" Type="decimal" />
           <Property Name="累计供水流量" Type="int" />
           <Property Name="累计供水热量" Type="int" />
           <Property Name="累计热量" Type="int" />
-          <Property Name="瞬时供水流量" Type="decimal" Precision="8" Scale="1" />
-          <Property Name="瞬时供水热量" Type="decimal" Precision="8" Scale="1" />
-          <Property Name="瞬时热量" Type="decimal" Precision="8" Scale="1" />
-          <Property Name="瞬时补水量" Type="decimal" Precision="8" Scale="1" />
+          <Property Name="瞬时供水流量" Precision="8" Scale="1" Type="decimal" />
+          <Property Name="瞬时供水热量" Precision="8" Scale="1" Type="decimal" />
+          <Property Name="瞬时热量" Precision="8" Scale="1" Type="decimal" />
+          <Property Name="瞬时补水量" Precision="8" Scale="1" Type="decimal" />
           <Property Name="累计补水量" Type="int" />
           <Property Name="累计回水流量" Type="int" />
-          <Property Name="瞬时回水流量" Type="decimal" Precision="8" Scale="1" />
-          <Property Name="累计回水热量" Type="int" StoreGeneratedPattern="Computed" />
-          <Property Name="瞬时回水热量" Type="decimal" Precision="9" Scale="1" StoreGeneratedPattern="Computed" />
+          <Property Name="瞬时回水流量" Precision="8" Scale="1" Type="decimal" />
+          <Property Name="累计回水热量" StoreGeneratedPattern="Computed" Type="int" />
+          <Property Name="瞬时回水热量" Precision="9" Scale="1" StoreGeneratedPattern="Computed" Type="decimal" />
           <Property Name="今日GJ" Type="int" />
         </EntityType>
         <EntityType Name="HeatSourceRecent">
           <Key>
             <PropertyRef Name="ItemID" />
           </Key>
-          <Property Name="ItemID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ItemID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
           <Property Name="生产热源ID" Type="int" />
-          <Property Name="机组名" Type="nvarchar" MaxLength="250" />
+          <Property Name="机组名" MaxLength="250" Type="nvarchar" />
           <Property Name="机组号" Type="int" />
-          <Property Name="热源名称" Type="nvarchar" MaxLength="100" />
-          <Property Name="供温" Type="decimal" Precision="8" Scale="1" />
-          <Property Name="回温" Type="decimal" Precision="8" Scale="1" />
-          <Property Name="供压" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="回压" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="热源名称" MaxLength="100" Type="nvarchar" />
+          <Property Name="供温" Precision="8" Scale="1" Type="decimal" />
+          <Property Name="回温" Precision="8" Scale="1" Type="decimal" />
+          <Property Name="供压" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="回压" Precision="8" Scale="2" Type="decimal" />
           <Property Name="累计供水流量" Type="int" />
           <Property Name="累计供水热量" Type="int" />
           <Property Name="累计热量" Type="int" />
-          <Property Name="瞬时供水流量" Type="decimal" Precision="8" Scale="1" />
-          <Property Name="瞬时供水热量" Type="decimal" Precision="8" Scale="1" />
-          <Property Name="瞬时热量" Type="decimal" Precision="8" Scale="1" />
-          <Property Name="瞬时补水量" Type="decimal" Precision="8" Scale="1" />
+          <Property Name="瞬时供水流量" Precision="8" Scale="1" Type="decimal" />
+          <Property Name="瞬时供水热量" Precision="8" Scale="1" Type="decimal" />
+          <Property Name="瞬时热量" Precision="8" Scale="1" Type="decimal" />
+          <Property Name="瞬时补水量" Precision="8" Scale="1" Type="decimal" />
           <Property Name="累计补水量" Type="int" />
           <Property Name="累计回水流量" Type="int" />
-          <Property Name="瞬时回水流量" Type="decimal" Precision="8" Scale="1" />
-          <Property Name="累计回水热量" Type="int" StoreGeneratedPattern="Computed" />
-          <Property Name="瞬时回水热量" Type="decimal" Precision="9" Scale="1" StoreGeneratedPattern="Computed" />
-          <Property Name="今日GJ" Type="int" Nullable="false" />
-          <Property Name="昨日GJ" Type="int" Nullable="false" />
+          <Property Name="瞬时回水流量" Precision="8" Scale="1" Type="decimal" />
+          <Property Name="累计回水热量" StoreGeneratedPattern="Computed" Type="int" />
+          <Property Name="瞬时回水热量" Precision="9" Scale="1" StoreGeneratedPattern="Computed" Type="decimal" />
+          <Property Name="今日GJ" Nullable="false" Type="int" />
+          <Property Name="昨日GJ" Nullable="false" Type="int" />
           <Property Name="今日表底GJ" Type="int" />
           <Property Name="采集时间" Type="smalldatetime" />
           <Property Name="upFlag" Type="smallint" />
           <Property Name="供暖季GJ" Type="int" />
           <Property Name="dirFlag" Type="smallint" />
           <Property Name="单价" Type="smallmoney" />
-          <Property Name="今日热价" Type="money" StoreGeneratedPattern="Computed" />
-          <Property Name="昨日热价" Type="money" StoreGeneratedPattern="Computed" />
-          <Property Name="供暖季热价" Type="money" StoreGeneratedPattern="Computed" />
+          <Property Name="今日热价" StoreGeneratedPattern="Computed" Type="money" />
+          <Property Name="昨日热价" StoreGeneratedPattern="Computed" Type="money" />
+          <Property Name="供暖季热价" StoreGeneratedPattern="Computed" Type="money" />
           <Property Name="upHour" Type="smallint" />
         </EntityType>
         <EntityType Name="HeatSources">
           <Key>
             <PropertyRef Name="ItemID" />
           </Key>
-          <Property Name="ItemID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="热源名称" Type="nvarchar" MaxLength="250" />
-          <Property Name="东西部" Type="nvarchar" MaxLength="20" />
-          <Property Name="内外部" Type="nvarchar" MaxLength="20" />
+          <Property Name="ItemID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="热源名称" MaxLength="250" Type="nvarchar" />
+          <Property Name="东西部" MaxLength="20" Type="nvarchar" />
+          <Property Name="内外部" MaxLength="20" Type="nvarchar" />
           <Property Name="燃煤尖峰炉数" Type="int" />
           <Property Name="燃气尖峰炉数" Type="int" />
-          <Property Name="机组类型" Type="nvarchar" MaxLength="50" />
-          <Property Name="水线名称" Type="nvarchar" MaxLength="250" />
-          <Property Name="蒸汽线名称" Type="nvarchar" MaxLength="250" />
-          <Property Name="备注" Type="nvarchar" MaxLength="250" />
+          <Property Name="机组类型" MaxLength="50" Type="nvarchar" />
+          <Property Name="水线名称" MaxLength="250" Type="nvarchar" />
+          <Property Name="蒸汽线名称" MaxLength="250" Type="nvarchar" />
+          <Property Name="备注" MaxLength="250" Type="nvarchar" />
           <Property Name="是否并网供热" Type="bit" />
           <Property Name="采集时间" Type="smalldatetime" />
         </EntityType>
@@ -467,133 +467,133 @@
           <Key>
             <PropertyRef Name="ItemId" />
           </Key>
-          <Property Name="ItemId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="热力站名称" Type="nvarchar" MaxLength="250" />
-          <Property Name="楼号" Type="nvarchar" MaxLength="250" />
-          <Property Name="层次" Type="nvarchar" MaxLength="40" />
-          <Property Name="朝向" Type="nvarchar" MaxLength="40" />
-          <Property Name="房间号" Type="nvarchar" MaxLength="100" />
-          <Property Name="暖气状况" Type="nvarchar" MaxLength="250" />
-          <Property Name="建筑年代" Type="nvarchar" MaxLength="40" />
-          <Property Name="节能建筑" Type="nvarchar" MaxLength="40" />
-          <Property Name="开窗" Type="nvarchar" MaxLength="40" />
-          <Property Name="室内温度" Type="decimal" Nullable="false" Precision="5" Scale="1" />
-          <Property Name="测试户姓名" Type="nvarchar" MaxLength="100" />
-          <Property Name="联系电话" Type="nvarchar" MaxLength="100" />
-          <Property Name="所属热源" Type="nvarchar" MaxLength="100" />
+          <Property Name="ItemId" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="热力站名称" MaxLength="250" Type="nvarchar" />
+          <Property Name="楼号" MaxLength="250" Type="nvarchar" />
+          <Property Name="层次" MaxLength="40" Type="nvarchar" />
+          <Property Name="朝向" MaxLength="40" Type="nvarchar" />
+          <Property Name="房间号" MaxLength="100" Type="nvarchar" />
+          <Property Name="暖气状况" MaxLength="250" Type="nvarchar" />
+          <Property Name="建筑年代" MaxLength="40" Type="nvarchar" />
+          <Property Name="节能建筑" MaxLength="40" Type="nvarchar" />
+          <Property Name="开窗" MaxLength="40" Type="nvarchar" />
+          <Property Name="室内温度" Nullable="false" Precision="5" Scale="1" Type="decimal" />
+          <Property Name="测试户姓名" MaxLength="100" Type="nvarchar" />
+          <Property Name="联系电话" MaxLength="100" Type="nvarchar" />
+          <Property Name="所属热源" MaxLength="100" Type="nvarchar" />
           <Property Name="测温日期" Type="datetime" />
-          <Property Name="测温单位" Type="nvarchar" MaxLength="250" />
-          <Property Name="是否满意" Type="nvarchar" MaxLength="50" />
-          <Property Name="热力站编号" Type="nvarchar" MaxLength="50" />
+          <Property Name="测温单位" MaxLength="250" Type="nvarchar" />
+          <Property Name="是否满意" MaxLength="50" Type="nvarchar" />
+          <Property Name="热力站编号" MaxLength="50" Type="nvarchar" />
           <Property Name="序号" Type="int" />
-          <Property Name="导入文件名" Type="nvarchar" MaxLength="250" />
+          <Property Name="导入文件名" MaxLength="250" Type="nvarchar" />
         </EntityType>
         <EntityType Name="Station1stHistory">
           <Key>
             <PropertyRef Name="ItemID" />
           </Key>
-          <Property Name="ItemID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="热力站ID" Type="int" Nullable="false" />
+          <Property Name="ItemID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="热力站ID" Nullable="false" Type="int" />
           <Property Name="时间" Type="smalldatetime" />
-          <Property Name="一次供温" Type="decimal" Precision="5" Scale="1" />
-          <Property Name="一次回温" Type="decimal" Precision="5" Scale="1" />
-          <Property Name="一次供压" Type="decimal" Precision="5" Scale="2" />
-          <Property Name="一次回压" Type="decimal" Precision="5" Scale="2" />
-          <Property Name="总累计热量" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="总累计流量" Type="decimal" Precision="10" />
-          <Property Name="总瞬时热量" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="总瞬时流量" Type="decimal" Precision="8" Scale="1" />
-          <Property Name="实际热指标" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="万平方米流量" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="一次供温" Precision="5" Scale="1" Type="decimal" />
+          <Property Name="一次回温" Precision="5" Scale="1" Type="decimal" />
+          <Property Name="一次供压" Precision="5" Scale="2" Type="decimal" />
+          <Property Name="一次回压" Precision="5" Scale="2" Type="decimal" />
+          <Property Name="总累计热量" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="总累计流量" Precision="10" Type="decimal" />
+          <Property Name="总瞬时热量" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="总瞬时流量" Precision="8" Scale="1" Type="decimal" />
+          <Property Name="实际热指标" Precision="10" Scale="2" Type="decimal" />
+          <Property Name="万平方米流量" Precision="8" Scale="2" Type="decimal" />
         </EntityType>
         <EntityType Name="Station2ndHistory">
           <Key>
             <PropertyRef Name="ItemID" />
           </Key>
-          <Property Name="ItemID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="热力站ID" Type="int" Nullable="false" />
+          <Property Name="ItemID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="热力站ID" Nullable="false" Type="int" />
           <Property Name="时间" Type="smalldatetime" />
           <Property Name="机组号" Type="int" />
-          <Property Name="供温" Type="decimal" Precision="5" Scale="1" />
-          <Property Name="回温" Type="decimal" Precision="5" Scale="1" />
-          <Property Name="累计热量" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="累计流量" Type="decimal" Precision="10" />
-          <Property Name="瞬时热量" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="瞬时流量" Type="decimal" Precision="8" Scale="1" />
+          <Property Name="供温" Precision="5" Scale="1" Type="decimal" />
+          <Property Name="回温" Precision="5" Scale="1" Type="decimal" />
+          <Property Name="累计热量" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="累计流量" Precision="10" Type="decimal" />
+          <Property Name="瞬时热量" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="瞬时流量" Precision="8" Scale="1" Type="decimal" />
         </EntityType>
         <EntityType Name="Station2ndRecent">
           <Key>
             <PropertyRef Name="ItemID" />
           </Key>
-          <Property Name="ItemID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="热力站ID" Type="int" Nullable="false" />
-          <Property Name="机组名" Type="nvarchar" MaxLength="250" />
+          <Property Name="ItemID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="热力站ID" Nullable="false" Type="int" />
+          <Property Name="机组名" MaxLength="250" Type="nvarchar" />
           <Property Name="机组号" Type="int" />
-          <Property Name="供温" Type="decimal" Precision="5" Scale="1" />
-          <Property Name="回温" Type="decimal" Precision="5" Scale="1" />
-          <Property Name="供压" Type="decimal" Precision="5" Scale="2" />
-          <Property Name="回压" Type="decimal" Precision="5" Scale="2" />
-          <Property Name="累计热量" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="累计流量" Type="decimal" Precision="10" />
-          <Property Name="瞬时热量" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="瞬时流量" Type="decimal" Precision="8" Scale="1" />
+          <Property Name="供温" Precision="5" Scale="1" Type="decimal" />
+          <Property Name="回温" Precision="5" Scale="1" Type="decimal" />
+          <Property Name="供压" Precision="5" Scale="2" Type="decimal" />
+          <Property Name="回压" Precision="5" Scale="2" Type="decimal" />
+          <Property Name="累计热量" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="累计流量" Precision="10" Type="decimal" />
+          <Property Name="瞬时热量" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="瞬时流量" Precision="8" Scale="1" Type="decimal" />
           <Property Name="spcname" Type="int" />
           <Property Name="upFlag" Type="smallint" />
           <Property Name="dataFrom" Type="smallint" />
-          <Property Name="站名" Type="nvarchar" MaxLength="100" />
+          <Property Name="站名" MaxLength="100" Type="nvarchar" />
         </EntityType>
         <EntityType Name="StationAccuHistory">
           <Key>
             <PropertyRef Name="ItemID" />
           </Key>
-          <Property Name="ItemID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="日期" Type="date" Nullable="false" />
-          <Property Name="热力站ID" Type="int" Nullable="false" />
-          <Property Name="采暖GJ" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="热水GJ" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="计划GJ" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="日单耗" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="实际热指标" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="核算热指标" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="计划热指标" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="投入面积" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="实际面积" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="预报温度" Type="decimal" Precision="6" Scale="1" />
-          <Property Name="实际温度" Type="decimal" Precision="6" Scale="1" />
-          <Property Name="核算GJ" Type="decimal" Precision="8" Scale="1" />
-          <Property Name="今日计划Area" Type="decimal" Scale="2" />
-          <Property Name="今日投入Area" Type="decimal" Scale="2" />
-          <Property Name="面积计划类别" Type="nvarchar" MaxLength="10" />
-          <Property Name="面积操作类型" Type="nvarchar" MaxLength="10" />
-          <Property Name="upHour" Type="smallint" Nullable="false" />
-          <Property Name="供温avg" Type="decimal" Precision="5" Scale="1" />
-          <Property Name="回温avg" Type="decimal" Precision="5" Scale="1" />
-          <Property Name="供压avg" Type="decimal" Precision="5" Scale="2" />
-          <Property Name="回压avg" Type="decimal" Precision="5" Scale="2" />
-          <Property Name="瞬热avg" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="瞬流avg" Type="decimal" Precision="8" Scale="1" />
-          <Property Name="万流avg" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="计划多耗" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="核算多耗" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="报警" Type="nvarchar" MaxLength="100" />
+          <Property Name="ItemID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="日期" Nullable="false" Type="date" />
+          <Property Name="热力站ID" Nullable="false" Type="int" />
+          <Property Name="采暖GJ" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="热水GJ" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="计划GJ" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="日单耗" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="实际热指标" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="核算热指标" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="计划热指标" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="投入面积" Precision="10" Scale="2" Type="decimal" />
+          <Property Name="实际面积" Precision="10" Scale="2" Type="decimal" />
+          <Property Name="预报温度" Precision="6" Scale="1" Type="decimal" />
+          <Property Name="实际温度" Precision="6" Scale="1" Type="decimal" />
+          <Property Name="核算GJ" Precision="8" Scale="1" Type="decimal" />
+          <Property Name="今日计划Area" Scale="2" Type="decimal" />
+          <Property Name="今日投入Area" Scale="2" Type="decimal" />
+          <Property Name="面积计划类别" MaxLength="10" Type="nvarchar" />
+          <Property Name="面积操作类型" MaxLength="10" Type="nvarchar" />
+          <Property Name="upHour" Nullable="false" Type="smallint" />
+          <Property Name="供温avg" Precision="5" Scale="1" Type="decimal" />
+          <Property Name="回温avg" Precision="5" Scale="1" Type="decimal" />
+          <Property Name="供压avg" Precision="5" Scale="2" Type="decimal" />
+          <Property Name="回压avg" Precision="5" Scale="2" Type="decimal" />
+          <Property Name="瞬热avg" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="瞬流avg" Precision="8" Scale="1" Type="decimal" />
+          <Property Name="万流avg" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="计划多耗" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="核算多耗" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="报警" MaxLength="100" Type="nvarchar" />
         </EntityType>
         <EntityType Name="StationIndex">
           <Key>
             <PropertyRef Name="ItemID" />
           </Key>
-          <Property Name="ItemID" Type="int" Nullable="false" />
-          <Property Name="大前年" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="前年" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="去年" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ItemID" Nullable="false" Type="int" />
+          <Property Name="大前年" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="前年" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="去年" Precision="6" Scale="2" Type="decimal" />
           <Property Name="选择" Type="int" />
-          <Property Name="浮动率" Type="decimal" Precision="6" Scale="4" />
-          <Property Name="参考" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="三年最低" Type="decimal" Precision="6" Scale="2" StoreGeneratedPattern="Computed" />
-          <Property Name="三年平均" Type="decimal" Precision="12" Scale="6" StoreGeneratedPattern="Computed" />
-          <Property Name="g2012" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="g2011" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="g2010" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="Area" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="浮动率" Precision="6" Scale="4" Type="decimal" />
+          <Property Name="参考" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="三年最低" Precision="6" Scale="2" StoreGeneratedPattern="Computed" Type="decimal" />
+          <Property Name="三年平均" Precision="12" Scale="6" StoreGeneratedPattern="Computed" Type="decimal" />
+          <Property Name="g2012" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="g2011" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="g2010" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="Area" Precision="10" Scale="2" Type="decimal" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'xz2013.dbo.StationIndexHistory' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -603,189 +603,189 @@
             <PropertyRef Name="ItemID" />
             <PropertyRef Name="热力站ID" />
           </Key>
-          <Property Name="ItemID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="热力站ID" Type="int" Nullable="false" />
+          <Property Name="ItemID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="热力站ID" Nullable="false" Type="int" />
           <Property Name="年度" Type="smallint" />
-          <Property Name="实际热指标" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="实际热指标10" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="参考热指标" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="实际热指标" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="实际热指标10" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="参考热指标" Precision="6" Scale="2" Type="decimal" />
         </EntityType>
         <EntityType Name="StationManualInput">
           <Key>
             <PropertyRef Name="ItemId" />
           </Key>
-          <Property Name="ItemId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ItemId" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
           <Property Name="热力站ID" Type="int" />
-          <Property Name="采集时间" Type="datetime" Nullable="false" />
-          <Property Name="供压" Type="decimal" Nullable="false" Precision="8" Scale="2" />
-          <Property Name="回压" Type="decimal" Nullable="false" Precision="8" Scale="2" />
-          <Property Name="供温" Type="decimal" Nullable="false" Precision="8" Scale="2" />
-          <Property Name="回温" Type="decimal" Nullable="false" Precision="8" Scale="2" />
-          <Property Name="瞬流" Type="decimal" Nullable="false" Precision="8" Scale="2" />
-          <Property Name="瞬热" Type="decimal" Nullable="false" Precision="8" Scale="2" />
-          <Property Name="累计流量" Type="decimal" Nullable="false" Scale="2" />
-          <Property Name="流量差量" Type="decimal" Nullable="false" Precision="8" Scale="2" />
-          <Property Name="累计热量" Type="decimal" Nullable="false" Scale="2" />
-          <Property Name="热量差量" Type="decimal" Nullable="false" Precision="8" Scale="2" />
-          <Property Name="故障状态" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="录入时间" Type="datetime" Nullable="false" />
-          <Property Name="部门" Type="nvarchar" Nullable="false" MaxLength="15" />
+          <Property Name="采集时间" Nullable="false" Type="datetime" />
+          <Property Name="供压" Nullable="false" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="回压" Nullable="false" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="供温" Nullable="false" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="回温" Nullable="false" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="瞬流" Nullable="false" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="瞬热" Nullable="false" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="累计流量" Nullable="false" Scale="2" Type="decimal" />
+          <Property Name="流量差量" Nullable="false" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="累计热量" Nullable="false" Scale="2" Type="decimal" />
+          <Property Name="热量差量" Nullable="false" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="故障状态" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="录入时间" Nullable="false" Type="datetime" />
+          <Property Name="部门" Nullable="false" MaxLength="15" Type="nvarchar" />
         </EntityType>
         <EntityType Name="Stations">
           <Key>
             <PropertyRef Name="ItemID" />
           </Key>
-          <Property Name="ItemID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="热力站编号" Type="nvarchar" MaxLength="50" />
-          <Property Name="热力站编码" Type="nvarchar" MaxLength="50" />
-          <Property Name="热力站名称" Type="nvarchar" MaxLength="250" />
-          <Property Name="用热地址" Type="nvarchar" MaxLength="250" />
+          <Property Name="ItemID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="热力站编号" MaxLength="50" Type="nvarchar" />
+          <Property Name="热力站编码" MaxLength="50" Type="nvarchar" />
+          <Property Name="热力站名称" MaxLength="250" Type="nvarchar" />
+          <Property Name="用热地址" MaxLength="250" Type="nvarchar" />
           <Property Name="管理单位ID" Type="int" />
-          <Property Name="管理单位" Type="nvarchar" MaxLength="250" />
+          <Property Name="管理单位" MaxLength="250" Type="nvarchar" />
           <Property Name="公司ID" Type="int" />
-          <Property Name="公司" Type="nvarchar" MaxLength="250" />
-          <Property Name="干线" Type="nvarchar" MaxLength="250" />
-          <Property Name="支线" Type="nvarchar" MaxLength="250" />
+          <Property Name="公司" MaxLength="250" Type="nvarchar" />
+          <Property Name="干线" MaxLength="250" Type="nvarchar" />
+          <Property Name="支线" MaxLength="250" Type="nvarchar" />
           <Property Name="是否热水站" Type="bit" />
           <Property Name="是否并网供热" Type="bit" />
           <Property Name="是否重点站" Type="bit" />
-          <Property Name="热力站行政区" Type="nvarchar" MaxLength="50" />
+          <Property Name="热力站行政区" MaxLength="50" Type="nvarchar" />
           <Property Name="生产热源ID" Type="int" />
-          <Property Name="生产热源" Type="nvarchar" MaxLength="250" />
-          <Property Name="面积A" Type="decimal" Scale="2" />
-          <Property Name="面积B" Type="decimal" Scale="2" />
-          <Property Name="工艺流程图" Type="nvarchar" MaxLength="250" />
-          <Property Name="供热范围示意图" Type="nvarchar" MaxLength="250" />
-          <Property Name="周边环境示意图" Type="nvarchar" MaxLength="250" />
-          <Property Name="系统设备表" Type="nvarchar" MaxLength="250" />
-          <Property Name="引入小室号" Type="nvarchar" MaxLength="250" />
-          <Property Name="管理类型" Type="nvarchar" MaxLength="50" />
-          <Property Name="是否蒸汽站" Type="nvarchar" MaxLength="50" />
-          <Property Name="数据来源" Type="nvarchar" MaxLength="50" />
-          <Property Name="投入面积A" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="投入面积B" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="今日表底GJ" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="今日GJ" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="今日累计单耗" Type="decimal" Precision="8" Scale="3" />
-          <Property Name="万平方米流量" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="今日热水表底GJ" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="今日热水GJ" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="今日计划GJ" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="昨日GJ" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="采暖季单耗" Type="decimal" Precision="8" Scale="3" />
-          <Property Name="一次供温" Type="decimal" Precision="5" Scale="1" />
-          <Property Name="一次回温" Type="decimal" Precision="5" Scale="1" />
-          <Property Name="一次供压" Type="decimal" Precision="5" Scale="2" />
-          <Property Name="一次回压" Type="decimal" Precision="5" Scale="2" />
-          <Property Name="总累计热量" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="总累计流量" Type="decimal" Precision="10" />
-          <Property Name="总瞬时热量" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="总瞬时流量" Type="decimal" Precision="8" Scale="1" />
+          <Property Name="生产热源" MaxLength="250" Type="nvarchar" />
+          <Property Name="面积A" Scale="2" Type="decimal" />
+          <Property Name="面积B" Scale="2" Type="decimal" />
+          <Property Name="工艺流程图" MaxLength="250" Type="nvarchar" />
+          <Property Name="供热范围示意图" MaxLength="250" Type="nvarchar" />
+          <Property Name="周边环境示意图" MaxLength="250" Type="nvarchar" />
+          <Property Name="系统设备表" MaxLength="250" Type="nvarchar" />
+          <Property Name="引入小室号" MaxLength="250" Type="nvarchar" />
+          <Property Name="管理类型" MaxLength="50" Type="nvarchar" />
+          <Property Name="是否蒸汽站" MaxLength="50" Type="nvarchar" />
+          <Property Name="数据来源" MaxLength="50" Type="nvarchar" />
+          <Property Name="投入面积A" Precision="10" Scale="2" Type="decimal" />
+          <Property Name="投入面积B" Precision="10" Scale="2" Type="decimal" />
+          <Property Name="今日表底GJ" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="今日GJ" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="今日累计单耗" Precision="8" Scale="3" Type="decimal" />
+          <Property Name="万平方米流量" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="今日热水表底GJ" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="今日热水GJ" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="今日计划GJ" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="昨日GJ" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="采暖季单耗" Precision="8" Scale="3" Type="decimal" />
+          <Property Name="一次供温" Precision="5" Scale="1" Type="decimal" />
+          <Property Name="一次回温" Precision="5" Scale="1" Type="decimal" />
+          <Property Name="一次供压" Precision="5" Scale="2" Type="decimal" />
+          <Property Name="一次回压" Precision="5" Scale="2" Type="decimal" />
+          <Property Name="总累计热量" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="总累计流量" Precision="10" Type="decimal" />
+          <Property Name="总瞬时热量" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="总瞬时流量" Precision="8" Scale="1" Type="decimal" />
           <Property Name="采集时间" Type="smalldatetime" />
           <Property Name="spcname" Type="int" />
           <Property Name="upFlag" Type="smallint" />
           <Property Name="E3" Type="smallint" />
-          <Property Name="gps" Type="varchar" MaxLength="250" />
-          <Property Name="参考热指标" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="GJ_C" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="GJ_SH" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="站面积" Type="decimal" Precision="19" Scale="2" StoreGeneratedPattern="Computed" />
-          <Property Name="投入面积" Type="decimal" Precision="11" Scale="2" StoreGeneratedPattern="Computed" />
+          <Property Name="gps" MaxLength="250" Type="varchar" />
+          <Property Name="参考热指标" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="GJ_C" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="GJ_SH" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="站面积" Precision="19" Scale="2" StoreGeneratedPattern="Computed" Type="decimal" />
+          <Property Name="投入面积" Precision="11" Scale="2" StoreGeneratedPattern="Computed" Type="decimal" />
           <Property Name="DevItemId" Type="int" />
-          <Property Name="昨日热水GJ" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="计划热指标" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="昨日计划热指标" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="供暖季GJ" Type="decimal" Precision="10" Scale="1" />
+          <Property Name="昨日热水GJ" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="计划热指标" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="昨日计划热指标" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="供暖季GJ" Precision="10" Scale="1" Type="decimal" />
           <Property Name="upHour" Type="smallint" />
-          <Property Name="今日核算GJ" Type="decimal" Precision="8" Scale="1" />
-          <Property Name="昨日核算GJ" Type="decimal" Precision="8" Scale="1" />
-          <Property Name="今日计划Area" Type="decimal" Scale="2" />
-          <Property Name="今日投入Area" Type="decimal" Scale="2" />
-          <Property Name="实际热指标" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="昨日实际热指标" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="昨日核算热指标" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="预估采暖季热指标" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="面积计划类别" Type="nvarchar" MaxLength="10" />
-          <Property Name="面积操作类型" Type="nvarchar" MaxLength="10" />
-          <Property Name="计划供热面积" Type="decimal" Scale="2" />
-          <Property Name="供暖季核算GJ" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="预估采暖季单耗" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="昨日计划GJ" Type="decimal" Precision="8" Scale="1" />
-          <Property Name="核算热指标" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="昨日计划Area" Type="decimal" Scale="2" />
-          <Property Name="昨日投入Area" Type="decimal" Scale="2" />
-          <Property Name="截止昨日计划Area" Type="decimal" Scale="2" />
-          <Property Name="截止昨日实际Area" Type="decimal" Scale="2" />
-          <Property Name="日单耗" Type="decimal" Precision="8" Scale="4" />
-          <Property Name="Date0" Type="date" Nullable="false" />
+          <Property Name="今日核算GJ" Precision="8" Scale="1" Type="decimal" />
+          <Property Name="昨日核算GJ" Precision="8" Scale="1" Type="decimal" />
+          <Property Name="今日计划Area" Scale="2" Type="decimal" />
+          <Property Name="今日投入Area" Scale="2" Type="decimal" />
+          <Property Name="实际热指标" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="昨日实际热指标" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="昨日核算热指标" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="预估采暖季热指标" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="面积计划类别" MaxLength="10" Type="nvarchar" />
+          <Property Name="面积操作类型" MaxLength="10" Type="nvarchar" />
+          <Property Name="计划供热面积" Scale="2" Type="decimal" />
+          <Property Name="供暖季核算GJ" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="预估采暖季单耗" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="昨日计划GJ" Precision="8" Scale="1" Type="decimal" />
+          <Property Name="核算热指标" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="昨日计划Area" Scale="2" Type="decimal" />
+          <Property Name="昨日投入Area" Scale="2" Type="decimal" />
+          <Property Name="截止昨日计划Area" Scale="2" Type="decimal" />
+          <Property Name="截止昨日实际Area" Scale="2" Type="decimal" />
+          <Property Name="日单耗" Precision="8" Scale="4" Type="decimal" />
+          <Property Name="Date0" Nullable="false" Type="date" />
           <Property Name="来源ID" Type="tinyint" />
-          <Property Name="报警" Type="nvarchar" MaxLength="100" />
-          <Property Name="预计全天GJ" Type="decimal" Scale="1" />
-          <Property Name="GJ_Limit" Type="decimal" Nullable="false" Precision="6" />
-          <Property Name="收费性质" Type="nvarchar" MaxLength="100" />
-          <Property Name="计划多耗" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="核算多耗" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="报警" MaxLength="100" Type="nvarchar" />
+          <Property Name="预计全天GJ" Scale="1" Type="decimal" />
+          <Property Name="GJ_Limit" Nullable="false" Precision="6" Type="decimal" />
+          <Property Name="收费性质" MaxLength="100" Type="nvarchar" />
+          <Property Name="计划多耗" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="核算多耗" Precision="8" Scale="2" Type="decimal" />
         </EntityType>
         <EntityType Name="SubCompanies">
           <Key>
             <PropertyRef Name="ItemID" />
           </Key>
-          <Property Name="ItemID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="管理单位" Type="nvarchar" MaxLength="250" />
+          <Property Name="ItemID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="管理单位" MaxLength="250" Type="nvarchar" />
           <Property Name="公司ID" Type="int" />
-          <Property Name="公司" Type="nvarchar" MaxLength="250" />
-          <Property Name="备注" Type="nvarchar" MaxLength="250" />
-          <Property Name="总面积" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="计划供热面积" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="实际供热面积" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="计划停热面积" Type="decimal" Precision="12" Scale="2" StoreGeneratedPattern="Computed" />
-          <Property Name="实际停热面积" Type="decimal" Precision="12" Scale="2" StoreGeneratedPattern="Computed" />
+          <Property Name="公司" MaxLength="250" Type="nvarchar" />
+          <Property Name="备注" MaxLength="250" Type="nvarchar" />
+          <Property Name="总面积" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="计划供热面积" Precision="10" Scale="2" Type="decimal" />
+          <Property Name="实际供热面积" Precision="10" Scale="2" Type="decimal" />
+          <Property Name="计划停热面积" Precision="12" Scale="2" StoreGeneratedPattern="Computed" Type="decimal" />
+          <Property Name="实际停热面积" Precision="12" Scale="2" StoreGeneratedPattern="Computed" Type="decimal" />
           <Property Name="供暖季累计GJ" Type="int" />
-          <Property Name="今日累计GJ_JK" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="今日累计GJ" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="今日计划GJ_JK" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="今日计划GJ" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="万平方米流量" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="供暖季累计单耗" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="实际热指标" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="总瞬时流量" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="总瞬时热量" Type="decimal" Precision="8" Scale="1" />
-          <Property Name="今日计划Area" Type="decimal" Scale="2" />
-          <Property Name="今日投入Area" Type="decimal" Scale="2" />
-          <Property Name="核算热指标" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="预估采暖季热指标" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="Area_JK" Type="decimal" Scale="2" />
-          <Property Name="参考热指标" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="计划热指标" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="面积计划类别" Type="nvarchar" MaxLength="10" />
-          <Property Name="面积操作类型" Type="nvarchar" MaxLength="10" />
-          <Property Name="昨日计划热指标" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="昨日实际热指标" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="昨日核算热指标" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="昨日累计GJ" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="昨日计划GJ" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="预估采暖季单耗" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="昨日计划Area" Type="decimal" Scale="2" />
-          <Property Name="昨日投入Area" Type="decimal" Scale="2" />
-          <Property Name="截止昨日计划Area" Type="decimal" Scale="2" />
-          <Property Name="截止昨日实际Area" Type="decimal" Scale="2" />
-          <Property Name="昨日核算GJ_JK" Type="decimal" Precision="8" Scale="1" />
-          <Property Name="昨日核算GJ" Type="decimal" Scale="1" />
+          <Property Name="今日累计GJ_JK" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="今日累计GJ" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="今日计划GJ_JK" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="今日计划GJ" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="万平方米流量" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="供暖季累计单耗" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="实际热指标" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="总瞬时流量" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="总瞬时热量" Precision="8" Scale="1" Type="decimal" />
+          <Property Name="今日计划Area" Scale="2" Type="decimal" />
+          <Property Name="今日投入Area" Scale="2" Type="decimal" />
+          <Property Name="核算热指标" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="预估采暖季热指标" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="Area_JK" Scale="2" Type="decimal" />
+          <Property Name="参考热指标" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="计划热指标" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="面积计划类别" MaxLength="10" Type="nvarchar" />
+          <Property Name="面积操作类型" MaxLength="10" Type="nvarchar" />
+          <Property Name="昨日计划热指标" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="昨日实际热指标" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="昨日核算热指标" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="昨日累计GJ" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="昨日计划GJ" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="预估采暖季单耗" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="昨日计划Area" Scale="2" Type="decimal" />
+          <Property Name="昨日投入Area" Scale="2" Type="decimal" />
+          <Property Name="截止昨日计划Area" Scale="2" Type="decimal" />
+          <Property Name="截止昨日实际Area" Scale="2" Type="decimal" />
+          <Property Name="昨日核算GJ_JK" Precision="8" Scale="1" Type="decimal" />
+          <Property Name="昨日核算GJ" Scale="1" Type="decimal" />
           <Property Name="时间" Type="datetime" />
-          <Property Name="日单耗" Type="decimal" Precision="8" Scale="4" />
-          <Property Name="昨日累计GJ_JK" Type="decimal" Scale="1" />
-          <Property Name="昨日计划GJ_JK" Type="decimal" Scale="1" />
-          <Property Name="预计全天GJ" Type="decimal" Scale="1" />
-          <Property Name="供暖季累计单耗_JK" Type="decimal" Precision="8" Scale="4" />
-          <Property Name="预估采暖季单耗_JK" Type="decimal" Precision="8" Scale="4" />
+          <Property Name="日单耗" Precision="8" Scale="4" Type="decimal" />
+          <Property Name="昨日累计GJ_JK" Scale="1" Type="decimal" />
+          <Property Name="昨日计划GJ_JK" Scale="1" Type="decimal" />
+          <Property Name="预计全天GJ" Scale="1" Type="decimal" />
+          <Property Name="供暖季累计单耗_JK" Precision="8" Scale="4" Type="decimal" />
+          <Property Name="预估采暖季单耗_JK" Precision="8" Scale="4" Type="decimal" />
           <Property Name="供暖季累计GJ_JK" Type="int" />
-          <Property Name="实际热指标_JK" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="实际热指标_JK" Precision="8" Scale="2" Type="decimal" />
           <Property Name="有效监控站数" Type="int" />
           <Property Name="总站数" Type="int" />
-          <Property Name="Area_JK_YD" Type="decimal" Scale="2" />
-          <Property Name="A_Valid" Type="decimal" Scale="2" />
-          <Property Name="计划多耗" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="核算多耗" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="Area_JK_YD" Scale="2" Type="decimal" />
+          <Property Name="A_Valid" Scale="2" Type="decimal" />
+          <Property Name="计划多耗" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="核算多耗" Precision="8" Scale="2" Type="decimal" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'xz2013.dbo.SubCompanyHistoey' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -794,53 +794,53 @@
           <Key>
             <PropertyRef Name="ItemID" />
           </Key>
-          <Property Name="ItemID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ItemID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
           <Property Name="日期" Type="date" />
           <Property Name="中心ID" Type="int" />
-          <Property Name="公司ID" Type="nvarchar" MaxLength="250" />
-          <Property Name="总面积" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="计划供热面积" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="实际供热面积" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="计划停热面积" Type="decimal" Precision="12" Scale="2" StoreGeneratedPattern="Computed" />
-          <Property Name="实际停热面积" Type="decimal" Precision="12" Scale="2" StoreGeneratedPattern="Computed" />
-          <Property Name="今日累计GJ_JK" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="今日累计GJ" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="今日计划GJ_JK" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="今日计划GJ" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="万平方米流量" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="总瞬时流量_JK" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="总瞬时流量" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="总瞬时热量_JK" Type="decimal" Precision="8" Scale="1" />
-          <Property Name="总瞬时热量" Type="decimal" Precision="8" Scale="1" />
-          <Property Name="核算GJ_JK" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="核算GJ" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="实际热指标" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="核算热指标" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="计划热指标" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="今日计划Area" Type="decimal" Scale="2" />
-          <Property Name="今日投入Area" Type="decimal" Scale="2" />
-          <Property Name="面积计划类别" Type="nvarchar" MaxLength="10" />
-          <Property Name="面积操作类型" Type="nvarchar" MaxLength="10" />
-          <Property Name="实际热指标_JK" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="计划多耗" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="核算多耗" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="公司ID" MaxLength="250" Type="nvarchar" />
+          <Property Name="总面积" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="计划供热面积" Precision="10" Scale="2" Type="decimal" />
+          <Property Name="实际供热面积" Precision="10" Scale="2" Type="decimal" />
+          <Property Name="计划停热面积" Precision="12" Scale="2" StoreGeneratedPattern="Computed" Type="decimal" />
+          <Property Name="实际停热面积" Precision="12" Scale="2" StoreGeneratedPattern="Computed" Type="decimal" />
+          <Property Name="今日累计GJ_JK" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="今日累计GJ" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="今日计划GJ_JK" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="今日计划GJ" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="万平方米流量" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="总瞬时流量_JK" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="总瞬时流量" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="总瞬时热量_JK" Precision="8" Scale="1" Type="decimal" />
+          <Property Name="总瞬时热量" Precision="8" Scale="1" Type="decimal" />
+          <Property Name="核算GJ_JK" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="核算GJ" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="实际热指标" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="核算热指标" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="计划热指标" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="今日计划Area" Scale="2" Type="decimal" />
+          <Property Name="今日投入Area" Scale="2" Type="decimal" />
+          <Property Name="面积计划类别" MaxLength="10" Type="nvarchar" />
+          <Property Name="面积操作类型" MaxLength="10" Type="nvarchar" />
+          <Property Name="实际热指标_JK" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="计划多耗" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="核算多耗" Precision="8" Scale="2" Type="decimal" />
         </EntityType>
         <EntityType Name="T_HeatStation_Type">
           <Key>
             <PropertyRef Name="热力站ID" />
           </Key>
-          <Property Name="热力站ID" Type="int" Nullable="false" />
-          <Property Name="热力站名称" Type="nvarchar" MaxLength="50" />
-          <Property Name="热力站总面积" Type="decimal" Scale="2" />
-          <Property Name="独立操作公建面积" Type="decimal" Scale="2" />
-          <Property Name="独立操作居民面积" Type="decimal" Scale="2" />
-          <Property Name="分不开的公建面积" Type="decimal" Scale="2" />
-          <Property Name="分不开的居民面积" Type="decimal" Scale="2" />
-          <Property Name="机关不能停公建面积" Type="decimal" Scale="2" />
-          <Property Name="特殊机构独立分开面积" Type="decimal" Scale="2" />
-          <Property Name="特殊机构不能分开面积" Type="decimal" Scale="2" />
-          <Property Name="合计面积" Type="decimal" Scale="2" />
-          <Property Name="备注" Type="nvarchar" MaxLength="500" />
+          <Property Name="热力站ID" Nullable="false" Type="int" />
+          <Property Name="热力站名称" MaxLength="50" Type="nvarchar" />
+          <Property Name="热力站总面积" Scale="2" Type="decimal" />
+          <Property Name="独立操作公建面积" Scale="2" Type="decimal" />
+          <Property Name="独立操作居民面积" Scale="2" Type="decimal" />
+          <Property Name="分不开的公建面积" Scale="2" Type="decimal" />
+          <Property Name="分不开的居民面积" Scale="2" Type="decimal" />
+          <Property Name="机关不能停公建面积" Scale="2" Type="decimal" />
+          <Property Name="特殊机构独立分开面积" Scale="2" Type="decimal" />
+          <Property Name="特殊机构不能分开面积" Scale="2" Type="decimal" />
+          <Property Name="合计面积" Scale="2" Type="decimal" />
+          <Property Name="备注" MaxLength="500" Type="nvarchar" />
           <Property Name="DevItemId" Type="int" />
         </EntityType>
         <EntityType Name="T_PRO_Day_Plan">
@@ -848,25 +848,25 @@
             <PropertyRef Name="ItemId" />
           </Key>
           <Property Name="采暖季" Type="int" />
-          <Property Name="收费编号" Type="nvarchar" MaxLength="255" />
+          <Property Name="收费编号" MaxLength="255" Type="nvarchar" />
           <Property Name="用户ID" Type="int" />
           <Property Name="热力站ID" Type="int" />
-          <Property Name="A类面积" Type="decimal" Scale="2" />
-          <Property Name="B类面积" Type="decimal" Scale="2" />
-          <Property Name="总面积" Type="decimal" Scale="2" />
+          <Property Name="A类面积" Scale="2" Type="decimal" />
+          <Property Name="B类面积" Scale="2" Type="decimal" />
+          <Property Name="总面积" Scale="2" Type="decimal" />
           <Property Name="计划时间" Type="datetime" />
-          <Property Name="ItemId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ItemId" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
           <Property Name="DevItemId" Type="int" />
-          <Property Name="计划类别" Type="nvarchar" MaxLength="100" />
+          <Property Name="计划类别" MaxLength="100" Type="nvarchar" />
         </EntityType>
         <EntityType Name="TemperatureAudit">
           <Key>
             <PropertyRef Name="TemperatureAuditId" />
           </Key>
-          <Property Name="TemperatureAuditId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Temperature" Type="decimal" Nullable="false" Precision="8" Scale="2" />
-          <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
-          <Property Name="UpdatedByUserId" Type="int" Nullable="false" />
+          <Property Name="TemperatureAuditId" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="Temperature" Nullable="false" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="UpdatedAt" Nullable="false" Type="datetime" />
+          <Property Name="UpdatedByUserId" Nullable="false" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'xz2013.dbo.TotalNetHistory' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -875,34 +875,34 @@
           <Key>
             <PropertyRef Name="ItemID" />
           </Key>
-          <Property Name="ItemID" Type="int" Nullable="false" />
+          <Property Name="ItemID" Nullable="false" Type="int" />
           <Property Name="总面积" Type="int" />
-          <Property Name="总瞬时热量" Type="decimal" Precision="8" />
-          <Property Name="总瞬时流量" Type="decimal" Precision="10" />
-          <Property Name="万平方米流量" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="总瞬时热量" Precision="8" Type="decimal" />
+          <Property Name="总瞬时流量" Precision="10" Type="decimal" />
+          <Property Name="万平方米流量" Precision="8" Scale="2" Type="decimal" />
           <Property Name="累计GJ" Type="int" />
           <Property Name="计划GJ" Type="int" />
           <Property Name="时间" Type="date" />
           <Property Name="计划供热面积" Type="int" />
           <Property Name="实际供热面积" Type="int" />
-          <Property Name="计划停热面积" Type="int" StoreGeneratedPattern="Computed" />
-          <Property Name="实际停热面积" Type="int" StoreGeneratedPattern="Computed" />
+          <Property Name="计划停热面积" StoreGeneratedPattern="Computed" Type="int" />
+          <Property Name="实际停热面积" StoreGeneratedPattern="Computed" Type="int" />
           <Property Name="供暖季累计GJ" Type="int" />
-          <Property Name="计划热指标" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="核算热指标" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="参考热指标" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="实际热指标" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="供暖季累计单耗" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="当日累计单耗" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="计划热指标" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="核算热指标" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="参考热指标" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="实际热指标" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="供暖季累计单耗" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="当日累计单耗" Precision="6" Scale="2" Type="decimal" />
           <Property Name="今日热价" Type="money" />
           <Property Name="供暖季热价" Type="money" />
-          <Property Name="核算GJ" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="今日计划Area" Type="decimal" Scale="2" />
-          <Property Name="今日投入Area" Type="decimal" Scale="2" />
-          <Property Name="面积计划类别" Type="nvarchar" MaxLength="10" />
-          <Property Name="面积操作类型" Type="nvarchar" MaxLength="10" />
-          <Property Name="计划多耗" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="核算多耗" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="核算GJ" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="今日计划Area" Scale="2" Type="decimal" />
+          <Property Name="今日投入Area" Scale="2" Type="decimal" />
+          <Property Name="面积计划类别" MaxLength="10" Type="nvarchar" />
+          <Property Name="面积操作类型" MaxLength="10" Type="nvarchar" />
+          <Property Name="计划多耗" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="核算多耗" Precision="8" Scale="2" Type="decimal" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'xz2013.dbo.TotalNetIndexHistory' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -911,21 +911,21 @@
           <Key>
             <PropertyRef Name="ItemID" />
           </Key>
-          <Property Name="ItemID" Type="int" Nullable="false" />
-          <Property Name="实际热指标" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="实际热指标10" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="参考热指标" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="ItemID" Nullable="false" Type="int" />
+          <Property Name="实际热指标" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="实际热指标10" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="参考热指标" Precision="6" Scale="2" Type="decimal" />
           <Property Name="年度" Type="smallint" />
         </EntityType>
         <EntityType Name="TotalNetRecent">
           <Key>
             <PropertyRef Name="ItemID" />
           </Key>
-          <Property Name="ItemID" Type="int" Nullable="false" />
+          <Property Name="ItemID" Nullable="false" Type="int" />
           <Property Name="总面积" Type="int" />
-          <Property Name="总瞬时热量" Type="decimal" Precision="8" />
-          <Property Name="总瞬时流量" Type="decimal" Precision="10" />
-          <Property Name="万平方米流量" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="总瞬时热量" Precision="8" Type="decimal" />
+          <Property Name="总瞬时流量" Precision="10" Type="decimal" />
+          <Property Name="万平方米流量" Precision="8" Scale="2" Type="decimal" />
           <Property Name="今日累计GJ" Type="int" />
           <Property Name="昨日累计GJ" Type="int" />
           <Property Name="今日计划GJ" Type="int" />
@@ -933,44 +933,44 @@
           <Property Name="昨日计划GJ" Type="int" />
           <Property Name="计划供热面积" Type="int" />
           <Property Name="实际供热面积" Type="int" />
-          <Property Name="计划停热面积" Type="int" StoreGeneratedPattern="Computed" />
-          <Property Name="实际停热面积" Type="int" StoreGeneratedPattern="Computed" />
+          <Property Name="计划停热面积" StoreGeneratedPattern="Computed" Type="int" />
+          <Property Name="实际停热面积" StoreGeneratedPattern="Computed" Type="int" />
           <Property Name="供暖季累计GJ" Type="int" />
-          <Property Name="参考热指标" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="计划热指标" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="供暖季累计单耗" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="当日累计单耗" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="参考热指标" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="计划热指标" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="供暖季累计单耗" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="当日累计单耗" Precision="6" Scale="2" Type="decimal" />
           <Property Name="今日热价" Type="money" />
           <Property Name="昨日热价" Type="money" />
           <Property Name="供暖季热价" Type="money" />
-          <Property Name="今日核算GJ" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="昨日核算GJ" Type="decimal" Precision="10" Scale="1" />
-          <Property Name="今日计划Area" Type="decimal" Scale="2" />
-          <Property Name="今日投入Area" Type="decimal" Scale="2" />
-          <Property Name="实际热指标" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="核算热指标" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="预估采暖季热指标" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="面积计划类别" Type="nvarchar" MaxLength="10" />
-          <Property Name="面积操作类型" Type="nvarchar" MaxLength="10" />
-          <Property Name="预估采暖季单耗" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="昨日计划热指标" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="昨日实际热指标" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="昨日核算热指标" Type="decimal" Precision="6" Scale="2" />
-          <Property Name="昨日计划Area" Type="decimal" Scale="2" />
-          <Property Name="昨日投入Area" Type="decimal" Scale="2" />
-          <Property Name="截止昨日计划Area" Type="decimal" Scale="2" />
-          <Property Name="截止昨日实际Area" Type="decimal" Scale="2" />
+          <Property Name="今日核算GJ" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="昨日核算GJ" Precision="10" Scale="1" Type="decimal" />
+          <Property Name="今日计划Area" Scale="2" Type="decimal" />
+          <Property Name="今日投入Area" Scale="2" Type="decimal" />
+          <Property Name="实际热指标" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="核算热指标" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="预估采暖季热指标" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="面积计划类别" MaxLength="10" Type="nvarchar" />
+          <Property Name="面积操作类型" MaxLength="10" Type="nvarchar" />
+          <Property Name="预估采暖季单耗" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="昨日计划热指标" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="昨日实际热指标" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="昨日核算热指标" Precision="6" Scale="2" Type="decimal" />
+          <Property Name="昨日计划Area" Scale="2" Type="decimal" />
+          <Property Name="昨日投入Area" Scale="2" Type="decimal" />
+          <Property Name="截止昨日计划Area" Scale="2" Type="decimal" />
+          <Property Name="截止昨日实际Area" Scale="2" Type="decimal" />
           <Property Name="预计全天GJ" Type="int" />
-          <Property Name="计划多耗" Type="decimal" Precision="8" Scale="2" />
-          <Property Name="核算多耗" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="计划多耗" Precision="8" Scale="2" Type="decimal" />
+          <Property Name="核算多耗" Precision="8" Scale="2" Type="decimal" />
         </EntityType>
         <EntityType Name="users">
           <Key>
             <PropertyRef Name="userId" />
           </Key>
-          <Property Name="userId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="email" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="姓名" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="userId" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="email" Nullable="false" MaxLength="50" Type="varchar" />
+          <Property Name="姓名" Nullable="false" MaxLength="10" Type="nvarchar" />
           <Property Name="所属公司" Type="int" />
           <Property Name="所属中心" Type="int" />
           <Property Name="是否为集团员工" Type="bit" />
@@ -979,58 +979,58 @@
           <Key>
             <PropertyRef Name="时间" />
           </Key>
-          <Property Name="时间" Type="smalldatetime" Nullable="false" />
-          <Property Name="天安门" Type="decimal" Precision="4" Scale="1" />
-          <Property Name="古观象台" Type="decimal" Precision="4" Scale="1" />
-          <Property Name="双榆树" Type="decimal" Precision="4" Scale="1" />
-          <Property Name="方庄" Type="decimal" Precision="4" Scale="1" />
-          <Property Name="左热" Type="decimal" Precision="4" Scale="1" />
-          <Property Name="宝能" Type="decimal" Precision="4" Scale="1" />
-          <Property Name="四惠桥" Type="decimal" Precision="4" Scale="1" />
-          <Property Name="官园" Type="decimal" Precision="4" Scale="1" />
-          <Property Name="大观园" Type="decimal" Precision="4" Scale="1" />
-          <Property Name="海淀" Type="decimal" Precision="4" Scale="1" />
-          <Property Name="朝阳" Type="decimal" Precision="4" Scale="1" />
-          <Property Name="石景山" Type="decimal" Precision="4" Scale="1" />
-          <Property Name="车道沟" Type="decimal" Precision="4" Scale="1" />
-          <Property Name="玉渊潭" Type="decimal" Precision="4" Scale="1" />
-          <Property Name="龙潭湖" Type="decimal" Precision="4" Scale="1" />
-          <Property Name="观象台" Type="decimal" Precision="4" Scale="1" />
-          <Property Name="和平西桥" Type="decimal" Precision="4" Scale="1" />
-          <Property Name="奥体中心" Type="decimal" Precision="4" Scale="1" />
-          <Property Name="雕塑园" Type="decimal" Precision="4" Scale="1" />
-          <Property Name="通州" Type="decimal" Precision="4" Scale="1" />
+          <Property Name="时间" Nullable="false" Type="smalldatetime" />
+          <Property Name="天安门" Precision="4" Scale="1" Type="decimal" />
+          <Property Name="古观象台" Precision="4" Scale="1" Type="decimal" />
+          <Property Name="双榆树" Precision="4" Scale="1" Type="decimal" />
+          <Property Name="方庄" Precision="4" Scale="1" Type="decimal" />
+          <Property Name="左热" Precision="4" Scale="1" Type="decimal" />
+          <Property Name="宝能" Precision="4" Scale="1" Type="decimal" />
+          <Property Name="四惠桥" Precision="4" Scale="1" Type="decimal" />
+          <Property Name="官园" Precision="4" Scale="1" Type="decimal" />
+          <Property Name="大观园" Precision="4" Scale="1" Type="decimal" />
+          <Property Name="海淀" Precision="4" Scale="1" Type="decimal" />
+          <Property Name="朝阳" Precision="4" Scale="1" Type="decimal" />
+          <Property Name="石景山" Precision="4" Scale="1" Type="decimal" />
+          <Property Name="车道沟" Precision="4" Scale="1" Type="decimal" />
+          <Property Name="玉渊潭" Precision="4" Scale="1" Type="decimal" />
+          <Property Name="龙潭湖" Precision="4" Scale="1" Type="decimal" />
+          <Property Name="观象台" Precision="4" Scale="1" Type="decimal" />
+          <Property Name="和平西桥" Precision="4" Scale="1" Type="decimal" />
+          <Property Name="奥体中心" Precision="4" Scale="1" Type="decimal" />
+          <Property Name="雕塑园" Precision="4" Scale="1" Type="decimal" />
+          <Property Name="通州" Precision="4" Scale="1" Type="decimal" />
         </EntityType>
         <EntityType Name="weather_1">
           <Key>
             <PropertyRef Name="ItemId" />
           </Key>
-          <Property Name="今日预报白天最高温" Type="decimal" Precision="5" Scale="1" />
-          <Property Name="今日预报夜间最低温" Type="decimal" Precision="5" Scale="1" />
-          <Property Name="今日预报一天平均温" Type="decimal" Precision="5" Scale="1" />
-          <Property Name="白天天气" Type="nvarchar" MaxLength="240" />
-          <Property Name="白天风力" Type="nvarchar" MaxLength="240" />
-          <Property Name="夜间天气" Type="nvarchar" MaxLength="240" />
-          <Property Name="夜间风力" Type="nvarchar" MaxLength="240" />
-          <Property Name="昨日实况白天最高温" Type="decimal" Precision="5" Scale="1" />
-          <Property Name="昨日实况夜间最低温" Type="decimal" Precision="5" Scale="1" />
-          <Property Name="昨日实况一天平均温" Type="decimal" Precision="5" Scale="1" />
-          <Property Name="ItemId" Type="int" Nullable="false" />
+          <Property Name="今日预报白天最高温" Precision="5" Scale="1" Type="decimal" />
+          <Property Name="今日预报夜间最低温" Precision="5" Scale="1" Type="decimal" />
+          <Property Name="今日预报一天平均温" Precision="5" Scale="1" Type="decimal" />
+          <Property Name="白天天气" MaxLength="240" Type="nvarchar" />
+          <Property Name="白天风力" MaxLength="240" Type="nvarchar" />
+          <Property Name="夜间天气" MaxLength="240" Type="nvarchar" />
+          <Property Name="夜间风力" MaxLength="240" Type="nvarchar" />
+          <Property Name="昨日实况白天最高温" Precision="5" Scale="1" Type="decimal" />
+          <Property Name="昨日实况夜间最低温" Precision="5" Scale="1" Type="decimal" />
+          <Property Name="昨日实况一天平均温" Precision="5" Scale="1" Type="decimal" />
+          <Property Name="ItemId" Nullable="false" Type="int" />
         </EntityType>
         <EntityType Name="Weather_10">
           <Key>
             <PropertyRef Name="预报时间" />
             <PropertyRef Name="类型" />
           </Key>
-          <Property Name="预报时间" Type="smalldatetime" Nullable="false" />
+          <Property Name="预报时间" Nullable="false" Type="smalldatetime" />
           <Property Name="预报内容" Type="nvarchar(max)" />
-          <Property Name="类型" Type="smallint" Nullable="false" />
+          <Property Name="类型" Nullable="false" Type="smallint" />
         </EntityType>
         <EntityType Name="Weather_2">
           <Key>
             <PropertyRef Name="日期" />
           </Key>
-          <Property Name="日期" Type="date" Nullable="false" />
+          <Property Name="日期" Nullable="false" Type="date" />
           <Property Name="六时" Type="nvarchar(max)" />
           <Property Name="十七时" Type="nvarchar(max)" />
         </EntityType>
@@ -1039,54 +1039,54 @@
             <PropertyRef Name="时间" />
             <PropertyRef Name="ItemId" />
           </Key>
-          <Property Name="时间" Type="varchar" Nullable="false" MaxLength="100" />
-          <Property Name="白天最高" Type="decimal" Precision="5" Scale="1" />
-          <Property Name="夜间最低" Type="decimal" Precision="5" Scale="1" />
-          <Property Name="全天平均" Type="decimal" Precision="5" Scale="1" />
-          <Property Name="白天平均" Type="decimal" Precision="5" Scale="1" />
-          <Property Name="夜间平均" Type="decimal" Precision="5" Scale="1" />
-          <Property Name="ItemId" Type="smallint" Nullable="false" />
+          <Property Name="时间" Nullable="false" MaxLength="100" Type="varchar" />
+          <Property Name="白天最高" Precision="5" Scale="1" Type="decimal" />
+          <Property Name="夜间最低" Precision="5" Scale="1" Type="decimal" />
+          <Property Name="全天平均" Precision="5" Scale="1" Type="decimal" />
+          <Property Name="白天平均" Precision="5" Scale="1" Type="decimal" />
+          <Property Name="夜间平均" Precision="5" Scale="1" Type="decimal" />
+          <Property Name="ItemId" Nullable="false" Type="smallint" />
         </EntityType>
         <EntityType Name="Weather_4">
           <Key>
             <PropertyRef Name="日期" />
           </Key>
-          <Property Name="日期" Type="date" Nullable="false" />
-          <Property Name="预报平均" Type="decimal" Precision="5" Scale="1" />
-          <Property Name="朝阳平均" Type="decimal" Precision="5" Scale="1" />
-          <Property Name="观象台平均" Type="decimal" Precision="5" Scale="1" />
-          <Property Name="预报最高" Type="decimal" Precision="5" Scale="1" />
-          <Property Name="预报最低" Type="decimal" Precision="5" Scale="1" />
-          <Property Name="实际最高" Type="decimal" Precision="5" Scale="1" />
-          <Property Name="实际最低" Type="decimal" Precision="5" Scale="1" />
+          <Property Name="日期" Nullable="false" Type="date" />
+          <Property Name="预报平均" Precision="5" Scale="1" Type="decimal" />
+          <Property Name="朝阳平均" Precision="5" Scale="1" Type="decimal" />
+          <Property Name="观象台平均" Precision="5" Scale="1" Type="decimal" />
+          <Property Name="预报最高" Precision="5" Scale="1" Type="decimal" />
+          <Property Name="预报最低" Precision="5" Scale="1" Type="decimal" />
+          <Property Name="实际最高" Precision="5" Scale="1" Type="decimal" />
+          <Property Name="实际最低" Precision="5" Scale="1" Type="decimal" />
         </EntityType>
         <EntityType Name="Weather_7">
           <Key>
             <PropertyRef Name="日期" />
             <PropertyRef Name="ItemId" />
           </Key>
-          <Property Name="日期" Type="datetime" Nullable="false" />
-          <Property Name="天气" Type="nvarchar" MaxLength="60" />
-          <Property Name="风向" Type="nvarchar" MaxLength="60" />
-          <Property Name="最低温" Type="decimal" Precision="5" Scale="1" />
-          <Property Name="最高温" Type="decimal" Precision="5" Scale="1" />
-          <Property Name="ItemId" Type="smallint" Nullable="false" />
-          <Property Name="风力" Type="nvarchar" MaxLength="60" />
+          <Property Name="日期" Nullable="false" Type="datetime" />
+          <Property Name="天气" MaxLength="60" Type="nvarchar" />
+          <Property Name="风向" MaxLength="60" Type="nvarchar" />
+          <Property Name="最低温" Precision="5" Scale="1" Type="decimal" />
+          <Property Name="最高温" Precision="5" Scale="1" Type="decimal" />
+          <Property Name="ItemId" Nullable="false" Type="smallint" />
+          <Property Name="风力" MaxLength="60" Type="nvarchar" />
         </EntityType>
         <EntityType Name="webpages_Membership">
           <Key>
             <PropertyRef Name="UserId" />
           </Key>
-          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="UserId" Nullable="false" Type="int" />
           <Property Name="CreateDate" Type="datetime" />
-          <Property Name="ConfirmationToken" Type="nvarchar" MaxLength="128" />
+          <Property Name="ConfirmationToken" MaxLength="128" Type="nvarchar" />
           <Property Name="IsConfirmed" Type="bit" />
           <Property Name="LastPasswordFailureDate" Type="datetime" />
-          <Property Name="PasswordFailuresSinceLastSuccess" Type="int" Nullable="false" />
-          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="PasswordFailuresSinceLastSuccess" Nullable="false" Type="int" />
+          <Property Name="Password" Nullable="false" MaxLength="128" Type="nvarchar" />
           <Property Name="PasswordChangedDate" Type="datetime" />
-          <Property Name="PasswordSalt" Type="nvarchar" Nullable="false" MaxLength="128" />
-          <Property Name="PasswordVerificationToken" Type="nvarchar" MaxLength="128" />
+          <Property Name="PasswordSalt" Nullable="false" MaxLength="128" Type="nvarchar" />
+          <Property Name="PasswordVerificationToken" MaxLength="128" Type="nvarchar" />
           <Property Name="PasswordVerificationTokenExpirationDate" Type="datetime" />
         </EntityType>
         <EntityType Name="webpages_OAuthMembership">
@@ -1094,28 +1094,28 @@
             <PropertyRef Name="Provider" />
             <PropertyRef Name="ProviderUserId" />
           </Key>
-          <Property Name="Provider" Type="nvarchar" Nullable="false" MaxLength="30" />
-          <Property Name="ProviderUserId" Type="nvarchar" Nullable="false" MaxLength="100" />
-          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Provider" Nullable="false" MaxLength="30" Type="nvarchar" />
+          <Property Name="ProviderUserId" Nullable="false" MaxLength="100" Type="nvarchar" />
+          <Property Name="UserId" Nullable="false" Type="int" />
         </EntityType>
         <EntityType Name="webpages_Roles">
           <Key>
             <PropertyRef Name="RoleId" />
           </Key>
-          <Property Name="RoleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="RoleId" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="RoleName" Nullable="false" MaxLength="256" Type="nvarchar" />
         </EntityType>
         <EntityType Name="webpages_UsersInRoles">
           <Key>
             <PropertyRef Name="UserId" />
             <PropertyRef Name="RoleId" />
           </Key>
-          <Property Name="UserId" Type="int" Nullable="false" />
-          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="UserId" Nullable="false" Type="int" />
+          <Property Name="RoleId" Nullable="false" Type="int" />
         </EntityType>
         <Association Name="fk_RoleId">
-          <End Role="webpages_Roles" Type="xz2013_newModel.Store.webpages_Roles" Multiplicity="1" />
-          <End Role="webpages_UsersInRoles" Type="xz2013_newModel.Store.webpages_UsersInRoles" Multiplicity="*" />
+          <End Type="xz2013_newModel.Store.webpages_Roles" Multiplicity="1" Role="webpages_Roles" />
+          <End Type="xz2013_newModel.Store.webpages_UsersInRoles" Multiplicity="*" Role="webpages_UsersInRoles" />
           <ReferentialConstraint>
             <Principal Role="webpages_Roles">
               <PropertyRef Name="RoleId" />
@@ -1126,8 +1126,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_UserId">
-          <End Role="users" Type="xz2013_newModel.Store.users" Multiplicity="1" />
-          <End Role="webpages_UsersInRoles" Type="xz2013_newModel.Store.webpages_UsersInRoles" Multiplicity="*" />
+          <End Type="xz2013_newModel.Store.users" Multiplicity="1" Role="users" />
+          <End Type="xz2013_newModel.Store.webpages_UsersInRoles" Multiplicity="*" Role="webpages_UsersInRoles" />
           <ReferentialConstraint>
             <Principal Role="users">
               <PropertyRef Name="userId" />
@@ -2248,11 +2248,11 @@
           <Key>
             <PropertyRef Name="configurationId" />
           </Key>
-          <Property Type="Int32" Name="configurationId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Decimal" Name="比计划多耗超标线" Nullable="false" Precision="10" Scale="2" />
-          <Property Type="Decimal" Name="比核算多耗超标线" Nullable="false" Precision="10" Scale="2" />
-          <Property Type="Decimal" Name="回温超标线" Nullable="false" Precision="10" Scale="2" />
-          <Property Type="Decimal" Name="流量超标线" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="configurationId" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="比计划多耗超标线" Nullable="false" Precision="10" Scale="2" Type="Decimal" />
+          <Property Name="比核算多耗超标线" Nullable="false" Precision="10" Scale="2" Type="Decimal" />
+          <Property Name="回温超标线" Nullable="false" Precision="10" Scale="2" Type="Decimal" />
+          <Property Name="流量超标线" Nullable="false" Precision="10" Scale="2" Type="Decimal" />
         </EntityType>
         <EntityType Name="Weather_3">
           <Key>
@@ -3372,7 +3372,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="reli" ZoomLevel="63">
+      <Diagram Name="reli" ZoomLevel="77">
         <EntityTypeShape EntityType="xz2013_newModel.Company" Width="1.5" PointX="11.25" PointY="5.875" Height="8.4948942057291656" IsExpanded="true" />
         <EntityTypeShape EntityType="xz2013_newModel.Customer" Width="1.5" PointX="5.875" PointY="12.25" Height="4.3862109375" IsExpanded="true" />
         <EntityTypeShape EntityType="xz2013_newModel.HeatSourceAccuHistory" Width="2.375" PointX="15.625" PointY="1.125" Height="2.4140429687499996" IsExpanded="true" />
@@ -3503,7 +3503,7 @@
           <ConnectorPoint PointX="12.916666666666666" PointY="11.621368815104166" />
           <ConnectorPoint PointX="12.75" PointY="11.621368815104166" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="xz2013_newModel.configuration" Width="1.5" PointX="10.375" PointY="16.75" Height="1.7566536458333246" />
+        <EntityTypeShape Height="1.7566536458333246" EntityType="xz2013_newModel.configuration" PointX="22.375" PointY="8.75" Width="1.5" />
         <EntityTypeShape EntityType="xz2013_newModel.Weather_3" Width="1.5" PointX="21.75" PointY="0.75" Height="2.0853483072916674" />
         <EntityTypeShape EntityType="xz2013_newModel.Weather_7" Width="1.5" PointX="0.75" PointY="21.75" Height="2.0853483072916674" />
         <EntityTypeShape EntityType="xz2013_newModel.Constant" Width="1.5" PointX="8.375" PointY="6.75" Height="2.7427376302083246" />

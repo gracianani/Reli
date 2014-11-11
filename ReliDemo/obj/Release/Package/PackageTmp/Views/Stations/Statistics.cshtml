@@ -359,7 +359,7 @@ else
             <li>@Html.ActionLink("« 前十页", "Statistics", new
            {
                startIndex = Model.PageIndex - 10,
-               pageSize = 10,
+               pageSize = Model.PageSize,
                companies = Model.SelectedCompanyId,
                managerships = Model.SelectedManagershipId,
                heatsource = Model.SelectedHeatSourceId,

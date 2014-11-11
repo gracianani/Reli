@@ -97,21 +97,23 @@ namespace ReliDemo.Models
         {
             var stationRepo = new StationRepository();
             var stations = new List<StationDetailReport>();
+
+            int total = 0;
             if (ReportType == Models.ReportType.总明细)
             {
-                stations = new StationsService().GetDailyReport(ReportDate).ToList();
+                stations = new ReportService().GetDailyReport(ReportDate, 1, -1, out total).ToList();
             }
             else if (ReportType == Models.ReportType.回温超标明细)
             {
-                stations = new StationsService().GetExceed45Stations(ReportDate).ToList();
+                stations = new ReportService().GetExceed45Stations(ReportDate, 1, -1, out total).ToList();
             }
             else if (ReportType == Models.ReportType.故障明细)
             {
-                stations = new StationsService().GetFailureStations(ReportDate).ToList();
+                stations = new ReportService().GetFailureStations(ReportDate, 1, -1, out total).ToList(); ;
             }
             else if (ReportType == Models.ReportType.实际超核算明细)
             {
-                stations = new StationsService().Get超核算Stations(ReportDate).ToList();
+                stations = new ReportService().Get超核算Stations(ReportDate, 1, -1, out total).ToList();
             }
             for (int i = 0, startIndex = Start_Row_Index; i < stations.Count(); i++, startIndex++)
             {

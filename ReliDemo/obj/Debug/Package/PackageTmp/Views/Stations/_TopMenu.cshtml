@@ -1,8 +1,0 @@
-﻿<div class='btn-group topmenu'>
-    @Html.ActionLink("实时数据", "StationRealTime", new { stationId = Model.StationId }, new { @class = ViewBag.Title == "StationRealTime" ? "btn selected" : "btn"  })
-    @Html.ActionLink("基础信息", "BasicInfo", new { stationId = Model.StationId }, new { @class = ViewBag.Title == "BasicInfo" ? "btn selected" : "btn" })
-    @Html.ActionLink("热耗历史", "History", new { stationId = Model.StationId }, new { @class = ViewBag.Title == "History" ? "btn selected" : "btn" })
-    @Html.ActionLink("热耗图表", "Graph", new { stationId = Model.StationId }, new { @class = ViewBag.Title == "Graph" ? "btn selected" : "btn" })
-    @Html.ActionLink("所辖用户", "Customers", new { stationId = Model.StationId }, new { @class = ViewBag.Title == "Customers" ? "btn selected" : "btn" })
-    @Html.ActionLink("室温数据", "StationTemperature", new { stationId = Model.StationId }, new { @class = ViewBag.Title == "室温统计" ? "btn selected" : "btn" })
-</div>

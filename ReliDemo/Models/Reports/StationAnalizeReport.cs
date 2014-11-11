@@ -1,4 +1,5 @@
-﻿using ReliDemo.Core.Interfaces;
+﻿using OfficeOpenXml.Style;
+using ReliDemo.Core.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,7 +39,7 @@ namespace ReliDemo.Models
     {
         public ReportType ReportType
         {
-            get { return ReportType.热力站分析; }
+            get { return ReportType.站执行到位率统计; }
         }
 
         public string TemplateName
@@ -57,34 +58,41 @@ namespace ReliDemo.Models
         {
             for (int i = 0; i < ReportData.Count(); i++)
             {
-                worksheet.Cells[3 + i, 1].Value = i + 1;
-                worksheet.Cells[3 + i, 2].Value = ReportData[i].热力站名称;
-                worksheet.Cells[3 + i, 3].Value = ReportData[i].分公司;
-                worksheet.Cells[3 + i, 4].Value = ReportData[i].管理单位;
-                worksheet.Cells[3 + i, 5].Value = ReportData[i].站面积;
-                worksheet.Cells[3 + i, 6].Value = ReportData[i].参考热指标;
-                worksheet.Cells[3 + i, 7].Value = ReportData[i].数据来源;
-                worksheet.Cells[3 + i, 8].Value = ReportData[i].是否重点站;
-                worksheet.Cells[3 + i, 9].Value = ReportData[i].收费性质;
-                worksheet.Cells[3 + i, 10].Value = ReportData[i].生产热源;
+                worksheet.Cells[2 + i, 1].Value = i + 1;
+                worksheet.Cells[2 + i, 2].Value = ReportData[i].热力站名称;
+                worksheet.Cells[2 + i, 3].Value = ReportData[i].分公司;
+                worksheet.Cells[2 + i, 4].Value = ReportData[i].管理单位;
+                worksheet.Cells[2 + i, 5].Value = ReportData[i].站面积;
+                worksheet.Cells[2 + i, 6].Value = ReportData[i].参考热指标;
+                worksheet.Cells[2 + i, 7].Value = ReportData[i].数据来源;
+                worksheet.Cells[2 + i, 8].Value = ReportData[i].是否重点站 ? "是" : "否";
+                worksheet.Cells[2 + i, 9].Value = ReportData[i].收费性质;
+                worksheet.Cells[2 + i, 10].Value = ReportData[i].生产热源;
 
-                worksheet.Cells[3 + i, 11].Value = ReportData[i].统计天数;
-                worksheet.Cells[3 + i, 12].Value = ReportData[i].有效天数;
-                worksheet.Cells[3 + i, 13].Value = ReportData[i].无效天数;
-                worksheet.Cells[3 + i, 14].Value = ReportData[i].超标天数;
-                worksheet.Cells[3 + i, 15].Value = ReportData[i].未超标天数;
-                worksheet.Cells[3 + i, 16].Value = ReportData[i].站天数到位率;
-                worksheet.Cells[3 + i, 17].Value = ReportData[i].站有效数据率;
-                worksheet.Cells[3 + i, 18].Value = ReportData[i].站无效数据率;
-                worksheet.Cells[3 + i, 19].Value = ReportData[i].站天数超标率;
+                worksheet.Cells[2 + i, 11].Value = ReportData[i].统计天数;
+                worksheet.Cells[2 + i, 12].Value = ReportData[i].有效天数;
+                worksheet.Cells[2 + i, 13].Value = ReportData[i].无效天数;
+                worksheet.Cells[2 + i, 14].Value = ReportData[i].超标天数;
+                worksheet.Cells[2 + i, 15].Value = ReportData[i].未超标天数;
+                worksheet.Cells[2 + i, 16].Value = ReportData[i].站天数到位率;
+                worksheet.Cells[2 + i, 17].Value = ReportData[i].站有效数据率;
+                worksheet.Cells[2 + i, 18].Value = ReportData[i].站无效数据率;
+                worksheet.Cells[2 + i, 19].Value = ReportData[i].站天数超标率;
 
-                worksheet.Cells[3 + i, 20].Value = ReportData[i].有效日计划供热量;
-                worksheet.Cells[3 + i, 21].Value = ReportData[i].有效日核算供热量;
-                worksheet.Cells[3 + i, 22].Value = ReportData[i].有效日实际供热量;
+                worksheet.Cells[2 + i, 20].Value = ReportData[i].有效日计划供热量;
+                worksheet.Cells[2 + i, 21].Value = ReportData[i].有效日核算供热量;
+                worksheet.Cells[2 + i, 22].Value = ReportData[i].有效日实际供热量;
 
-                worksheet.Cells[3 + i, 23].Value = ReportData[i].有效日供热总面积;
-                worksheet.Cells[3 + i, 24].Value = ReportData[i].超标日总供热面积;
-                worksheet.Cells[3 + i, 25].Value = ReportData[i].未超标日总供热面积;
+                worksheet.Cells[2 + i, 23].Value = ReportData[i].有效日供热总面积;
+                worksheet.Cells[2 + i, 24].Value = ReportData[i].超标日总供热面积;
+                worksheet.Cells[2 + i, 25].Value = ReportData[i].未超标日总供热面积;
+
+                var border = worksheet.Cells[2 + i,1, 2 + i, 25].Style.Border;
+                border.Bottom.Style = border.Top.Style = border.Left.Style = border.Right.Style = ExcelBorderStyle.Thin;
+                border.Bottom.Color.SetColor(System.Drawing.Color.DarkGray);
+                border.Top.Color.SetColor(System.Drawing.Color.DarkGray);
+                border.Left.Color.SetColor(System.Drawing.Color.DarkGray);
+                border.Right.Color.SetColor(System.Drawing.Color.DarkGray);
             }
         }
     }

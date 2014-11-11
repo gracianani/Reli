@@ -3,3 +3,8 @@ C:\Users\yaqiZhao\Documents\Visual Studio 2010\Projects\ReliDemo\ReliTest\bin\De
 C:\Users\yaqiZhao\Documents\Visual Studio 2010\Projects\ReliDemo\ReliTest\obj\Debug\ReliTest.csprojResolveAssemblyReference.cache
 C:\Users\yaqiZhao\Documents\Visual Studio 2010\Projects\ReliDemo\ReliTest\obj\Debug\ReliTest.dll
 C:\Users\yaqiZhao\Documents\Visual Studio 2010\Projects\ReliDemo\ReliTest\obj\Debug\ReliTest.pdb
+G:\ReliDemo\ReliTest\bin\Debug\ReliTest.dll
+G:\ReliDemo\ReliTest\bin\Debug\ReliTest.pdb
+G:\ReliDemo\ReliTest\obj\Debug\ReliTest.csprojResolveAssemblyReference.cache
+G:\ReliDemo\ReliTest\obj\Debug\ReliTest.dll
+G:\ReliDemo\ReliTest\obj\Debug\ReliTest.pdb

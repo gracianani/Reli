@@ -1107,11 +1107,11 @@
     <Key>
       <PropertyRef Name="configurationId" />
     </Key>
-    <Property Type="Int32" Name="configurationId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="Decimal" Name="比计划多耗超标线" Nullable="false" Precision="10" Scale="2" />
-    <Property Type="Decimal" Name="比核算多耗超标线" Nullable="false" Precision="10" Scale="2" />
-    <Property Type="Decimal" Name="回温超标线" Nullable="false" Precision="10" Scale="2" />
-    <Property Type="Decimal" Name="流量超标线" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="configurationId" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="比计划多耗超标线" Nullable="false" Precision="10" Scale="2" Type="Decimal" />
+    <Property Name="比核算多耗超标线" Nullable="false" Precision="10" Scale="2" Type="Decimal" />
+    <Property Name="回温超标线" Nullable="false" Precision="10" Scale="2" Type="Decimal" />
+    <Property Name="流量超标线" Nullable="false" Precision="10" Scale="2" Type="Decimal" />
   </EntityType>
   <EntityType Name="Weather_3">
     <Key>

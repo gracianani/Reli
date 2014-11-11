@@ -1,4 +1,5 @@
-﻿using ReliDemo.Core.Interfaces;
+﻿using OfficeOpenXml.Style;
+using ReliDemo.Core.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,7 +33,7 @@ namespace ReliDemo.Models
         }
         public ReportType ReportType
         {
-            get { return ReportType.公司到位率统计表; }
+            get { return ReportType.各单位执行到位率统计_日; }
         }
 
         public string TemplateName
@@ -62,6 +63,13 @@ namespace ReliDemo.Models
 
                 worksheet.Cells[2 + i, 5].Value = ReportData[i].采暖季执行到位率;
                 worksheet.Cells[2 + i, 5].Style.Numberformat.Format = "0.00";
+
+                var border = worksheet.Cells[2 + i, 1, 2 + i, 5].Style.Border;
+                border.Bottom.Style = border.Top.Style = border.Left.Style = border.Right.Style = ExcelBorderStyle.Thin;
+                border.Bottom.Color.SetColor(System.Drawing.Color.Black);
+                border.Top.Color.SetColor(System.Drawing.Color.Black);
+                border.Left.Color.SetColor(System.Drawing.Color.Black);
+                border.Right.Color.SetColor(System.Drawing.Color.Black);
             }
         }
     }

@@ -20,6 +20,42 @@ line-height: 30px;'>
     <a id="download" href="javascript:void(0)" class="btn btn-primary" data-reporttype="@Model.ReportTypeId">下载</a>
     <div id="validationErrorReport" class="alert alert-error hidden inline" style="display:inline">请填写“时间”。</div>
 </div>
+<div class="row-fluid">
+
+    <div class="alert alert-info clearfix">
+        <div style="display:inline-block;float:left;position:relative;top:5px;"> 查询结果：数据 @Model.TotalCount 条。 每页显示：</div>
+        <ul class="nav nav-pills" id="pills" style="float:left;display:inline-block;margin-bottom:0;">
+            <li @if (Model.PageSize == 10) { <text> class="active" </text>    }>
+                @Html.ActionLink("10", "Preview", new
+{
+    startIndex = 0,
+    pageSize = 10,
+    date = Model.Day.ToString("yyyy-MM-dd"),
+    reportType = Model.ReportTypeId
+})
+            </li>
+            <li @if (Model.PageSize == 50) { <text> class="active" </text>    }>
+                @Html.ActionLink("50", "Preview", new
+{
+    startIndex = 0,
+    pageSize = 50,
+    date = Model.Day.ToString("yyyy-MM-dd"),
+    reportType = Model.ReportTypeId
+})
+            </li>
+            <li @if (Model.PageSize == 100) { <text> class="active" </text>    }>
+                @Html.ActionLink("100", "Preview", new
+{
+    startIndex = 0,
+    pageSize = 100,
+    date = Model.Day.ToString("yyyy-MM-dd"),
+    reportType = Model.ReportTypeId
+})
+            </li>
+        </ul>
+    </div>
+
+</div>
 <div class="scrollableTableContainer">
     @{
         <table class="table  table-bordered table-hover  table-condensed table-clickhighlight datatable" style="background:white">
@@ -106,6 +142,72 @@ line-height: 30px;'>
             }
         </table>
     }
+</div>
+
+
+
+<div class="row-fluid">
+    <div class="pagination pagination-centered">
+        <ul>
+
+            @if (Model.PageIndex >= 10)
+            {
+                <li>
+                    @Html.ActionLink("« 前十页", "Preview", new
+           {
+               startIndex = Model.PageIndex-10,
+               pageSize = Model.PageSize,
+               date = Model.Day.ToString("yyyy-MM-dd"),
+               reportType = Model.ReportTypeId
+           })
+            </li>
+            }
+            <li>
+                @Html.ActionLink("« 上一页", "Preview", new
+  {
+      startIndex = Model.PageIndex-1,
+      pageSize = Model.PageSize,
+      date = Model.Day.ToString("yyyy-MM-dd"),
+      reportType = Model.ReportTypeId
+  })
+        </li>
+        @for (int i = Model.PageIndex / 10 * 10; (i < Model.PageIndex / 10 * 10 + 10) && i < Model.TotalPages; i++)
+        {
+            <li @if (Model.PageIndex == i) { <text> class="active" </text>  }>
+
+                @Html.ActionLink((i + 1).ToString(), "Preview", new
+           {
+               startIndex = i,
+               pageSize = Model.PageSize,
+               date = Model.Day.ToString("yyyy-MM-dd"),
+               reportType = Model.ReportTypeId
+           })
+            </li>
+        }
+        <li>
+            @Html.ActionLink("下一页 »", "Preview", new
+ {
+     startIndex = Model.PageIndex+1,
+     pageSize = Model.PageSize,
+     date = Model.Day.ToString("yyyy-MM-dd"),
+     reportType = Model.ReportTypeId
+ })
+    </li>
+    @if (Model.PageIndex < Model.TotalPages - 10)
+    {
+        <li>
+            @Html.ActionLink("后十页 »", "Preview", new
+           {
+               startIndex = Model.PageIndex+10,
+               pageSize = Model.PageSize,
+               date = Model.Day.ToString("yyyy-MM-dd"),
+               reportType = Model.ReportTypeId
+           })
+    </li>
+    }
+
+</ul>
+</div>
 </div>
 
 <script>

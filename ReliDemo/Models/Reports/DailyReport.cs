@@ -1,4 +1,5 @@
 ﻿
+using OfficeOpenXml.Style;
 using ReliDemo.Core.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -64,7 +65,7 @@ namespace ReliDemo.Models
 
         public ReportType ReportType
         {
-            get { return ReportType.一站一日一计划时间段报表; }
+            get { return ReportType.各单位执行到位率统计_汇总; }
         }
 
         public string TemplateName
@@ -78,38 +79,76 @@ namespace ReliDemo.Models
             }
         }
 
+        private void FillItem(OfficeOpenXml.ExcelWorksheet worksheet, int rowNumber, int itemIndex)
+        {
+            if (itemIndex == 0)
+            {
+                worksheet.Cells[rowNumber, 1].Value = "合计";
+            }
+            else
+            {
+                worksheet.Cells[rowNumber, 1].Value = ReportData[itemIndex].日期;
+                worksheet.Cells[rowNumber, 1].Style.Numberformat.Format = "mm月dd日";
+            }
+            worksheet.Cells[rowNumber, 2].Value = ReportData[itemIndex].室外温度;
+            worksheet.Cells[rowNumber, 2].Style.Numberformat.Format = "0.0℃";
+            worksheet.Cells[rowNumber, 3].Value = ReportData[itemIndex].销售执行到位率;
+            worksheet.Cells[rowNumber, 4].Value = ReportData[itemIndex].创合执行到位率;
+            worksheet.Cells[rowNumber, 5].Value = ReportData[itemIndex].特力昆执行到位率;
+            worksheet.Cells[rowNumber, 6].Value = ReportData[itemIndex].天禹执行到位率;
+            worksheet.Cells[rowNumber, 7].Value = ReportData[itemIndex].合计执行到位率;
+
+            worksheet.Cells[rowNumber, 8].Value = ReportData[itemIndex].销售超标站总面积;
+            worksheet.Cells[rowNumber, 9].Value = ReportData[itemIndex].创合超标站总面积;
+            worksheet.Cells[rowNumber, 10].Value = ReportData[itemIndex].特力昆超标站总面积;
+            worksheet.Cells[rowNumber, 11].Value = ReportData[itemIndex].天禹超标站总面积;
+            worksheet.Cells[rowNumber, 12].Value = ReportData[itemIndex].合计超标站总面积;
+
+            worksheet.Cells[rowNumber, 13].Value = ReportData[itemIndex].销售有效站总面积;
+            worksheet.Cells[rowNumber, 14].Value = ReportData[itemIndex].创合有效站总面积;
+            worksheet.Cells[rowNumber, 15].Value = ReportData[itemIndex].特力昆有效站总面积;
+            worksheet.Cells[rowNumber, 16].Value = ReportData[itemIndex].天禹有效站总面积;
+            worksheet.Cells[rowNumber, 17].Value = ReportData[itemIndex].合计有效站总面积;
+
+            worksheet.Cells[rowNumber, 18].Value = ReportData[itemIndex].销售有效站数;
+            worksheet.Cells[rowNumber, 19].Value = ReportData[itemIndex].创合有效站数;
+            worksheet.Cells[rowNumber, 20].Value = ReportData[itemIndex].特力昆有效站数;
+            worksheet.Cells[rowNumber, 21].Value = ReportData[itemIndex].天禹有效站数;
+            worksheet.Cells[rowNumber, 22].Value = ReportData[itemIndex].合计有效站数;
+
+
+            var border = worksheet.Cells[rowNumber, 1].Style.Border;
+            border.Right.Style = ExcelBorderStyle.Thin;
+            border.Right.Color.SetColor(System.Drawing.Color.Black);
+
+            border = worksheet.Cells[rowNumber, 2].Style.Border;
+            border.Right.Style = ExcelBorderStyle.Thin;
+            border.Right.Color.SetColor(System.Drawing.Color.Black);
+
+            border = worksheet.Cells[rowNumber, 7].Style.Border;
+            border.Right.Style = ExcelBorderStyle.Thin;
+            border.Right.Color.SetColor(System.Drawing.Color.Black);
+
+            border = worksheet.Cells[rowNumber, 12].Style.Border;
+            border.Right.Style = ExcelBorderStyle.Thin;
+            border.Right.Color.SetColor(System.Drawing.Color.Black);
+
+            border = worksheet.Cells[rowNumber, 17].Style.Border;
+            border.Right.Style = ExcelBorderStyle.Thin;
+            border.Right.Color.SetColor(System.Drawing.Color.Black);
+
+            border = worksheet.Cells[rowNumber, 22].Style.Border;
+            border.Right.Style = ExcelBorderStyle.Thin;
+            border.Right.Color.SetColor(System.Drawing.Color.Black);
+        }
+
         public void FillReport(OfficeOpenXml.ExcelWorksheet worksheet)
         {
-            for (int i = 0; i < ReportData.Count(); i++)
+            for (int i = 1; i < ReportData.Count(); i++)
             {
-                worksheet.Cells[3 + i, 1].Value = ReportData[i].日期;
-                worksheet.Cells[3 + i, 1].Style.Numberformat.Format = "mm月dd日";
-                worksheet.Cells[3 + i, 2].Value = ReportData[i].室外温度;
-                worksheet.Cells[3 + i, 2].Style.Numberformat.Format = "0.0℃";
-                worksheet.Cells[3 + i, 3].Value = ReportData[i].销售执行到位率;
-                worksheet.Cells[3 + i, 4].Value = ReportData[i].创合执行到位率;
-                worksheet.Cells[3 + i, 5].Value = ReportData[i].特力昆执行到位率;
-                worksheet.Cells[3 + i, 6].Value = ReportData[i].天禹执行到位率;
-                worksheet.Cells[3 + i, 7].Value = ReportData[i].合计执行到位率;
-
-                worksheet.Cells[3 + i, 8].Value = ReportData[i].销售超标站总面积;
-                worksheet.Cells[3 + i, 9].Value = ReportData[i].创合超标站总面积;
-                worksheet.Cells[3 + i, 10].Value = ReportData[i].特力昆超标站总面积;
-                worksheet.Cells[3 + i, 11].Value = ReportData[i].天禹超标站总面积;
-                worksheet.Cells[3 + i, 12].Value = ReportData[i].合计超标站总面积;
-
-                worksheet.Cells[3 + i, 13].Value = ReportData[i].销售有效站总面积;
-                worksheet.Cells[3 + i, 14].Value = ReportData[i].创合有效站总面积;
-                worksheet.Cells[3 + i, 15].Value = ReportData[i].特力昆有效站总面积;
-                worksheet.Cells[3 + i, 16].Value = ReportData[i].天禹有效站总面积;
-                worksheet.Cells[3 + i, 17].Value = ReportData[i].合计有效站总面积;
-
-                worksheet.Cells[3 + i, 18].Value = ReportData[i].销售有效站数;
-                worksheet.Cells[3 + i, 19].Value = ReportData[i].创合有效站数;
-                worksheet.Cells[3 + i, 20].Value = ReportData[i].特力昆有效站数;
-                worksheet.Cells[3 + i, 21].Value = ReportData[i].天禹有效站数;
-                worksheet.Cells[3 + i, 22].Value = ReportData[i].合计有效站数;
+                FillItem(worksheet, 2 + i, i);
             }
+            FillItem(worksheet, 2 + ReportData.Count(), 0);
         }
     }
 }

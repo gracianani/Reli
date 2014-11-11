@@ -31,5 +31,17 @@ namespace ReliDemo.Controllers
                 } );
         }
 
+        public ActionResult ChangeReportRange(DateTime dateFrom, DateTime dateTo)
+        {
+            ConfigurationService.Instance.报表默认开始时间 = dateFrom;
+            ConfigurationService.Instance.报表默认开始时间 = dateFrom;
+            ConfigurationService.Instance.Save报表日期();
+            return RedirectToAction("Index",
+                new ConfigurationViewModel()
+                {
+                    操作记录 = new HeatConsumptionSummaryService().GetTemperatureAudit()
+                });
+        }
+
     }
 }

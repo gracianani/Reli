@@ -243,7 +243,6 @@ G:\ReliDemo\ReliDemo\bin\System.Web.WebPages.Deployment.xml
 G:\ReliDemo\ReliDemo\bin\System.Web.WebPages.Razor.xml
 G:\ReliDemo\ReliDemo\bin\WebMatrix.Data.xml
 G:\ReliDemo\ReliDemo\bin\WebMatrix.WebData.xml
-G:\ReliDemo\ReliDemo\obj\Debug\ReliDemo.csprojResolveAssemblyReference.cache
 G:\ReliDemo\ReliDemo\obj\Debug\ReliDemo.dll
 G:\ReliDemo\ReliDemo\obj\Debug\ReliDemo.pdb
 C:\Users\yaqiZhao\Documents\Visual Studio 2013\Projects\ReliDemo\ReliDemo\bin\Content\themes\simpliq\css\css\mixins.css

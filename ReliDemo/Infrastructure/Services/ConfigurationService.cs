@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using ReliDemo.Models;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace ReliDemo.Infrastructure.Services
 {
@@ -15,7 +17,43 @@ namespace ReliDemo.Infrastructure.Services
         private decimal _比计划多耗超标线;
         private decimal _流量超标线;
         private decimal _回温超标线;
-
+        private DateTime? _报表默认开始时间;
+        private DateTime? _报表默认结束时间;
+        public DateTime 报表默认开始时间
+        {
+            get
+            {
+                if (_报表默认开始时间.HasValue)
+                {
+                    return _报表默认开始时间.Value;
+                }
+                else {
+                    return new DateTime(2014, 11, 7);
+                }
+            }
+            set
+            {
+                _报表默认开始时间 = value;
+            }
+        }
+        public DateTime 报表默认结束时间
+        {
+            get
+            {
+                if (_报表默认结束时间.HasValue)
+                {
+                    return _报表默认结束时间.Value;
+                }
+                else
+                {
+                    return new DateTime(2015, 4, 1);
+                }
+            }
+            set
+            {
+                _报表默认开始时间 = value;
+            }
+        }
         private static  Lazy<ConfigurationService> configurationService =
             new Lazy<ConfigurationService>(() =>
                 new ConfigurationService()
@@ -34,8 +72,47 @@ namespace ReliDemo.Infrastructure.Services
             _比核算多耗Exceed = configuration.比核算多耗超标线;
             _流量超标线 = configuration.流量超标线;
             _回温超标线 = configuration.回温超标线;
+
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["membership"].ConnectionString))
+            {
+                conn.Open();
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "select top (1) 报表默认开始时间, 报表默认结束时间 from configuration";
+                    cmd.CommandType = System.Data.CommandType.Text;
+                    using (var reader = cmd.ExecuteReader(System.Data.CommandBehavior.SingleRow))
+                    {
+                        while (reader.Read())
+                        {
+                            if (!reader.IsDBNull(0)) { 
+                                _报表默认开始时间 = reader.GetDateTime(0);
+                            }
+                            if (!reader.IsDBNull(1))
+                            {
+                                _报表默认结束时间 = reader.GetDateTime(1);
+                            }
+                        }
+                    }
+                }
+            }
+
         }
 
+        public void Save报表日期()
+        {
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["membership"].ConnectionString))
+            {
+                conn.Open();
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "update configuration set 报表默认开始时间 = @start, 报表默认结束时间 = @end";
+                    cmd.CommandType = System.Data.CommandType.Text;
+                    cmd.Parameters.Add(new SqlParameter("start", _报表默认开始时间));
+                    cmd.Parameters.Add(new SqlParameter("end", _报表默认结束时间));
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
         public static ConfigurationService Instance { get { return configurationService.Value; } }
 
         public DateTime getStartHeatSupplyDate()

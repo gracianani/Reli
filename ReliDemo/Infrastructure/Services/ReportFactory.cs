@@ -81,22 +81,27 @@ namespace ReliDemo.Infrastructure.Services
             throw new Exception("report type not supported");
         }
 
-        public static IReport CreateRangeReport(ReportType reportType, DateTime fromDate, DateTime toDate, int 是否重点站 = 2, string 热源 = "ALL", string 收费性质 = "ALL", string 数据来源 = "ALL", int companyId = -1, int managershipId = -1)
+        public static IReport CreatePagingReport(ReportType reportType, DateTime fromDate, DateTime toDate, int pageIndex , int pageSize , out int total , int 是否重点站 = 2, string 热源 = "ALL", string 收费性质 = "ALL", string 数据来源 = "ALL", int companyId = -1, int managershipId = -1)
         {
-            if (reportType == Models.ReportType.一站一日一计划时间段报表)
+            total = 0;
+            if (reportType == ReportType.站执行到位率统计)
+            {
+                var reportItem = new ReportService().GetStationAnalizeReportData(fromDate, toDate, pageIndex, pageSize, out total, 是否重点站, 热源, 收费性质, 数据来源, companyId, managershipId);
+                return new StationAnalizeReport() { ReportData = reportItem };
+            }
+            return new RangeReport() { ReportFromDate = fromDate, ReportToDate = toDate };
+        }
+        public static IReport CreateRangeReport(ReportType reportType, DateTime fromDate, DateTime toDate,  int 是否重点站 = 2, string 热源 = "ALL", string 收费性质 = "ALL", string 数据来源 = "ALL", int companyId = -1, int managershipId = -1)
+        {
+            if (reportType == Models.ReportType.各单位执行到位率统计_汇总)
+            {
+                var reportItem = new ReportService().GetCompletionReportData(fromDate, toDate, 是否重点站, 热源, 收费性质, 数据来源, companyId, companyId == -1);
+                return new CompletionReport() { ReportData = reportItem }; 
+            }
+            else if (reportType == ReportType.各单位执行到位率统计_日)
             {
                 var reportItem = new ReportService().GetDailyReportData(fromDate, toDate, 是否重点站, 热源, 收费性质, 数据来源);
                 return new DailyReport() { ReportData = reportItem };
-            }
-            else if (reportType == ReportType.公司到位率统计表)
-            {
-                var reportItem = new ReportService().GetCompletionReportData(fromDate, toDate, 是否重点站, 热源, 收费性质, 数据来源, companyId, companyId == -1 );
-                return new CompletionReport() { ReportData = reportItem };
-            }
-            else if (reportType == ReportType.热力站分析)
-            {
-                var reportItem = new ReportService().GetStationAnalizeReportData(fromDate, toDate, 是否重点站, 热源, 收费性质, 数据来源, companyId, managershipId);
-                return new StationAnalizeReport() { ReportData = reportItem };
             }
             return new RangeReport() { ReportFromDate = fromDate, ReportToDate = toDate };
         }
