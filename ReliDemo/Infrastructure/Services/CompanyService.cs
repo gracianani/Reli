@@ -17,67 +17,74 @@ namespace ReliDemo.Infrastructure.Services
                                         from xz2013.dbo.Stations a
                                         join xz2013.dbo.StationAccuHistory b on b.日期 = @day and b.热力站id = a.itemId
                                         WHERE
-	                                        b.投入面积>100 and 
+	                                        b.投入面积>300 and 
                                             b.报警 is null and
-                                            a.公司ID = @companyId
+                                            a.公司ID = @companyId and
+                                            b.瞬流avg  < 3000 and b.采暖GJ < a.GJ_Limit 
                                         ";
 
         private const string 监测站供热面积Sql = @"select sum(b.[投入面积]/10000)
                                         from xz2013.dbo.Stations a
                                         join xz2013.dbo.StationAccuHistory b on b.日期 = @day and b.热力站id = a.itemId
                                         WHERE
-	                                        b.投入面积>100 and 
+	                                        b.投入面积>300 and 
                                             b.报警 is null and
-                                            a.公司ID = @companyId
+                                            a.公司ID = @companyId and
+                                            b.瞬流avg  < 3000 and b.采暖GJ < a.GJ_Limit 
                                         ";
 
         private const string 回温超标45数Sql = @"select count(*)
                                         from xz2013.dbo.Stations a
                                         join xz2013.dbo.StationAccuHistory b on b.日期 = @day and b.热力站id = a.itemId
                                         WHERE
-	                                        b.投入面积>100 and 
+	                                        b.投入面积>300 and 
                                             b.报警 is null and
                                             a.公司ID = @companyId and
-                                            b.回温avg>45 
+                                            b.回温avg>45  and
+                                            b.瞬流avg  < 3000 and b.采暖GJ < a.GJ_Limit 
                                         ";
 
         private const string 实际超核算数Sql = @"select count(*)
                                         from xz2013.dbo.Stations a
                                         join xz2013.dbo.StationAccuHistory b on b.日期 = @day and b.热力站id = a.itemId
                                         WHERE
-	                                        b.投入面积>100 and 
+	                                        b.投入面积>300 and 
                                             b.报警 is null and
                                             a.公司ID = @companyId and
-                                            b.核算GJ < b.采暖GJ
+                                            b.核算GJ < b.采暖GJ and
+                                            b.瞬流avg  < 3000 and b.采暖GJ < a.GJ_Limit 
                                         ";
 
         private const string 实际超核算面积Sql = @"select sum(b.[投入面积]/10000)
                                         from xz2013.dbo.Stations a
                                         join xz2013.dbo.StationAccuHistory b on b.日期 = @day and b.热力站id = a.itemId
                                         WHERE
-	                                        b.投入面积>100 and 
+	                                        b.投入面积>300 and 
                                             b.报警 is null and
                                             a.公司ID = @companyId and
-                                            b.核算GJ < b.采暖GJ";
+                                            b.核算GJ < b.采暖GJ and
+                                            b.瞬流avg  < 3000 and b.采暖GJ < a.GJ_Limit ";
 
         private const string 实际超计划数Sql = @"select count(*)
                                         from xz2013.dbo.Stations a
                                         join xz2013.dbo.StationAccuHistory b on b.日期 = @day and b.热力站id = a.itemId
                                         WHERE
-	                                        b.投入面积>100 and 
+	                                        b.投入面积>300 and 
                                             b.报警 is null and
                                             a.公司ID = @companyId and
-                                            b.计划GJ < b.采暖GJ
+                                            b.计划GJ < b.采暖GJ and
+                                            b.瞬流avg  < 3000 and b.采暖GJ < a.GJ_Limit 
                                         ";
 
         private const string 实际超计划面积Sql = @"select sum(b.[投入面积]/10000)
                                         from xz2013.dbo.Stations a
                                         join xz2013.dbo.StationAccuHistory b on b.日期 = @day and b.热力站id = a.itemId
                                         WHERE
-	                                        b.投入面积>100 and 
+	                                        b.投入面积>300 and 
                                             b.报警 is null and
                                             a.公司ID = @companyId and
-                                            b.计划GJ < b.采暖GJ";
+                                            b.计划GJ < b.采暖GJ and
+                                            b.瞬流avg  < 3000 and b.采暖GJ < a.GJ_Limit ";
 
         private const string 非重点站Sql = "a.是否重点站=0 and a.收费性质  not like '%计量%' ";
 
@@ -89,10 +96,11 @@ namespace ReliDemo.Infrastructure.Services
             from xz2013.dbo.Stations a
             join xz2013.dbo.StationAccuHistory b on b.热力站id = a.itemId
             WHERE
-                b.投入面积>100 and 
+                b.投入面积>300 and 
                 b.报警 is null and
                 a.公司ID = @companyId and
-                b.日期 > @fromDay and b.日期 <= @toDay 
+                b.日期 > @fromDay and b.日期 <= @toDay  and
+                                            b.瞬流avg  < 3000 and b.采暖GJ < a.GJ_Limit 
             group by b.日期
             order by b.日期 asc";
 

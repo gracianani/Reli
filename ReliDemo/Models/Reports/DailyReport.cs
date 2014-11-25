@@ -140,6 +140,16 @@ namespace ReliDemo.Models
             border = worksheet.Cells[rowNumber, 22].Style.Border;
             border.Right.Style = ExcelBorderStyle.Thin;
             border.Right.Color.SetColor(System.Drawing.Color.Black);
+
+            if (itemIndex == 0)
+            {
+                for (int i = 1; i <= 22; i++)
+                {
+                    border = worksheet.Cells[rowNumber, i].Style.Border;
+                    border.Bottom.Style = ExcelBorderStyle.Thin;
+                    border.Bottom.Color.SetColor(System.Drawing.Color.Black);
+                }
+            }
         }
 
         public void FillReport(OfficeOpenXml.ExcelWorksheet worksheet)

@@ -85,7 +85,8 @@ line-height: 30px;'>
                 },
                 success: function (i) {
                     window.location = i.fileName;
-                    $(self).html(oldName);
+                    $(self).html('下载');
+                    $(self).html("正在生成报表...").removeClass("disabled");
                 }
             });
         });
