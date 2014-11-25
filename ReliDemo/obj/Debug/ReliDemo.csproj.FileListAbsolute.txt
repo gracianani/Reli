@@ -369,3 +369,4 @@ C:\Users\yaqiZhao\Documents\Visual Studio 2013\Projects\ReliDemo\ReliDemo\bin\We
 C:\Users\yaqiZhao\Documents\Visual Studio 2013\Projects\ReliDemo\ReliDemo\obj\Debug\ReliDemo.csprojResolveAssemblyReference.cache
 C:\Users\yaqiZhao\Documents\Visual Studio 2013\Projects\ReliDemo\ReliDemo\obj\Debug\ReliDemo.dll
 C:\Users\yaqiZhao\Documents\Visual Studio 2013\Projects\ReliDemo\ReliDemo\obj\Debug\ReliDemo.pdb
+G:\ReliDemo\ReliDemo\obj\Debug\ReliDemo.csprojResolveAssemblyReference.cache
