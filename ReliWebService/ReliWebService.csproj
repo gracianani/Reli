@@ -182,6 +182,7 @@
       <LastGenOutput>ReliMobile.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="Properties\PublishProfiles\WebServiceDebug.pubxml" />
+    <None Include="Properties\PublishProfiles\WebServiceRelease.pubxml" />
     <None Include="Properties\PublishProfiles\WebServiceTest.pubxml" />
   </ItemGroup>
   <ItemGroup>

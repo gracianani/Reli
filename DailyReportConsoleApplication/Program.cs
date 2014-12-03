@@ -13,7 +13,7 @@ namespace DailyReportConsoleApplication
 {
     class Program
     {
-        /*static void Main(string[] args)
+        static void Main(string[] args)
         {
             DateTime day = DateTime.Today;
             var report = ReportFactory.CreateReport(ReportType.生产日报, day);
@@ -29,7 +29,8 @@ namespace DailyReportConsoleApplication
 
                 xlPackage.Save();
             }
-        }*/
+        }
+        /*
         static void Main(string[] args)
         {
             var directory = @"C:\Users\yaqiZhao\Desktop\qiqi\moban\";
@@ -54,7 +55,7 @@ namespace DailyReportConsoleApplication
             }
             merged.Save();
         }
-
+        */
         public static DataTable WorksheetToDataTable(ExcelWorksheet oSheet)
         {
             int totalRows = oSheet.Dimension.End.Row;

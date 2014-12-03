@@ -22,6 +22,18 @@ namespace ReliMobileAdmin.Models
             set
             {
                 _dbMessage = value;
+                if (!string.IsNullOrEmpty(_dbMessage.imageUrl))
+                {
+                    var url_uri = _dbMessage.imageUrl.Split(new string[] { "##" }, StringSplitOptions.RemoveEmptyEntries);
+                    if (url_uri.Count() == 2)
+                    {
+                        _url = url_uri[0];
+                    }
+                    else
+                    {
+                        _url = _dbMessage.imageUrl;
+                    }
+                }
             }
         }
         public string SendToUser_Department 
@@ -134,14 +146,15 @@ namespace ReliMobileAdmin.Models
             }
         }
 
+        private string _url;
         public string imageUrl
         {
             get
             {
-                return "http://localhost:14875/" + DBMessage.imageUrl;
+                return "http://192.168.57.238:14875/" + _url.ToLower().Replace(@"c:/tests/", "");
+                //.Replace(HttpContext.Current.Request.PhysicalApplicationPath, string.Empty);
             }
         }
-
         public bool hasImage
         {
             get
