@@ -129,6 +129,10 @@ namespace ReliWebService
         [OperationContract]
         [WebGet(UriTemplate = "Summary/{userName}", ResponseFormat = WebMessageFormat.Json)]
         Summary GetSummary(string userName);
+
+        [OperationContract]
+        [WebGet(UriTemplate = "Overview/{userName}", ResponseFormat = WebMessageFormat.Json)]
+        Overview Overview(string userName);
     }
 
     [AspNetCompatibilityRequirements(RequirementsMode= AspNetCompatibilityRequirementsMode.Allowed)]
@@ -201,11 +205,13 @@ namespace ReliWebService
                 else if ((StartupBlockType)startupBlockType == StartupBlockType.Weather)
                 {
                     startupBlock = new StartupBlock(StartupBlockType.Weather, "天气预报");
-                    startupBlock.StartupBlockValues.Add("-10");
-                    startupBlock.StartupBlockValues.Add("1");
-                    startupBlock.StartupBlockValues.Add("23日");
-                    startupBlock.StartupBlockValues.Add("晴转阴");
-                    startupBlock.StartupBlockValues.Add("微风");
+                    var weatherRepo = new TemperatureRepository();
+                    var weatherDetails =new TemperatureDetails(weatherRepo.TodayAndYesterday);
+                    startupBlock.StartupBlockValues.Add(weatherRepo.Today.actualLowest.ToString());
+                    startupBlock.StartupBlockValues.Add(weatherRepo.Today.actualHighest.ToString());
+                    startupBlock.StartupBlockValues.Add(weatherRepo.Today.day);
+                    startupBlock.StartupBlockValues.Add(weatherRepo.Today.weatherType.ToString());
+                    startupBlock.StartupBlockValues.Add(weatherRepo.Today.windSpeedAndDirection);
                 }
                 else if ((StartupBlockType)startupBlockType == StartupBlockType.Message)
                 {
@@ -469,6 +475,13 @@ namespace ReliWebService
                                       weatherToday.windSpeedAndDirection, weatherToday.weatherIcon, weatherToday.weatherDescription,
                                       messageCount, photoCount, warningCount);
             return summary;
+        }
+
+        public Overview Overview(string userName)
+        {
+            var overviewRepo = new TotalRepository();
+
+            return overviewRepo.Overview;
         }
     }
 }

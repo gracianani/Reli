@@ -6,7 +6,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>G:\ReliPublished</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\inetpub\vhosts\ReliDemo</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="App_Data/1-addRepots.sql">
@@ -240,6 +240,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/Microsoft.Practices.ServiceLocation.dll">
       <publishTime>07/21/2013 15:53:59</publishTime>
     </File>
+    <File Include="bin/Microsoft.Practices.ServiceLocation.pdb">
+      <publishTime>07/21/2013 15:53:59</publishTime>
+    </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>07/17/2013 16:06:52</publishTime>
     </File>
@@ -247,7 +250,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/21/2013 15:53:59</publishTime>
     </File>
     <File Include="bin/ReliDemo.dll">
-      <publishTime>11/07/2014 19:24:32</publishTime>
+      <publishTime>01/24/2015 15:27:59</publishTime>
+    </File>
+    <File Include="bin/ReliDemo.pdb">
+      <publishTime>01/24/2015 15:27:59</publishTime>
     </File>
     <File Include="bin/Scripts/simpliq/jquery.colorhelpers.js">
       <publishTime>08/13/2013 17:25:17</publishTime>
@@ -280,6 +286,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/13/2013 17:25:18</publishTime>
     </File>
     <File Include="bin/StructureMap.dll">
+      <publishTime>07/21/2013 15:53:59</publishTime>
+    </File>
+    <File Include="bin/StructureMap.pdb">
       <publishTime>07/21/2013 15:53:59</publishTime>
     </File>
     <File Include="bin/System.Net.Http.dll">
@@ -1423,7 +1432,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/21/2014 11:42:09</publishTime>
     </File>
     <File Include="Views/Reports/Index.cshtml">
-      <publishTime>11/07/2014 19:01:47</publishTime>
+      <publishTime>11/25/2014 15:52:32</publishTime>
     </File>
     <File Include="Views/Reports/Preview.cshtml">
       <publishTime>11/07/2014 14:33:45</publishTime>
@@ -1552,7 +1561,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/19/2013 18:40:11</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/07/2014 19:24:32</publishTime>
+      <publishTime>02/02/2015 17:07:17</publishTime>
     </File>
     <File Include="_AppStart.cshtml">
       <publishTime>10/20/2013 09:57:46</publishTime>

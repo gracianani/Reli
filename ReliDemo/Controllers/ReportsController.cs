@@ -28,10 +28,11 @@ namespace ReliDemo.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.报表默认开始时间 = ConfigurationService.Instance.报表默认开始时间.ToString("yyyy-MM-dd");
-            ViewBag.报表默认结束时间 = ConfigurationService.Instance.报表默认结束时间.ToString("yyyy-MM-dd");
-            ViewBag.每日统计日期 = DateTime.Today.AddDays(-1).ToString("yyyy-MM-dd");
-            return View();
+            return View( new ReportIndexViewModel() { 
+                ReportAt = DateTime.Today.AddDays(-1).ToString("yyyy-MM-dd"),
+                ReportStartAt = ConfigurationService.Instance.报表默认开始时间.ToString("yyyy-MM-dd"),
+                ReportEndAt = ConfigurationService.Instance.报表默认结束时间.ToString("yyyy-MM-dd")
+            });
         }
         
         public ActionResult Preview(int reportType, string date, int? startIndex, int? pageSize)

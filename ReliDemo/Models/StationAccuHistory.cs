@@ -70,7 +70,7 @@ namespace ReliDemo.Models
             this.管理单位 = reader.GetString(reader.GetOrdinal("分公司"));
             this.热源 = reader.GetString(reader.GetOrdinal("生产热源"));
             this.热力站名称 = reader.GetString(reader.GetOrdinal("热力站名称"));
-            this.收费性质 = reader.GetString(reader.GetOrdinal("收费性质"));
+            this.收费性质 = reader.IsDBNull(reader.GetOrdinal("收费性质")) ? "" : reader.GetString(reader.GetOrdinal("收费性质"));
             this.数据来源 = reader.IsDBNull(reader.GetOrdinal("数据来源")) ? "" : reader.GetString(reader.GetOrdinal("数据来源"));
             this.是否重点站 = Convert.ToInt32( reader.GetBoolean(reader.GetOrdinal("是否重点站")) );
             this.参考热指标 = reader.GetDecimal(reader.GetOrdinal("参考热指标"));

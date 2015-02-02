@@ -20,6 +20,10 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -115,6 +119,7 @@
     <Compile Include="DataContract\HeatSourceGJs.cs" />
     <Compile Include="DataContract\Message.cs" />
     <Compile Include="DataContract\Messages.cs" />
+    <Compile Include="DataContract\Overview.cs" />
     <Compile Include="DataContract\ReliMobileHeatSource.cs" />
     <Compile Include="DataContract\ReliMobileHeatSourceRecent.cs" />
     <Compile Include="DataContract\ReliMobileHeatSourceHistory.cs" />
@@ -157,6 +162,7 @@
     <Compile Include="Repository\MessageRepository.cs" />
     <Compile Include="Repository\StationRepository.cs" />
     <Compile Include="Repository\TemperatureRepository.cs" />
+    <Compile Include="Repository\TotalRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Repository\WarningRepository.cs" />
     <Compile Include="ValueWithUnit.cs" />

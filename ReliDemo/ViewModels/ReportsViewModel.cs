@@ -6,6 +6,13 @@ using System.Web;
 
 namespace ReliDemo.ViewModels
 {
+    public class ReportIndexViewModel
+    {
+        public string ReportStartAt { get; set; }
+        public string ReportEndAt { get; set; }
+        public string ReportAt { get; set; }
+    }
+
     public class ReportsViewModel
     {
         public IEnumerable<StationDetailReport> Report { get; set; }

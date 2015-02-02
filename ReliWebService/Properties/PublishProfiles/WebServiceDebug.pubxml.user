@@ -115,7 +115,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/24/2013 14:25:08</publishTime>
     </File>
     <File Include="bin/Content/themes/simpliq/css/less/import.less">
-      <publishTime>08/13/2013 17:25:17</publishTime>
+      <publishTime>09/18/2014 14:54:04</publishTime>
     </File>
     <File Include="bin/Content/themes/simpliq/css/less/justgage.less">
       <publishTime>08/13/2013 17:25:17</publishTime>
@@ -241,22 +241,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/31/2012 15:00:36</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>07/21/2013 15:53:59</publishTime>
+      <publishTime>10/02/2013 12:10:10</publishTime>
     </File>
     <File Include="bin/NuGet.Core.dll">
       <publishTime>07/11/2012 01:56:56</publishTime>
     </File>
     <File Include="bin/ReliDemo.dll">
-      <publishTime>07/31/2014 17:04:55</publishTime>
+      <publishTime>01/24/2015 15:27:59</publishTime>
     </File>
     <File Include="bin/ReliDemo.pdb">
-      <publishTime>07/31/2014 17:04:55</publishTime>
+      <publishTime>01/24/2015 15:27:59</publishTime>
     </File>
     <File Include="bin/ReliWebService.dll">
-      <publishTime>07/31/2014 21:55:18</publishTime>
+      <publishTime>02/02/2015 18:06:49</publishTime>
     </File>
     <File Include="bin/ReliWebService.pdb">
-      <publishTime>07/31/2014 21:55:18</publishTime>
+      <publishTime>02/02/2015 18:06:49</publishTime>
     </File>
     <File Include="bin/Scripts/simpliq/jquery.colorhelpers.js">
       <publishTime>08/13/2013 17:25:17</publishTime>
@@ -385,7 +385,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/26/2013 00:17:33</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>02/14/2014 18:38:53</publishTime>
+      <publishTime>02/02/2015 17:00:56</publishTime>
     </File>
   </ItemGroup>
 </Project>
