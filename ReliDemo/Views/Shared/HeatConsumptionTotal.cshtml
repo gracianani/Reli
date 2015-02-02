@@ -1,0 +1,203 @@
+﻿@model IEnumerable<ReliDemo.Models.HeatConsumptionTotalItem>
+
+@if (Model.Count() > 0)
+{
+<div class="box realTimeTable" >
+    <div class="box-header  backgroundColorHeader 
+             @if (Model.Count() > 0 && Model.First().IsToday)
+             { <text>crimson today</text> }
+             else if (Model.Count() > 0 && Model.First().IsPeriod)
+             {
+				<text>blue</text>
+             }
+             else
+             { <text>crimson</text> } 
+             ">
+		<h2><i class="
+			@if (Model.Count() > 0 && Model.First().IsPeriod)
+   {
+				 <text>icon-pencil</text>
+   }
+   else
+   {
+				 <text>icon-eye-open</text>
+   }
+		"></i><span class="break"></span>
+             @if (Model.Count() > 0 && Model.First().IsPeriod)
+             {
+                 <text>人工抄表</text>
+             }
+             else if (Model.Count() > 0 && Model.First().IsToday)
+             { <text>今日监测</text>   }
+             else
+             { <text>昨日监测</text> } 
+        </h2>
+		<div class="box-icon">
+		</div>
+	</div>
+    
+    <div class="box-content" style="@if (Model.Count() > 0 && Model.First().IsToday)
+                                    {<text>padding-bottom:22px;</text>}">
+		<table class="table makeTableHeaderAsBoxHeader">
+			<thead>
+				<tr>    
+                    <th>&nbsp;</th>  
+                    @if (Model.ElementAt(0).东部.HasValue)
+                    {  
+                        <text>
+                        <th class="textAlighRight"><a href="#">东部</a></th>
+                        <th class="textAlighRight"><a href="#">西部</a></th>
+                        <th class="textAlighRight"><a href="#">全网</a></th>
+                        </text>              
+                    }
+                    else if (Model.ElementAt(0).监测站智能卡.HasValue)
+                    {
+                        <text>
+                        <th class="textAlighRight"><a href="#">监测站</a></th>
+                        <th class="textAlighRight"><a href="#">人工抄表站</a></th>
+                        <th class="textAlighRight"><a href="#">全部站</a></th>
+                        </text>  
+                    }
+                    else
+                    {
+                        <text>
+                        <th class="textAlighRight"><a href="#">人工抄表</a></th>
+                        </text>
+                    }
+                       
+				</tr>
+			</thead> 
+            <tbody>
+@foreach (var GJItem in Model)
+{
+    var toFix =2;
+    <tr class="
+	@if (GJItem.Title.Contains("供热量"))
+     {
+         toFix = 0;
+					    <text>groupColorBlue</text>
+     }
+     else if (GJItem.Title.Contains("热指标"))
+     {
+				        <text>groupColorGold</text>
+     }
+     else if (GJItem.Title.Contains("单耗"))
+     {
+					    <text>groupColorGreen</text>
+         toFix = 4;
+     }
+     else if (GJItem.Title.Contains("热力站数量"))
+     {
+         toFix = 0;
+     }
+					"
+					>
+					    <td>@GJItem.Title</td>
+                        @if (GJItem.东部.HasValue)
+                        {
+                            <td @if (GJItem.Title.Contains("差值"))
+                                {
+                                <text>class="textAlighRight differenceValue"</text>
+                                }
+                                else
+                                {
+								 <text>class="textAlighRight"</text>
+                                }
+								>@( GJItem.东部.HasValue ? toFix == 0 ? Convert.ToInt32(GJItem.东部).ToString() : toFix == 4 ? Convert.ToDecimal(GJItem.东部).ToString("0.0000") : Convert.ToDecimal(GJItem.东部).ToString("0.00") : " -- ")</td> 
+                            <td @if (GJItem.Title.Contains("差值"))
+                                {
+                                <text>class="textAlighRight differenceValue"</text>
+                                }
+                                else
+                                {
+								 <text>class="textAlighRight"</text>
+                                }>@( GJItem.西部.HasValue ? toFix == 0 ? Convert.ToInt32(GJItem.西部).ToString() : toFix == 4 ? Convert.ToDecimal(GJItem.西部).ToString("0.0000") : Convert.ToDecimal(GJItem.西部).ToString("0.00") : " -- ")</td> 
+                            <td @if (GJItem.Title.Contains("差值"))
+                                {
+                                <text>class="textAlighRight differenceValue"</text>
+                                }
+                                else
+                                {
+								 <text>class="textAlighRight"</text>
+                                }>@( GJItem.全网.HasValue ? toFix == 0 ? Convert.ToInt32(GJItem.全网).ToString() : toFix == 4 ? Convert.ToDecimal(GJItem.全网).ToString("0.0000") : Convert.ToDecimal(GJItem.全网).ToString("0.00") : " -- ")</td>
+                        }
+
+                        else if (GJItem.监测站智能卡.HasValue || GJItem.总.HasValue)
+                        {
+                            <td
+                               @if (GJItem.Title.Contains("差值"))
+                               {
+                                <text>class="textAlighRight differenceValue"</text>
+                               }
+                               else
+                               {
+								 <text>class="textAlighRight"</text>
+                               } >
+                               @( GJItem.监测站智能卡.HasValue ? toFix == 0 ? Convert.ToInt32(GJItem.监测站智能卡).ToString() : toFix == 4 ? Convert.ToDecimal(GJItem.监测站智能卡).ToString("0.0000") : Convert.ToDecimal(GJItem.监测站智能卡).ToString("0.00") : " -- ")
+                            </td>
+                            <td class="textAlighRight">@( GJItem.人工抄表.HasValue ? toFix == 0 ? Convert.ToInt32(GJItem.人工抄表).ToString() : toFix == 4 ? Convert.ToDecimal(GJItem.人工抄表).ToString("0.0000") : Convert.ToDecimal(GJItem.人工抄表).ToString("0.00") : " -- ")</td>
+                            <td 
+                               @if (GJItem.Title.Contains("差值"))
+                               {
+                                <text>class="textAlighRight differenceValue"</text>
+                               }
+                               else
+                               {
+								 <text>class="textAlighRight"</text>
+                               } >@( GJItem.总.HasValue ? toFix == 0 ? Convert.ToInt32(GJItem.总).ToString() : toFix == 4 ? Convert.ToDecimal(GJItem.总).ToString("0.0000") : Convert.ToDecimal(GJItem.总).ToString("0.00") : " -- ")</td>
+                        }
+                        else
+                        {
+                            <td class="textAlighRight" >@( 
+                            
+                            
+                                GJItem.人工抄表.HasValue ? toFix == 0 ? Convert.ToInt32(GJItem.人工抄表).ToString() : toFix == 4? Convert.ToDecimal(GJItem.人工抄表).ToString("0.0000") : Convert.ToDecimal(GJItem.人工抄表).ToString("0.00") : " -- ")</td> 
+                        }
+				    </tr>
+					
+                }
+				
+				
+            </tbody>
+        </table>
+    </div>
+</div>
+}
+
+<script>
+    /* ---------- dashboard ---------- */
+    jQuery(document).ready(function ($) {
+        setInterval("getRealTime()", 5 * 60* 1000)
+    });
+    function getRealTime() {
+        $.ajax({
+            url: "http://172.16.3.80:11223/HeatConsumptionService/GetRealTime/" + $("input[name=CompanyId]").val() + "/" + $("input[name=ManagershipId]").val(),
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            dataType: "jsonp",
+            data: '',
+            success: function (data) {
+                for (i = 0; i < data.length; i++) {
+                    var today = $(".realTimeTable").filter(function () { return $(this).has("div.today") }).first();
+                    if (today != null) {
+                        var row = $(today).find("tr").filter(function () { return $(this).find("td:eq(0)").html() == data[i].Title });
+                        if (row.length > 0) {
+                            console.log(row[0]);
+                            if (data[i].总 != null) {
+                                $(row[0]).find("td:eq(1)").val(data[i].总);
+                                $(row[0]).find("td:eq(2)").val(data[i].监测站);
+                                $(row[0]).find("td:eq(3)").val(data[i].智能卡);
+                            }
+                            else {
+                                $(row[0]).find("td:eq(1)").val(data[i].东部);
+                                $(row[0]).find("td:eq(2)").val(data[i].西部);
+                                $(row[0]).find("td:eq(3)").val(data[i].全网);
+                            }
+                            $(row[0]).highlightAfterUpdate();
+                        }
+                    }
+                }
+            }
+        });
+    }
+</script>

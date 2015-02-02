@@ -1,0 +1,100 @@
+﻿@model ReliDemo.ViewModels.RangeStatViewModel
+
+@{
+    ViewBag.Title = @Model.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<a href="/Reports/Index" class="btn btn-primary">返回</a>
+<h2 style='font-family: "Microsoft Yahei",sans-serif;
+font-size: 24px;
+margin-bottom: 0.9em;
+line-height: 30px;'>
+    @Model.Title<span style="font-size:14px">@Model.From.ToString("yyyy年MM月dd日") - @Model.To.ToString("yyyy年MM月dd日")</span>
+</h2>
+<div class="row-fluid">
+    <div class="input-prepend date">
+        <span class="add-on"><i class="icon-calendar"></i></span>
+        <input type="text" class="form-control date-picker input-small" id="report-date" name="date" data-date-format="yyyy-mm-dd" value=@Model.From.ToString("yyyy-MM-dd") data-provide="datepicker-inline" />
+        <input type="text" class="form-control date-picker input-small" id="report-dateTo" name="date" data-date-format="yyyy-mm-dd" value=@Model.To.ToString("yyyy-MM-dd") data-provide="datepicker-inline" />
+    </div>
+    <a id="preview" href="javascript:void(0)" class="btn btn-primary" data-reporttype="@Model.ReportTypeId">预览</a>
+    <a id="download" href="javascript:void(0)" class="btn btn-primary" data-reporttype="@Model.ReportTypeId">下载</a>
+</div>
+<div class="scrollableTableContainer">
+    @{
+        <table class="table  table-bordered table-hover  table-condensed table-clickhighlight datatable" style="background:white">
+            <tr>
+                <th>日期</th>
+                <th>室外温度</th>
+                <th>销售</th>
+                <th>创合</th>
+                <th>特力昆</th>
+                <th>天禹</th>
+                <th>合计</th>
+            </tr>
+            @foreach (var day in Model.Report.Keys)
+            {
+                <tr>
+                    <td>@day.ToString("MM月dd日")</td>
+                    <td>@Model.Temperature[day]℃</td>
+                    <td>@(Model.Report[day][0].计划执行到位率*100) %</td>
+                    <td>@(Model.Report[day][1].计划执行到位率*100) %</td>
+                    <td>@(Model.Report[day][2].计划执行到位率*100) %</td>
+                    <td>@(Model.Report[day][3].计划执行到位率*100) %</td>
+                </tr>
+            }
+        </table>
+    }
+</div>
+
+
+<script>
+    $(function () {
+
+        $('#download').click(function (e) {
+            var url = 'DownloadRangeReport?' +
+                'reportType=' + $(this).attr("data-reportType") +
+                '&fromDate=' + $("#report-date").val() +
+                '&toDate=' + $("#report-dateTo").val();
+            if (!$("#report-date").val() ) {
+                if ($("#validationErrorReport").hasClass("hidden")) {
+                    $("#validationErrorReport").removeClass("hidden");
+                }
+                return;
+            }
+            else {
+                $("#validationErrorReport").addClass("hidden");
+            }
+            var oldName = $(this).find(".title").html();
+            var self = this;
+            if ($(this).hasClass("disabled")) {
+                return;
+            }
+
+            $.ajax({
+                url: url,
+                beforeSend: function () {
+                    $(self).html("正在生成报表...").addClass("disabled");
+                },
+                success: function (i) {
+                    window.location = i.fileName;
+                    
+                },
+                fail : function(i)
+                {
+
+                },
+                always: function() {
+                    $(self).html(oldName);
+                }
+            })
+        ;
+        });
+
+        $('#preview').click(
+            function () {
+                window.location.href = "/Reports/PreviewThree?reportType=" + $(this).attr('data-reporttype') + "&dateFrom=" + $("#report-date").val()+"&dateTo=" + $("#report-dateto").val();
+            }
+        );
+    });
+</script>

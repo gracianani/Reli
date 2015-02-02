@@ -1,0 +1,9 @@
+﻿@{
+    ViewBag.Title = "RegisterSuccessful";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<p> 感谢您的注册 ! </p>
+
+@Html.ActionLink("登陆", "LogIn", "Accounts", new { }, new { } );
+@Html.ActionLink("进入主页面", "Index", "Home" , new {} , new {} )

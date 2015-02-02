@@ -1,0 +1,4653 @@
+@import "jquery-ui-1.10.3.custom.css";
+
+@import "fullcalendar.css";
+
+@import "chosen.css";
+
+@import "uniform.default.css";
+
+@import "jquery.cleditor.css";
+
+@import "jquery.noty.css";
+
+@import "noty_theme_default.css";
+
+@import "elfinder.min.css";
+
+@import "elfinder.theme.css";
+
+@import "jquery.iphone.toggle.css";
+
+@import "uploadify.css";
+
+@import "jquery.gritter.css";
+
+@import "font-awesome.min.css";
+
+@import "font-awesome-ie7.min.css";
+
+@import "glyphicons.css";
+
+@import "halflings.css";
+
+@import url(http://fonts.googleapis.com/css?family=Lato:300);
+
+@import url(http://fonts.googleapis.com/css?family=Lato:400);
+
+@import url(http://fonts.googleapis.com/css?family=Kaushan+Script);
+/*
+* Author: Łukasz Holeczek
+* Template: SimpliQ - Flat & Responsive Bootstrap Admin Template
+* Version: 1.0.1 
+* Bootstrap version: 2.3.2
+* Copyright 2013 creativeLabs
+* www: http://clabs.co
+* mail: lukasz@clabs.co
+* You can buy this theme on WrapBootstrap: https://wrapbootstrap.com/theme/simpliq-flat-responsive-admin-template-WB0N1X0T1
+*/
+/* Basic
+=================================================================== */
+/* line 3, less\main.less */
+.no-space [class*="span"] {
+  margin-left: 0;
+}
+/* line 7, less\main.less */
+.noMarginLeft {
+  margin-left: 0px !important;
+}
+/* line 11, less\main.less */
+body {
+  background: #f5f5f5;
+  color: #383e4b;
+  border: none;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+}
+/* line 19, less\main.less */
+a {
+  color: #383e4b;
+}
+/* line 23, less\main.less */
+h1 {
+  font-size: 32px;
+  line-height: 32px;
+  font-weight: 300;
+}
+/* line 24, less\main.less */
+h2 {
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 300;
+}
+/* line 25, less\main.less */
+h3 {
+  font-size: 15px;
+  line-height: 15px;
+}
+/* line 26, less\main.less */
+h4 {
+  font-size: 14px;
+  line-height: 14px;
+}
+/* line 27, less\main.less */
+h5 {
+  font-size: 13px;
+  line-height: 13px;
+}
+/* line 28, less\main.less */
+h6 {
+  font-size: 12px;
+  line-height: 12px;
+}
+/* line 30, less\main.less */
+#content {
+  min-height: 100%;
+  padding: 20px 20px;
+  position: relative;
+}
+/* line 35, less\main.less */
+#content.full {
+  width: 100% !important;
+  margin-left: 0px !important;
+}
+/* line 41, less\main.less */
+.well {
+  border: 1px solid #ddd;
+  background-color: #f6f6f6;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+/* line 48, less\main.less */
+.box {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 0px 1px 0px 1px #e4e6eb;
+  -moz-box-shadow: 0px 1px 0px 1px #e4e6eb;
+  box-shadow: 0px 1px 0px 1px #e4e6eb;
+  overflow: hidden;
+  margin: 0px 0px 28px 0px;
+}
+/* line 54, less\main.less */
+.box .box-header {
+  background: #0074c1;
+  color: white;
+  font-size: 16px;
+  overflow: hidden;
+}
+/* line 60, less\main.less */
+.box .box-header h2 {
+  float: left;
+  padding: 10px 0px;
+  margin: 0px 0px 0px 20px;
+}
+/* line 65, less\main.less */
+.box .box-header h2 i {
+  background: #00558e;
+  color: white;
+  padding: 10px 0px;
+  width: 36px;
+  display: inline-block;
+  text-align: center;
+  margin: -10px 20px -10px -20px;
+}
+/* line 77, less\main.less */
+.box .box-header .box-icon {
+  background: #00558e;
+  float: right;
+}
+/* line 81, less\main.less */
+.box .box-header .box-icon i {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  width: 36px;
+  padding: 10px 0px;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -ms-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  opacity: .8;
+  filter: alpha(opacity=80);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  border-left: 1px solid #0074c1;
+  text-decoration: none;
+}
+/* line 94, less\main.less */
+.box .box-header .box-icon i:hover {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+}
+/* line 109, less\main.less */
+.box .box-content {
+  padding: 10px;
+  background: white;
+}
+/* Typography - Blockquote
+=================================================================== *//* line 118, less\main.less */
+blockquote {
+  background: url(../img/quote.png) no-repeat 0px 10px;
+  font-style: italic;
+  border-left: none;
+  padding: 0 0 0 30px;
+}
+/* Main Colors
+=================================================================== */
+/* line 26, less\colors.less */
+.blue {
+  color: #378fc9;
+}
+/* line 27, less\colors.less */
+.lightBlue {
+  color: #67c2ef;
+}
+/* line 28, less\colors.less */
+.green {
+  color: #bdea74;
+}
+/* line 29, less\colors.less */
+.darkGreen {
+  color: #7fb30c;
+}
+/* line 30, less\colors.less */
+.pink {
+  color: #e84c8a;
+}
+/* line 31, less\colors.less */
+.orange {
+  color: #ec6313;
+}
+/* line 32, less\colors.less */
+.lightOrange {
+  color: #fabb3d;
+}
+/* line 33, less\colors.less */
+.red {
+  color: #c84628;
+}
+/* line 34, less\colors.less */
+.yellow {
+  color: #eae874;
+}
+/* line 35, less\colors.less */
+.white {
+  color: white;
+}
+/* line 36, less\colors.less */
+.grey {
+  color: #c7cbd5;
+}
+/* line 37, less\colors.less */
+.crimson {
+  color: #9e3f3d;
+}
+/* line 38, less\colors.less */
+.gold {
+  color: #fabb3d;
+}
+/* line 39, less\colors.less */
+.magenta {
+  color: #ff5454;
+}
+/* line 42, less\colors.less */
+.backgroundColor.blue {
+  background: #378fc9;
+}
+/* line 43, less\colors.less */
+.backgroundColor.lightBlue {
+  background: #67c2ef;
+}
+/* line 44, less\colors.less */
+.backgroundColor.green {
+  background: #bdea74;
+}
+/* line 45, less\colors.less */
+.backgroundColor.darkGreen {
+  background: #7fb30c;
+}
+/* line 46, less\colors.less */
+.backgroundColor.pink {
+  background: #e84c8a;
+}
+/* line 47, less\colors.less */
+.backgroundColor.orange {
+  background: #ec6313;
+}
+/* line 48, less\colors.less */
+.backgroundColor.lightOrange {
+  background: #fabb3d;
+}
+/* line 49, less\colors.less */
+.backgroundColor.red {
+  background: #c84628;
+}
+/* line 50, less\colors.less */
+.backgroundColor.yellow {
+  background: #eae874;
+}
+/* line 51, less\colors.less */
+.backgroundColor.white {
+  background: white;
+}
+/* line 52, less\colors.less */
+.backgroundColor.grey {
+  background: #c7cbd5;
+}
+/* line 53, less\colors.less */
+.backgroundColor.crimson {
+  background: #9e3f3d;
+}
+/* line 54, less\colors.less */
+.backgroundColor.gold {
+  background: #fabb3d;
+}
+/* line 55, less\colors.less */
+.backgroundColor.magenta {
+  background: #ff5454;
+}
+/* line 61, less\colors.less */
+.backgroundColorTitle.blue .title {
+  background: #378fc9;
+}
+/* line 64, less\colors.less */
+.backgroundColorTitle.lightBlue .title {
+  background: #67c2ef;
+}
+/* line 67, less\colors.less */
+.backgroundColorTitle.green .title {
+  background: #bdea74;
+}
+/* line 70, less\colors.less */
+.backgroundColorTitle.darkGreen .title {
+  background: #7fb30c;
+}
+/* line 73, less\colors.less */
+.backgroundColorTitle.pink .title {
+  background: #e84c8a;
+}
+/* line 76, less\colors.less */
+.backgroundColorTitle.orange .title {
+  background: #ec6313;
+}
+/* line 79, less\colors.less */
+.backgroundColorTitle.lightOrange .title {
+  background: #fabb3d;
+}
+/* line 82, less\colors.less */
+.backgroundColorTitle.red .title {
+  background: #c84628;
+}
+/* line 85, less\colors.less */
+.backgroundColorTitle.yellow .title {
+  background: #eae874;
+}
+/* line 88, less\colors.less */
+.backgroundColorTitle.white .title {
+  background: white;
+}
+/* line 91, less\colors.less */
+.backgroundColorTitle.grey .title {
+  background: #c7cbd5;
+}
+/* line 93, less\colors.less */
+.backgroundColorTitle.gold {
+  background: #fabb3d;
+}
+/* line 45, less\mixins.less */
+.clearfix {
+  *zoom: 1;
+}
+/* line 47, less\mixins.less */
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+/* line 55, less\mixins.less */
+.clearfix:after {
+  clear: both;
+}
+/* Header Section
+=================================================================== */
+/* line 3, less\header.less */
+.navbar {
+  margin-bottom: 0px;
+}
+/* line 7, less\header.less */
+.navbar-inner {
+  margin-bottom: 0px;
+  min-height: 40px;
+  padding: 0px 20px;
+  background: #0074c1;
+  border: none;
+  color: #fff;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+}
+/* line 16, less\header.less */
+.navbar-inner a {
+  color: #7b7b7b;
+}
+/* line 19, less\header.less */
+.navbar-inner a i {
+  margin-top: 2px;
+}
+/* line 23, less\header.less */
+.navbar-inner a:hover i {
+  opacity: .8;
+  filter: alpha(opacity=80);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+}
+/* line 33, less\header.less */
+a.brand {
+  background: url("../img/logo.png") 10px center no-repeat #f5f5f5;
+  text-align: center;
+  border-bottom: 1px solid #00558e;
+  padding: 2px 0 2px 80px !important;
+  height: 40px;
+  text-align: left;
+}
+/* line 41, less\header.less */
+a.brand span {
+  color: #0074c1;
+  text-shadow: none;
+  font-size: 14px;
+  text-align: left;
+  display: block;
+}
+/* line 48, less\header.less */
+a.brand .brandLine1 {
+  font-size: 12px;
+}
+/* line 51, less\header.less */
+a.brand .brandLine2 {
+  margin-top: -5px;
+}
+/* line 54, less\header.less */
+a.brand.noBg {
+  background: url("../img/logo-white.png") 10px center no-repeat #0074c1;
+  border-bottom: none;
+  color: white;
+}
+/* line 58, less\header.less */
+a.brand.noBg span {
+  color: white;
+}
+/* line 64, less\header.less */
+.header-nav {
+  padding: 0px;
+  color: #fff !important;
+  background: #000 !important;
+}
+/* line 69, less\header.less */
+.header-nav .btn {
+  display: inline-block;
+  margin: 0px;
+  font-size: 15px;
+  text-align: center;
+  background: transparent;
+  border: none;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+/* line 79, less\header.less */
+.header-nav .btn .caret {
+  border-top-color: #fff !important;
+  border-bottom-color: #fff !important;
+}
+/* line 86, less\header.less */
+.header-nav .btn:hover .caret {
+  border-top-color: #fff !important;
+  border-bottom-color: #fff !important;
+}
+/* line 93, less\header.less */
+.header-nav a.btn {
+  color: #fff !important;
+  text-shadow: none !important;
+  padding: 8px 15px 12px 15px !important;
+}
+/* line 98, less\header.less */
+.header-nav a.btn.account {
+  padding: 7px 10px 5px 0px !important;
+}
+/* line 103, less\header.less */
+.header-nav .avatar {
+  width: 60px;
+  display: inline-block;
+  float: left;
+}
+/* line 106, less\header.less */
+.header-nav .avatar img {
+  margin: -13px 10px -14px 10px;
+  height: 30px;
+  width: 30px;
+  -webkit-border-radius: 50em;
+  -moz-border-radius: 50em;
+  border-radius: 50em;
+}
+/* line 117, less\header.less */
+.header-nav .user {
+  display: inline-block;
+  text-align: left;
+  padding: 0px;
+  float: left;
+  margin-top: -8px;
+}
+/* line 124, less\header.less */
+.header-nav .user .hello {
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 13px;
+  height: 13px;
+  overflow: hidden;
+}
+/* line 133, less\header.less */
+.header-nav .user .name {
+  display: block;
+  font-size: 13px;
+  line-height: 15px;
+  height: 15px;
+  overflow: hidden;
+  margin-top: -1px;
+}
+/* line 146, less\header.less */
+.navbar .nav li.dropdown.open > .dropdown-toggle,
+.navbar .nav li.dropdown.active > .dropdown-toggle,
+.navbar .nav li.dropdown.open.active > .dropdown-toggle {
+  color: white;
+  background-color: #00558e;
+  outline: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+/* line 155, less\header.less */
+.dropdown-menu:after,
+.dropdown-menu:before {
+  border-bottom-color: #383e4b !important;
+}
+/* line 160, less\header.less */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 160px;
+  max-width: 300px;
+  padding: 0px;
+  margin: 0;
+  list-style: none;
+  text-shadow: none;
+  background: white;
+  border: 1px solid #c7cbd5;
+  -webkit-border-radius: 0px 0px 4px 4px;
+  -moz-border-radius: 0px 0px 4px 4px;
+  border-radius: 0px 0px 4px 4px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+/* line 179, less\header.less */
+.dropdown-menu.pull-right {
+  right: 0;
+  left: auto;
+}
+/* line 184, less\header.less */
+.dropdown-menu .divider {
+  margin: 0px 1px;
+}
+/* line 188, less\header.less */
+.dropdown-menu li a {
+  display: block;
+  padding: 5px 10px !important;
+  clear: both;
+  font-weight: normal;
+  line-height: 20px;
+  color: #383e4b;
+  white-space: normal !important;
+}
+/* line 198, less\header.less */
+.dropdown-menu li {
+  border-bottom: 1px solid #f9f9f9;
+}
+/* line 202, less\header.less */
+.dropdown-menu li:last-child {
+  border-bottom: 0px !important;
+}
+/* line 206, less\header.less */
+.dropdown-menu li > a:hover,
+.dropdown-menu li > a:focus,
+.dropdown-submenu:hover > a {
+  color: #ffffff;
+  text-decoration: none;
+  background: #0093f4;
+}
+/* line 214, less\header.less */
+.dropdown-menu .active > a,
+.dropdown-menu .active > a:hover {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #0077b3;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#0088cc), to(#0077b3));
+  background-image: -webkit-linear-gradient(top, #0088cc, #0077b3);
+  background-image: -moz-linear-gradient(top, #0088cc, #0077b3);
+  background-image: -o-linear-gradient(top, #0088cc, #0077b3);
+  background-image: -ms-linear-gradient(top, #0088cc, #0077b3);
+  background-image: linear-gradient(top, #0088cc, #0077b3);
+}
+/* line 221, less\header.less */
+.dropdown-menu .disabled > a,
+.dropdown-menu .disabled > a:hover {
+  color: #999999;
+}
+/* line 226, less\header.less */
+.dropdown-menu .disabled > a:hover {
+  text-decoration: none;
+  cursor: default;
+  background-color: transparent;
+}
+/* line 232, less\header.less */
+.dropdown-menu-title {
+  background: #383e4b;
+  color: white;
+  padding: 5px 10px;
+  display: block;
+  font-weight: bold;
+  margin: -1px;
+}
+/* line 241, less\header.less */
+.dropdown-menu-sub-footer {
+  text-align: center;
+  background: #e4e6eb;
+  cursor: pointer;
+}
+/* line 247, less\header.less */
+.dropdown-menu ul,
+.dropdown-menu ul li {
+  padding: 0px !important;
+  margin: 0px !important;
+}
+/* line 253, less\header.less */
+ul.notifications li,
+ul.tasks li,
+ul.messages li {
+  min-width: 260px;
+}
+/* line 259, less\header.less */
+ul.notifications li .avatar img,
+ul.tasks li .avatar img,
+ul.messages li .avatar img {
+  float: left;
+  height: 40px;
+  width: 40px;
+  margin-top: 5px;
+  margin-right: 10px;
+  -webkit-border-radius: 50em;
+  -moz-border-radius: 50em;
+  border-radius: 50em;
+}
+/* line 270, less\header.less */
+ul.messages li .header {
+  display: block;
+}
+/* line 274, less\header.less */
+ul.messages li .header .from {
+  font-size: 12px;
+  font-weight: bold;
+}
+/* line 279, less\header.less */
+ul.notifications li .icon {
+  margin: -5px 10px -5px -10px !important;
+  padding: 7px 10px 9px 10px;
+  color: white;
+  width: 16px;
+  display: inline-block;
+  text-align: center;
+}
+/* line 42, less\colors.less */
+ul.notifications li .icon.blue {
+  background: #378fc9;
+}
+/* line 43, less\colors.less */
+ul.notifications li .icon.lightBlue {
+  background: #67c2ef;
+}
+/* line 44, less\colors.less */
+ul.notifications li .icon.green {
+  background: #bdea74;
+}
+/* line 45, less\colors.less */
+ul.notifications li .icon.darkGreen {
+  background: #7fb30c;
+}
+/* line 46, less\colors.less */
+ul.notifications li .icon.pink {
+  background: #e84c8a;
+}
+/* line 47, less\colors.less */
+ul.notifications li .icon.orange {
+  background: #ec6313;
+}
+/* line 48, less\colors.less */
+ul.notifications li .icon.lightOrange {
+  background: #fabb3d;
+}
+/* line 49, less\colors.less */
+ul.notifications li .icon.red {
+  background: #c84628;
+}
+/* line 50, less\colors.less */
+ul.notifications li .icon.yellow {
+  background: #eae874;
+}
+/* line 51, less\colors.less */
+ul.notifications li .icon.white {
+  background: white;
+}
+/* line 52, less\colors.less */
+ul.notifications li .icon.grey {
+  background: #c7cbd5;
+}
+/* line 53, less\colors.less */
+ul.notifications li .icon.crimson {
+  background: #9e3f3d;
+}
+/* line 54, less\colors.less */
+ul.notifications li .icon.gold {
+  background: #fabb3d;
+}
+/* line 55, less\colors.less */
+ul.notifications li .icon.magenta {
+  background: #ff5454;
+}
+/* line 291, less\header.less */
+ul.notifications li .time,
+ul.tasks li .header .percent,
+ul.messages li .header .time {
+  font-size: 11px;
+  font-weight: bold;
+  font-style: italic;
+  position: absolute;
+  right: 5px;
+}
+/* line 301, less\header.less */
+ul.tasks li .title,
+ul.notifications li .message {
+  font-size: 12px;
+}
+/* line 306, less\header.less */
+ul.notifications li.warning a {
+  color: #ec6313;
+}
+/* line 310, less\header.less */
+ul.messages li .message {
+  font-size: 11px;
+}
+/* Navigation Section
+=================================================================== */
+/* line 3, less\navigation.less */
+a#main-menu-toggle {
+  color: white;
+  position: absolute;
+  z-index: 1000;
+  top: 0px;
+  left: 5px;
+  padding: 10px 12px;
+  font-size: 16px;
+  text-shadow: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+/* line 16, less\navigation.less */
+#sidebar-left {
+  background: #383e4b;
+  padding: 10px;
+}
+/* line 22, less\navigation.less */
+#sidebar-left .actions .search {
+  background: #2d323d;
+  color: white;
+  border: none;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+}
+/* line 31, less\navigation.less */
+#sidebar-left .label {
+  -webkit-border-radius: 2px 0px 0px 2px;
+  -moz-border-radius: 2px 0px 0px 2px;
+  border-radius: 2px 0px 0px 2px;
+  position: absolute;
+  right: 0px;
+  background: #f5f5f5;
+  color: #383e4b;
+}
+/* line 41, less\navigation.less */
+.sidebar-nav > ul {
+  margin: 0px -10px;
+  border: none;
+  padding-bottom: 1px;
+  font-size: 14px;
+}
+/* line 48, less\navigation.less */
+.sidebar-nav > ul > li > ul {
+  list-style: none;
+  display: none;
+  margin: 0px 0px;
+}
+/* line 54, less\navigation.less */
+.nav-tabs.nav-stacked > li > a,
+.nav-tabs.nav-stacked > li > ul > li > a {
+  padding: 10px 15px;
+  color: #fff;
+  border: none;
+  background: transparent;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  text-decoration: none;
+  display: block;
+}
+/* line 65, less\navigation.less */
+.nav-tabs.nav-stacked > li > ul > li > a {
+  padding: 10px 20px;
+}
+/* line 70, less\navigation.less */
+.nav-tabs.nav-stacked > li > a > i,
+.nav-tabs.nav-stacked > li > ul > li > a > i {
+  margin-right: 10px;
+}
+/* line 75, less\navigation.less */
+.nav-tabs.nav-stacked > li > a:hover {
+  background: #2d323d;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+}
+/* line 81, less\navigation.less */
+.nav-tabs.nav-stacked > li > a:hover,
+.nav-tabs.nav-stacked > li > ul > li > a:hover {
+  background: #2d323d;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+}
+/* line 88, less\navigation.less */
+.nav-tabs.nav-stacked > li.active > a,
+.nav-tabs.nav-stacked > li > ul > li.active > a {
+  background: #2d323d;
+}
+/* line 93, less\navigation.less */
+.nav-tabs.nav-stacked > li.active > a:hover,
+.nav-tabs.nav-stacked > li > ul > li.active > a:hover {
+  border: none;
+  color: white;
+}
+/* line 99, less\navigation.less */
+.nav-tabs.nav-stacked > li.active > ul {
+  padding: 5px 0px;
+  background: #2d323d;
+}
+/* line 104, less\navigation.less */
+.nav-tabs.nav-stacked > li:first-child > a {
+  margin: 0px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+}
+/* line 109, less\navigation.less */
+.nav-tabs.nav-stacked > li:last-child > a {
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+}
+/* Buttons
+=================================================================== */
+/* line 3, less\buttons.less */
+.btn {
+  border: none;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  text-shadow: none;
+  background: #d6d9e0;
+}
+/* line 9, less\buttons.less */
+.btn i {
+  margin-top: 2px;
+}
+/* line 15, less\buttons.less */
+.btn-primary {
+  color: #ffffff;
+  background: #378fc9;
+}
+/* line 19, less\buttons.less */
+.btn-primary:hover,
+.btn-primary.disabled,
+.btn-primary[disabled] {
+  background-color: #2c73a1;
+}
+/* line 25, less\buttons.less */
+.btn-primary:active,
+.btn-primary.active {
+  background-color: #296d99;
+}
+/* line 31, less\buttons.less */
+.btn-warning {
+  color: #ffffff;
+  background: #fabb3d;
+}
+/* line 35, less\buttons.less */
+.btn-warning:hover,
+.btn-warning.disabled,
+.btn-warning[disabled] {
+  background-color: #f9aa0b;
+}
+/* line 41, less\buttons.less */
+.btn-warning:active,
+.btn-warning.active {
+  background-color: #f4a406;
+}
+/* line 47, less\buttons.less */
+.btn-danger {
+  color: #ffffff;
+  background: #c84628;
+}
+/* line 51, less\buttons.less */
+.btn-danger:hover,
+.btn-danger.disabled,
+.btn-danger[disabled] {
+  background-color: #9e3720;
+}
+/* line 57, less\buttons.less */
+.btn-danger:active,
+.btn-danger.active {
+  background-color: #95341e;
+}
+/* line 63, less\buttons.less */
+.btn-success {
+  color: #ffffff;
+  background: #7fb30c;
+}
+/* line 67, less\buttons.less */
+.btn-success:hover,
+.btn-success.disabled,
+.btn-success[disabled] {
+  background-color: #5d8309;
+}
+/* line 73, less\buttons.less */
+.btn-success:active,
+.btn-success.active {
+  background-color: #567a08;
+}
+/* line 80, less\buttons.less */
+.btn-info {
+  color: #ffffff;
+  background: #67c2ef;
+}
+/* line 84, less\buttons.less */
+.btn-info:hover,
+.btn-info.disabled,
+.btn-info[disabled] {
+  background-color: #39afea;
+}
+/* line 90, less\buttons.less */
+.btn-info:active,
+.btn-info.active {
+  background-color: #30ace9;
+}
+/* line 96, less\buttons.less */
+.btn-inverse {
+  color: #ffffff;
+  background: #444444;
+}
+/* line 100, less\buttons.less */
+.btn-inverse:hover,
+.btn-inverse.disabled,
+.btn-inverse[disabled] {
+  background-color: #2b2b2b;
+}
+/* line 106, less\buttons.less */
+.btn-inverse:active,
+.btn-inverse.active {
+  background-color: #252525;
+}
+/* Tabs
+=================================================================== */
+/* line 3, less\tabs.less */
+.tab-menu.nav-tabs {
+  margin-top: -48px;
+  border-bottom: none;
+}
+/* line 8, less\tabs.less */
+.tab-menu.nav-tabs > li {
+  float: right;
+  margin-bottom: -1px;
+}
+/* line 12, less\tabs.less */
+.tab-menu.nav-tabs > li > a {
+  padding-top: 11px;
+  padding-bottom: 11px;
+  line-height: 16px;
+  margin-left: -3px;
+  border: none;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  color: white;
+}
+/* line 22, less\tabs.less */
+.tab-menu.nav-tabs > li > a:hover {
+  background: #00558e;
+}
+/* line 29, less\tabs.less */
+.tab-menu.nav-tabs > .active > a {
+  border: none;
+  color: #378fc9;
+  cursor: default;
+  background: white;
+}
+/* line 36, less\tabs.less */
+.tab-menu.nav-tabs > .active > a:hover {
+  border: none;
+  background: white;
+}
+/* Forms
+=================================================================== */
+/* line 3, less\forms.less */
+input[placeholder],
+[placeholder],
+*[placeholder] {
+  color: #333 !important;
+}
+/* line 7, less\forms.less */
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+  color: #333;
+}
+/* line 12, less\forms.less */
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: #333;
+}
+/* line 17, less\forms.less */
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #333;
+}
+/* line 22, less\forms.less */
+.add-on,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+input[type="file"],
+.uneditable-input {
+  border-color: #e4e6eb !important;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+/* UI - Uniform
+=================================================================== */
+/* line 47, less\forms.less */
+div.checker,
+div.radio {
+  margin-top: -4px !important;
+}
+/* line 52, less\forms.less */
+div.uploader {
+  -webkit-border-radius: 14px;
+  -moz-border-radius: 14px;
+  border-radius: 14px;
+}
+/* Notifications & Labels
+=================================================================== */
+/* line 3, less\notifications_labels.less */
+.notification {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  line-height: 16px;
+  height: 16px;
+  padding: 6px 10px;
+  color: white !important;
+  -webkit-border-radius: 50em;
+  -moz-border-radius: 50em;
+  border-radius: 50em;
+}
+/* line 14, less\notifications_labels.less */
+.notification.small {
+  padding: 2px 7px;
+  color: white !important;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-border-radius: 50em;
+  -moz-border-radius: 50em;
+  border-radius: 50em;
+}
+/* line 22, less\notifications_labels.less */
+.notification.small.blue,
+.notification.blue {
+  background: #378fc9;
+}
+/* line 27, less\notifications_labels.less */
+.notification.small.yellow,
+.notification.yellow {
+  background: #eae874;
+}
+/* line 32, less\notifications_labels.less */
+.notification.small.red,
+.notification.red {
+  background: #c84628;
+}
+/* line 37, less\notifications_labels.less */
+.notification.small.green,
+.notification.green {
+  background: #7fb30c;
+}
+/* line 42, less\notifications_labels.less */
+.notification.small.orange,
+.notification.orange {
+  background: #fabb3d;
+}
+/* line 47, less\notifications_labels.less */
+.notification.small.red,
+.notification.red {
+  background: #c84628;
+}
+/* line 52, less\notifications_labels.less */
+.label,
+.badge {
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  padding: 3px 6px;
+  border: none;
+  text-shadow: none;
+}
+/* line 62, less\notifications_labels.less */
+.label {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+/* line 66, less\notifications_labels.less */
+.label-important,
+.badge-important,
+.label-important[href],
+.badge-important[href] {
+  background: #c84628;
+}
+/* line 73, less\notifications_labels.less */
+.label-warning,
+.badge-warning,
+.label-warning[href],
+.badge-warning[href] {
+  background: #fabb3d;
+}
+/* line 80, less\notifications_labels.less */
+.label-success,
+.badge-success,
+.label-success[href],
+.badge-success[href] {
+  background: #7fb30c;
+}
+/* line 87, less\notifications_labels.less */
+.label-info,
+.badge-info,
+.label-info[href],
+.badge-info[href] {
+  background: #67c2ef;
+}
+/* Footer
+=================================================================== */
+/* line 3, less\footer.less */
+footer {
+  background: #383e4b;
+  color: white;
+  padding: 10px 20px 20px 20px!important;
+  margin: 0px !important;
+}
+/* line 9, less\footer.less */
+footer a {
+  color: white;
+  font-weight: bold;
+}
+/* Main Chart
+=================================================================== */
+/* line 3, less\charts.less */
+.main-chart {
+  height: 300px;
+  margin-top: 40px;
+  margin-bottom: 58px;
+  border-top: 1px dashed #c7cbd5;
+}
+/* line 9, less\charts.less */
+.main-chart .bar {
+  height: 100%;
+  position: relative;
+  width: 3%;
+  margin: 20px 1%;
+  float: left;
+  text-align: center;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  z-index: 10;
+}
+/* line 19, less\charts.less */
+.main-chart .bar:before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  margin-top: -24px;
+  left: 50%;
+  margin-left: -4px;
+  height: 8px;
+  width: 8px;
+  background: #c7cbd5;
+}
+/* line 31, less\charts.less */
+.main-chart .bar:after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  margin-top: -10px;
+  left: 50%;
+  margin-left: -1px;
+  height: 100%;
+  width: 2px;
+  background: #c7cbd5;
+}
+/* line 44, less\charts.less */
+.main-chart .bar .title {
+  position: absolute;
+  top: -50px;
+  width: 100%;
+  text-align: center;
+}
+/* line 51, less\charts.less */
+.main-chart .bar .value {
+  position: absolute;
+  bottom: 0px;
+  background: #c7cbd5;
+  color: #c7cbd5;
+  width: 100%;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+/* line 60, less\charts.less */
+.main-chart .bar .value:before {
+  border-top: 5px solid #f5f5f5;
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  top: -5px;
+}
+/* line 69, less\charts.less */
+.main-chart .bar .value:hover {
+  background: #0074c1;
+  color: white;
+}
+/* line 79, less\charts.less */
+.main-chart .bar.simple:before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  margin-top: -23px;
+  left: 50%;
+  margin-left: -2px;
+  height: 5px;
+  width: 5px;
+  background: #c7cbd5;
+}
+/* line 91, less\charts.less */
+.main-chart .bar.simple:after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  margin-top: -10px;
+  left: 50%;
+  margin-left: 0px;
+  height: 100%;
+  width: 1px;
+  background: transparent;
+  border-left: 1px dashed #d6d9e0;
+}
+/* line 104, less\charts.less */
+.main-chart .bar.simple .title {
+  top: -46px;
+  font-size: 10px;
+}
+/* Vertical Bar Chart
+=================================================================== */
+/* line 115, less\charts.less */
+.verticalChart {
+  margin: 10px;
+}
+/* line 119, less\charts.less */
+.verticalChart .singleBar {
+  width: 6%;
+  display: block;
+  margin: 0 2% 0% 2%;
+  float: left;
+}
+/* line 125, less\charts.less */
+.verticalChart .singleBar .bar {
+  position: relative;
+  height: 120px;
+  background: #f9f9f9;
+  overflow: hidden;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+/* line 132, less\charts.less */
+.verticalChart .singleBar .bar .value {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #bdea74;
+  color: white;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+/* line 140, less\charts.less */
+.verticalChart .singleBar .bar .value span {
+  position: absolute;
+  font-size: 12px;
+  bottom: 0;
+  width: 100%;
+  height: 20px;
+  color: white;
+  text-shadow: 0px -1px 0px #bdea74, 0px 1px 0px #bdea74, 1px 0px 0px #bdea74, -1px 0px 0px #bdea74, -1px -1px 0px #bdea74, -1px 1px 0px #bdea74, 1px 1px 0px #bdea74, 1px -1px 0px #bdea74;
+  display: none;
+  text-align: center;
+}
+/* line 154, less\charts.less */
+.verticalChart .singleBar .title {
+  margin-top: 5px;
+  text-align: center;
+  color: #383e4b;
+}
+/* Chart Type2
+=================================================================== */
+/* line 164, less\charts.less */
+.chart-type2 {
+  position: relative;
+  z-index: 2;
+  background: #0074c1;
+  margin: 10px 10px 40px 10px;
+}
+/* line 170, less\charts.less */
+.chart-type2:before {
+  position: absolute;
+  z-index: -1;
+  content: '';
+  background: #0074c1;
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+  top: -20px;
+  left: -20px;
+}
+/* Browsers Stats
+=================================================================== */
+/* line 186, less\charts.less */
+.browserStat.big {
+  display: inline-block;
+  width: 49%;
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 0px;
+}
+/* line 194, less\charts.less */
+.browserStat {
+  display: inline-block;
+  width: 32%;
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+}
+/* line 201, less\charts.less */
+.browserStat span {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+}
+/* Multi Stat Box
+=================================================================== */
+/* line 210, less\charts.less */
+.multi-stat-box {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 0px 1px 0px 1px #e4e6eb;
+  -moz-box-shadow: 0px 1px 0px 1px #e4e6eb;
+  box-shadow: 0px 1px 0px 1px #e4e6eb;
+  overflow: hidden;
+}
+/* line 215, less\charts.less */
+.multi-stat-box .left {
+  width: 40%;
+  float: left;
+}
+/* line 220, less\charts.less */
+.multi-stat-box .right {
+  width: 60%;
+  float: right;
+}
+/* line 225, less\charts.less */
+.multi-stat-box .header {
+  font-size: 16px;
+  background: white;
+}
+/* line 229, less\charts.less */
+.multi-stat-box .header .left {
+  position: relative;
+  background: #00558e;
+  color: white;
+  border-bottom: 1px solid #0074c1;
+}
+/* line 235, less\charts.less */
+.multi-stat-box .header .left h2 {
+  padding: 10px 10px;
+  margin: 0px;
+}
+/* line 240, less\charts.less */
+.multi-stat-box .header .left a {
+  text-decoration: none;
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+/* line 248, less\charts.less */
+.multi-stat-box .header .left a:hover {
+  opacity: 0.9;
+}
+/* line 254, less\charts.less */
+.multi-stat-box .header .right {
+  position: relative;
+  border-bottom: 1px solid #e4e6eb;
+}
+/* line 258, less\charts.less */
+.multi-stat-box .header .right h2 {
+  padding: 10px 10px;
+  margin: 0px;
+}
+/* line 263, less\charts.less */
+.multi-stat-box .header .right .percent {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 8px;
+  border-left: 1px solid #e4e6eb;
+}
+/* line 270, less\charts.less */
+.multi-stat-box .header .right .percent i.icon-double-angle-up {
+  color: #bdea74;
+}
+/* line 274, less\charts.less */
+.multi-stat-box .header .right .percent i.icon-double-angle-down {
+  color: #c84628;
+}
+/* line 283, less\charts.less */
+.multi-stat-box .content .left {
+  background: #0074c1;
+  color: white;
+  height: 180px;
+}
+/* line 288, less\charts.less */
+.multi-stat-box .content .left ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* line 293, less\charts.less */
+.multi-stat-box .content .left ul li {
+  padding: 10px 10px;
+  height: 20px;
+}
+/* line 297, less\charts.less */
+.multi-stat-box .content .left ul li .date {
+  float: left;
+}
+/* line 301, less\charts.less */
+.multi-stat-box .content .left ul li .value {
+  float: right;
+  font-weight: bold;
+}
+/* line 305, less\charts.less */
+.multi-stat-box .content .left ul li:hover,
+.multi-stat-box .content .left ul li.active {
+  background: #0065a8;
+  cursor: pointer;
+}
+/* line 317, less\charts.less */
+.multi-stat-box .content .right {
+  background: white;
+  height: 180px;
+}
+/* Small Chart
+=================================================================== */
+/* line 328, less\charts.less */
+.smallchart {
+  background: white;
+  text-align: center;
+}
+/* line 332, less\charts.less */
+.smallchart .title {
+  padding: 10px;
+  color: white;
+  background: #eaebef;
+}
+/* line 338, less\charts.less */
+.smallchart .content {
+  padding: 40px 0px;
+  background: #e4e6eb;
+}
+/* line 342, less\charts.less */
+.smallchart .content i {
+  font-size: 40px;
+  color: white;
+}
+/* line 349, less\charts.less */
+.smallchart .value {
+  color: #383e4b;
+  padding: 10px;
+}
+/* line 61, less\colors.less */
+.smallchart.blue .title {
+  background: #378fc9;
+}
+/* line 64, less\colors.less */
+.smallchart.lightBlue .title {
+  background: #67c2ef;
+}
+/* line 67, less\colors.less */
+.smallchart.green .title {
+  background: #bdea74;
+}
+/* line 70, less\colors.less */
+.smallchart.darkGreen .title {
+  background: #7fb30c;
+}
+/* line 73, less\colors.less */
+.smallchart.pink .title {
+  background: #e84c8a;
+}
+/* line 76, less\colors.less */
+.smallchart.orange .title {
+  background: #ec6313;
+}
+/* line 79, less\colors.less */
+.smallchart.lightOrange .title {
+  background: #fabb3d;
+}
+/* line 82, less\colors.less */
+.smallchart.red .title {
+  background: #c84628;
+}
+/* line 85, less\colors.less */
+.smallchart.yellow .title {
+  background: #eae874;
+}
+/* line 88, less\colors.less */
+.smallchart.white .title {
+  background: white;
+}
+/* line 91, less\colors.less */
+.smallchart.grey .title {
+  background: #c7cbd5;
+}
+/* line 93, less\colors.less */
+.smallchart.gold {
+  background: #fabb3d;
+}
+/* Sparkline stats
+=================================================================== */
+/* line 360, less\charts.less */
+.sparkLineStats {
+  position: relative;
+  margin-bottom: -4px;
+}
+/* line 364, less\charts.less */
+.sparkLineStats ul {
+  margin: 0;
+}
+/* line 367, less\charts.less */
+.sparkLineStats ul li {
+  margin-bottom: 0;
+  line-height: 32px;
+  padding-top: 3px;
+  font-size: 12px;
+}
+/* line 373, less\charts.less */
+.sparkLineStats ul li .number {
+  font-size: 17px;
+  font-weight: 700;
+  padding: 0px 0px 0px 2px;
+  color: #ec6313;
+}
+/* line 380, less\charts.less */
+.sparkLineStats ul li span:first-child {
+  margin-right: 5px;
+}
+/* line 384, less\charts.less */
+.sparkLineStats ul li h4 {
+  position: relative;
+  border-bottom: 1px solid #c4c4c4;
+  padding-bottom: 0px;
+  margin-bottom: 10px;
+  line-height: 37px;
+  -webkit-box-shadow: 0 1px 0px #ffffff;
+  -moz-box-shadow: 0 1px 0px #ffffff;
+  box-shadow: 0 1px 0px #ffffff;
+}
+/* Smallstat
+=================================================================== */
+/* line 3, less\smallstats.less */
+.smallstat {
+  background: white;
+  padding: 10px;
+  position: relative;
+}
+/* line 8, less\smallstats.less */
+.smallstat .boxchart-overlay {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  width: 64px;
+  padding: 10px;
+  text-align: center;
+  margin-right: 10px;
+  float: left;
+  overflow: hidden;
+}
+/* line 42, less\colors.less */
+.smallstat .boxchart-overlay.blue {
+  background: #378fc9;
+}
+/* line 43, less\colors.less */
+.smallstat .boxchart-overlay.lightBlue {
+  background: #67c2ef;
+}
+/* line 44, less\colors.less */
+.smallstat .boxchart-overlay.green {
+  background: #bdea74;
+}
+/* line 45, less\colors.less */
+.smallstat .boxchart-overlay.darkGreen {
+  background: #7fb30c;
+}
+/* line 46, less\colors.less */
+.smallstat .boxchart-overlay.pink {
+  background: #e84c8a;
+}
+/* line 47, less\colors.less */
+.smallstat .boxchart-overlay.orange {
+  background: #ec6313;
+}
+/* line 48, less\colors.less */
+.smallstat .boxchart-overlay.lightOrange {
+  background: #fabb3d;
+}
+/* line 49, less\colors.less */
+.smallstat .boxchart-overlay.red {
+  background: #c84628;
+}
+/* line 50, less\colors.less */
+.smallstat .boxchart-overlay.yellow {
+  background: #eae874;
+}
+/* line 51, less\colors.less */
+.smallstat .boxchart-overlay.white {
+  background: white;
+}
+/* line 52, less\colors.less */
+.smallstat .boxchart-overlay.grey {
+  background: #c7cbd5;
+}
+/* line 53, less\colors.less */
+.smallstat .boxchart-overlay.crimson {
+  background: #9e3f3d;
+}
+/* line 54, less\colors.less */
+.smallstat .boxchart-overlay.gold {
+  background: #fabb3d;
+}
+/* line 55, less\colors.less */
+.smallstat .boxchart-overlay.magenta {
+  background: #ff5454;
+}
+/* line 19, less\smallstats.less */
+.smallstat i {
+  text-align: center;
+  display: block;
+  color: white;
+  width: 50px;
+  font-size: 22px;
+  padding: 14px 0px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  float: left;
+  margin-right: 10px;
+}
+/* line 42, less\colors.less */
+.smallstat i.blue {
+  background: #378fc9;
+}
+/* line 43, less\colors.less */
+.smallstat i.lightBlue {
+  background: #67c2ef;
+}
+/* line 44, less\colors.less */
+.smallstat i.green {
+  background: #bdea74;
+}
+/* line 45, less\colors.less */
+.smallstat i.darkGreen {
+  background: #7fb30c;
+}
+/* line 46, less\colors.less */
+.smallstat i.pink {
+  background: #e84c8a;
+}
+/* line 47, less\colors.less */
+.smallstat i.orange {
+  background: #ec6313;
+}
+/* line 48, less\colors.less */
+.smallstat i.lightOrange {
+  background: #fabb3d;
+}
+/* line 49, less\colors.less */
+.smallstat i.red {
+  background: #c84628;
+}
+/* line 50, less\colors.less */
+.smallstat i.yellow {
+  background: #eae874;
+}
+/* line 51, less\colors.less */
+.smallstat i.white {
+  background: white;
+}
+/* line 52, less\colors.less */
+.smallstat i.grey {
+  background: #c7cbd5;
+}
+/* line 53, less\colors.less */
+.smallstat i.crimson {
+  background: #9e3f3d;
+}
+/* line 54, less\colors.less */
+.smallstat i.gold {
+  background: #fabb3d;
+}
+/* line 55, less\colors.less */
+.smallstat i.magenta {
+  background: #ff5454;
+}
+/* line 33, less\smallstats.less */
+.smallstat .title {
+  top: 12px;
+  color: #383e4b;
+  display: block;
+  font-size: 14px;
+  margin-top: 4px;
+}
+/* line 41, less\smallstats.less */
+.smallstat .value {
+  font-size: 20px;
+  font-weight: bold;
+}
+/* Discussions
+=================================================================== */
+/* line 5, less\discussions.less */
+.discussions ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* line 10, less\discussions.less */
+.discussions ul li {
+  position: relative;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 0px 1px 0px 1px #e4e6eb;
+  -moz-box-shadow: 0px 1px 0px 1px #e4e6eb;
+  box-shadow: 0px 1px 0px 1px #e4e6eb;
+  background: white;
+  padding-left: 70px;
+  padding-right: 40px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  margin-left: 80px;
+  margin-right: 40px;
+  padding: 10px;
+}
+/* line 23, less\discussions.less */
+.discussions ul li:before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  top: 15px;
+  left: -20px;
+  position: absolute;
+  background: url("../img/disc-arrow.png") no-repeat;
+  background-size: 20px 20px;
+}
+/* line 34, less\discussions.less */
+.discussions ul li .author {
+  position: absolute;
+  z-index: 1;
+  width: 60px;
+  float: left;
+  left: -70px;
+  top: 0px;
+}
+/* line 42, less\discussions.less */
+.discussions ul li .author img {
+  height: 50px;
+  -webkit-border-radius: 50em;
+  -moz-border-radius: 50em;
+  border-radius: 50em;
+  -webkit-box-shadow: 0px 1px 0px 1px #e4e6eb;
+  -moz-box-shadow: 0px 1px 0px 1px #e4e6eb;
+  box-shadow: 0px 1px 0px 1px #e4e6eb;
+}
+/* line 50, less\discussions.less */
+.discussions ul li .name {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 100%;
+  background: #fbfcfc;
+  padding: 5px 10px 5px 10px;
+  -webkit-border-radius: 2px 0px 0px 2px;
+  -moz-border-radius: 2px 0px 0px 2px;
+  border-radius: 2px 0px 0px 2px;
+}
+/* line 60, less\discussions.less */
+.discussions ul li .date {
+  position: absolute;
+  top: 10px;
+  right: 0px;
+  z-index: 1;
+  background: #f3f4f6;
+  padding: 5px 20px 5px 10px;
+  -webkit-border-radius: 2px 0px 0px 2px;
+  -moz-border-radius: 2px 0px 0px 2px;
+  border-radius: 2px 0px 0px 2px;
+}
+/* line 70, less\discussions.less */
+.discussions ul li .delete {
+  position: absolute;
+  -webkit-border-radius: 0px 2px 2px 0px;
+  -moz-border-radius: 0px 2px 2px 0px;
+  border-radius: 0px 2px 2px 0px;
+  background: #e4e6eb;
+  top: 10px;
+  right: -30px;
+  padding: 5px 10px;
+  display: inline-block;
+  cursor: pointer;
+}
+/* line 81, less\discussions.less */
+.discussions ul li .message {
+  border-bottom: 1px solid #e4e6eb;
+  margin: 20px -10px 0px -10px;
+  padding: 20px;
+}
+/* line 87, less\discussions.less */
+.discussions ul li ul {
+  overflow: hidden;
+}
+/* line 91, less\discussions.less */
+.discussions ul li ul li {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border-bottom: 1px solid #e4e6eb;
+  margin: 0 -10px;
+  padding-left: 70px;
+}
+/* line 97, less\discussions.less */
+.discussions ul li ul li:before {
+  display: none;
+}
+/* line 101, less\discussions.less */
+.discussions ul li ul li:last-child {
+  border-bottom: none;
+}
+/* line 106, less\discussions.less */
+.discussions ul li ul li .author {
+  top: 10px;
+  left: 10px;
+}
+/* line 110, less\discussions.less */
+.discussions ul li ul li .author img {
+  height: 40px;
+  -webkit-border-radius: 50em;
+  -moz-border-radius: 50em;
+  border-radius: 50em;
+  -webkit-box-shadow: 0px 1px 0px 1px #e4e6eb;
+  -moz-box-shadow: 0px 1px 0px 1px #e4e6eb;
+  box-shadow: 0px 1px 0px 1px #e4e6eb;
+}
+/* line 118, less\discussions.less */
+.discussions ul li ul li .name {
+  left: 70px;
+}
+/* line 122, less\discussions.less */
+.discussions ul li ul li .date {
+  background: transparent;
+  right: 30px;
+}
+/* line 127, less\discussions.less */
+.discussions ul li ul li .delete {
+  background: transparent;
+  right: 10px;
+}
+/* line 132, less\discussions.less */
+.discussions ul li ul li .message {
+  border-bottom: none;
+}
+/* line 136, less\discussions.less */
+.discussions ul li ul li textarea {
+  border: none;
+  background: #c7cbd5;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  width: 98%;
+}
+/* Chat Widget
+=================================================================== */
+/* line 3, less\chat.less */
+.chat {
+  position: relative;
+  background: white;
+}
+/* line 7, less\chat.less */
+.chat .contacts {
+  position: absolute;
+  height: 100%;
+  float: left;
+  width: 30%;
+  background: #e4e6eb;
+}
+/* line 14, less\chat.less */
+.chat .contacts ul.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* line 19, less\chat.less */
+.chat .contacts ul.list li {
+  position: relative;
+  padding: 5px 10px;
+  border-bottom: 1px solid #d6d9e0;
+  cursor: pointer;
+}
+/* line 25, less\chat.less */
+.chat .contacts ul.list li:hover {
+  background: #c7cbd5;
+}
+/* line 29, less\chat.less */
+.chat .contacts ul.list li img.avatar {
+  -webkit-border-radius: 50em;
+  -moz-border-radius: 50em;
+  border-radius: 50em;
+  width: 40px;
+  margin-right: 10px;
+}
+/* line 35, less\chat.less */
+.chat .contacts ul.list li .status {
+  display: block;
+  position: absolute;
+  top: 42%;
+  right: 20px;
+  width: 8px;
+  height: 8px;
+  -webkit-border-radius: 50em;
+  -moz-border-radius: 50em;
+  border-radius: 50em;
+}
+/* line 44, less\chat.less */
+.chat .contacts ul.list li .status.online {
+  background: #bdea74;
+}
+/* line 48, less\chat.less */
+.chat .contacts ul.list li .status.offline {
+  background: #c7cbd5;
+}
+/* line 52, less\chat.less */
+.chat .contacts ul.list li .status.busy {
+  background: #ec6313;
+}
+/* line 57, less\chat.less */
+.chat .contacts ul.list li .important {
+  font-size: 11px;
+  display: inline-block;
+  position: absolute;
+  top: 4px;
+  left: 35px;
+  line-height: 16px;
+  padding: 2px 7px;
+  color: white;
+  -webkit-border-radius: 50em;
+  -moz-border-radius: 50em;
+  border-radius: 50em;
+  background: #c84628;
+}
+/* line 77, less\chat.less */
+.chat .conversation {
+  width: 70%;
+  float: right;
+}
+/* line 81, less\chat.less */
+.chat .conversation .actions {
+  background: #383e4b;
+  width: 100%;
+  height: 50px;
+}
+/* line 86, less\chat.less */
+.chat .conversation .actions a {
+  display: block;
+  color: white;
+  padding: 16px;
+  font-size: 18px;
+  width: 18px;
+  float: left;
+}
+/* line 95, less\chat.less */
+.chat .conversation .actions img.avatar {
+  -webkit-border-radius: 50em;
+  -moz-border-radius: 50em;
+  border-radius: 50em;
+  width: 30px;
+  margin: 10px 0px 10px 10px;
+}
+/* line 102, less\chat.less */
+.chat .conversation ul {
+  height: 516px;
+  overflow-y: scroll;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* line 109, less\chat.less */
+.chat .conversation ul li {
+  position: relative;
+  padding: 15px 10px 10px 60px;
+  border-bottom: 1px solid #e4e6eb;
+}
+/* line 114, less\chat.less */
+.chat .conversation ul li img.avatar {
+  top: 10px;
+  left: 10px;
+  position: absolute;
+  -webkit-border-radius: 50em;
+  -moz-border-radius: 50em;
+  border-radius: 50em;
+  width: 40px;
+  margin-right: 10px;
+}
+/* line 123, less\chat.less */
+.chat .conversation ul li .name {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+/* line 128, less\chat.less */
+.chat .conversation ul li .time {
+  font-weight: bold;
+  right: 10px;
+  position: absolute;
+  color: #c7cbd5;
+  font-size: 11px;
+}
+/* line 136, less\chat.less */
+.chat .conversation ul li .message {
+  margin-top: 10px;
+  font-size: 12px;
+}
+/* line 143, less\chat.less */
+.chat .conversation .form {
+  border-top: 2px solid #e4e6eb;
+  height: 40px;
+  padding: 10px;
+}
+/* line 148, less\chat.less */
+.chat .conversation .form input {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background: #c7cbd5;
+  color: white;
+}
+/* line 163, less\chat.less */
+.chat.alt .contacts {
+  width: 60px;
+}
+/* line 166, less\chat.less */
+.chat.alt .contacts ul.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* line 171, less\chat.less */
+.chat.alt .contacts ul.list li {
+  text-align: center;
+}
+/* line 174, less\chat.less */
+.chat.alt .contacts ul.list li img.avatar {
+  -webkit-border-radius: 50em;
+  -moz-border-radius: 50em;
+  border-radius: 50em;
+  width: 40px;
+  margin: 0 auto;
+}
+/* line 180, less\chat.less */
+.chat.alt .contacts ul.list li .name {
+  display: none;
+}
+/* line 184, less\chat.less */
+.chat.alt .contacts ul.list li .status {
+  top: 70%;
+  right: 10px;
+}
+/* line 192, less\chat.less */
+.chat.alt .conversation {
+  width: auto;
+  margin-left: 60px;
+}
+/* Calendar Widget
+=================================================================== */
+/* line 3, less\calendar.less */
+.calendar {
+  background: white;
+}
+/* line 6, less\calendar.less */
+.calendar .calendar-details {
+  height: 400px;
+  width: 33%;
+  background: #0074c1;
+  float: left;
+  color: white;
+  font-weight: 300px;
+  position: relative;
+}
+/* line 15, less\calendar.less */
+.calendar .calendar-details .day {
+  font-size: 20px;
+  margin: 150px 10px 0px 10px;
+  text-transform: uppercase;
+}
+/* line 21, less\calendar.less */
+.calendar .calendar-details .date {
+  font-size: 20px;
+  margin: 5px 10px 0px 10px;
+  text-transform: uppercase;
+}
+/* line 27, less\calendar.less */
+.calendar .calendar-details .events {
+  margin: 25px 10px 0px 10px;
+}
+/* line 30, less\calendar.less */
+.calendar .calendar-details .events ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* line 37, less\calendar.less */
+.calendar .calendar-details .add-event {
+  width: 90%;
+  margin: 0 5%;
+  position: absolute;
+  bottom: 10px;
+  border-bottom: 1px solid #0093f4;
+}
+/* line 44, less\calendar.less */
+.calendar .calendar-details .add-event i {
+  color: #28a9ff;
+}
+/* line 48, less\calendar.less */
+.calendar .calendar-details .add-event input {
+  width: 80%;
+  color: white;
+  border: 0;
+  font-size: 12px;
+  margin: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+/* line 61, less\calendar.less */
+.calendar .calendar-small {
+  width: 67%;
+  float: right;
+}
+/* line 66, less\calendar.less */
+.calendar .fc td,
+.calendar .fc th {
+  padding: 0.4em;
+  vertical-align: middle;
+  font-weight: normal;
+}
+/* line 73, less\calendar.less */
+.calendar .fc-widget-header,
+.calendar .fc-widget-content {
+  border: 1px solid transparent;
+}
+/* line 78, less\calendar.less */
+.calendar .fc-content {
+  margin: 50px 30px 30px 30px;
+  text-transform: uppercase;
+}
+/* line 83, less\calendar.less */
+.calendar .fc-state-default {
+  background: white;
+  border: none;
+  color: #c7cbd5;
+  text-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+/* line 91, less\calendar.less */
+.calendar .fc-state-hover,
+.calendar .fc-state-down,
+.calendar .fc-state-active,
+.calendar .fc-state-disabled {
+  color: #383e4b;
+  background: white;
+}
+/* line 103, less\calendar.less */
+.calendar .fc-day-number {
+  display: block;
+  width: 18px;
+  margin: -5px auto;
+  padding: 5px !important;
+}
+/* line 110, less\calendar.less */
+.calendar .fc-state-highlight {
+  background: transparent;
+}
+/* line 113, less\calendar.less */
+.calendar .fc-state-highlight .fc-day-number {
+  background: #0074c1;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  color: white;
+}
+/* line 120, less\calendar.less */
+.calendar .event {
+  background: #0074c1;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  color: white;
+}
+/* line 126, less\calendar.less */
+.calendar .fc-grid .fc-day-number {
+  float: none;
+  padding: 0 2px;
+  text-align: center;
+}
+/* line 132, less\calendar.less */
+.calendar .fc-grid .fc-other-month .fc-day-number {
+  opacity: 1;
+  filter: alpha(opacity=1);
+  color: #c7cbd5;
+}
+/* line 138, less\calendar.less */
+.calendar .fc-event {
+  border: 0;
+  height: 1px;
+  background: #c7cbd5;
+}
+/* line 144, less\calendar.less */
+.calendar .fc-event .fc-event-inner {
+  display: none;
+}
+/* Dashboard Lists ex.
+=================================================================== */
+/* line 3, less\dashboard-list.less */
+ul.dashboard-list {
+  margin: 0;
+}
+/* line 6, less\dashboard-list.less */
+ul.dashboard-list a:hover {
+  text-decoration: none;
+}
+/* line 10, less\dashboard-list.less */
+ul.dashboard-list li:last-child {
+  border-bottom: none;
+}
+/* line 14, less\dashboard-list.less */
+ul.dashboard-list li:first-child {
+  border-top: none;
+  border-bottom: 1px solid #eeeeee;
+}
+/* line 19, less\dashboard-list.less */
+ul.dashboard-list li {
+  padding: 5px 0;
+  list-style: none;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #eeeeee;
+  font-size: 12px;
+}
+/* line 28, less\dashboard-list.less */
+ul.dashboard-list li a span {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 10px;
+  text-align: right;
+  width: 50px;
+  zoom: 1;
+}
+/* line 38, less\dashboard-list.less */
+ul.dashboard-list li a img.avatar {
+  height: 50px;
+  width: 50px;
+  float: left;
+  margin-top: 3px;
+  margin-right: 15px;
+  -webkit-border-radius: 50em;
+  -moz-border-radius: 50em;
+  border-radius: 50em;
+}
+/* line 49, less\dashboard-list.less */
+ul.dashboard-list li i {
+  font-size: 18px;
+  opacity: .7;
+  filter: alpha(opacity=70);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+}
+/* Support tickets
+=================================================================== */
+/* line 3, less\tickets.less */
+ul.tickets {
+  margin: 0;
+}
+/* line 6, less\tickets.less */
+ul.tickets li:last-child {
+  border-bottom: none;
+}
+/* line 10, less\tickets.less */
+ul.tickets li:first-child {
+  border-top: none;
+  border-bottom: 1px solid #eeeeee;
+}
+/* line 15, less\tickets.less */
+ul.tickets li {
+  list-style: none;
+  padding: 5px 0;
+  border-bottom: 1px solid #eeeeee;
+  font-size: 12px;
+}
+/* line 22, less\tickets.less */
+ul.tickets li.ticket .left {
+  display: inline-block;
+  width: 60%;
+}
+/* line 27, less\tickets.less */
+ul.tickets li.ticket .right {
+  display: inline-block;
+  width: 39%;
+  text-align: right;
+}
+/* line 33, less\tickets.less */
+ul.tickets li.ticket .status {
+  width: 100px;
+  display: inline-block;
+  text-align: center;
+}
+/* line 39, less\tickets.less */
+ul.tickets li.ticket .date {
+  width: 150px;
+  display: inline-block;
+  text-align: center;
+}
+/* line 45, less\tickets.less */
+ul.tickets li.ticket .title {
+  display: inline-block;
+  font-weight: bold;
+}
+/* line 50, less\tickets.less */
+ul.tickets li.ticket .name {
+  display: inline-block;
+}
+/* line 55, less\tickets.less */
+ul.tickets li.ticket .number {
+  display: inline-block;
+  font-weight: bold;
+  margin-left: 20px;
+}
+/* ToDo List
+=================================================================== */
+/* line 5, less\todo.less */
+.todo ul {
+  list-style: none;
+  padding: 0px;
+  margin: -10px;
+}
+/* line 10, less\todo.less */
+.todo ul li {
+  background: white;
+  margin-left: 0px !important;
+  padding: 10px 10px 10px 35px;
+  border-bottom: 1px solid #e4e6eb;
+  font-size: 12px;
+  position: relative;
+}
+/* line 18, less\todo.less */
+.todo ul li:last-child {
+  border-bottom: 0px;
+}
+/* line 22, less\todo.less */
+.todo ul li .label {
+  position: absolute;
+  right: 10px;
+}
+/* line 27, less\todo.less */
+.todo ul li .todo-actions {
+  position: absolute;
+  left: 0px;
+  margin-top: 2px;
+}
+/* line 32, less\todo.less */
+.todo ul li .todo-actions a {
+  text-decoration: none;
+}
+/* line 36, less\todo.less */
+.todo ul li .todo-actions i {
+  font-size: 18px;
+  color: #c7cbd5;
+  margin: 0px 5px 0px 10px;
+}
+/* line 41, less\todo.less */
+.todo ul li .todo-actions i:hover {
+  color: #0074c1;
+}
+/* UI - Sliders & Progress
+=================================================================== */
+/* line 3, less\sliders_progress_bars.less */
+.slider {
+  background: #e4e6eb;
+  border: none;
+  height: 20px;
+  -webkit-border-radius: 50em;
+  -moz-border-radius: 50em;
+  border-radius: 50em;
+  position: relative;
+  z-index: 10;
+  margin: 0px 18px !important;
+}
+/* line 12, less\sliders_progress_bars.less */
+.slider:after {
+  background: #e4e6eb;
+  content: '';
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  padding: 0px 19px;
+  left: -19px;
+  -webkit-border-radius: 50em;
+  -moz-border-radius: 50em;
+  border-radius: 50em;
+  overflow: hidden;
+}
+/* line 25, less\sliders_progress_bars.less */
+.slider .ui-slider-range {
+  -webkit-border-radius: 50em;
+  -moz-border-radius: 50em;
+  border-radius: 50em;
+  position: absolute;
+  padding: 0px 19px 0px 19px;
+  margin: 0px -19px 0px -19px;
+}
+/* line 35, less\sliders_progress_bars.less */
+.ui-slider-handle {
+  border: none !important;
+  -webkit-border-radius: 50em;
+  -moz-border-radius: 50em;
+  border-radius: 50em;
+  outline: none !important;
+}
+/* line 43, less\sliders_progress_bars.less */
+.ui-slider-horizontal .ui-slider-handle {
+  background: url("../img/handle.png") no-repeat center center scroll #ffffff !important;
+  background-position: 50% 50%;
+  background-size: 16px 16px !important;
+  width: 36px;
+  height: 18px;
+}
+/* line 51, less\sliders_progress_bars.less */
+.ui-slider-horizontal .ui-slider-handle {
+  top: 1px;
+  margin-left: -18px;
+}
+/* line 58, less\sliders_progress_bars.less */
+.sliderVertical {
+  background: #e4e6eb;
+  border: none;
+  top: auto;
+  bottom: auto;
+  width: 20px !important;
+  -webkit-border-radius: 50em;
+  -moz-border-radius: 50em;
+  border-radius: 50em;
+  -webkit-box-shadow: inset 0px 5px 6px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0px 5px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0px 5px 6px rgba(0, 0, 0, 0.05);
+  position: relative;
+  float: left;
+  height: 100px;
+  margin: 38px 20px 0px 20px;
+  width: 5px;
+}
+/* line 72, less\sliders_progress_bars.less */
+.sliderVertical:after {
+  background: #e4e6eb;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 38px 0px 0px 0px;
+  top: -38px;
+  -webkit-border-radius: 50em;
+  -moz-border-radius: 50em;
+  border-radius: 50em;
+  overflow: hidden;
+}
+/* line 85, less\sliders_progress_bars.less */
+.sliderVertical .ui-slider-range {
+  height: 100%;
+  width: 100%;
+  top: auto;
+  bottom: auto;
+  -webkit-border-radius: 50em;
+  -moz-border-radius: 50em;
+  border-radius: 50em;
+  padding-top: 38px;
+  margin-top: -38px;
+}
+/* line 96, less\sliders_progress_bars.less */
+.sliderVertical .ui-slider-handle {
+  background: url("../img/handlev.png") no-repeat center center scroll #ffffff !important;
+  background-position: 50% 50%;
+  background-size: 16px 16px !important;
+  width: 18px;
+  height: 36px;
+  left: 50%;
+  margin: 0px 0px 1px -9px !important;
+}
+/* line 106, less\sliders_progress_bars.less */
+.sliderVertical .ui-slider-range-max {
+  top: 0;
+}
+/* line 110, less\sliders_progress_bars.less */
+.sliderVertical .ui-slider-range-min {
+  bottom: 0;
+}
+/* line 116, less\sliders_progress_bars.less */
+.sliderBlue .ui-slider-range,
+.progressBlue .ui-progressbar-value {
+  background: #378fc9;
+}
+/* line 121, less\sliders_progress_bars.less */
+.sliderGreen .ui-slider-range,
+.progressGreen .ui-progressbar-value {
+  background: #bdea74;
+}
+/* line 125, less\sliders_progress_bars.less */
+.sliderDarkGreen .ui-slider-range,
+.progressDarkGreen .ui-progressbar-value {
+  background: #7fb30c;
+}
+/* line 129, less\sliders_progress_bars.less */
+.sliderPink .ui-slider-range,
+.progressPink .ui-progressbar-value {
+  background: #e84c8a;
+}
+/* line 133, less\sliders_progress_bars.less */
+.sliderOrange .ui-slider-range,
+.progressOrange .ui-progressbar-value {
+  background: #ec6313;
+}
+/* line 137, less\sliders_progress_bars.less */
+.sliderLightOrange .ui-slider-range,
+.progressLightOrange .ui-progressbar-value {
+  background: #fabb3d;
+}
+/* line 141, less\sliders_progress_bars.less */
+.sliderRed .ui-slider-range,
+.progressRed .ui-progressbar-value {
+  background: #c84628;
+}
+/* line 145, less\sliders_progress_bars.less */
+.sliderYellow .ui-slider-range,
+.progressYellow .ui-progressbar-value {
+  background: #eae874;
+}
+/* line 149, less\sliders_progress_bars.less */
+.progress {
+  background: #e4e6eb;
+  border: none;
+  height: 14px;
+  -webkit-border-radius: 50em !important;
+  -moz-border-radius: 50em !important;
+  border-radius: 50em !important;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  position: relative;
+  margin-top: -2px;
+}
+/* line 158, less\sliders_progress_bars.less */
+.progress .ui-progressbar {
+  -webkit-border-radius: 50em !important;
+  -moz-border-radius: 50em !important;
+  border-radius: 50em !important;
+}
+/* line 162, less\sliders_progress_bars.less */
+.progress .ui-progressbar-value {
+  border: none;
+  height: 100%;
+  top: 1px;
+  position: absolute;
+  left: 1px;
+  -webkit-border-radius: 50em;
+  -moz-border-radius: 50em;
+  border-radius: 50em;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+/* line 176, less\sliders_progress_bars.less */
+.progressBarValue span {
+  font-size: 12px;
+}
+/* line 180, less\sliders_progress_bars.less */
+.progressBarValue span.progressCustomValueVal {
+  font-size: 18px;
+  font-weight: 700;
+  padding: 0 5px;
+  color: #ec6313;
+}
+/* line 189, less\sliders_progress_bars.less */
+.progressSlim {
+  background: #e4e6eb;
+  border: none;
+  height: 10px;
+  -webkit-border-radius: 50em;
+  -moz-border-radius: 50em;
+  border-radius: 50em;
+  position: relative;
+  margin-top: -2px;
+}
+/* line 197, less\sliders_progress_bars.less */
+.progressSlim .ui-progressbar-value {
+  border-color: transparent;
+  height: 100%;
+  top: 0px;
+  position: absolute;
+  left: 0px;
+  -webkit-border-radius: 50em;
+  -moz-border-radius: 50em;
+  border-radius: 50em;
+}
+/* line 207, less\sliders_progress_bars.less */
+.tasks .progressSlim {
+  overflow: hidden;
+  border: none !important;
+  height: 8px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  margin-top: 0px;
+}
+/* line 214, less\sliders_progress_bars.less */
+.tasks .progressSlim .ui-progressbar-value {
+  overflow: hidden;
+  margin: 0px;
+  border: none !important;
+  -webkit-border-radius: 50em;
+  -moz-border-radius: 50em;
+  border-radius: 50em;
+}
+/* Quick Buttons
+=================================================================== */
+/* line 3, less\quick-buttons.less */
+.quick-button {
+  border: 1px solid #ddd;
+  margin-bottom: -1px;
+  padding: 30px 0px 10px 0px;
+  font-size: 14px;
+  background-color: #efefef;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#fafafa), to(#efefef));
+  background-image: -webkit-linear-gradient(top, #fafafa, #efefef);
+  background-image: -moz-linear-gradient(top, #fafafa, #efefef);
+  background-image: -o-linear-gradient(top, #fafafa, #efefef);
+  background-image: -ms-linear-gradient(top, #fafafa, #efefef);
+  background-image: linear-gradient(top, #fafafa, #efefef);
+  -webkit-box-shadow: 0 1px 0px rgba(255, 255, 255, 0.8);
+  -moz-box-shadow: 0 1px 0px rgba(255, 255, 255, 0.8);
+  box-shadow: 0 1px 0px rgba(255, 255, 255, 0.8);
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  display: block;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+/* line 17, less\quick-buttons.less */
+.quick-button:hover {
+  text-decoration: none;
+  border-color: #a5a5a5;
+  color: #444444;
+  text-shadow: 0 1px 0px #ffffff;
+  -webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
+}
+/* line 25, less\quick-buttons.less */
+.quick-button:hover .notification {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  -webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.6);
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.6);
+}
+/* line 30, less\quick-buttons.less */
+.quick-button i {
+  font-size: 32px;
+}
+/* Quick Buttons Small
+=================================================================== */
+/* line 37, less\quick-buttons.less */
+.quick-button-small {
+  border: 1px solid #ddd;
+  padding: 15px 0px 0px 0px;
+  font-size: 10px;
+  background-color: #efefef;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#fafafa), to(#efefef));
+  background-image: -webkit-linear-gradient(top, #fafafa, #efefef);
+  background-image: -moz-linear-gradient(top, #fafafa, #efefef);
+  background-image: -o-linear-gradient(top, #fafafa, #efefef);
+  background-image: -ms-linear-gradient(top, #fafafa, #efefef);
+  background-image: linear-gradient(top, #fafafa, #efefef);
+  -webkit-box-shadow: 0 1px 0px rgba(255, 255, 255, 0.8);
+  -moz-box-shadow: 0 1px 0px rgba(255, 255, 255, 0.8);
+  box-shadow: 0 1px 0px rgba(255, 255, 255, 0.8);
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  display: block;
+  text-shadow: 0 1px 0px rgba(255, 255, 255, 0.6);
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+/* line 51, less\quick-buttons.less */
+.quick-button-small:hover {
+  text-decoration: none;
+  border-color: #a5a5a5;
+  color: #444444;
+  text-shadow: 0 1px 0px #ffffff;
+  -webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
+}
+/* line 59, less\quick-buttons.less */
+.quick-button-small:hover .notification {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  -webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.6);
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.6);
+}
+/* line 64, less\quick-buttons.less */
+.quick-button-small i {
+  font-size: 20px;
+}
+/* Circle stats
+=================================================================== */
+/* line 3, less\circle-stats.less */
+.tempStats {
+  text-align: center;
+}
+/* line 7, less\circle-stats.less */
+.tempStatBox {
+  width: 120px;
+  padding: 25px 0px;
+}
+/* line 11, less\circle-stats.less */
+.tempStatBox .tempStat {
+  position: relative;
+  font-size: 34px;
+  line-height: 100px;
+  -webkit-border-radius: 50em;
+  -moz-border-radius: 50em;
+  border-radius: 50em;
+  border: 10px solid #FFF;
+  background: #f9f9f9;
+  height: 100px;
+  width: 100px;
+  text-align: center;
+  margin: 0 auto;
+}
+/* line 23, less\circle-stats.less */
+.tempStatBox .tempStat:before {
+  content: "";
+  top: -10px;
+  left: -10px;
+  height: 120px;
+  width: 120px;
+  position: absolute;
+  -webkit-border-radius: 50em;
+  -moz-border-radius: 50em;
+  border-radius: 50em;
+  background: transparent;
+  -webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.3), 0px 1px 0px #ffffff;
+  -moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.3), 0px 1px 0px #ffffff;
+  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.3), 0px 1px 0px #ffffff;
+}
+/* line 35, less\circle-stats.less */
+.tempStatBox .tempStat:after {
+  content: "";
+  top: 0px;
+  left: 0px;
+  height: 98px;
+  width: 98px;
+  position: absolute;
+  -webkit-border-radius: 50em;
+  -moz-border-radius: 50em;
+  border-radius: 50em;
+  border: 1px solid #fff;
+  background: transparent;
+  -webkit-box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.4);
+}
+/* line 49, less\circle-stats.less */
+.tempStatBox .tempStat.t0 {
+  border-color: #67c2ef;
+}
+/* line 53, less\circle-stats.less */
+.tempStatBox .tempStat.t20 {
+  border-color: #bdea74;
+}
+/* line 57, less\circle-stats.less */
+.tempStatBox .tempStat.t40 {
+  border-color: #eae874;
+}
+/* line 61, less\circle-stats.less */
+.tempStatBox .tempStat.t60 {
+  border-color: #fabb3d;
+}
+/* line 65, less\circle-stats.less */
+.tempStatBox .tempStat.t80 {
+  border-color: #ec6313;
+}
+/* line 69, less\circle-stats.less */
+.tempStatBox .tempStat.t100 {
+  border-color: #c84628;
+}
+/* line 73, less\circle-stats.less */
+.tempStatBox span {
+  width: 100%;
+  text-align: center;
+  display: block;
+  margin-top: 10px;
+  text-shadow: 0px 1px 0px #fff;
+}
+/* Circle stats
+=================================================================== */
+/* line 84, less\circle-stats.less */
+.circleStats {
+  text-align: center;
+  position: relative;
+}
+/* line 85, less\circle-stats.less */
+.circleStatsItem {
+  position: relative;
+  background: rgba(255, 255, 255, 0.7);
+  -webkit-box-shadow: inset 0 0px 0 2px rgba(0, 0, 0, 0.2), 0 0px 0 4px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 0 0px 0 2px rgba(0, 0, 0, 0.2), 0 0px 0 4px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0px 0 2px rgba(0, 0, 0, 0.2), 0 0px 0 4px rgba(0, 0, 0, 0.1);
+  -webkit-border-radius: 50em;
+  -moz-border-radius: 50em;
+  border-radius: 50em;
+  width: 120px;
+  height: 120px;
+  margin: 10px auto;
+}
+/* line 94, less\circle-stats.less */
+.circleStatsItem i {
+  font-size: 30px;
+  position: absolute;
+  top: 30%;
+  margin-top: 0px;
+  width: 100%;
+  text-align: center;
+}
+/* line 103, less\circle-stats.less */
+.circleStatsItem input {
+  cursor: default;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border: none;
+  height: auto;
+  position: absolute;
+  top: 15px;
+  left: 120px;
+  padding: 5px 0px !important;
+  border-color: rgba(0, 0, 0, 0.8);
+}
+/* line 114, less\circle-stats.less */
+.circleStatsItem input:focus {
+  outline: 0;
+  outline: thin dotted 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+/* line 121, less\circle-stats.less */
+.circleStatsItem .plus {
+  font-size: 16px;
+  position: absolute;
+  top: 55%;
+  margin-left: 30px;
+}
+/* line 128, less\circle-stats.less */
+.circleStatsItem .percent {
+  font-size: 14px;
+  position: absolute;
+  top: 57%;
+  margin-left: 78px;
+}
+/* line 136, less\circle-stats.less */
+.circleStatsItem.orange,
+.circleStatsItem.orange i {
+  color: #ec6313;
+}
+/* line 137, less\circle-stats.less */
+.circleStatsItem.lightorange,
+.circleStatsItem.lightorange i {
+  color: #fabb3d;
+}
+/* line 138, less\circle-stats.less */
+.circleStatsItem.blue,
+.circleStatsItem.blue i {
+  color: #378fc9;
+}
+/* line 139, less\circle-stats.less */
+.circleStatsItem.green,
+.circleStatsItem.green i {
+  color: #bdea74;
+}
+/* line 140, less\circle-stats.less */
+.circleStatsItem.yellow,
+.circleStatsItem.yellow i {
+  color: #eae874;
+}
+/* line 141, less\circle-stats.less */
+.circleStatsItem.pink,
+.circleStatsItem.pink i {
+  color: #e84c8a;
+}
+/* line 143, less\circle-stats.less */
+.circleStatsItemBox {
+  position: relative;
+  background: #67c2ef;
+  width: 100%;
+  min-width: 130px;
+  height: 160px;
+  margin: 10px auto;
+  padding-top: 40px;
+}
+/* line 152, less\circle-stats.less */
+.circleStatsItemBox .header {
+  background: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.9);
+  width: 100%;
+  height: 20px;
+  padding: 5px 0px;
+  position: absolute;
+  top: 0px;
+}
+/* line 162, less\circle-stats.less */
+.circleStatsItemBox .footer {
+  background: rgba(0, 0, 0, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+  width: 100%;
+  height: 20px;
+  padding: 5px 0px;
+  position: absolute;
+  bottom: 0px;
+}
+/* line 171, less\circle-stats.less */
+.circleStatsItemBox .footer .count {
+  font-size: 12px;
+}
+/* line 175, less\circle-stats.less */
+.circleStatsItemBox .footer .value {
+  font-weight: bold;
+}
+/* line 180, less\circle-stats.less */
+.circleStatsItemBox .percent {
+  font-size: 12px;
+  position: absolute;
+  top: 110px;
+  width: 100%;
+  left: 0px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+}
+/* line 190, less\circle-stats.less */
+.circleStatsItemBox input {
+  cursor: default;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border: none;
+  height: auto;
+  position: absolute;
+  top: 30px;
+  padding: 5px 0px !important;
+  border-color: rgba(0, 0, 0, 0.8);
+}
+/* line 200, less\circle-stats.less */
+.circleStatsItemBox input:focus {
+  outline: 0;
+  outline: thin dotted 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+/* Just Gage - Demo Charts
+=================================================================== */
+/* line 4, less\justgage.less */
+.sz1 {
+  width: 200px;
+  height: 160px;
+}
+/* line 5, less\justgage.less */
+.sz0 {
+  margin: 2em 0 0 0;
+}
+/* line 6, less\justgage.less */
+.sz0 {
+  width: 100px;
+  height: 80px;
+}
+/* line 1, less\wizard.less */
+.wizard {
+  *zoom: 1;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e4e6eb;
+  margin-bottom: 20px;
+}
+/* line 47, less\mixins.less */
+.wizard:before,
+.wizard:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+/* line 55, less\mixins.less */
+.wizard:after {
+  clear: both;
+}
+/* line 8, less\wizard.less */
+.wizard ul {
+  list-style: none outside none;
+  padding: 0;
+  margin: 0;
+  /* set z-index on steps for chevron overlap */
+
+}
+/* line 13, less\wizard.less */
+.wizard ul li {
+  float: left;
+  margin: 0;
+  padding: 0 20px 0 30px;
+  height: 46px;
+  line-height: 46px;
+  position: relative;
+  color: #c7cbd5;
+  font-size: 16px;
+  cursor: default;
+}
+/* line 24, less\wizard.less */
+.wizard ul li .chevron {
+  display: none;
+}
+/* line 28, less\wizard.less */
+.wizard ul li:after {
+  position: absolute;
+  content: '';
+  z-index: -1;
+  width: 100%;
+  height: 4px;
+  background: #e4e6eb;
+  left: 0px;
+  top: 50%;
+  margin-top: 0px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+/* line 41, less\wizard.less */
+.wizard ul li:before {
+  position: absolute;
+  content: '';
+  z-index: -1;
+  width: 100%;
+  height: 8px;
+  background: #f6f6f8;
+  left: -2px;
+  top: 50%;
+  padding: 0px 2px;
+  margin-top: -2px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+/* line 55, less\wizard.less */
+.wizard ul li.complete {
+  color: #bdea74;
+}
+/* line 58, less\wizard.less */
+.wizard ul li.complete:hover {
+  cursor: pointer;
+}
+/* line 62, less\wizard.less */
+.wizard ul li.complete:after {
+  background: #bdea74;
+}
+/* line 66, less\wizard.less */
+.wizard ul li.complete .badge {
+  border: 1px solid #bdea74;
+  background: #bdea74;
+  color: white;
+}
+/* line 72, less\wizard.less */
+.wizard ul li.active {
+  color: #378fc9;
+}
+/* line 75, less\wizard.less */
+.wizard ul li.active .badge {
+  border: 1px solid #0074c1;
+  background: white;
+  color: #383e4b;
+}
+/* line 82, less\wizard.less */
+.wizard ul li .badge {
+  position: relative;
+  margin-right: 8px;
+  -webkit-border-radius: 50em;
+  -moz-border-radius: 50em;
+  border-radius: 50em;
+  font-size: 12px;
+  padding: 10px;
+  width: 14px;
+  text-align: center;
+  border: 1px solid #e4e6eb;
+  background: white;
+  color: #383e4b;
+}
+/* line 94, less\wizard.less */
+.wizard ul li .badge:before {
+  position: absolute;
+  content: '';
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  padding: 6px;
+  background: #f6f6f8;
+  top: -6px;
+  left: -6px;
+  -webkit-border-radius: 50em;
+  -moz-border-radius: 50em;
+  border-radius: 50em;
+}
+/* line 110, less\wizard.less */
+.wizard ul li:nth-child(1) {
+  border-radius: 4px 0 0 4px;
+  padding-left: 20px;
+  z-index: 10;
+}
+/* line 115, less\wizard.less */
+.wizard ul li:nth-child(2) {
+  z-index: 9;
+}
+/* line 118, less\wizard.less */
+.wizard ul li:nth-child(3) {
+  z-index: 8;
+}
+/* line 121, less\wizard.less */
+.wizard ul li:nth-child(4) {
+  z-index: 7;
+}
+/* line 124, less\wizard.less */
+.wizard ul li:nth-child(5) {
+  z-index: 6;
+}
+/* line 127, less\wizard.less */
+.wizard ul li:nth-child(6) {
+  z-index: 5;
+}
+/* line 130, less\wizard.less */
+.wizard ul li:nth-child(7) {
+  z-index: 4;
+}
+/* line 133, less\wizard.less */
+.wizard ul li:nth-child(8) {
+  z-index: 3;
+}
+/* line 136, less\wizard.less */
+.wizard ul li:nth-child(9) {
+  z-index: 2;
+}
+/* line 139, less\wizard.less */
+.wizard ul li:nth-child(10) {
+  z-index: 1;
+}
+/* line 144, less\wizard.less */
+.wizard .actions {
+  line-height: 44px;
+  float: right;
+  padding-right: 15px;
+  vertical-align: middle;
+}
+/* line 150, less\wizard.less */
+.wizard .actions a {
+  line-height: 45px;
+  font-size: 12px;
+  margin-right: 8px;
+}
+/* line 157, less\wizard.less */
+.wizard .actions .btn-prev i {
+  margin-right: 5px;
+}
+/* line 163, less\wizard.less */
+.wizard .actions .btn-next i {
+  margin-left: 5px;
+}
+/* line 171, less\wizard.less */
+.step-content .step-pane {
+  display: none;
+}
+/* line 175, less\wizard.less */
+.step-content .active {
+  display: block;
+}
+/* Masonry Gallery
+=================================================================== */
+/* line 3, less\others.less */
+.masonry-thumb {
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 6px;
+}
+/* Star Rating
+=================================================================== */
+/* line 11, less\others.less */
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  font-size: 30px;
+}
+/* line 16, less\others.less */
+.rating span.star,
+.rating span.star {
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+}
+/* line 23, less\others.less */
+.rating span.star:hover,
+.rating span.star:hover {
+  cursor: pointer;
+}
+/* line 27, less\others.less */
+.rating span.star:before,
+.rating span.star:before {
+  content: "\f006";
+  padding-right: 5px;
+  color: #999999;
+}
+/* line 33, less\others.less */
+.rating span.star:hover:before,
+.rating span.star:hover:before,
+.rating span.star:hover ~ span.star:before,
+.rating span.star:hover ~ span.star:before {
+  content: "\f005";
+  color: #e3cf7a;
+}
+/* Icons
+=================================================================== */
+/* line 42, less\others.less */
+.the-icons {
+  list-style: none;
+}
+/* dashboard
+=================================================================== */
+/* line 3, less\custom.less */
+body {
+  font-family: 'Lucida Sans Unicode', Tahoma, Helvetica, Arial, sans-serif;
+}
+/* line 6, less\custom.less */
+h1,
+h2,
+h3 {
+  font-family: 'Microsoft Yahei', 'Yahei', 'Lucida Sans Unicode', Tahoma, Helvetica, Arial, sans-serif;
+}
+/* line 9, less\custom.less */
+#tooltip {
+  position: absolute;
+  display: none;
+  border: 1px solid white;
+  padding: 3px;
+  background-color: #378fc9;
+  color: white;
+  font-size: 14px;
+  border-radius: 3px;
+  z-index: 99;
+}
+/* line 21, less\custom.less */
+#content > h2 {
+  font-size: 24px;
+  line-height: 1.5em;
+  font-family: "Microsoft Yahei", "Yahei", sans-serif;
+  margin-bottom: 0.9em;
+}
+/* line 28, less\custom.less */
+.fullWidth {
+  width: 100%;
+  display: block;
+}
+/* line 31, less\custom.less */
+.fullWidth tr {
+  width: 100%;
+  display: block;
+}
+/* line 37, less\custom.less */
+.smallstat .date-overlay {
+  width: 22%;
+  padding-left: 1%;
+  height: 50px;
+  margin-right: 2%;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  float: left;
+}
+/* line 46, less\custom.less */
+.smallstat .data {
+  float: left;
+  width: 25%;
+}
+/* line 50, less\custom.less */
+.smallstat a:hover {
+  text-decoration: none;
+}
+/* line 53, less\custom.less */
+.smallstat:hover {
+  text-decoration: none;
+}
+/* line 56, less\custom.less */
+.smallstat small {
+  font-size: 14px;
+  vertical-align: bottom;
+  line-height: 24px;
+}
+/* line 61, less\custom.less */
+.smallstat .time {
+  font-size: 12px;
+  float: none;
+  clear: both;
+  display: block;
+  line-height: 14px;
+  height: 14px;
+  overflow: hidden;
+}
+/* line 70, less\custom.less */
+.smallstat .alignvalue {
+  padding-left: 60px;
+}
+/* line 73, less\custom.less */
+.smallstat .title {
+  font-size: 14px;
+  vertical-align: bottom;
+  height: 20px;
+  overflow: hidden;
+}
+/* line 79, less\custom.less */
+.smallstat .value {
+  font-size: 22px;
+  vertical-align: bottom;
+  line-height: 24px;
+  height: 24px;
+  overflow: hidden;
+  display: block;
+}
+/* line 88, less\custom.less */
+.smallstat.weatherBox .title {
+  font-size: 12px;
+  height: 16px;
+  overflow: hidden;
+  line-height: 16px;
+  margin-top: 0;
+  vertical-align: middle;
+}
+/* line 99, less\custom.less */
+.table {
+  margin-bottom: 0;
+}
+/* line 101, less\custom.less */
+.table .right {
+  text-align: right;
+}
+/* line 106, less\custom.less */
+.table-condensed input {
+  margin-bottom: 0;
+}
+/* line 109, less\custom.less */
+.table-condensed select {
+  margin-bottom: 0;
+}
+/* line 114, less\custom.less */
+.backgroundColorHeader.blue {
+  background: #378fc9;
+}
+/* line 118, less\custom.less */
+.backgroundColorHeader.blue .box-icon {
+  background: #2c73a1;
+}
+/* line 120, less\custom.less */
+.backgroundColorHeader.blue .box-icon i {
+  border-left-color: #2c73a1;
+}
+/* line 125, less\custom.less */
+.backgroundColorHeader.lightBlue {
+  background: #67c2ef;
+}
+/* line 126, less\custom.less */
+.backgroundColorHeader.green {
+  background: #bdea74;
+}
+/* line 127, less\custom.less */
+.backgroundColorHeader.darkGreen {
+  background: #7fb30c;
+}
+/* line 128, less\custom.less */
+.backgroundColorHeader.pink {
+  background: #e84c8a;
+}
+/* line 129, less\custom.less */
+.backgroundColorHeader.lightOrange {
+  background: #fabb3d;
+}
+/* line 130, less\custom.less */
+.backgroundColorHeader.red {
+  background: #c84628;
+}
+/* line 131, less\custom.less */
+.backgroundColorHeader.yellow {
+  background: #eae874;
+}
+/* line 132, less\custom.less */
+.backgroundColorHeader.white {
+  background: white;
+}
+/* line 133, less\custom.less */
+.backgroundColorHeader.grey {
+  background: #c7cbd5;
+}
+/* line 136, less\custom.less */
+.backgroundColorHeader.grey h2 {
+  color: #434a5a;
+}
+/* line 139, less\custom.less */
+.backgroundColorHeader.grey .box-icon {
+  background: #8d95a9;
+}
+/* line 141, less\custom.less */
+.backgroundColorHeader.grey .box-icon i {
+  border-left-color: #8d95a9;
+}
+/* line 145, less\custom.less */
+.backgroundColorHeader.grey h2 i {
+  background: #8d95a9;
+}
+/* line 149, less\custom.less */
+.backgroundColorHeader.crimson {
+  background: #9e3f3d;
+}
+/* line 153, less\custom.less */
+.backgroundColorHeader.crimson .box-icon {
+  background: #79302f;
+}
+/* line 155, less\custom.less */
+.backgroundColorHeader.crimson .box-icon i {
+  border-left-color: #79302f;
+}
+/* line 159, less\custom.less */
+.backgroundColorHeader.crimson h2 i {
+  background: #79302f;
+}
+/* line 163, less\custom.less */
+.backgroundColorHeader.gold {
+  background: #fabb3d;
+}
+/* line 167, less\custom.less */
+.backgroundColorHeader.gold .box-icon {
+  background: #f9aa0b;
+}
+/* line 169, less\custom.less */
+.backgroundColorHeader.gold .box-icon i {
+  border-left-color: #f9aa0b;
+}
+/* line 173, less\custom.less */
+.backgroundColorHeader.gold h2 i {
+  background: #f9aa0b;
+}
+/* line 177, less\custom.less */
+.backgroundColorHeader.orange {
+  background: #ec6313;
+}
+/* line 181, less\custom.less */
+.backgroundColorHeader.orange .box-icon {
+  background: #bd4f0f;
+}
+/* line 183, less\custom.less */
+.backgroundColorHeader.orange .box-icon i {
+  border-left-color: #bd4f0f;
+}
+/* line 187, less\custom.less */
+.backgroundColorHeader.orange h2 i {
+  background: #bd4f0f;
+}
+/* line 191, less\custom.less */
+.backgroundColorHeader.red {
+  background: #c84628;
+}
+/* line 195, less\custom.less */
+.backgroundColorHeader.red .box-icon {
+  background: #9e3720;
+}
+/* line 197, less\custom.less */
+.backgroundColorHeader.red .box-icon i {
+  border-left-color: #9e3720;
+}
+/* line 201, less\custom.less */
+.backgroundColorHeader.red h2 i {
+  background: #9e3720;
+}
+/* line 208, less\custom.less */
+.box {
+  margin-bottom: 15px;
+}
+/* line 211, less\custom.less */
+.box .box-header .box-subTitle {
+  float: right;
+  font-size: 16px;
+  line-height: 20px;
+  padding: 8px 0;
+  margin: 0 20px 0 0;
+}
+/* line 219, less\custom.less */
+.box .box-header h2 {
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 16px;
+}
+/* line 224, less\custom.less */
+.box .box-header .btn-small {
+  padding: 0 10px;
+  line-height: 20px;
+}
+/* line 228, less\custom.less */
+.box .box-header.nav-tabs {
+  font-weight: bold;
+  margin-bottom: 0;
+  border-bottom: none;
+}
+/* line 232, less\custom.less */
+.box .box-header.nav-tabs a {
+  color: white;
+}
+/* line 235, less\custom.less */
+.box .box-header.nav-tabs .active > a {
+  color: black;
+}
+/* line 238, less\custom.less */
+.box .box-header.nav-tabs li:hover > a {
+  color: #378fc9;
+}
+/* line 245, less\custom.less */
+.box .form-inline label {
+  padding-right: 10px;
+}
+/* line 248, less\custom.less */
+.box.mergeWithBottom {
+  margin-bottom: 0;
+}
+/* line 253, less\custom.less */
+.makeTableHeaderAsBoxHeader {
+  position: relative;
+  top: -46px;
+  margin-bottom: -46px;
+  border-top: none!important;
+  border-right: none!important;
+}
+/* line 259, less\custom.less */
+.makeTableHeaderAsBoxHeader thead th {
+  color: #FFF!important;
+  background: none!important;
+  border: none!important;
+}
+/* line 263, less\custom.less */
+.makeTableHeaderAsBoxHeader thead th a {
+  color: #FFF;
+}
+/* line 267, less\custom.less */
+.makeTableHeaderAsBoxHeader tbody tr:first-child td {
+  border-top: none;
+}
+/* line 272, less\custom.less */
+.centerhead th {
+  text-align: center;
+}
+/* highlight
+========================*/
+/* line 279, less\custom.less */
+.highlighting .highlightBlue {
+  color: #378fc9;
+}
+/* line 282, less\custom.less */
+.highlighting .highlightRed {
+  color: #c84628;
+}
+/* table
+=================================================================== */
+/* line 289, less\custom.less */
+.table.table-bordered {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+/* line 294, less\custom.less */
+.table.table-bordered thead:first-child tr:first-child > th:first-child,
+.table.table-bordered tbody:first-child tr:first-child > td:first-child,
+.table.table-bordered tbody:first-child tr:first-child > th:first-child,
+.table.table-bordered thead:last-child tr:last-child > th:first-child,
+.table.table-bordered tbody:last-child tr:last-child > td:first-child,
+.table.table-bordered tbody:last-child tr:last-child > th:first-child,
+.table.table-bordered tfoot:last-child tr:last-child > td:first-child,
+.table.table-bordered tfoot:last-child tr:last-child > th:first-child {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+/* line 300, less\custom.less */
+.table th {
+  background-color: #ededed;
+  color: #000;
+  font-weight: bold;
+}
+/* line 305, less\custom.less */
+.table td {
+  color: #111;
+}
+/* line 308, less\custom.less */
+.table .sorting_asc {
+  background-image: url("../img/sort_asc.png");
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+/* line 313, less\custom.less */
+.table .sorting_desc {
+  background-image: url("../img/sort_desc.png");
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+/* line 318, less\custom.less */
+.table .sorting {
+  background-image: url("../img/sort_both.png");
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+/* station
+========================*/
+/* line 327, less\custom.less */
+.subNav {
+  margin-left: 0;
+}
+/* line 330, less\custom.less */
+.subNav li {
+  float: left;
+  display: inline-block;
+  margin: 0;
+  padding: 5px 15px;
+  line-height: 24px;
+  background: #393f4c;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 1px solid rgba(0, 0, 0, 0.5);
+}
+/* line 339, less\custom.less */
+.subNav li.current {
+  background-color: #0074c1;
+}
+/* line 342, less\custom.less */
+.subNav li:first-child {
+  border-radius: 4px 0 0 4px;
+  border-left: none;
+}
+/* line 346, less\custom.less */
+.subNav li:last-child {
+  border-radius: 0 4px 4px 0;
+  border-right: none;
+}
+/* line 350, less\custom.less */
+.subNav li a {
+  color: #fff;
+}
+/* line 353, less\custom.less */
+.subNav li a:hover {
+  text-decoration: none;
+}
+/* line 359, less\custom.less */
+.table-zebra td {
+  color: #333;
+}
+/* line 363, less\custom.less */
+.table-zebra tr td:nth-child(2n) {
+  background-color: #f9f9f9;
+}
+/* line 367, less\custom.less */
+.table-zebra tr:nth-child(2n) {
+  background-color: #f9f9f9;
+}
+/* line 369, less\custom.less */
+.table-zebra tr:nth-child(2n) td:nth-child(2n) {
+  background-color: white;
+}
+/* line 373, less\custom.less */
+.table-zebra em {
+  font-style: normal;
+  color: #000;
+  font-size: 18px;
+}
+/* line 379, less\custom.less */
+.table-zebra a {
+  color: #378fc9;
+}
+/* line 385, less\custom.less */
+.pieChartWithCenterText {
+  position: relative;
+}
+/* line 387, less\custom.less */
+.pieChartWithCenterText .centerText {
+  position: absolute;
+  top: 45%;
+  left: 0;
+  width: 100%;
+  line-height: 24px;
+  text-align: center;
+  z-index: 100;
+  color: #000;
+}
+/* line 399, less\custom.less */
+.topmenu {
+  position: relative;
+  top: 15px;
+  margin-bottom: 20px;
+}
+/* line 403, less\custom.less */
+.topmenu .btn {
+  background-color: #393f4c;
+  color: #FFF;
+}
+/* line 407, less\custom.less */
+.topmenu .btn:hover,
+.topmenu .selected {
+  background-color: #0071c0;
+}
+/* line 411, less\custom.less */
+.stationTitle {
+  margin-bottom: 20px;
+}
+/* table 
+===========================*/
+/* line 418, less\custom.less */
+.scrollableTableContainer {
+  width: 100%;
+  overflow: scroll;
+  overflow-x: scroll;
+  overflow-y: visible;
+}
+/* line 424, less\custom.less */
+.scrollableTableContainer table th,
+.scrollableTableContainer table td {
+  min-width: 140px;
+  width: auto;
+  max-width: none;
+}
+/* line 431, less\custom.less */
+.scrollableTableContainer .table {
+  width: auto;
+  max-width: none;
+}
+/* line 437, less\custom.less */
+.table .groupColorBlue {
+  background-color: #ecf4fa;
+}
+/* line 440, less\custom.less */
+.table .groupColorGold {
+  background-color: #fef8eb;
+}
+/* line 443, less\custom.less */
+.table .groupColorGreen {
+  background-color: #f8fdf0;
+}
+/* line 446, less\custom.less */
+.table .alert td {
+  font-weight: bold;
+}
+/* line 450, less\custom.less */
+.table .time {
+  font-size: 10px;
+  letter-spacing: -1px;
+}
+/* line 456, less\custom.less */
+.table-hover tbody tr:hover > td {
+  background-color: #ecf4fa;
+  color: black;
+}
+/* line 462, less\custom.less */
+::-webkit-input-placeholder {
+  color: #666!important;
+}
+/* line 465, less\custom.less */
+:-moz-placeholder {
+  color: #666!important;
+}
+/* line 468, less\custom.less */
+::-moz-placeholder {
+  color: #666!important;
+}
+/* line 471, less\custom.less */
+:-ms-input-placeholder {
+  color: #666!important;
+}
+/* Station
+=============================*/
+/* line 477, less\custom.less */
+.stationStatBtn {
+  height: 87px;
+  line-height: 80px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  overflow: hidden;
+  width: 100%;
+}
+/* line 485, less\custom.less */
+.heightAuto .stationStatBtn {
+  height: auto!important;
+  line-height: 30px;
+}
+/* Sidebar
+============================*/
+/* line 493, less\custom.less */
+.dropmenu [class^="icon-"],
+.dropmenu [class*=" icon-"] {
+  background-color: white;
+  color: #383e4b;
+  padding: 2px 2px;
+  border-radius: 2px;
+  width: 14px;
+  display: inline-block;
+  text-align: center;
+}
+/* line 504, less\custom.less */
+.icon-companyname:before {
+  content: "" !important;
+  display: none;
+}
+/* line 508, less\custom.less */
+.icon-companyname {
+  background-color: white;
+  color: #383e4b;
+  padding: 2px 2px;
+  border-radius: 5px;
+  width: 14px;
+  font-size: 12px;
+  display: inline-block;
+  text-align: center;
+}
+/* line 518, less\custom.less */
+a.box {
+  display: inline-block;
+}
+/* alert
+======================*/
+/* line 525, less\custom.less */
+.alert-block a {
+  color: #c09853;
+}
+/* line 530, less\custom.less */
+legend {
+  margin-bottom: 0px;
+}
+/* Sidebar
+============================*/
+/* line 536, less\custom.less */
+.weathericon {
+  width: 24px;
+  height: 24px;
+  display: block;
+  margin: 0 auto;
+}
+/* line 541, less\custom.less */
+.weathericon.weather-0 {
+  /* Unknow */
+
+  background: url("../img/weather24/018.png") center center no-repeat;
+}
+/* line 545, less\custom.less */
+.weathericon.weather-1 {
+  background: url("../img/weather24/001.png") center center no-repeat;
+}
+/* line 548, less\custom.less */
+.weathericon.weather-2 {
+  background: url("../img/weather24/003.png") center center no-repeat;
+}
+/* line 551, less\custom.less */
+.weathericon.weather-3 {
+  background: url("../img/weather24/002.png") center center no-repeat;
+}
+/* line 554, less\custom.less */
+.weathericon.weather-4 {
+  background: url("../img/weather24/004.png") center center no-repeat;
+}
+/* line 557, less\custom.less */
+.weathericon.weather-5 {
+  background: url("../img/weather24/004.png") center center no-repeat;
+}
+/* line 560, less\custom.less */
+.weathericon.weather-6 {
+  background: url("../img/weather24/004.png") center center no-repeat;
+}
+/* line 563, less\custom.less */
+.weathericon.weather-7 {
+  background: url("../img/weather24/003.png") center center no-repeat;
+}
+/* line 566, less\custom.less */
+.weathericon.weather-8 {
+  background: url("../img/weather24/003.png") center center no-repeat;
+}
+/* line 569, less\custom.less */
+.weathericon.weather-9 {
+  background: url("../img/weather24/007.png") center center no-repeat;
+}
+/* line 572, less\custom.less */
+.weathericon.weather-10 {
+  background: url("../img/weather24/007.png") center center no-repeat;
+}
+/* line 575, less\custom.less */
+.weathericon.weather-11 {
+  background: url("../img/weather24/008.png") center center no-repeat;
+}
+/* line 578, less\custom.less */
+.weathericon.weather-12 {
+  background: url("../img/weather24/008.png") center center no-repeat;
+}
+/* line 581, less\custom.less */
+.weathericon.weather-13 {
+  background: url("../img/weather24/009.png") center center no-repeat;
+}
+/* line 584, less\custom.less */
+.weathericon.weather-14 {
+  background: url("../img/weather24/009.png") center center no-repeat;
+}
+/* line 587, less\custom.less */
+.weathericon.weather-15 {
+  background: url("../img/weather24/015.png") center center no-repeat;
+}
+/* line 590, less\custom.less */
+.weathericon.weather-16 {
+  background: url("../img/weather24/016.png") center center no-repeat;
+}
+/* line 593, less\custom.less */
+.weathericon.weather-17 {
+  background: url("../img/weather24/011.png") center center no-repeat;
+}
+/* line 596, less\custom.less */
+.weathericon.weather-18 {
+  background: url("../img/weather24/012.png") center center no-repeat;
+}
+/* line 599, less\custom.less */
+.weathericon.weather-19 {
+  background: url("../img/weather24/014.png") center center no-repeat;
+}
+/* line 602, less\custom.less */
+.weathericon.weather-20 {
+  background: url("../img/weather24/013.png") center center no-repeat;
+}
+/* line 605, less\custom.less */
+.weathericon.weather-21 {
+  background: url("../img/weather24/017.png") center center no-repeat;
+}
+/* line 608, less\custom.less */
+.weathericon.weather-22 {
+  background: url("../img/weather24/015.png") center center no-repeat;
+}
+/* line 611, less\custom.less */
+.weathericon.weather-23 {
+  background: url("../img/weather24/Ice.png") center center no-repeat;
+}
+/* line 614, less\custom.less */
+.weathericon.weather-24 {
+  background: url("../img/weather24/Ice.png") center center no-repeat;
+}
+/* line 617, less\custom.less */
+.weathericon.weather-25 {
+  background: url("../img/weather24/Fog.png") center center no-repeat;
+}
+/* line 620, less\custom.less */
+.weathericon.weather-26 {
+  background: url("../img/weather24/Fog.png") center center no-repeat;
+}
+/* line 623, less\custom.less */
+.weathericon.weather-27 {
+  background: url("../img/weather24/006.png") center center no-repeat;
+}
+/* line 626, less\custom.less */
+.weathericon.weather-28 {
+  background: url("../img/weather24/006.png") center center no-repeat;
+}
+/* line 629, less\custom.less */
+.weathericon.weather-29 {
+  background: url("../img/weather24/006.png") center center no-repeat;
+}
+/* line 632, less\custom.less */
+.weathericon.weather-30 {
+  background: url("../img/weather24/006.png") center center no-repeat;
+}
+/* line 635, less\custom.less */
+.weathericon.weather-31 {
+  background: url("../img/weather24/006.png") center center no-repeat;
+}
+/* line 638, less\custom.less */
+.weathericon.weather-32 {
+  background: url("../img/weather24/006.png") center center no-repeat;
+}
+/* line 641, less\custom.less */
+.weathericon.weather-33 {
+  background: url("../img/weather24/010.png") center center no-repeat;
+}
+/* line 644, less\custom.less */
+.weathericon.weather-34 {
+  background: url("../img/weather24/024.png") center center no-repeat;
+}
+/* line 648, less\custom.less */
+.graphWrapper {
+  position: relative;
+}
+/* line 650, less\custom.less */
+.graphWrapper .forecastlabel,
+.graphWrapper .actuallabel {
+  border-radius: 3px;
+  border: 1px solid white;
+  position: absolute;
+  top: 0;
+  color: white;
+  padding: 5px 10px;
+  font-size: 14px;
+}
+/* line 659, less\custom.less */
+.graphWrapper .forecastlabel {
+  right: 0;
+  background-color: #c84628;
+}
+/* line 664, less\custom.less */
+.graphWrapper .actuallabel {
+  left: 40px;
+  background-color: #378fc9;
+}
+/* dialog */
+/* line 671, less\custom.less */
+.dialog-overlay {
+  position: absolute;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+/* line 681, less\custom.less */
+.dialog-overlay .dialog {
+  width: 750px;
+  height: 80%;
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  margin-left: -375px;
+  overflow-y: scroll;
+  background-color: white;
+}
+/* line 691, less\custom.less */
+.dialog-overlay .dialog-header {
+  background: #378fc9;
+  color: #FFF;
+  padding: 10px;
+}
+/* line 696, less\custom.less */
+.dialog-overlay .dialog-content {
+  padding: 10px;
+}
+/* line 699, less\custom.less */
+.dialog-overlay .dialog-close {
+  font-size: 20px;
+  color: #fff;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+}
+/* line 708, less\custom.less */
+.dialog-trigger {
+  cursor: pointer;
+}
+/* line 712, less\custom.less */
+#dashborad-heat-temp-dataselect {
+  font-size: 12px;
+}
+/* line 715, less\custom.less */
+#sidebar-switch {
+  position: absolute;
+  position: fixed;
+  top: 40%;
+  left: 14.52991452991453%;
+  z-index: 2;
+  background: #383e4b;
+  width: 18px;
+  padding: 2px;
+  height: 18px;
+  line-height: 20px;
+  border-radius: 0 2px 2px 0;
+  display: block;
+  text-decoration: none;
+}
+/* line 729, less\custom.less */
+#sidebar-switch.close {
+  left: 0!important;
+  background: #383e4b;
+  opacity: 1;
+  text-shadow: none!important;
+  font-weight: normal;
+}
+/* line 737, less\custom.less */
+.textAlighRight {
+  text-align: right !important;
+}
+/* line 740, less\custom.less */
+.pills-label {
+  display: inline-block;
+  float: left;
+  position: relative;
+  top: 5px;
+}
+/* line 744, less\custom.less */
+.noBottomMargin {
+  margin-bottom: 0;
+}
+/* Page: Messages
+=================================================================== */
+/* line 3, less\page-messages.less */
+.message-view {
+  position: absolute;
+  height: 100%;
+  background: white;
+  padding: 20px;
+  top: 0px;
+  right: -1px;
+}
+/* line 12, less\page-messages.less */
+ul.messagesList {
+  list-style: none;
+  margin: 0px;
+  font-size: 12px;
+}
+/* line 17, less\page-messages.less */
+ul.messagesList li {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+/* line 22, less\page-messages.less */
+ul.messagesList li .glyphicons {
+  padding: 5px 0 5px 25px;
+}
+/* line 25, less\page-messages.less */
+ul.messagesList li .glyphicons i:before {
+  font-size: 14px;
+  margin: -2px 0px 0px 5px;
+  color: #383e4b;
+}
+/* line 33, less\page-messages.less */
+ul.messagesList li:nth-child(odd) {
+  background: white !important;
+}
+/* line 37, less\page-messages.less */
+ul.messagesList li.odd {
+  background: white !important;
+}
+/* line 41, less\page-messages.less */
+ul.messagesList li span {
+  display: inline-block;
+}
+/* line 45, less\page-messages.less */
+ul.messagesList li span.from {
+  width: 25%;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+}
+/* line 52, less\page-messages.less */
+ul.messagesList li span.title {
+  width: 54%;
+  font-weight: 300;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+}
+/* line 60, less\page-messages.less */
+ul.messagesList li span.date {
+  width: 20%;
+  text-align: right;
+}
+/* line 71, less\page-messages.less */
+.message textarea {
+  color: #383e4b !important;
+}
+/* line 75, less\page-messages.less */
+.message .header {
+  margin-bottom: 30px;
+}
+/* line 78, less\page-messages.less */
+.message .header h1 {
+  border-top: 1px solid #2c73a1;
+  background: #378fc9;
+  color: white;
+  margin: -20px -20px 10px -20px;
+  padding: 20px;
+}
+/* line 86, less\page-messages.less */
+.message .header i {
+  margin-top: 1px;
+}
+/* line 90, less\page-messages.less */
+.message .header .from {
+  display: inline-block;
+  width: 70%;
+  font-size: 12px;
+}
+/* line 96, less\page-messages.less */
+.message .header .date {
+  display: inline-block;
+  width: 29%;
+  text-align: right;
+  float: right;
+  font-size: 12px;
+}
+/* line 106, less\page-messages.less */
+.message .attachments {
+  border-top: 3px solid #f9f9f9;
+  border-bottom: 3px solid #f9f9f9;
+  padding: 10px 0px;
+  margin-bottom: 20px;
+  font-size: 12px;
+}
+/* line 113, less\page-messages.less */
+.message .attachments ul {
+  list-style: none;
+  margin: 0;
+}
+/* line 117, less\page-messages.less */
+.message .attachments ul li {
+  margin: 10px 0;
+}
+/* line 120, less\page-messages.less */
+.message .attachments ul li span.label {
+  font-size: 12px !important;
+}
+/* line 124, less\page-messages.less */
+.message .attachments ul li span.quickMenu {
+  float: right;
+  text-align: right;
+}
+/* line 128, less\page-messages.less */
+.message .attachments ul li span.quickMenu .glyphicons {
+  padding: 5px 0 5px 25px;
+}
+/* line 131, less\page-messages.less */
+.message .attachments ul li span.quickMenu .glyphicons i:before {
+  font-size: 14px;
+  margin: -2px 0px 0px 5px;
+  color: #383e4b;
+}
+/* Page: Tasks
+=================================================================== */
+/* line 3, less\page-tasks.less */
+.task-list {
+  background: white;
+  padding: 20px;
+  margin-top: -28px;
+  margin-left: -26px !important;
+  position: absolute;
+  height: 100%;
+}
+/* line 12, less\page-tasks.less */
+.graph {
+  position: relative;
+  margin-left: 60% !important;
+}
+/* line 17, less\page-tasks.less */
+.priority.high {
+  background: #ebac9e;
+  margin-bottom: 1px;
+}
+/* line 21, less\page-tasks.less */
+.priority.high span {
+  background: #c84628;
+  padding: 2px 10px;
+  color: white;
+  display: inline-block;
+  font-size: 12px;
+}
+/* line 30, less\page-tasks.less */
+.priority.medium {
+  background: #fef8eb;
+  margin-bottom: 1px;
+}
+/* line 34, less\page-tasks.less */
+.priority.medium span {
+  background: #fabb3d;
+  padding: 2px 10px;
+  color: white;
+  display: inline-block;
+  font-size: 12px;
+}
+/* line 43, less\page-tasks.less */
+.priority.low {
+  background: #d0f67b;
+  margin-bottom: 1px;
+}
+/* line 47, less\page-tasks.less */
+.priority.low span {
+  background: #7fb30c;
+  padding: 2px 10px;
+  color: white;
+  display: inline-block;
+  font-size: 12px;
+}
+/* line 56, less\page-tasks.less */
+.task {
+  border-bottom: 1px solid #f9f9f9;
+  margin-bottom: 1px;
+  position: relative;
+}
+/* line 61, less\page-tasks.less */
+.task .desc {
+  display: inline-block;
+  width: 75%;
+  padding: 10px 10px;
+  font-size: 12px;
+}
+/* line 67, less\page-tasks.less */
+.task .desc .title {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+/* line 74, less\page-tasks.less */
+.task .time {
+  display: inline-block;
+  width: 15%;
+  padding: 10px 10px 10px 0px;
+  font-size: 12px;
+  text-align: right;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+/* line 84, less\page-tasks.less */
+.task .time .date {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+/* line 91, less\page-tasks.less */
+.task.last {
+  border-bottom: 1px solid transparent;
+}
+/* line 95, less\page-tasks.less */
+.task.high {
+  border-left: 2px solid #c84628;
+}
+/* line 99, less\page-tasks.less */
+.task.medium {
+  border-left: 2px solid #fabb3d;
+}
+/* line 103, less\page-tasks.less */
+.task.low {
+  border-left: 2px solid #7fb30c;
+}
+/* line 107, less\page-tasks.less */
+.timeline {
+  width: auto;
+  height: 100%;
+  margin: 20px auto;
+  position: relative;
+}
+/* line 113, less\page-tasks.less */
+.timeline:before {
+  position: absolute;
+  content: '';
+  height: 100%;
+  width: 4px;
+  background: #e4e6eb;
+  left: 50%;
+  margin-left: -2px;
+}
+/* line 124, less\page-tasks.less */
+.timeslot {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  margin: 5px 0px;
+}
+/* line 130, less\page-tasks.less */
+.timeslot .task {
+  position: absolute;
+  width: 42%;
+  padding-right: 18px;
+  display: block;
+  height: auto;
+  border: none;
+}
+/* line 138, less\page-tasks.less */
+.timeslot .task span {
+  border: 2px solid #67c2ef;
+  background: #f1fafe;
+  padding: 5px;
+  display: block;
+  font-size: 11px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+/* line 146, less\page-tasks.less */
+.timeslot .task span span.details {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+/* line 151, less\page-tasks.less */
+.timeslot .task span span.remaining {
+  font-size: 14px;
+}
+/* line 155, less\page-tasks.less */
+.timeslot .task span span {
+  border: 0px;
+  background: transparent;
+  padding: 0px;
+}
+/* line 163, less\page-tasks.less */
+.timeslot .task .arrow {
+  position: absolute;
+  top: 6px;
+  right: 0px;
+  height: 20px;
+  width: 20px;
+  background: url(../img/timeline-left-arrow.png) no-repeat;
+}
+/* line 173, less\page-tasks.less */
+.timeslot .icon {
+  position: absolute;
+  border: 2px solid #67c2ef;
+  background: #383e4b;
+  -webkit-border-radius: 50em;
+  -moz-border-radius: 50em;
+  border-radius: 50em;
+  height: 30px;
+  width: 30px;
+  left: 50%;
+  margin-left: -16px;
+  color: white;
+  font-size: 18px;
+  line-height: 30px;
+  text-align: center;
+  text-shadow: none;
+  z-index: 2;
+}
+/* line 190, less\page-tasks.less */
+.timeslot .time {
+  background: #e4e6eb;
+  position: absolute;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  top: 1px;
+  left: 50%;
+  padding: 5px 10px 5px 40px;
+  z-index: 1;
+  margin-top: 1px;
+}
+/* line 205, less\page-tasks.less */
+.timeslot.alt .task {
+  left: auto;
+  right: -20px;
+  padding-left: 18px;
+}
+/* line 210, less\page-tasks.less */
+.timeslot.alt .task .arrow {
+  position: absolute;
+  top: 6px;
+  left: 0px;
+  height: 20px;
+  width: 20px;
+  background: url(../img/timeline-right-arrow.png) no-repeat;
+}
+/* line 220, less\page-tasks.less */
+.timeslot.alt .time {
+  top: 1px;
+  left: auto;
+  right: 50%;
+  padding: 5px 40px 5px 10px;
+}
+/* Login Box
+=================================================================== */
+/* line 3, less\page-login.less */
+.login-box {
+  width: 300px;
+  padding: 20px;
+  margin: 100px auto;
+  background: #fff;
+  overflow: hidden;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+/* line 11, less\page-login.less */
+.login-box input[type="text"],
+.login-box input[type="password"] {
+  border: none;
+  background: #e4e6eb;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  padding: 20px 10px;
+  margin: 5px auto;
+}
+/* line 21, less\page-login.less */
+.login-box button {
+  margin: 15px 0px !important;
+}
+/* line 25, less\page-login.less */
+.login-box .remember {
+  margin-top: 20px;
+  float: left;
+}

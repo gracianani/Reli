@@ -1,0 +1,60 @@
+﻿
+@model IEnumerable<ReliMobileAdmin.Models.Warning>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>所有预警信息</h1>
+<div class="row-fluid">
+
+
+        <div class="box backgroundColor white">
+            <table class="table table-bordered">
+				<thead>
+				<th>预警时间</th>
+				<th>标题</th>
+				<th>内容</th>
+                <th>操作</th>
+				</thead>
+				<tbody>
+                @foreach (var item in Model)
+                {
+                    <tr data-warningId="@item.warningId">
+                        <td>@item.ReportedAt</td>
+                        <td>@item.warningTitle</td>
+                        <td>@item.warningContent</td>
+                        <td>
+                        <a class="btn btn-danger"><i class="icon-trash"></i></a></td>
+                    </tr>
+                }
+				</tbody>
+            </table>
+        </div>
+
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $(".icon-trash, .btn-danger").click(function () {
+            var $self = $(this);
+            $.ajax({
+                url: '/Warning/Delete',
+                method: 'Delete',
+                contentType: 'application/json',
+                data: JSON.stringify({ "warningId": $self.parents('tr').attr("data-warningId") }),
+                success: function (data) {
+                    $self.parents('tr').fadeTo("slow", 0.00, function () {
+                        $(this).slideUp("slow", function () {
+                            $(this).remove();
+                        });
+                    });
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
+        });
+    });
+
+</script>

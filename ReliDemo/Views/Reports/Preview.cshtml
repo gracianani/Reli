@@ -1,0 +1,272 @@
+﻿@model ReliDemo.ViewModels.ReportsViewModel
+
+@{
+    ViewBag.Title = "一站一日一计划总明细";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<a href="/Reports/Index" class="btn btn-primary">返回</a>
+<h2 style='font-family: "Microsoft Yahei",sans-serif;
+font-size: 24px;
+margin-bottom: 0.9em;
+line-height: 30px;'>
+    @Model.Title<span style="font-size:14px">@Model.Day.ToString("yyyy年MM月dd日")</span>
+</h2>
+<div class="row-fluid">
+    <div class="input-prepend date">
+        <span class="add-on"><i class="icon-calendar"></i></span>
+        <input type="text" class="form-control date-picker input-small" id="report-date" name="date" data-date-format="yyyy-mm-dd" value=@Model.Day.ToString("yyyy-MM-dd") data-provide="datepicker-inline" />
+    </div>
+    <a id="preview" href="javascript:void(0)" class="btn btn-primary" data-reporttype="@Model.ReportTypeId">预览</a>
+    <a id="download" href="javascript:void(0)" class="btn btn-primary" data-reporttype="@Model.ReportTypeId">下载</a>
+    <div id="validationErrorReport" class="alert alert-error hidden inline" style="display:inline">请填写“时间”。</div>
+</div>
+<div class="row-fluid">
+
+    <div class="alert alert-info clearfix">
+        <div style="display:inline-block;float:left;position:relative;top:5px;"> 查询结果：数据 @Model.TotalCount 条。 每页显示：</div>
+        <ul class="nav nav-pills" id="pills" style="float:left;display:inline-block;margin-bottom:0;">
+            <li @if (Model.PageSize == 10) { <text> class="active" </text>    }>
+                @Html.ActionLink("10", "Preview", new
+{
+    startIndex = 0,
+    pageSize = 10,
+    date = Model.Day.ToString("yyyy-MM-dd"),
+    reportType = Model.ReportTypeId
+})
+            </li>
+            <li @if (Model.PageSize == 50) { <text> class="active" </text>    }>
+                @Html.ActionLink("50", "Preview", new
+{
+    startIndex = 0,
+    pageSize = 50,
+    date = Model.Day.ToString("yyyy-MM-dd"),
+    reportType = Model.ReportTypeId
+})
+            </li>
+            <li @if (Model.PageSize == 100) { <text> class="active" </text>    }>
+                @Html.ActionLink("100", "Preview", new
+{
+    startIndex = 0,
+    pageSize = 100,
+    date = Model.Day.ToString("yyyy-MM-dd"),
+    reportType = Model.ReportTypeId
+})
+            </li>
+        </ul>
+    </div>
+
+</div>
+<div class="scrollableTableContainer">
+    @{
+        <table class="table  table-bordered table-hover  table-condensed table-clickhighlight datatable" style="background:white">
+
+            <tr>
+                <th>热力站名称</th>
+                <th>管理单位</th>
+                <th>公司</th>
+                <th>参考热指标</th>
+                <th>数据来源</th>
+                <th>是否重点站</th>
+                <th>收费性质</th>
+                <th>生产热源</th>
+                <th>ItemID</th>
+                <th>日期</th>
+                <th>热力站ID</th>
+                <th>总热量（GJ）</th>
+                <th>热水（GJ）</th>
+                <th>计划（GJ）</th>
+                <th>日单耗（GJ/㎡）</th>
+                <th>实际热指标</th>
+                <th>核算热指标</th>
+                <th>计划热指标</th>
+                <th>投入面积（㎡）</th>
+                <th>实际面积（㎡）</th>
+                <th>预报温度（℃）</th>
+                <th>实际温度（℃）</th>
+                <th>upHour</th>
+                <th>核算（GJ）</th>
+                <th>今日计划Area（㎡）</th>
+                <th>今日投入Area（㎡）</th>
+                <th>面积计划类别</th>
+                <th>面积操作类型</th>
+                <th>供温avg（℃）</th>
+                <th>回温avg（℃）</th>
+                <th>供压avg（MPa）</th>
+                <th>回压avg（MPa）</th>
+                <th>瞬热avg（t/h）</th>
+                <th>瞬流avg（t/h）</th>
+                <th>万流avg（t/h）</th>
+            </tr>
+            @foreach (var report in Model.Report)
+            {
+            <tr>
+
+                <td>
+                    @report.热力站名称
+                </td>
+                <td>@report.管理单位</td>
+                <td>@report.公司</td>
+                <td>@report.参考热指标</td>
+                <td>@report.数据来源</td>
+                <td>@report.是否重点站</td>
+                <td>@report.收费性质</td>
+                <td>@report.生产热源</td>
+                <td>@report.ItemID</td>
+                <td class="time ">@report.日期</td>
+                <td>@report.热力站ID</td>
+                <td>@report.总热量GJ</td>
+                <td>@report.热水GJ</td>
+                <td>@report.计划GJ</td>
+                <td>@report.日单耗</td>
+                <td>@report.实际热指标</td>
+                <td>@report.核算热指标</td>
+                <td>@report.计划热指标</td>
+                <td>@report.投入面积</td>
+                <td>@report.实际面积</td>
+                <td>@report.预报温度</td>
+                <td>@report.实际温度</td>
+                <td>@report.upHour</td>
+                <td>@report.核算GJ</td>
+                <td>@report.今日计划Area</td>
+                <td>@report.今日投入Area</td>
+                <td>@report.面积计划类别</td>
+                <td>@report.面积操作类型</td>
+                <td>@report.供温avg</td>
+                <td>@report.回温avg</td>
+                <td>@report.供压avg</td>
+                <td>@report.回压avg</td>
+                <td>@report.瞬热avg</td>
+                <td>@report.瞬流avg</td>
+                <td>@report.万流avg</td>
+            </tr>
+            }
+        </table>
+    }
+</div>
+
+
+
+<div class="row-fluid">
+    <div class="pagination pagination-centered">
+        <ul>
+
+            @if (Model.PageIndex >= 10)
+            {
+                <li>
+                    @Html.ActionLink("« 前十页", "Preview", new
+           {
+               startIndex = Model.PageIndex-10,
+               pageSize = Model.PageSize,
+               date = Model.Day.ToString("yyyy-MM-dd"),
+               reportType = Model.ReportTypeId
+           })
+            </li>
+            }
+            <li>
+                @Html.ActionLink("« 上一页", "Preview", new
+  {
+      startIndex = Model.PageIndex-1,
+      pageSize = Model.PageSize,
+      date = Model.Day.ToString("yyyy-MM-dd"),
+      reportType = Model.ReportTypeId
+  })
+        </li>
+        @for (int i = Model.PageIndex / 10 * 10; (i < Model.PageIndex / 10 * 10 + 10) && i < Model.TotalPages; i++)
+        {
+            <li @if (Model.PageIndex == i) { <text> class="active" </text>  }>
+
+                @Html.ActionLink((i + 1).ToString(), "Preview", new
+           {
+               startIndex = i,
+               pageSize = Model.PageSize,
+               date = Model.Day.ToString("yyyy-MM-dd"),
+               reportType = Model.ReportTypeId
+           })
+            </li>
+        }
+        <li>
+            @Html.ActionLink("下一页 »", "Preview", new
+ {
+     startIndex = Model.PageIndex+1,
+     pageSize = Model.PageSize,
+     date = Model.Day.ToString("yyyy-MM-dd"),
+     reportType = Model.ReportTypeId
+ })
+    </li>
+    @if (Model.PageIndex < Model.TotalPages - 10)
+    {
+        <li>
+            @Html.ActionLink("后十页 »", "Preview", new
+           {
+               startIndex = Model.PageIndex+10,
+               pageSize = Model.PageSize,
+               date = Model.Day.ToString("yyyy-MM-dd"),
+               reportType = Model.ReportTypeId
+           })
+    </li>
+    }
+
+</ul>
+</div>
+</div>
+
+<script>
+    $(function () {
+
+        $('#download').click(function (e) {
+            var url = 'DownloadReport?' +
+                'reportType=' + $(this).attr("data-reporttype") +
+                '&date=' + $("#report-date").val();
+            if (!$("#report-date").val()) {
+                if ($("#validationErrorReport").hasClass("hidden")) {
+                    $("#validationErrorReport").removeClass("hidden");
+                }
+                return;
+            }
+            else {
+                $("#validationErrorReport").addClass("hidden");
+            }
+            var oldName = $(this).find(".title").html();
+            var self = this;
+            if ($(this).hasClass("disabled")) {
+                return;
+            }
+
+            $.ajax({
+                url: url,
+                beforeSend: function () {
+                    $(self).html("正在生成报表...").addClass("disabled");
+                },
+                success: function (i) {
+                    window.location = i.fileName;
+                    $(self).html('下载').removeClass('disabled');
+                }
+            });
+        });
+
+        $('#preview').click(
+            function () {
+                var url = '/Reports/Preview?' +
+                'reportType=' + $(this).attr("data-reporttype") +
+                '&date=' + $("#report-date").val();
+                if (!$("#report-date").val()) {
+                    if ($("#validationErrorReport").hasClass("hidden")) {
+                        $("#validationErrorReport").removeClass("hidden");
+                    }
+                    return;
+                }
+                else {
+                    $("#validationErrorReport").addClass("hidden");
+                }
+                var oldName = $(this).find(".title").html();
+                var self = this;
+                if ($(this).hasClass("disabled")) {
+                    return;
+                }
+                window.location.href = url;
+
+            }
+        );
+
+    });
+</script>

@@ -1,0 +1,275 @@
+﻿@model ReliDemo.ViewModels.GJHistoriesViewModel
+<style>
+#dashboard-heat-temp-chart { height: 262px; position: relative;}
+.legend table, .legend > div { height: 82px !important; opacity: 1 !important; right: -55px; top: 10px; width: 116px !important; }
+.legend table { border: 1px solid #555; padding: 5px; }
+#dashboard-heat-temp-lengend table,#dashboard-company-area-legend table { margin: 10px auto;}
+#heatConsumptionGraph .legendLabel:nth-child(4) { padding-right:20px;}
+
+</style>
+
+<div class="box blue span12 noMarginLeft" id="heatConsumptionGraph">
+	<div class="box-header">
+		<h2><i class="icon-bar-chart"></i>实际温度、供热量日统计</h2>
+		<!--
+		<div class="box-subTitle"><a class="btn btn-small btn-danger" id="lastSevenDays">最近7天</a> <a class="btn btn-small btn-info" id="lastThirtyDays">最近30天</a> <a class="btn btn-small btn-info" id="thisYear">本供暖季</a>
+		</div>
+		-->
+	</div>
+	<div class="box-content">
+		<div id="dashboard-heat-temp-chart" style="width:100%;height:262px"></div>	
+		<div id="dashboard-heat-temp-lengend" ></div>
+		<div id="dashboard-heat-temp-checkbox">
+			<table class="form-inline" style="width:100%;font-size:12px;">
+				<tr>
+					<td><input type="checkbox" name="planGJ" id="planGJ" checked="checked"><span class="label" style="background-color:#fabb3d">计划供热量</span></td>
+					<td><input type="checkbox" name="theoryGJ" id="theoryGJ" checked="checked"><span class="label" style="background-color:#ec6313">核算供热量</span></td>
+					<td><input type="checkbox" name="actualGJ" id="actualGJ" checked="checked"><span class="label" style="background-color:#9e3f3d">实际供热量</span></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="planIndex" id="planIndex"><span class="label" style="background-color:#33CCCC">计划热指标</span></td>
+					<td><input type="checkbox" name="theoryIndex" id="theoryIndex"><span class="label" style="background-color:#2fabe9">核算热指标</span></td>
+					<td><input type="checkbox" name="actualIndex" id="actualIndex"><span class="label" style="background-color:#00558e">实际热指标</span></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="forecastTemperature" id="forecastTemperature"><span class="label" style="background-color:#7fb30c">预报温度</span></td>
+					<td><input type="checkbox" name="actualTemperature" id="actualTemperature"><span class="label" style="background-color:#009966">实际温度</span></td>
+				</tr>
+			</table>
+		</div>
+	</div>	
+</div><!--/span-->
+
+
+
+@Html.Hidden("plan", @Model.计划Data)
+@Html.Hidden("theory", @Model.核算Data)
+@Html.Hidden("actual", @Model.实际Data)
+@Html.Hidden("plan_index", @Model.计划热指标)
+@Html.Hidden("theory_index", @Model.核算热指标)
+@Html.Hidden("actual_index", @Model.实际运行热指标)
+@Html.Hidden("temperatureForecast", @Model.预报温度)
+@Html.Hidden("temperatureActual", @Model.实际温度)
+
+@Html.Hidden("fromDate", @Model.FromDate)
+@Html.Hidden("toDate", @Model.ToDate)
+@Html.Hidden("companyId", @Model.CompanyId)
+@Html.Hidden("managershipId", @Model.ManagershipId)
+@Html.Hidden("stationId", @Model.StationId)
+@Html.Hidden("type", @Model.类型)
+
+<script>
+    var d1 = $.parseJSON($("input[name=plan]").val());
+    var d2 = $.parseJSON($("input[name=theory]").val());
+    var d3 = $.parseJSON($("input[name=actual]").val());
+    var d4 = $.parseJSON($("input[name=plan_index]").val());
+    var d5 = $.parseJSON($("input[name=theory_index]").val());
+    var d6 = $.parseJSON($("input[name=actual_index]").val());
+    var today = new Date();
+    var tempPlan = $.parseJSON($("input[name=temperatureForecast]").val());
+    var tempActu = $.parseJSON($("input[name=temperatureActual]").val());
+    var lengendContainer = $('#dashboard-heat-temp-lengend');
+
+    
+    var heatTempChartData = [{
+
+        label: "计划供热量(GJ)",
+        data: d1,
+       lines: { show: true },
+	   points:{ show:true, symbol:"cross"},
+        yaxis: 2,
+		color:"#fabb3d",
+		checkboxId:"planGJ"
+    }, {
+        label: "核算供热量(GJ)",
+        data: d2,
+        lines: { show: true },
+	   points:{ show:true, symbol:"cross"},
+        yaxis: 2,
+		color:"#ec6313",
+		checkboxId:"theoryGJ"
+    }, {
+
+        label: "实际供热量(GJ)",
+        data: d3,
+        lines: { show: true },
+	   points:{  show:true, symbol:"cross"},
+        yaxis: 2,
+		color:"#9e3f3d",
+		checkboxId:"actualGJ"
+    }, {
+        label: "计划热指标(kcal/h·㎡)",
+        data: d4,
+        lines: { show: true },
+        points: { show: true, symbol: "diamond" },
+        yaxis: 3,
+		color:"#33CCCC",
+		checkboxId:"planIndex"
+    }, {
+        label: "核算热指标(kcal/h·㎡)",
+        data: d5,
+        lines: { show: true },
+        points: { show: true, symbol: "diamond" },
+        yaxis: 3,
+		color:"#2fabe9",
+		checkboxId:"theoryIndex"
+    }, {
+        label: "实际热指标(kcal/h·㎡)",
+        data: d6,
+        lines: { show: true },
+        points: { show: true, symbol: "diamond" },
+        yaxis: 3,
+		color:"#00558e",
+		checkboxId:"actualIndex"
+    },{
+        label: "实际平均温度(℃)",
+        data: tempPlan,
+        lines: { show: true },
+        points: { show: true },
+		color:"#7fb30c",
+		checkboxId:"actualTemperature"
+
+    }, {
+        label: "预报平均温度(℃)",
+        data: tempActu,
+        lines: { show: true },
+        points: { show: true },
+		color:"#009966",
+		checkboxId:"forecastTemperature"
+
+    }];
+
+
+
+    var heatTempChartGrid = {
+        tickColor: "#eee",
+        borderWidth: 0,
+        hoverable: true,
+        clickable: true
+    };
+
+    var heatTempChartOptionsLastWeek = {
+        xaxis: {
+            mode: "time",
+            minTickSize: [1, "day"],
+            timeformat: "%d日"
+        }, yaxes: [{min:-50,max:25}, {
+            position: "right"
+        },{
+            position: "right"
+        }],
+        grid: heatTempChartGrid,
+        legend: {
+            show:false
+        },
+			series:{
+			shadowSize:0
+			}
+    };
+    
+
+
+    function getSevenDaysHeatConsumption() {
+        var url = "http://localhost:11223/HeatConsumptionService/GetHeatConsumptionGraphData/" + $("input[name=type]").val() + "/"
+                    + (new Date() - (7 * 24 * 60 * 60 * 1000)) + "/" + (new Date()).getTime() + "/" + $("input[name=companyId]").val() + "/"
+                    + $("input[name=managershipId]").val() + "/" + $("input[name=stationId]").val();
+
+        $.ajax({
+            url: url,
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            dataType: "jsonp",
+            data: "",
+            success: function (data) {
+                heatTempChartData[1].data = $.parseJSON(data["预报温度"]);
+                heatTempChartData[0].data = $.parseJSON(data["实际温度"]);
+                heatTempChartData[2].data = $.parseJSON(data["计划Data"]);
+                heatTempChartData[3].data = $.parseJSON(data["核算Data"]);
+                heatTempChartData[4].data = $.parseJSON(data["实际Data"]);
+                heatTempChartData[5].data = $.parseJSON(data["计划热指标"]);
+                heatTempChartData[6].data = $.parseJSON(data["核算热指标"]);
+                heatTempChartData[7].data = $.parseJSON(data["实际运行热指标"]);
+                drawSelectedData();
+            }
+        });
+    }
+
+    function getThirtyDaysHeatConsumption() {
+        var url = "http://localhost:11223/HeatConsumptionService/GetHeatConsumptionGraphData/" + $("input[name=type]").val() + "/"
+                 + (new Date() - (30 * 24 * 60 * 60 * 1000)) + "/" + (new Date()).getTime() + "/" + $("input[name=companyId]").val() + "/" 
+                 + $("input[name=managershipId]").val() + "/" + $("input[name=stationId]").val();
+
+        $.ajax({
+            url: url,
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            dataType: "jsonp",
+            data: "",
+            success: function (data) {
+
+                heatTempChartData[1].data = $.parseJSON(data["预报温度"]);
+                heatTempChartData[0].data = $.parseJSON(data["实际温度"]);
+                heatTempChartData[2].data = $.parseJSON(data["计划Data"]);
+                heatTempChartData[3].data = $.parseJSON(data["核算Data"]);
+                heatTempChartData[4].data = $.parseJSON(data["实际Data"]);
+                heatTempChartData[5].data = $.parseJSON(data["计划热指标"]);
+                heatTempChartData[6].data = $.parseJSON(data["核算热指标"]);
+                heatTempChartData[7].data = $.parseJSON(data["实际运行热指标"]);
+
+				drawSelectedData();
+            }
+        });
+    }
+
+    function getSeasonalHeatConsumption() {
+    }
+	function drawSelectedData() {
+		var selectedData = [];
+				for (var i = 0; i < heatTempChartData.length; i++) {
+					var id = heatTempChartData[i].checkboxId;
+					if ( id ) {
+						var checkbox = $('#' + id );
+						if ( checkbox.size() > 0  && checkbox.attr('checked')) {
+							selectedData.push(heatTempChartData[i]);
+						}
+					}
+		}
+
+        var dashboardHeatTempChart = $.plot($("#dashboard-heat-temp-chart"), selectedData, heatTempChartOptionsLastWeek);
+	}
+
+    $(document).ready(function () {
+		drawSelectedData();
+        $("<div id='tooltip'></div>").appendTo("body");
+
+        $("#dashboard-heat-temp-chart").bind("plothover", function (event, pos, item) {
+            if (item) {
+                var x = item.datapoint[0];
+                $("#tooltip").html(item.series.label + " : " + item.datapoint[1])
+				.css({ top: item.pageY + 5, left: item.pageX + 5 })
+				.fadeIn(200);
+            } else {
+                $("#tooltip").hide();
+            }
+        });
+
+        $("#dashboard-heat-temp-chart").bind("plotclick", function (event, pos, item) {
+            if (item) {
+                $("#clickdata").text(" - click point " + item.dataIndex + " in " + item.series.label);
+                dashboardHeatTempChart.highlight(item.series, item.datapoint);
+            }
+        });
+
+        $("#lastSevenDays").click(function () {
+            getSevenDaysHeatConsumption();
+        });
+        $("#lastThirtyDays").click(function () {
+            getThirtyDaysHeatConsumption();
+
+        });
+		$('#dashboard-heat-temp-checkbox input').change(function(){
+			drawSelectedData();
+		});
+    });
+
+</script>

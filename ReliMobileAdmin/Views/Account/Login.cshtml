@@ -1,0 +1,52 @@
+﻿@model ReliMobileAdmin.Models.LogInViewModel
+
+@{
+    ViewBag.Title = "LogIn";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm("LogIn", "Account", FormMethod.Post)) {
+    @Html.ValidationSummary(true)
+    <h2>登陆</h2>
+    <fieldset>
+        <div name="cookieEnabled"> </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.UserName, new { placeholder = "请输入用户名" })
+            @Html.ValidationMessageFor(model => model.UserName)
+        </div>
+
+        <div class="editor-field">
+            @Html.PasswordFor(model => model.Password, new { placeholder="请输入密码"})
+            @Html.ValidationMessageFor(model => model.Password)
+        </div>
+
+        <div class="editor-field">
+            <label >@Html.CheckBoxFor(model => model.RememberMe, new { style = "vertical-align:top" }) 记住我 </label> 
+        </div>
+
+        <div class="editor-field">
+        <button type="submit"  class="btn btn-primary col-xs-12" style="width:226px">登陆</button>
+        </div>
+    </fieldset>
+}
+<script type="text/javascript">
+    var cookieEnabled = (navigator.cookieEnabled) ? true : false
+
+    //if not IE4+ nor NS6+
+    if (typeof navigator.cookieEnabled == "undefined" && !cookieEnabled) {
+        document.cookie = "testcookie"
+        cookieEnabled = (document.cookie.indexOf("testcookie") != -1) ? true : false
+    }
+
+    if (cookieEnabled) //if cookies are enabled on client's browser
+    //do whatever
+    {
+        $('div[name=cookieEnabled]').html("");
+    }
+    else {
+        $('div[name=cookieEnabled]').html("您的浏览器不支持cookie, 请更改设置. ");
+    }
+</script>

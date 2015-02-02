@@ -1,0 +1,119 @@
+﻿@model ReliDemo.ViewModels.StatViewModel
+
+@{
+    ViewBag.Title = @Model.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<a  href="/Reports/Index" class="btn btn-primary">返回</a>
+<h2 style='font-family: "Microsoft Yahei",sans-serif;
+font-size: 24px;
+margin-bottom: 0.9em;
+line-height: 30px;'>
+    @Model.Title<span style="font-size:14px">@Model.Day.ToString("yyyy年MM月dd日")</span>
+</h2>
+<div class="row-fluid">
+
+    <div class="input-prepend date">
+        <span class="add-on"><i class="icon-calendar"></i></span>
+        <input type="text" class="form-control date-picker input-small" id="report-date" name="date" data-date-format="yyyy-mm-dd" value=@Model.Day.ToString("yyyy-MM-dd") data-provide="datepicker-inline" />
+    </div>
+    <a id="preview" href="javascript:void(0)" class="btn btn-primary" data-reporttype="@Model.ReportTypeId">预览</a>
+    <a id="download" href="javascript:void(0)" class="btn btn-primary" data-reporttype="@Model.ReportTypeId">下载</a>
+    <div id="validationErrorReport" class="alert alert-error hidden inline" style="display:inline">请填写“时间”。</div>
+</div>
+<div class="scrollableTableContainer">
+    @{
+        <table class="table  table-bordered table-hover  table-condensed table-clickhighlight datatable" style="background:white">
+            <tr>
+                <th>公司名</th>
+                <th>有效监控站数</th>
+                <th>监测站供热面积</th>
+                <th>回温超标站个数</th>
+                <th>实际超核算供热量站个数</th>
+                <th>实际超核算供热量站面积</th>
+                <th>核算执行到位率</th>
+                <th>实际超计划供热量站个数</th>
+                <th>实际超计划供热量站面积</th>
+                <th>计划执行到位率</th>
+            </tr>
+            @foreach (var stat in Model.Report)
+            {
+                <tr>
+                    <td>@stat.公司名</td>
+                    <td>@stat.有效监控站数</td>
+                    <td>@stat.监测站供热面积</td>
+                    <td>@stat.回温超标站个数</td>
+                    <td>@stat.实际超核算供热量站个数</td>
+                    <td>@stat.实际超核算供热量站面积</td>
+                    <td>@stat.GetDisplay(Decimal.Round(stat.核算执行到位率 * 100, 2), "%")</td>
+                    <td>@stat.实际超计划供热量站个数</td>
+                    <td>@stat.实际超计划供热量站面积</td>
+                    <td>@stat.GetDisplay(Decimal.Round(stat.计划执行到位率*100, 2), "%")</td>
+                </tr>
+            }
+        </table>
+    }
+</div>
+
+
+<script>
+    $(function () {
+
+        $('#download').click(function (e) {
+            var url = 'DownloadReport?' +
+                'reportType=' + $(this).attr("data-reportType") +
+                '&date=' + $("#report-date").val();
+            if (!$("#report-date").val() ) {
+                if ($("#validationErrorReport").hasClass("hidden")) {
+                    $("#validationErrorReport").removeClass("hidden");
+                }
+                return;
+            }
+            else {
+                $("#validationErrorReport").addClass("hidden");
+            }
+            var oldName = $(this).find(".title").html();
+            var self = this;
+            if ($(this).hasClass("disabled")) {
+                return;
+            }
+
+            $.ajax({
+                url: url,
+                beforeSend: function () {
+                    $(self).html("正在生成报表...").addClass("disabled");
+                },
+                success: function (i) {
+                    window.location = i.fileName;
+                    $(self).html('下载');
+                    $(self).html("正在生成报表...").removeClass("disabled");
+                }
+            });
+        });
+
+        $('#preview').click(
+            function () {
+                var url = '/Reports/PreviewTwo?' +
+                'reportType=' + $(this).attr("data-reporttype") +
+                '&date=' + $("#report-date").val();
+                if (!$("#report-date").val()) {
+                    if ($("#validationErrorReport").hasClass("hidden")) {
+                        $("#validationErrorReport").removeClass("hidden");
+                    }
+                    return;
+                }
+                else {
+                    $("#validationErrorReport").addClass("hidden");
+                }
+                var oldName = $(this).find(".title").html();
+                var self = this;
+                if ($(this).hasClass("disabled")) {
+                    return;
+                }
+                window.location.href = url;
+
+            }
+        );
+
+    });
+</script>

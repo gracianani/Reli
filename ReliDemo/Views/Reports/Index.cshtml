@@ -1,0 +1,126 @@
+﻿@model ReliDemo.ViewModels.ReportIndexViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>常用报表</h2>
+<h4>汇总报表</h4>
+<div class="row-fluid">
+    <a href="/Reports/PreviewStationAnalize?reportType=29&dateFrom=@Model.ReportStartAt&dateTo=@Model.ReportEndAt&companyId=-1" data-reporttype="29" data-reportbase="PreviewStationAnalize" target="_blank" class="smallstat box " ondesktop="span3" ontablet="span6 noMarginLeft">
+        <i class="icon-building crimson"></i>
+        <span class="title">站执行到位率统计</span>
+    </a>
+    <a href="/Reports/PreviewDaily?reportType=32&dateFrom=@Model.ReportStartAt&dateTo=@Model.ReportEndAt" data-reporttype="32" data-reportbase="PreviewDaily" target="_blank" class="smallstat box " ondesktop="span3" ontablet="span6">
+        <i class="icon-calendar darkGreen"></i>
+        <span class="title">各单位执行到位率统计(日)</span>
+    </a>
+    <a href="/Reports/PreviewCompletion?reportType=30&dateFrom=@Model.ReportStartAt&dateTo=@Model.ReportEndAt" data-reporttype="30" data-reportbase="PreviewCompletion" target="_blank" class="smallstat box " ondesktop="span3" ontablet="span6">
+        <i class="icon-calendar darkGreen"></i>
+        <span class="title">各单位执行到位率统计(汇总)</span>
+    </a>
+
+</div>
+<hr />
+<h4>每日统计</h4>
+<div class="row-fluid">
+    <a href="/Reports/PreviewTwo?reportType=21&date=@Model.ReportAt" target="_blank" class="smallstat box" ondesktop="span3 noMarginLeft" ontablet="span6">
+        <i class="icon-tasks yellow"></i>
+        <span class="title">有效监测站统计</span>
+    </a>
+    <a href="/Reports/PreviewTwo?reportType=23&date=@Model.ReportAt" target="_blank" class="smallstat box" ondesktop="span3 " ontablet="span6">
+        <i class="icon-tasks yellow"></i>
+        <span class="title">非重点站、计量收费站统计</span>
+    </a>
+
+</div>
+<div class="row-fluid">
+    
+    <a href="/Reports/Preview?reportType=26&date=@Model.ReportAt" target="_blank" class="smallstat box" ondesktop="span3" ontablet="span6 noMarginLeft">
+        <i class="icon-list blue"></i>
+        <span class="title">总明细</span>
+    </a>
+    <a href="/Reports/Preview?reportType=27&date=@Model.ReportAt" target="_blank" class="smallstat box " ondesktop="span3" ontablet="span6">
+        <i class="icon-search blue"></i>
+        <span class="title">故障明细</span>
+    </a>
+    <a href="/Reports/Preview?reportType=24&date=@Model.ReportAt" target="_blank" class="smallstat box " ondesktop="span3" ontablet="span6">
+        <i class="icon-cog blue"></i>
+        <span class="title">回温超标明细</span>
+    </a>
+    <a href="/Reports/Preview?reportType=25&date=@Model.ReportAt" target="_blank" class="smallstat box " ondesktop="span3" ontablet="span6">
+        <i class="icon-pencil blue"></i>
+        <span class="title">实际超核算明细</span>
+    </a>
+</div>
+
+<script>
+    $(function () {
+
+        $('.export').click(function (e) {
+            var url = '/Reports/'+ $(this).attr('data-reportbase') +'?' +
+                'reportType=' + $(this).attr("data-reporttype") +
+                '&date=' + $("#report-date").val();
+            if (!$("#report-date").val() ) {
+                if ($("#validationErrorReport").hasClass("hidden")) {
+                    $("#validationErrorReport").removeClass("hidden");
+                }
+                return;
+            }
+            else {
+                $("#validationErrorReport").addClass("hidden");
+            }
+            var oldName = $(this).find(".title").html();
+            var self = this;
+            if ($(this).hasClass("disabled")) {
+                return;
+            }
+            window.location.href = url;
+        });
+
+        $('.exportrange').click(function(e) {
+            var url = '/Reports/'+ $(this).attr('data-reportbase') +'?' +
+                'reportType=' + $(this).attr("data-reporttype") +
+                '&dateFrom=' + $("#report-date").val() +
+                '&dateTo=' + $('#report-todate').val();
+            if (!$("#report-date").val() || !$("#report-todate").val()  ) {
+                if ($("#validationErrorReport").hasClass("hidden")) {
+                    $("#validationErrorReport").removeClass("hidden");
+                }
+                return;
+            }
+            else {
+                $("#validationErrorReport").addClass("hidden");
+            }
+            var oldName = $(this).find(".title").html();
+            var self = this;
+            if ($(this).hasClass("disabled")) {
+                return;
+            }
+            window.location.href = url;
+        });
+
+        $('.exportstationanalize').click(function(e) {
+            var url = '/Reports/'+ $(this).attr('data-reportbase') +'?' +
+                'reportType=' + $(this).attr("data-reporttype") +
+                '&dateFrom=' + $("#report-date").val() +
+                '&dateTo=' + $('#report-todate').val() +
+                '&companyId='+ $("#stationanalize_company").val();
+            if (!$("#report-date").val() || !$("#report-todate").val()  ) {
+                if ($("#validationErrorReport").hasClass("hidden")) {
+                    $("#validationErrorReport").removeClass("hidden");
+                }
+                return;
+            }
+            else {
+                $("#validationErrorReport").addClass("hidden");
+            }
+            var oldName = $(this).find(".title").html();
+            var self = this;
+            if ($(this).hasClass("disabled")) {
+                return;
+            }
+            window.location.href = url;
+        });
+
+    });
+</script>

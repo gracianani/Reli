@@ -1,0 +1,99 @@
+﻿@model ReliMobileAdmin.Models.HomeViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row-fluid">
+    <div class="span12">
+		<div class="row-fluid">
+			<a class="smallstat box span6" href="/Message/Index">
+				<i class="icon-envelope-alt orange"></i>
+				<span class="title"> 新消息 </span>
+				<span class="value"> @Model.NumOfNewMessage </span>
+			</a><!--box-->
+			<a class=" smallstat box span6 " href="/Warning/Index" >
+				<i class="icon-bullhorn crimson"></i>
+				<span class="title">  预警信息 </span>
+				<span class="value">  @Model.NumOfWarningMessages </span>
+			</a>
+		</div>
+	</div>
+</div>
+
+<div class="row-fluid">
+    <div class="span12">
+		<div class="row-fluid">
+			<a class="smallstat box span6"  href="/DailyReport/ProductionReport">
+				<i class="icon-table blue"></i>
+				<span class="title"> 最新生产日报 </span>
+				<span class="value"> @Model.LatestDailyReport.ToString("yyyy-MM-dd") </span>
+			</a><!--box--> 
+			<a class=" smallstat box span6 "  href="/DailyReport/CustomerReport">
+				<i class="icon-table blue"></i>
+				<span class="title">  最新客服日报 </span>
+				<span class="value"> @Model.LatestCustomerReport.ToString("yyyy-MM-dd") </span>
+			</a>
+		</div>
+	</div>
+</div>
+
+<div class="row-fluid">
+
+	<div class="box span6">
+            <div class="box-header">
+                <h2><i class="icon-edit"></i> 发送消息 </h2>
+            </div>
+            <div class="box-content">
+                
+
+                @using (Html.BeginForm("Create", "Message", FormMethod.Post, new { @class = "form-horizontal" }))
+                {
+                    <div class="control-group">
+                        <label class="control-label"> 请选择联系人 </label>
+                        <div class="controls">
+                           @Html.DropDownListFor(m => m.SelectedUserId, new SelectList(Model.Users, "UserId", "UserName"), "请选择联系人")
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label"> 消息内容 </label>
+                        <div class="controls">
+                            @Html.TextAreaFor(m => m.Message, new { placeholder = "请输入您要发送的信息", @class = "diss-form span11", @rows = "8" })
+                        </div>
+                    </div>
+                    <div class="form-actions">
+						<button type="submit" class="btn btn-primary btn-large span4">发送</button>
+                    </div>
+                }
+            </div>
+        </div>
+
+		<div class="box span6">
+            <div class="box-header">
+                <h2><i class="icon-edit"></i> 发布预警 </h2>
+            </div>
+            <div class="box-content">
+                
+
+                @using (Html.BeginForm("Create", "Warning", FormMethod.Post, new { @class = "form-horizontal" }))
+                {
+					<div class="control-group">
+                        <label class="control-label"> 请填写标题 </label>
+                        <div class="controls">
+                        @Html.TextBoxFor(m => m.WarningTitle)
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label"> 预警信息内容 </label>
+                        <div class="controls">
+                            @Html.TextAreaFor(m => m.WarningContent, new { placeholder = "请输入您要发送的信息", @class = "diss-form span11", @rows = "8" })
+                        </div>
+                    </div>
+                    <div class="form-actions">
+						<button type="submit" class="btn btn-danger btn-large span4">发布</button>
+                    </div>
+                }
+            </div>
+        </div>
+
+</div>

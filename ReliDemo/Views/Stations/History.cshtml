@@ -1,0 +1,155 @@
+﻿@model ReliDemo.ViewModels.StationHistoriesViewModel
+
+@{
+    ViewBag.Title = "History";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row-fluid">
+<div class="span8">
+<p>
+    @Html.ActionLink("返回热力站列表", "Paged", new object { }, new { @class = "btn btn-primary"})
+</p>
+</div>
+</div>
+<div class="row-fluid clearfix stationTitle">
+    <h1 class="span6">@Model.StationName
+	@if ( string.IsNullOrEmpty( Model.数据来源 ) ) {
+		<span class="label label-info"><i class="icon-pencil"></i> 人工抄表站</span> 
+	} else {
+		<span class="label label-important"><i class="icon-eye-open"></i> @Model.数据来源</span>
+	}</h1>
+     <div class="span6" onDesktop="span6" onTablet="span12 noMarginLeft">@Html.Partial("_TopMenu")</div>
+</div>
+<div class="row-fluid">
+    @using (Html.BeginForm("History", "Stations", FormMethod.Get)) {
+        <div class="input-prepend date" >
+			<span class="add-on"><i class="icon-calendar"></i></span>
+            <input type="text" class="form-control input-xlarge" id="daterange" name="daterange" value="@Model.FromDate.Value.ToString("yyyy年MM月dd日") - @Model.ToDate.Value.ToString("yyyy年MM月dd日") "  >
+		</div>
+        <input type="submit" value="搜索" class="btn btn-primary" style="vertical-align: top;"/>
+        @Html.HiddenFor(m=>m.StationId)
+    }
+</div>
+<div class="alert alert-info clearfix">
+<div style="display:inline-block;float:left;position:relative;top:5px;">查询结果：历史记录 @Model.StationAccuHistories.TotalCount 个。 每页显示：</div>
+<ul class="nav nav-pills" id="pills" style="float:left;display:inline-block;margin-bottom:0;">
+<li @if (Model.StationAccuHistories.PageSize == 10)
+    {
+    <text> class="active" </text> 
+    } >
+    @Html.ActionLink("10", "History", new { pageIndex = Model.StationAccuHistories.PageIndex, pageSize = 10, stationId = @Model.StationId, daterange = string.Format("{0:yyyy年MM月dd日} - {1:yyyy年MM月dd日}", Model.FromDate, Model.ToDate) })
+</li>
+<li @if (Model.StationAccuHistories.PageSize == 50)
+    {
+    <text> class="active" </text> 
+    } >
+    @Html.ActionLink("50", "History", new { pageIndex = Model.StationAccuHistories.PageIndex, pageSize = 50, stationId = @Model.StationId, daterange = string.Format("{0:yyyy年MM月dd日} - {1:yyyy年MM月dd日}", Model.FromDate, Model.ToDate) })
+</li>
+<li @if (Model.StationAccuHistories.PageSize == 100)
+    {
+    <text> class="active" </text> 
+    }>
+    @Html.ActionLink("100", "History", new { pageIndex = Model.StationAccuHistories.PageIndex, pageSize = 100, stationId = @Model.StationId, daterange = string.Format("{0:yyyy年MM月dd日} - {1:yyyy年MM月dd日}", Model.FromDate, Model.ToDate) })
+</li>
+</ul>
+
+</div>
+
+<div class="rolw-fluid">
+<div class="scrollableTableContainer">
+<table class="table  table-bordered table-hover  table-condensed table-clickhighlight datatable" style="background:white">
+	<thead>
+    <tr>
+        <th>日期</th>
+        <th>投入面积 <span class="symbol">(㎡)</span></th>
+        <th>计划供热量 <span class="symbol">(GJ)</span></th>
+        <th>核算供热量 <span class="symbol">(GJ)</span></th>
+        <th>实际供热量 <span class="symbol">(GJ)</span></th>
+        <th>热水 <span class="symbol">(GJ)</span></th>
+        <th>计算热指标 <span class="symbol">(kcal/h·㎡)</span></th>
+        <th>计划热指标 <span class="symbol">(kcal/h·㎡)</span></th>
+        <th>核算热指标 <span class="symbol">(kcal/h·㎡)</span></th>
+        <th>实际热指标 <span class="symbol">(kcal/h·㎡)</span></th>
+        <th>实际比计划多耗 <span class="symbol">(GJ)</span></th>
+        <th>实际比计划多耗% <span class="symbol">(GJ)</span></th>
+        <th>实际比核算多耗 <span class="symbol">(GJ)</span></th>
+        <th>实际比核算多耗% <span class="symbol">(GJ)</span></th>
+        <th>预报温度 <span class="symbol">(℃)</span></th>
+        <th>实际温度 <span class="symbol">(℃)</span></th>
+    </tr></thead>
+	<tbody>
+    @foreach (var history in Model.StationAccuHistories)
+    {
+        <tr>
+            <td class="time">@history.Date.ToString("yyyy-MM-dd")</td>
+            <td>@history.投入面积</td>
+            <td>@history.计划供热量</td>
+            <td>@history.核算供热量</td>
+            <td>@history.实际采暖</td>
+            <td>@history.实际热水</td>
+            <td>@history.计算热指标</td>
+            <td>@history.计划热指标</td>
+            <td>@history.核算热指标</td>
+            <td>@history.实际热指标</td>
+            <td>@history.实际比计划多耗</td>
+            <td>@String.Format("{0:0.00}",history.实际比计划多耗percent)</td>
+            <td>@history.实际比核算多耗</td>
+            <td>@String.Format("{0:0.00}", history.实际比核算多耗percent)</td>
+            <td>@history.预报温度</td>
+            <td>@history.实际温度</td>
+        </tr>
+    }
+ </tbody>
+</table>
+</div>
+</div>
+
+<div class="row-fluid">
+<div class="pagination pagination-centered">
+    <ul>
+       
+        @if (Model.StationAccuHistories.PageIndex >= 10)
+        {
+            <li>@Html.ActionLink("« 前十页", "History", new { pageIndex = Model.StationAccuHistories.PageIndex - 10, pageSize = 10, stationId = Model.StationId, daterange = string.Format("{0} - {1}", Model.FromDate, Model.ToDate) })</li>
+        }
+		 <li>@Html.ActionLink("« 上一页", "History", new { pageIndex = Model.StationAccuHistories.PageIndex - 1, pageSize = Model.StationAccuHistories.PageSize, stationId = Model.StationId, daterange = string.Format("{0} - {1}", Model.FromDate, Model.ToDate) })</li>
+        @for (int i = Model.StationAccuHistories.PageIndex / 10 * 10; (i < Model.StationAccuHistories.PageIndex / 10 * 10 + 10) && i < Model.StationAccuHistories.TotalPages; i++)
+        {
+            <li @if (Model.StationAccuHistories.PageIndex == i)
+                { <text>class="active"</text> } >
+
+                @Html.ActionLink((i + 1).ToString(), "History", new { pageIndex = i, pageSize = Model.StationAccuHistories.PageSize, stationId = Model.StationId, daterange = string.Format("{0} - {1}", Model.FromDate, Model.ToDate) })
+            </li>
+        }
+		<li>@Html.ActionLink("下一页 »", "History", new { pageIndex = Model.StationAccuHistories.PageIndex + 1, pageSize = Model.StationAccuHistories.PageSize, stationId = Model.StationId, daterange = string.Format("{0} - {1}", Model.FromDate, Model.ToDate) })</li>
+        @if (Model.StationAccuHistories.PageIndex < Model.StationAccuHistories.TotalPages - 10)
+        {
+            <li>@Html.ActionLink("后十页 »", "History", new { pageIndex = (Model.StationAccuHistories.PageIndex / 10 + 1) * 10, pageSize = Model.StationAccuHistories.PageSize, stationId = Model.StationId, daterange = string.Format("{0} - {1}", Model.FromDate, Model.ToDate) })</li>
+        }
+       
+    </ul>
+</div>
+</div>
+
+<script>
+    $(function () {
+        $("#daterange").daterangepicker({
+            format: 'YYYY年MM月DD日',
+            locale: {
+                applyLabel: '确定',
+                cancelLabel: '取消',
+                fromLabel: '从',
+                toLabel: '到',
+                weekLabel: 'W',
+                customRangeLabel: '自定义日期',
+                daysOfWeek: moment()._lang._weekdaysMin.slice(),
+                monthNames: moment()._lang._monthsShort.slice(),
+                firstDay: 0
+            }
+        },
+        function (start, end) {
+            $("#customAll").attr("checked", "checked").parent().addClass("checked");
+        });
+    });
+</script>
