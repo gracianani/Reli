@@ -12,6 +12,8 @@ using System.Net;
 using WebMatrix.WebData;
 using System.IO;
 using ReliWebService.Helper;
+using ReliDemo.Infrastructure.Services;
+using ReliDemo.Models;
 
 namespace ReliWebService
 {
@@ -463,7 +465,25 @@ namespace ReliWebService
 
         public ReliMobileHeatSourceSummary GetHeatSourceSummary()
         {
-            var summary = new ReliMobileHeatSourceSummary();
+            var service = new HeatConsumptionSummaryService();
+            var histories = service.GetLatestHistory().ToList();
+            var todaysGJ = service.GetTodaysGJ();
+            var 今日累计供热量 = service.GetHeatConsumptionAccuByDate(Region.全网, DateTime.Today);
+            var 昨日累计供热量 = service.GetHeatConsumptionAccuByDate(Region.全网, DateTime.Today.AddDays(-1));
+            var companies = new ReliDemo.Infrastructure.Repositories.CompanyRepository().GetAllCompanies();
+            var stations = new ReliDemo.Infrastructure.Repositories.StationRepository().GetAllStations();
+            var area = service.GetTodaysHeatConsumptionSummary();
+            int 有效站个数 = Convert.ToInt32(companies.Sum(i => i.有效监控站数));
+            int 智能卡站个数 = stations.Count(i => string.Compare(i.数据来源, "智能卡") == 0);
+            int 监控站个数 = stations.Count(i => string.Compare(i.数据来源, "监控") == 0);
+            int 手抄表站个数 = stations.Count(i => string.IsNullOrEmpty(i.数据来源));
+            var summary = new ReliMobileHeatSourceSummary(histories[0], histories[1], histories[2],
+                智能卡站个数, 监控站个数, 监控站个数, 有效站个数, area, 今日累计供热量, 昨日累计供热量);
+            //var summary = new ReliMobileHeatSourceSummary(
+            //    histories[0],
+            //   histories[1],
+            //   histories[2],
+            //   12,12,12,12, new HeatConsumptionArea(), 12.0m, 12.0m);
             return summary;
         }
 

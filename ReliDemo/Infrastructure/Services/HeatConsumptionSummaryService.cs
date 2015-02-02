@@ -22,11 +22,50 @@ namespace ReliDemo.Infrastructure.Services
             db.SaveChanges();
         }
 
+        public IEnumerable<GJHistoryItem> GetLatestHistory()
+        {
+            DateTime fromDate, toDate;
+            var weatherFrom = db.Weather_4.Max(i => i.日期);
+            var historyFrom = db.TotalNetHistories.Max(i => i.时间);
+            if (historyFrom.HasValue)
+            {
+                if (DateTime.Compare(historyFrom.Value, weatherFrom) < 0)
+                {
+                    fromDate = historyFrom.Value;
+                }
+                else
+                {
+                    fromDate = weatherFrom;
+                }
+            }
+            else
+            {
+                fromDate = weatherFrom;
+            }
+            toDate = fromDate.AddDays(1);
+            var temperatures = db.Weather_4.Where(i => i.日期 >= fromDate && i.日期 < toDate).AsEnumerable();
+            var accuHistories =
+                from history in db.TotalNetHistories
+                from temperature in temperatures.DefaultIfEmpty()
+                where history.时间 >= fromDate && history.时间 < toDate
+                orderby history.时间
+                select new GJHistoryItem
+                {
+                    日期 = history.时间 ?? DateTime.Today,
+                    核算GJ = history.核算GJ ?? 0.0m,
+                    计划GJ = history.计划GJ ?? 0,
+                    采暖GJ = history.累计GJ ?? 0.0m,
+                    预报温度 = temperature != null ? temperature.预报平均 ?? 0.0m : 0.0m,
+                    实测温度 = temperature != null ? temperature.朝阳平均 ?? 0.0m : 0.0m,
+                    计划热指标 = history.计划热指标 ?? 0.0m,
+                    核算热指标 = history.核算热指标 ?? 0.0m,
+                    实际运行热指标 = history.实际热指标 ?? 0.0m
+                };
+            return accuHistories;
+        }
         public IEnumerable<GJHistoryItem> GetHistories(DateTime fromDate, DateTime toDate)
         {
-
             var temperatures = db.Weather_4.Where(i => i.日期 >= fromDate && i.日期 <= toDate).AsEnumerable();
-
             var accuHistories=
                                 from history in db.TotalNetHistories
                                 from temperature in temperatures.DefaultIfEmpty()
