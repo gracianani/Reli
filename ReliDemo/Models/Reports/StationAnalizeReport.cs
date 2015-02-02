@@ -46,7 +46,7 @@ namespace ReliDemo.Models
         {
             get
             {
-                return "热力站分析";
+                return "站执行到位率统计";
             }
             set
             {

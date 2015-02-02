@@ -32,5 +32,11 @@ namespace ReliWebService.Repository
             db.messages1.AddObject(message.DBMessage);
             db.SaveChanges();
         }
+
+        public void Update(Message message )
+        {
+            db.messages1.ApplyCurrentValues(message.DBMessage);
+            db.SaveChanges();
+        }
     }
 }

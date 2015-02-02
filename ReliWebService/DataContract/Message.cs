@@ -24,6 +24,19 @@ namespace ReliWebService
             set
             {
                 _dbMessage = value;
+                if (!string.IsNullOrEmpty(_dbMessage.imageUrl))
+                {
+                    var url_uri = _dbMessage.imageUrl.Split(new string[] { "##" }, StringSplitOptions.RemoveEmptyEntries);
+                    if (url_uri.Count() == 2)
+                    {
+                        _url = url_uri[0];
+                        _uri = url_uri[1];
+                    }
+                    else
+                    {
+                        _url = _dbMessage.imageUrl;
+                    }
+                }
             }
         }
         public string SendFromUserName
@@ -145,7 +158,32 @@ namespace ReliWebService
                 DBMessage.imageUrl = value;
             }
         }
+        private string _uri;
+        [DataMember]
+        public string imageUri
+        {
+            get
+            {
+                return _uri;
+            }
+            set
+            {
+                _uri = value;
+            }
+        }
 
+        private string _url;
+        public string fileImageUrl
+        {
+            get
+            {
+                return _url;
+            }
+            set
+            {
+                _url = value;
+            }
+        }
         public Message()
         {
         }

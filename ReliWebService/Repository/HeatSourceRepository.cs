@@ -11,6 +11,8 @@ namespace ReliWebService.Repository
     public class HeatSourceRepository
     {
         private xz2013Entities db = new xz2013Entities();
+        private ReliMobileEntities dbm = new ReliMobileEntities();
+
         private IEnumerable<ReliMobileHeatSource> _heatSources;
         public IEnumerable<ReliMobileHeatSource> HeatSources
         {

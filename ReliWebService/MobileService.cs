@@ -67,8 +67,11 @@ namespace ReliWebService
         [WebInvoke(UriTemplate = "{userName}/Messages", Method = "PUT", RequestFormat=WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         Message CreateMessage(string userName, Message message);
 
-        [WebInvoke(UriTemplate = "{userName}/Messages/UploadPhoto",  Method = "POST")]
-        void UploadPhoto(string userName, Stream fileContents);
+        [WebInvoke(UriTemplate = "{userName}/Messages/UploadPhoto", Method = "POST", ResponseFormat=WebMessageFormat.Json)]
+        int UploadPhoto(string userName, Stream fileContents);
+        [OperationContract]
+        [WebInvoke(UriTemplate = "{userName}/Messages/UploadPhoto/{messageId}", Method = "PUT", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+        void UpdatePhoto(string userName, string messageId, Message message);
 
         [OperationContract]
         [WebGet(UriTemplate = "WeatherStations", ResponseFormat = WebMessageFormat.Json)]
@@ -131,8 +134,13 @@ namespace ReliWebService
         Summary GetSummary(string userName);
 
         [OperationContract]
+<<<<<<< HEAD
         [WebGet(UriTemplate = "Overview/{userName}", ResponseFormat = WebMessageFormat.Json)]
         Overview Overview(string userName);
+=======
+        [WebGet(UriTemplate = "Version", ResponseFormat = WebMessageFormat.Json)]
+        string GetLastestVersion();
+>>>>>>> 0593dcfb496ad69fe633da038349b1d4761275e0
     }
 
     [AspNetCompatibilityRequirements(RequirementsMode= AspNetCompatibilityRequirementsMode.Allowed)]
@@ -272,7 +280,7 @@ namespace ReliWebService
             return message;
         }
 
-        public void UploadPhoto(string userName, Stream fileContents)
+        public int UploadPhoto(string userName, Stream fileContents)
         {
             var userRepo = new UserRepository();
             var messageRepo = new MessageRepository();
@@ -294,9 +302,17 @@ namespace ReliWebService
 
                 var message = new Message() { CreatedAt = DateTime.Now, imageUrl = fileName, messageContent="", sendFromUserId = user.UserId, sendToUserId = UserHelper.AdminId };
                 messageRepo.Insert(message);
+                return message.messageId;
             }
         } 
 
+        public void UpdatePhoto(string userName, string messageId, Message message)
+        {
+            var messageRepo = new MessageRepository();
+            var dbMessage = messageRepo.Messages.Find(i => i.messageId == int.Parse(messageId));
+            dbMessage.imageUrl +=  "##" + message.imageUri;
+            messageRepo.Update(dbMessage);
+        }
         public TemperatureDetails GetOfficalWeather(string weatherTypeId)
         {
             var enumWeatherType = (WeatherType) Convert.ToInt32(weatherTypeId);
@@ -477,11 +493,19 @@ namespace ReliWebService
             return summary;
         }
 
+<<<<<<< HEAD
         public Overview Overview(string userName)
         {
             var overviewRepo = new TotalRepository();
 
             return overviewRepo.Overview;
+=======
+
+
+        public string GetLastestVersion()
+        {
+            return "V2.1";
+>>>>>>> 0593dcfb496ad69fe633da038349b1d4761275e0
         }
     }
 }

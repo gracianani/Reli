@@ -123,7 +123,7 @@ namespace ReliDemo.Models
                 worksheet.Cells[startIndex, 公司_Column_Index].Value = station.公司;
                 worksheet.Cells[startIndex, 参考热指标_Column_Index].Value = station.参考热指标;
                 worksheet.Cells[startIndex, 数据来源_Column_Index].Value = station.数据来源;
-                worksheet.Cells[startIndex, 是否重点站_Column_Index].Value = station.是否重点站;
+                worksheet.Cells[startIndex, 是否重点站_Column_Index].Value = station.是否重点站 ? "是" : "否";
                 worksheet.Cells[startIndex, 收费性质_Column_Index].Value = station.收费性质;
 
                 worksheet.Cells[startIndex, 生产热源_Column_Index].Value = station.生产热源;

@@ -95,19 +95,22 @@
     <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DatabaseScripts\1_AddHeatSourceSequence.sql" />
     <Content Include="DatabaseScripts\AddConfigurationTable.sql" />
     <Content Include="DatabaseScripts\Alter_Constants.sql" />
     <Content Include="DatabaseScripts\AlterStationIndex.sql" />
-    <Content Include="DatabaseScripts\1_AddHeatIndex.sql" />
+    <Content Include="DatabaseScripts\AddHeatIndex.sql" />
     <Content Include="Global.asax" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
@@ -181,6 +184,7 @@
       <LastGenOutput>ReliMobile.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="Properties\PublishProfiles\WebServiceDebug.pubxml" />
+    <None Include="Properties\PublishProfiles\WebServiceRelease.pubxml" />
     <None Include="Properties\PublishProfiles\WebServiceTest.pubxml" />
   </ItemGroup>
   <ItemGroup>
