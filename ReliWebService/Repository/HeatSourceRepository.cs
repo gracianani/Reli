@@ -119,8 +119,9 @@ namespace ReliWebService.Repository
         public HeatSourceRepository()
         {
             _heatSources = new List<ReliMobileHeatSource>();
-            _heatSources = db.HeatSourceRecents.GroupBy(i => i.生产热源ID).Select(i => new ReliMobileHeatSource() { DBHeatSource = db.HeatSources.FirstOrDefault(j=>j.ItemID == i.Key) });
-            _heatSourceRecents = db.HeatSourceRecents.Select(i => new ReliMobileHeatSourceRecent() { DBHeatSourceRecent = i });
+            _heatSources = dbm.HeatSourceRecents.GroupBy(i => i.生产热源ID)
+                .Select(i => new ReliMobileHeatSource() { DBHeatSource = dbm.HeatSources.FirstOrDefault(j => j.ItemID == i.Key) });
+            _heatSourceRecents = dbm.HeatSourceRecents.Select(i => new ReliMobileHeatSourceRecent() { DBHeatSourceRecent = i });
         }
     }
 }

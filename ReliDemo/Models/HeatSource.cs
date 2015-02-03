@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using ReliDemo.Core.Interfaces;
+using System.Data.Objects.DataClasses;
+using System.Runtime.Serialization;
 
 namespace ReliDemo.Models
 {

@@ -160,17 +160,15 @@ namespace ReliWebService
             }
         }
 
-        private int _sequence;
         [DataMember]
         public int sequence
         {
             get
             {
-                return _sequence;
+                return Convert.ToInt32(DBHeatSource.sequence); ;
             }
             set
             {
-                _sequence = value;
             }
         }
     }

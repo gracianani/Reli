@@ -348,7 +348,8 @@ namespace ReliWebService
         public ReliMobileHeatSources GetHeatSources()
         {
             var heatSourceRepo = new HeatSourceRepository();
-            return new ReliMobileHeatSources( heatSourceRepo.HeatSources.OrderBy(i=>i.innerOrOuter).ThenBy(i=>i.eastOrWest).ToList() );
+            return new ReliMobileHeatSources(heatSourceRepo.HeatSources.Where(i=>i.sequence != 0).ToList()
+                .OrderBy(i => i.eastOrWest).ThenBy(i=>i.sequence).ToList());
         }
 
         public ReliMobileHeatSourceRecents GetHeatSourceRecentsByHeatSourceId(string heatSourceId)

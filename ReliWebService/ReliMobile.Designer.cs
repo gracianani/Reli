@@ -22,6 +22,7 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("ReliMobileModel", "FK__messages__sendFr__1CF15040", "user", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ReliWebService.user), "Message", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ReliWebService.message), true)]
 [assembly: EdmRelationshipAttribute("ReliMobileModel", "FK__messages__sendTo__1DE57479", "user", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(ReliWebService.user), "Message", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ReliWebService.message), true)]
 [assembly: EdmRelationshipAttribute("ReliMobileModel", "webpages_UsersInRoles", "role", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ReliWebService.role), "user", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ReliWebService.user))]
+[assembly: EdmRelationshipAttribute("ReliMobileModel", "FK__messages__replyT__59904A2C", "message", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(ReliWebService.message), "message1", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(ReliWebService.message), true)]
 
 #endregion
 
@@ -188,6 +189,38 @@ namespace ReliWebService
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<Station> Stations
+        {
+            get
+            {
+                if ((_Stations == null))
+                {
+                    _Stations = base.CreateObjectSet<Station>("Stations");
+                }
+                return _Stations;
+            }
+        }
+        private ObjectSet<Station> _Stations;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<HeatSource> HeatSources
+        {
+            get
+            {
+                if ((_HeatSources == null))
+                {
+                    _HeatSources = base.CreateObjectSet<HeatSource>("HeatSources");
+                }
+                return _HeatSources;
+            }
+        }
+        private ObjectSet<HeatSource> _HeatSources;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<Weather_7> Weather_7
         {
             get
@@ -204,18 +237,18 @@ namespace ReliWebService
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Station> Stations
+        public ObjectSet<HeatSourceRecent> HeatSourceRecents
         {
             get
             {
-                if ((_Stations == null))
+                if ((_HeatSourceRecents == null))
                 {
-                    _Stations = base.CreateObjectSet<Station>("Stations");
+                    _HeatSourceRecents = base.CreateObjectSet<HeatSourceRecent>("HeatSourceRecents");
                 }
-                return _Stations;
+                return _HeatSourceRecents;
             }
         }
-        private ObjectSet<Station> _Stations;
+        private ObjectSet<HeatSourceRecent> _HeatSourceRecents;
 
         #endregion
 
@@ -278,6 +311,22 @@ namespace ReliWebService
         }
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the Stations EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToStations(Station station)
+        {
+            base.AddObject("Stations", station);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the HeatSources EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToHeatSources(HeatSource heatSource)
+        {
+            base.AddObject("HeatSources", heatSource);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the Weather_7 EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToWeather_7(Weather_7 weather_7)
@@ -286,11 +335,11 @@ namespace ReliWebService
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Stations EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the HeatSourceRecents EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToStations(Station station)
+        public void AddToHeatSourceRecents(HeatSourceRecent heatSourceRecent)
         {
-            base.AddObject("Stations", station);
+            base.AddObject("HeatSourceRecents", heatSourceRecent);
         }
 
         #endregion
@@ -300,6 +349,1230 @@ namespace ReliWebService
     #endregion
 
     #region Entities
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="ReliMobileModel", Name="HeatSource")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class HeatSource : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new HeatSource object.
+        /// </summary>
+        /// <param name="itemID">Initial value of the ItemID property.</param>
+        public static HeatSource CreateHeatSource(global::System.Int32 itemID)
+        {
+            HeatSource heatSource = new HeatSource();
+            heatSource.ItemID = itemID;
+            return heatSource;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ItemID
+        {
+            get
+            {
+                return _ItemID;
+            }
+            set
+            {
+                if (_ItemID != value)
+                {
+                    OnItemIDChanging(value);
+                    ReportPropertyChanging("ItemID");
+                    _ItemID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ItemID");
+                    OnItemIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ItemID;
+        partial void OnItemIDChanging(global::System.Int32 value);
+        partial void OnItemIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String 热源名称
+        {
+            get
+            {
+                return _热源名称;
+            }
+            set
+            {
+                On热源名称Changing(value);
+                ReportPropertyChanging("热源名称");
+                _热源名称 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("热源名称");
+                On热源名称Changed();
+            }
+        }
+        private global::System.String _热源名称;
+        partial void On热源名称Changing(global::System.String value);
+        partial void On热源名称Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String 东西部
+        {
+            get
+            {
+                return _东西部;
+            }
+            set
+            {
+                On东西部Changing(value);
+                ReportPropertyChanging("东西部");
+                _东西部 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("东西部");
+                On东西部Changed();
+            }
+        }
+        private global::System.String _东西部;
+        partial void On东西部Changing(global::System.String value);
+        partial void On东西部Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String 内外部
+        {
+            get
+            {
+                return _内外部;
+            }
+            set
+            {
+                On内外部Changing(value);
+                ReportPropertyChanging("内外部");
+                _内外部 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("内外部");
+                On内外部Changed();
+            }
+        }
+        private global::System.String _内外部;
+        partial void On内外部Changing(global::System.String value);
+        partial void On内外部Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> 燃煤尖峰炉数
+        {
+            get
+            {
+                return _燃煤尖峰炉数;
+            }
+            set
+            {
+                On燃煤尖峰炉数Changing(value);
+                ReportPropertyChanging("燃煤尖峰炉数");
+                _燃煤尖峰炉数 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("燃煤尖峰炉数");
+                On燃煤尖峰炉数Changed();
+            }
+        }
+        private Nullable<global::System.Int32> _燃煤尖峰炉数;
+        partial void On燃煤尖峰炉数Changing(Nullable<global::System.Int32> value);
+        partial void On燃煤尖峰炉数Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> 燃气尖峰炉数
+        {
+            get
+            {
+                return _燃气尖峰炉数;
+            }
+            set
+            {
+                On燃气尖峰炉数Changing(value);
+                ReportPropertyChanging("燃气尖峰炉数");
+                _燃气尖峰炉数 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("燃气尖峰炉数");
+                On燃气尖峰炉数Changed();
+            }
+        }
+        private Nullable<global::System.Int32> _燃气尖峰炉数;
+        partial void On燃气尖峰炉数Changing(Nullable<global::System.Int32> value);
+        partial void On燃气尖峰炉数Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String 机组类型
+        {
+            get
+            {
+                return _机组类型;
+            }
+            set
+            {
+                On机组类型Changing(value);
+                ReportPropertyChanging("机组类型");
+                _机组类型 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("机组类型");
+                On机组类型Changed();
+            }
+        }
+        private global::System.String _机组类型;
+        partial void On机组类型Changing(global::System.String value);
+        partial void On机组类型Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String 水线名称
+        {
+            get
+            {
+                return _水线名称;
+            }
+            set
+            {
+                On水线名称Changing(value);
+                ReportPropertyChanging("水线名称");
+                _水线名称 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("水线名称");
+                On水线名称Changed();
+            }
+        }
+        private global::System.String _水线名称;
+        partial void On水线名称Changing(global::System.String value);
+        partial void On水线名称Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String 蒸汽线名称
+        {
+            get
+            {
+                return _蒸汽线名称;
+            }
+            set
+            {
+                On蒸汽线名称Changing(value);
+                ReportPropertyChanging("蒸汽线名称");
+                _蒸汽线名称 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("蒸汽线名称");
+                On蒸汽线名称Changed();
+            }
+        }
+        private global::System.String _蒸汽线名称;
+        partial void On蒸汽线名称Changing(global::System.String value);
+        partial void On蒸汽线名称Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String 备注
+        {
+            get
+            {
+                return _备注;
+            }
+            set
+            {
+                On备注Changing(value);
+                ReportPropertyChanging("备注");
+                _备注 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("备注");
+                On备注Changed();
+            }
+        }
+        private global::System.String _备注;
+        partial void On备注Changing(global::System.String value);
+        partial void On备注Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> 是否并网供热
+        {
+            get
+            {
+                return _是否并网供热;
+            }
+            set
+            {
+                On是否并网供热Changing(value);
+                ReportPropertyChanging("是否并网供热");
+                _是否并网供热 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("是否并网供热");
+                On是否并网供热Changed();
+            }
+        }
+        private Nullable<global::System.Boolean> _是否并网供热;
+        partial void On是否并网供热Changing(Nullable<global::System.Boolean> value);
+        partial void On是否并网供热Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> 采集时间
+        {
+            get
+            {
+                return _采集时间;
+            }
+            set
+            {
+                On采集时间Changing(value);
+                ReportPropertyChanging("采集时间");
+                _采集时间 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("采集时间");
+                On采集时间Changed();
+            }
+        }
+        private Nullable<global::System.DateTime> _采集时间;
+        partial void On采集时间Changing(Nullable<global::System.DateTime> value);
+        partial void On采集时间Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> sequence
+        {
+            get
+            {
+                return _sequence;
+            }
+            set
+            {
+                OnsequenceChanging(value);
+                ReportPropertyChanging("sequence");
+                _sequence = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("sequence");
+                OnsequenceChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _sequence;
+        partial void OnsequenceChanging(Nullable<global::System.Int32> value);
+        partial void OnsequenceChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String 别名
+        {
+            get
+            {
+                return _别名;
+            }
+            set
+            {
+                On别名Changing(value);
+                ReportPropertyChanging("别名");
+                _别名 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("别名");
+                On别名Changed();
+            }
+        }
+        private global::System.String _别名;
+        partial void On别名Changing(global::System.String value);
+        partial void On别名Changed();
+
+        #endregion
+
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="ReliMobileModel", Name="HeatSourceRecent")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class HeatSourceRecent : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new HeatSourceRecent object.
+        /// </summary>
+        /// <param name="itemID">Initial value of the ItemID property.</param>
+        /// <param name="今日GJ">Initial value of the 今日GJ property.</param>
+        /// <param name="昨日GJ">Initial value of the 昨日GJ property.</param>
+        /// <param name="upHour">Initial value of the upHour property.</param>
+        public static HeatSourceRecent CreateHeatSourceRecent(global::System.Int32 itemID, global::System.Int32 今日GJ, global::System.Int32 昨日GJ, global::System.Int16 upHour)
+        {
+            HeatSourceRecent heatSourceRecent = new HeatSourceRecent();
+            heatSourceRecent.ItemID = itemID;
+            heatSourceRecent.今日GJ = 今日GJ;
+            heatSourceRecent.昨日GJ = 昨日GJ;
+            heatSourceRecent.upHour = upHour;
+            return heatSourceRecent;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ItemID
+        {
+            get
+            {
+                return _ItemID;
+            }
+            set
+            {
+                if (_ItemID != value)
+                {
+                    OnItemIDChanging(value);
+                    ReportPropertyChanging("ItemID");
+                    _ItemID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ItemID");
+                    OnItemIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ItemID;
+        partial void OnItemIDChanging(global::System.Int32 value);
+        partial void OnItemIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> 生产热源ID
+        {
+            get
+            {
+                return _生产热源ID;
+            }
+            set
+            {
+                On生产热源IDChanging(value);
+                ReportPropertyChanging("生产热源ID");
+                _生产热源ID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("生产热源ID");
+                On生产热源IDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _生产热源ID;
+        partial void On生产热源IDChanging(Nullable<global::System.Int32> value);
+        partial void On生产热源IDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String 机组名
+        {
+            get
+            {
+                return _机组名;
+            }
+            set
+            {
+                On机组名Changing(value);
+                ReportPropertyChanging("机组名");
+                _机组名 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("机组名");
+                On机组名Changed();
+            }
+        }
+        private global::System.String _机组名;
+        partial void On机组名Changing(global::System.String value);
+        partial void On机组名Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> 机组号
+        {
+            get
+            {
+                return _机组号;
+            }
+            set
+            {
+                On机组号Changing(value);
+                ReportPropertyChanging("机组号");
+                _机组号 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("机组号");
+                On机组号Changed();
+            }
+        }
+        private Nullable<global::System.Int32> _机组号;
+        partial void On机组号Changing(Nullable<global::System.Int32> value);
+        partial void On机组号Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String 热源名称
+        {
+            get
+            {
+                return _热源名称;
+            }
+            set
+            {
+                On热源名称Changing(value);
+                ReportPropertyChanging("热源名称");
+                _热源名称 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("热源名称");
+                On热源名称Changed();
+            }
+        }
+        private global::System.String _热源名称;
+        partial void On热源名称Changing(global::System.String value);
+        partial void On热源名称Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> 供温
+        {
+            get
+            {
+                return _供温;
+            }
+            set
+            {
+                On供温Changing(value);
+                ReportPropertyChanging("供温");
+                _供温 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("供温");
+                On供温Changed();
+            }
+        }
+        private Nullable<global::System.Decimal> _供温;
+        partial void On供温Changing(Nullable<global::System.Decimal> value);
+        partial void On供温Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> 回温
+        {
+            get
+            {
+                return _回温;
+            }
+            set
+            {
+                On回温Changing(value);
+                ReportPropertyChanging("回温");
+                _回温 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("回温");
+                On回温Changed();
+            }
+        }
+        private Nullable<global::System.Decimal> _回温;
+        partial void On回温Changing(Nullable<global::System.Decimal> value);
+        partial void On回温Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> 供压
+        {
+            get
+            {
+                return _供压;
+            }
+            set
+            {
+                On供压Changing(value);
+                ReportPropertyChanging("供压");
+                _供压 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("供压");
+                On供压Changed();
+            }
+        }
+        private Nullable<global::System.Decimal> _供压;
+        partial void On供压Changing(Nullable<global::System.Decimal> value);
+        partial void On供压Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> 回压
+        {
+            get
+            {
+                return _回压;
+            }
+            set
+            {
+                On回压Changing(value);
+                ReportPropertyChanging("回压");
+                _回压 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("回压");
+                On回压Changed();
+            }
+        }
+        private Nullable<global::System.Decimal> _回压;
+        partial void On回压Changing(Nullable<global::System.Decimal> value);
+        partial void On回压Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> 累计供水流量
+        {
+            get
+            {
+                return _累计供水流量;
+            }
+            set
+            {
+                On累计供水流量Changing(value);
+                ReportPropertyChanging("累计供水流量");
+                _累计供水流量 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("累计供水流量");
+                On累计供水流量Changed();
+            }
+        }
+        private Nullable<global::System.Int32> _累计供水流量;
+        partial void On累计供水流量Changing(Nullable<global::System.Int32> value);
+        partial void On累计供水流量Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> 累计供水热量
+        {
+            get
+            {
+                return _累计供水热量;
+            }
+            set
+            {
+                On累计供水热量Changing(value);
+                ReportPropertyChanging("累计供水热量");
+                _累计供水热量 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("累计供水热量");
+                On累计供水热量Changed();
+            }
+        }
+        private Nullable<global::System.Int32> _累计供水热量;
+        partial void On累计供水热量Changing(Nullable<global::System.Int32> value);
+        partial void On累计供水热量Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> 累计热量
+        {
+            get
+            {
+                return _累计热量;
+            }
+            set
+            {
+                On累计热量Changing(value);
+                ReportPropertyChanging("累计热量");
+                _累计热量 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("累计热量");
+                On累计热量Changed();
+            }
+        }
+        private Nullable<global::System.Int32> _累计热量;
+        partial void On累计热量Changing(Nullable<global::System.Int32> value);
+        partial void On累计热量Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> 瞬时供水流量
+        {
+            get
+            {
+                return _瞬时供水流量;
+            }
+            set
+            {
+                On瞬时供水流量Changing(value);
+                ReportPropertyChanging("瞬时供水流量");
+                _瞬时供水流量 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("瞬时供水流量");
+                On瞬时供水流量Changed();
+            }
+        }
+        private Nullable<global::System.Decimal> _瞬时供水流量;
+        partial void On瞬时供水流量Changing(Nullable<global::System.Decimal> value);
+        partial void On瞬时供水流量Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> 瞬时供水热量
+        {
+            get
+            {
+                return _瞬时供水热量;
+            }
+            set
+            {
+                On瞬时供水热量Changing(value);
+                ReportPropertyChanging("瞬时供水热量");
+                _瞬时供水热量 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("瞬时供水热量");
+                On瞬时供水热量Changed();
+            }
+        }
+        private Nullable<global::System.Decimal> _瞬时供水热量;
+        partial void On瞬时供水热量Changing(Nullable<global::System.Decimal> value);
+        partial void On瞬时供水热量Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> 瞬时热量
+        {
+            get
+            {
+                return _瞬时热量;
+            }
+            set
+            {
+                On瞬时热量Changing(value);
+                ReportPropertyChanging("瞬时热量");
+                _瞬时热量 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("瞬时热量");
+                On瞬时热量Changed();
+            }
+        }
+        private Nullable<global::System.Decimal> _瞬时热量;
+        partial void On瞬时热量Changing(Nullable<global::System.Decimal> value);
+        partial void On瞬时热量Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> 瞬时补水量
+        {
+            get
+            {
+                return _瞬时补水量;
+            }
+            set
+            {
+                On瞬时补水量Changing(value);
+                ReportPropertyChanging("瞬时补水量");
+                _瞬时补水量 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("瞬时补水量");
+                On瞬时补水量Changed();
+            }
+        }
+        private Nullable<global::System.Decimal> _瞬时补水量;
+        partial void On瞬时补水量Changing(Nullable<global::System.Decimal> value);
+        partial void On瞬时补水量Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> 累计补水量
+        {
+            get
+            {
+                return _累计补水量;
+            }
+            set
+            {
+                On累计补水量Changing(value);
+                ReportPropertyChanging("累计补水量");
+                _累计补水量 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("累计补水量");
+                On累计补水量Changed();
+            }
+        }
+        private Nullable<global::System.Int32> _累计补水量;
+        partial void On累计补水量Changing(Nullable<global::System.Int32> value);
+        partial void On累计补水量Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> 累计回水流量
+        {
+            get
+            {
+                return _累计回水流量;
+            }
+            set
+            {
+                On累计回水流量Changing(value);
+                ReportPropertyChanging("累计回水流量");
+                _累计回水流量 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("累计回水流量");
+                On累计回水流量Changed();
+            }
+        }
+        private Nullable<global::System.Int32> _累计回水流量;
+        partial void On累计回水流量Changing(Nullable<global::System.Int32> value);
+        partial void On累计回水流量Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> 瞬时回水流量
+        {
+            get
+            {
+                return _瞬时回水流量;
+            }
+            set
+            {
+                On瞬时回水流量Changing(value);
+                ReportPropertyChanging("瞬时回水流量");
+                _瞬时回水流量 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("瞬时回水流量");
+                On瞬时回水流量Changed();
+            }
+        }
+        private Nullable<global::System.Decimal> _瞬时回水流量;
+        partial void On瞬时回水流量Changing(Nullable<global::System.Decimal> value);
+        partial void On瞬时回水流量Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> 累计回水热量
+        {
+            get
+            {
+                return _累计回水热量;
+            }
+            set
+            {
+                On累计回水热量Changing(value);
+                ReportPropertyChanging("累计回水热量");
+                _累计回水热量 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("累计回水热量");
+                On累计回水热量Changed();
+            }
+        }
+        private Nullable<global::System.Int32> _累计回水热量;
+        partial void On累计回水热量Changing(Nullable<global::System.Int32> value);
+        partial void On累计回水热量Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> 瞬时回水热量
+        {
+            get
+            {
+                return _瞬时回水热量;
+            }
+            set
+            {
+                On瞬时回水热量Changing(value);
+                ReportPropertyChanging("瞬时回水热量");
+                _瞬时回水热量 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("瞬时回水热量");
+                On瞬时回水热量Changed();
+            }
+        }
+        private Nullable<global::System.Decimal> _瞬时回水热量;
+        partial void On瞬时回水热量Changing(Nullable<global::System.Decimal> value);
+        partial void On瞬时回水热量Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 今日GJ
+        {
+            get
+            {
+                return _今日GJ;
+            }
+            set
+            {
+                On今日GJChanging(value);
+                ReportPropertyChanging("今日GJ");
+                _今日GJ = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("今日GJ");
+                On今日GJChanged();
+            }
+        }
+        private global::System.Int32 _今日GJ;
+        partial void On今日GJChanging(global::System.Int32 value);
+        partial void On今日GJChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 昨日GJ
+        {
+            get
+            {
+                return _昨日GJ;
+            }
+            set
+            {
+                On昨日GJChanging(value);
+                ReportPropertyChanging("昨日GJ");
+                _昨日GJ = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("昨日GJ");
+                On昨日GJChanged();
+            }
+        }
+        private global::System.Int32 _昨日GJ;
+        partial void On昨日GJChanging(global::System.Int32 value);
+        partial void On昨日GJChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> 今日表底GJ
+        {
+            get
+            {
+                return _今日表底GJ;
+            }
+            set
+            {
+                On今日表底GJChanging(value);
+                ReportPropertyChanging("今日表底GJ");
+                _今日表底GJ = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("今日表底GJ");
+                On今日表底GJChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _今日表底GJ;
+        partial void On今日表底GJChanging(Nullable<global::System.Int32> value);
+        partial void On今日表底GJChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> 采集时间
+        {
+            get
+            {
+                return _采集时间;
+            }
+            set
+            {
+                On采集时间Changing(value);
+                ReportPropertyChanging("采集时间");
+                _采集时间 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("采集时间");
+                On采集时间Changed();
+            }
+        }
+        private Nullable<global::System.DateTime> _采集时间;
+        partial void On采集时间Changing(Nullable<global::System.DateTime> value);
+        partial void On采集时间Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int16> upFlag
+        {
+            get
+            {
+                return _upFlag;
+            }
+            set
+            {
+                OnupFlagChanging(value);
+                ReportPropertyChanging("upFlag");
+                _upFlag = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("upFlag");
+                OnupFlagChanged();
+            }
+        }
+        private Nullable<global::System.Int16> _upFlag;
+        partial void OnupFlagChanging(Nullable<global::System.Int16> value);
+        partial void OnupFlagChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> 供暖季GJ
+        {
+            get
+            {
+                return _供暖季GJ;
+            }
+            set
+            {
+                On供暖季GJChanging(value);
+                ReportPropertyChanging("供暖季GJ");
+                _供暖季GJ = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("供暖季GJ");
+                On供暖季GJChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _供暖季GJ;
+        partial void On供暖季GJChanging(Nullable<global::System.Int32> value);
+        partial void On供暖季GJChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int16> dirFlag
+        {
+            get
+            {
+                return _dirFlag;
+            }
+            set
+            {
+                OndirFlagChanging(value);
+                ReportPropertyChanging("dirFlag");
+                _dirFlag = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("dirFlag");
+                OndirFlagChanged();
+            }
+        }
+        private Nullable<global::System.Int16> _dirFlag;
+        partial void OndirFlagChanging(Nullable<global::System.Int16> value);
+        partial void OndirFlagChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> 单价
+        {
+            get
+            {
+                return _单价;
+            }
+            set
+            {
+                On单价Changing(value);
+                ReportPropertyChanging("单价");
+                _单价 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("单价");
+                On单价Changed();
+            }
+        }
+        private Nullable<global::System.Decimal> _单价;
+        partial void On单价Changing(Nullable<global::System.Decimal> value);
+        partial void On单价Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> 今日热价
+        {
+            get
+            {
+                return _今日热价;
+            }
+            set
+            {
+                On今日热价Changing(value);
+                ReportPropertyChanging("今日热价");
+                _今日热价 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("今日热价");
+                On今日热价Changed();
+            }
+        }
+        private Nullable<global::System.Decimal> _今日热价;
+        partial void On今日热价Changing(Nullable<global::System.Decimal> value);
+        partial void On今日热价Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> 昨日热价
+        {
+            get
+            {
+                return _昨日热价;
+            }
+            set
+            {
+                On昨日热价Changing(value);
+                ReportPropertyChanging("昨日热价");
+                _昨日热价 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("昨日热价");
+                On昨日热价Changed();
+            }
+        }
+        private Nullable<global::System.Decimal> _昨日热价;
+        partial void On昨日热价Changing(Nullable<global::System.Decimal> value);
+        partial void On昨日热价Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> 供暖季热价
+        {
+            get
+            {
+                return _供暖季热价;
+            }
+            set
+            {
+                On供暖季热价Changing(value);
+                ReportPropertyChanging("供暖季热价");
+                _供暖季热价 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("供暖季热价");
+                On供暖季热价Changed();
+            }
+        }
+        private Nullable<global::System.Decimal> _供暖季热价;
+        partial void On供暖季热价Changing(Nullable<global::System.Decimal> value);
+        partial void On供暖季热价Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int16 upHour
+        {
+            get
+            {
+                return _upHour;
+            }
+            set
+            {
+                OnupHourChanging(value);
+                ReportPropertyChanging("upHour");
+                _upHour = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("upHour");
+                OnupHourChanged();
+            }
+        }
+        private global::System.Int16 _upHour;
+        partial void OnupHourChanging(global::System.Int16 value);
+        partial void OnupHourChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> GJ_Base1115
+        {
+            get
+            {
+                return _GJ_Base1115;
+            }
+            set
+            {
+                OnGJ_Base1115Changing(value);
+                ReportPropertyChanging("GJ_Base1115");
+                _GJ_Base1115 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("GJ_Base1115");
+                OnGJ_Base1115Changed();
+            }
+        }
+        private Nullable<global::System.Int32> _GJ_Base1115;
+        partial void OnGJ_Base1115Changing(Nullable<global::System.Int32> value);
+        partial void OnGJ_Base1115Changed();
+
+        #endregion
+
+    
+    }
     
     /// <summary>
     /// No Metadata Documentation available.
@@ -506,6 +1779,54 @@ namespace ReliWebService
         private global::System.Boolean _isReceived;
         partial void OnisReceivedChanging(global::System.Boolean value);
         partial void OnisReceivedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> replyToMessageId
+        {
+            get
+            {
+                return _replyToMessageId;
+            }
+            set
+            {
+                OnreplyToMessageIdChanging(value);
+                ReportPropertyChanging("replyToMessageId");
+                _replyToMessageId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("replyToMessageId");
+                OnreplyToMessageIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _replyToMessageId;
+        partial void OnreplyToMessageIdChanging(Nullable<global::System.Int32> value);
+        partial void OnreplyToMessageIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String imageUrlOnAndroid
+        {
+            get
+            {
+                return _imageUrlOnAndroid;
+            }
+            set
+            {
+                OnimageUrlOnAndroidChanging(value);
+                ReportPropertyChanging("imageUrlOnAndroid");
+                _imageUrlOnAndroid = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("imageUrlOnAndroid");
+                OnimageUrlOnAndroidChanged();
+            }
+        }
+        private global::System.String _imageUrlOnAndroid;
+        partial void OnimageUrlOnAndroidChanging(global::System.String value);
+        partial void OnimageUrlOnAndroidChanged();
 
         #endregion
 
@@ -584,6 +1905,66 @@ namespace ReliWebService
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<user>("ReliMobileModel.FK__messages__sendTo__1DE57479", "user", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ReliMobileModel", "FK__messages__replyT__59904A2C", "message1")]
+        public EntityCollection<message> messages1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<message>("ReliMobileModel.FK__messages__replyT__59904A2C", "message1");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<message>("ReliMobileModel.FK__messages__replyT__59904A2C", "message1", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("ReliMobileModel", "FK__messages__replyT__59904A2C", "message")]
+        public message message1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<message>("ReliMobileModel.FK__messages__replyT__59904A2C", "message").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<message>("ReliMobileModel.FK__messages__replyT__59904A2C", "message").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<message> message1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<message>("ReliMobileModel.FK__messages__replyT__59904A2C", "message");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<message>("ReliMobileModel.FK__messages__replyT__59904A2C", "message", value);
                 }
             }
         }
@@ -715,12 +2096,20 @@ namespace ReliWebService
         /// Create a new Station object.
         /// </summary>
         /// <param name="itemID">Initial value of the ItemID property.</param>
+        /// <param name="采集时间">Initial value of the 采集时间 property.</param>
+        /// <param name="参考热指标">Initial value of the 参考热指标 property.</param>
+        /// <param name="upHour">Initial value of the upHour property.</param>
         /// <param name="date0">Initial value of the Date0 property.</param>
-        public static Station CreateStation(global::System.Int32 itemID, global::System.DateTime date0)
+        /// <param name="gJ_Limit">Initial value of the GJ_Limit property.</param>
+        public static Station CreateStation(global::System.Int32 itemID, global::System.DateTime 采集时间, global::System.Decimal 参考热指标, global::System.Int16 upHour, global::System.DateTime date0, global::System.Decimal gJ_Limit)
         {
             Station station = new Station();
             station.ItemID = itemID;
+            station.采集时间 = 采集时间;
+            station.参考热指标 = 参考热指标;
+            station.upHour = upHour;
             station.Date0 = date0;
+            station.GJ_Limit = gJ_Limit;
             return station;
         }
 
@@ -1838,9 +3227,9 @@ namespace ReliWebService
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> 采集时间
+        public global::System.DateTime 采集时间
         {
             get
             {
@@ -1855,8 +3244,8 @@ namespace ReliWebService
                 On采集时间Changed();
             }
         }
-        private Nullable<global::System.DateTime> _采集时间;
-        partial void On采集时间Changing(Nullable<global::System.DateTime> value);
+        private global::System.DateTime _采集时间;
+        partial void On采集时间Changing(global::System.DateTime value);
         partial void On采集时间Changed();
     
         /// <summary>
@@ -1958,9 +3347,9 @@ namespace ReliWebService
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> 参考热指标
+        public global::System.Decimal 参考热指标
         {
             get
             {
@@ -1975,8 +3364,8 @@ namespace ReliWebService
                 On参考热指标Changed();
             }
         }
-        private Nullable<global::System.Decimal> _参考热指标;
-        partial void On参考热指标Changing(Nullable<global::System.Decimal> value);
+        private global::System.Decimal _参考热指标;
+        partial void On参考热指标Changing(global::System.Decimal value);
         partial void On参考热指标Changed();
     
         /// <summary>
@@ -2198,9 +3587,9 @@ namespace ReliWebService
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int16> upHour
+        public global::System.Int16 upHour
         {
             get
             {
@@ -2215,8 +3604,8 @@ namespace ReliWebService
                 OnupHourChanged();
             }
         }
-        private Nullable<global::System.Int16> _upHour;
-        partial void OnupHourChanging(Nullable<global::System.Int16> value);
+        private global::System.Int16 _upHour;
+        partial void OnupHourChanging(global::System.Int16 value);
         partial void OnupHourChanged();
     
         /// <summary>
@@ -2794,6 +4183,126 @@ namespace ReliWebService
         private Nullable<global::System.Decimal> _预计全天GJ;
         partial void On预计全天GJChanging(Nullable<global::System.Decimal> value);
         partial void On预计全天GJChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal GJ_Limit
+        {
+            get
+            {
+                return _GJ_Limit;
+            }
+            set
+            {
+                OnGJ_LimitChanging(value);
+                ReportPropertyChanging("GJ_Limit");
+                _GJ_Limit = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("GJ_Limit");
+                OnGJ_LimitChanged();
+            }
+        }
+        private global::System.Decimal _GJ_Limit;
+        partial void OnGJ_LimitChanging(global::System.Decimal value);
+        partial void OnGJ_LimitChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String 收费性质
+        {
+            get
+            {
+                return _收费性质;
+            }
+            set
+            {
+                On收费性质Changing(value);
+                ReportPropertyChanging("收费性质");
+                _收费性质 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("收费性质");
+                On收费性质Changed();
+            }
+        }
+        private global::System.String _收费性质;
+        partial void On收费性质Changing(global::System.String value);
+        partial void On收费性质Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> GJ_Base1115
+        {
+            get
+            {
+                return _GJ_Base1115;
+            }
+            set
+            {
+                OnGJ_Base1115Changing(value);
+                ReportPropertyChanging("GJ_Base1115");
+                _GJ_Base1115 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("GJ_Base1115");
+                OnGJ_Base1115Changed();
+            }
+        }
+        private Nullable<global::System.Decimal> _GJ_Base1115;
+        partial void OnGJ_Base1115Changing(Nullable<global::System.Decimal> value);
+        partial void OnGJ_Base1115Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> 计划多耗
+        {
+            get
+            {
+                return _计划多耗;
+            }
+            set
+            {
+                On计划多耗Changing(value);
+                ReportPropertyChanging("计划多耗");
+                _计划多耗 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("计划多耗");
+                On计划多耗Changed();
+            }
+        }
+        private Nullable<global::System.Decimal> _计划多耗;
+        partial void On计划多耗Changing(Nullable<global::System.Decimal> value);
+        partial void On计划多耗Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> 核算多耗
+        {
+            get
+            {
+                return _核算多耗;
+            }
+            set
+            {
+                On核算多耗Changing(value);
+                ReportPropertyChanging("核算多耗");
+                _核算多耗 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("核算多耗");
+                On核算多耗Changed();
+            }
+        }
+        private Nullable<global::System.Decimal> _核算多耗;
+        partial void On核算多耗Changing(Nullable<global::System.Decimal> value);
+        partial void On核算多耗Changed();
 
         #endregion
 
@@ -3970,6 +5479,54 @@ namespace ReliWebService
         private global::System.Int32 _ItemId;
         partial void OnItemIdChanging(global::System.Int32 value);
         partial void OnItemIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> YesPre
+        {
+            get
+            {
+                return _YesPre;
+            }
+            set
+            {
+                OnYesPreChanging(value);
+                ReportPropertyChanging("YesPre");
+                _YesPre = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("YesPre");
+                OnYesPreChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _YesPre;
+        partial void OnYesPreChanging(Nullable<global::System.Decimal> value);
+        partial void OnYesPreChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Date1
+        {
+            get
+            {
+                return _Date1;
+            }
+            set
+            {
+                OnDate1Changing(value);
+                ReportPropertyChanging("Date1");
+                _Date1 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Date1");
+                OnDate1Changed();
+            }
+        }
+        private Nullable<global::System.Int32> _Date1;
+        partial void OnDate1Changing(Nullable<global::System.Int32> value);
+        partial void OnDate1Changed();
 
         #endregion
 
@@ -4231,7 +5788,7 @@ namespace ReliWebService
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime 日期
         {
@@ -4241,14 +5798,11 @@ namespace ReliWebService
             }
             set
             {
-                if (_日期 != value)
-                {
-                    On日期Changing(value);
-                    ReportPropertyChanging("日期");
-                    _日期 = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("日期");
-                    On日期Changed();
-                }
+                On日期Changing(value);
+                ReportPropertyChanging("日期");
+                _日期 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("日期");
+                On日期Changed();
             }
         }
         private global::System.DateTime _日期;
