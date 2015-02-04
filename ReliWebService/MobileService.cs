@@ -523,7 +523,7 @@ namespace ReliWebService
         }
         public string GetLastestVersion()
         {
-            return "V2.1";
+            return "V2.2";
         }
     }
 }

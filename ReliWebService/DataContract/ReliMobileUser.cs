@@ -116,11 +116,11 @@ namespace ReliWebService
                 }
                 else if (Roles.Contains(Role.分公司调度))
                 {
-                    return new List<int> { 1, 4, 5, 6 };
+                    return new List<int> { 1,3, 4, 5, 6 };
                 }
                 else if (Roles.Contains(Role.供热中心调度))
                 {
-                    return new List<int> { 1, 4, 5, 6 };
+                    return new List<int> { 1, 3, 4, 5, 6 };
                 }
                 else
                 {
