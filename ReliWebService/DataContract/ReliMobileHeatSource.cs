@@ -5,6 +5,8 @@ using System.Web;
 using System.Runtime.Serialization;
 using ReliDemo.Models;
 using ReliDemo.Infrastructure.Helpers;
+using ReliWebService.Repository;
+using System.Collections.ObjectModel;
 
 namespace ReliWebService
 {
@@ -19,12 +21,30 @@ namespace ReliWebService
                 if (_dbHeatSource == null)
                 {
                     _dbHeatSource = new HeatSource();
+                    
                 }
                 return _dbHeatSource;
             }
             set
             {
                 _dbHeatSource = value;
+                var heatSourceRepo = new HeatSourceRepository();
+                _heatSourceRecents = new Collection<ReliMobileHeatSourceRecent>(heatSourceRepo.HeatSourceRecents.Where(i => i.heatSourceId == Convert.ToInt32(heatSourceId)).ToList());
+            }
+        }
+
+        private Collection<ReliMobileHeatSourceRecent> _heatSourceRecents;
+
+        [DataMember]
+        public Collection<ReliMobileHeatSourceRecent> heatSourceRecents
+        {
+            get
+            {
+                return _heatSourceRecents;
+            }
+            set
+            {
+                _heatSourceRecents = value;
             }
         }
 
@@ -171,5 +191,6 @@ namespace ReliWebService
             {
             }
         }
+
     }
 }

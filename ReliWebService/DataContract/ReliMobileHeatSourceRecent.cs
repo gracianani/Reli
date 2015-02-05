@@ -33,7 +33,7 @@ namespace ReliWebService
         {
             get
             {
-                return DBHeatSourceRecent.采集时间.Value.ToString("yyyy-MM-dd HH:mm:ss");
+                return DBHeatSourceRecent.采集时间.Value.ToString("yyyy-MM-dd HH:mm");
             }
             set
             {
@@ -79,7 +79,7 @@ namespace ReliWebService
         {
             get
             {
-                return Convert.ToDecimal(DBHeatSourceRecent.回压).ToString("0.0");
+                return Convert.ToDecimal(DBHeatSourceRecent.回压).ToString("0.00");
             }
             set
             {
@@ -91,7 +91,7 @@ namespace ReliWebService
         {
             get
             {
-                return Convert.ToDecimal(DBHeatSourceRecent.供压).ToString("0.0");
+                return Convert.ToDecimal(DBHeatSourceRecent.供压).ToString("0.00");
             }
             set
             {
@@ -127,7 +127,7 @@ namespace ReliWebService
         {
             get
             {
-                return Convert.ToDecimal(DBHeatSourceRecent.瞬时供水流量).ToString("0.0");
+                return Convert.ToDecimal(DBHeatSourceRecent.瞬时供水流量).ToString("0");
             }
             set
             {
@@ -139,7 +139,7 @@ namespace ReliWebService
         {
             get
             {
-                return Convert.ToDecimal(DBHeatSourceRecent.瞬时热量).ToString("0.0");
+                return Convert.ToDecimal(DBHeatSourceRecent.瞬时热量).ToString("0");
             }
             set
             {
@@ -151,7 +151,19 @@ namespace ReliWebService
         {
             get
             {
-                return Convert.ToDecimal(DBHeatSourceRecent.累计供水流量).ToString("0.0");
+                return Convert.ToDecimal(DBHeatSourceRecent.累计供水流量).ToString("0");
+            }
+            set
+            {
+            }
+        }
+
+        [DataMember]
+        public string accuWaterIn
+        {
+            get
+            {
+                return Convert.ToDecimal(DBHeatSourceRecent.累计回水流量).ToString("0");
             }
             set
             {
@@ -163,7 +175,7 @@ namespace ReliWebService
         {
             get
             {
-                return Convert.ToDecimal(DBHeatSourceRecent.累计热量).ToString("0.0");
+                return Convert.ToDecimal(DBHeatSourceRecent.累计热量).ToString("0");
             }
             set
             {
@@ -175,7 +187,7 @@ namespace ReliWebService
         {
             get
             {
-                return Convert.ToDecimal(DBHeatSourceRecent.瞬时补水量).ToString("0.0");
+                return Convert.ToDecimal(DBHeatSourceRecent.瞬时补水量).ToString("0");
             }
             set
             {
