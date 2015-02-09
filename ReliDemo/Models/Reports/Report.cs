@@ -107,28 +107,15 @@ namespace ReliDemo.Models
 
         public void FillCompanyStats()
         {
-            var companyRepo = new CompanyRepository();
-            var companies = companyRepo.GetAllCompanies();
-            var companyService = new CompanyService();
+            var reportService = new ReportService();
             _公司统计 = new List<CompanyStat>();
-
-            for (int i = 0, startIndex = Start_Row_Index; i < companies.Count(); i++, startIndex++)
+            if(!_is非重点)
             {
-                var company = companies.ElementAt(i);
-                _公司统计.Add(new CompanyStat()
-                {
-                      公司名 =   company.公司,
-                      回温超标站个数 = companyService.回温超标45数(company.ItemID, ReportDate, _is非重点),
-                      实际超核算供热量站个数 = companyService.实际超核算数(company.ItemID, ReportDate, _is非重点),
-                      实际超核算供热量站面积 = companyService.实际超核算面积(company.ItemID, ReportDate, _is非重点),
-                      实际超计划供热量站个数 = companyService.实际超计划数(company.ItemID, ReportDate, _is非重点),
-                      有效监控站数 = companyService.有效监测站数(company.ItemID, ReportDate, _is非重点),
-                      核算执行到位率 = companyService.核算执行到位率(company.ItemID, ReportDate, _is非重点),
-                      监测站供热面积 = companyService.监测站供热面积(company.ItemID, ReportDate, _is非重点),
-                      计划执行到位率 = companyService.计划执行到位率(company.ItemID, ReportDate, _is非重点),
-                      实际超计划供热量站面积 = companyService.实际超计划面积(company.ItemID, ReportDate, _is非重点)
-                });
-
+                _公司统计.AddRange( reportService.Get有效监测站统计(ReportDate));
+            }
+            else
+            {
+                 _公司统计.AddRange( reportService.Get非重点站统计(ReportDate));
             }
         }
 

@@ -135,6 +135,18 @@ namespace ReliWebService
         }
 
         [DataMember]
+        public string instWaterIn
+        {
+            get
+            {
+                return Convert.ToDecimal(DBHeatSourceRecent.瞬时回水流量).ToString("0");
+            }
+            set
+            {
+            }
+        }
+
+        [DataMember]
         public string instHeat
         {
             get

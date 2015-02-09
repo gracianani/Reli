@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -27,6 +28,25 @@ namespace ReliDemo.Models
                 return v.Value + append;
             }
             return blank;
+        }
+
+        public CompanyStat(IDataReader reader)
+        {
+            公司名 = reader.GetString(reader.GetOrdinal("公司"));
+            回温超标站个数 = reader.IsDBNull(reader.GetOrdinal("回温超标站个数")) ? 0 : reader.GetInt32(reader.GetOrdinal("回温超标站个数"));
+            实际超核算供热量站个数 = reader.IsDBNull(reader.GetOrdinal("超核算供热量站个数")) ? 0 : reader.GetInt32(reader.GetOrdinal("超核算供热量站个数"));
+            实际超核算供热量站面积 = reader.IsDBNull(reader.GetOrdinal("超核算供热量站面积")) ? 0.0m : reader.GetDecimal(reader.GetOrdinal("超核算供热量站面积"));
+            实际超计划供热量站个数 = reader.IsDBNull(reader.GetOrdinal("超计划供热量站个数")) ? 0 : reader.GetInt32(reader.GetOrdinal("超计划供热量站个数"));
+            实际超计划供热量站面积 = reader.IsDBNull(reader.GetOrdinal("超计划供热量站面积")) ? 0.0m : reader.GetDecimal(reader.GetOrdinal("超计划供热量站面积"));
+            有效监控站数 = reader.IsDBNull(reader.GetOrdinal("有效监控站数")) ? 0 : reader.GetInt32(reader.GetOrdinal("有效监控站数"));
+            核算执行到位率 = reader.IsDBNull(reader.GetOrdinal("核算执行到位率")) ? 0.0m : reader.GetDecimal(reader.GetOrdinal("核算执行到位率"));
+            监测站供热面积 = reader.IsDBNull(reader.GetOrdinal("监测站供热面积")) ? 0.0m : reader.GetDecimal(reader.GetOrdinal("监测站供热面积"));
+            计划执行到位率 = reader.IsDBNull(reader.GetOrdinal("计划执行到位率")) ? 0.0m : reader.GetDecimal(reader.GetOrdinal("计划执行到位率"));
+        }
+
+        public CompanyStat()
+        {
+
         }
     }
 }

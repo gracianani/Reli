@@ -382,6 +382,54 @@ namespace ReliDemo.Infrastructure.Services
             }
             return result;
         }
+
+        public IEnumerable<CompanyStat> Get有效监测站统计(DateTime day)
+        {
+            var result = new List<CompanyStat>();
+         
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["membership"].ConnectionString))
+            {
+                conn.Open();
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "[dbo].[Proc_Rpt_1_有效监测站统计]";
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter("日期", day.ToString("yyyy-MM-dd")));
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            result.Add(new CompanyStat(reader));
+                        }
+                    }
+                }
+            }
+            return result;
+        }
+
+        public IEnumerable<CompanyStat> Get非重点站统计(DateTime day)
+        {
+            var result = new List<CompanyStat>();
+
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["membership"].ConnectionString))
+            {
+                conn.Open();
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "[dbo].[Proc_Rpt_1_非重点站统计]";
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter("日期", day.ToString("yyyy-MM-dd")));
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            result.Add(new CompanyStat(reader));
+                        }
+                    }
+                }
+            }
+            return result;
+        }
     }
 
 }

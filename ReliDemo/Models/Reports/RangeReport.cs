@@ -154,46 +154,6 @@ namespace ReliDemo.Models
                 _temperature.Add(day, temperature.Temperature ?? 0.0m );
             }
 
-            //    for (int i = 0, startIndex = Start_Row_Index; i < companies.Count(); i++, startIndex++)
-            //    {
-            //        var company = companies.ElementAt(i);
-
-            //        worksheet.Cells[startIndex, 公司名_Column_Index].Value = company.公司;
-            //        worksheet.Cells[startIndex, 有效监控站数_Column_Index].Value = companyService.有效监测站数(company.ItemID, ReportDate, _is非重点);
-            //        worksheet.Cells[startIndex, 监测站供热面积_Column_Index].Value = companyService.监测站供热面积(company.ItemID, ReportDate, _is非重点);
-            //        worksheet.Cells[startIndex, 回温超标站个数_Column_Index].Value = companyService.回温超标45数(company.ItemID, ReportDate, _is非重点);
-            //        worksheet.Cells[startIndex, 实际超核算供热量站个数_Column_Index].Value = companyService.实际超核算数(company.ItemID, ReportDate, _is非重点);
-            //        worksheet.Cells[startIndex, 实际超核算供热量站面积_Column_Index].Value = companyService.实际超核算面积(company.ItemID, ReportDate, _is非重点);
-            //        worksheet.Cells[startIndex, 核算执行到位率_Column_Index].Value = companyService.核算执行到位率(company.ItemID, ReportDate, _is非重点);
-            //        worksheet.Cells[startIndex, 实际超计划供热量站个数_Column_Index].Value = companyService.实际超计划数(company.ItemID, ReportDate, _is非重点);
-            //        worksheet.Cells[startIndex, 实际超计划供热量站面积_Column_Index].Value = companyService.实际超计划面积(company.ItemID, ReportDate, _is非重点);
-                    
-
-            //        DataTable dataPercent = companyService.到位率图表(company.ItemID, chartFromDate, chartToDate, _is非重点);
-            //        for (int j = 0, chartDataColumn = 3; j < dataPercent.Rows.Count; j++)
-            //        {
-            //            var zong = Convert.ToDecimal(dataPercent.Rows[j][0]);
-            //            var hesuan = Convert.ToDecimal(dataPercent.Rows[j][1]);
-            //            var jihua = Convert.ToDecimal(dataPercent.Rows[j][2]);
-            //            var date = Convert.ToDateTime(dataPercent.Rows[j][3]);
-            //            while (date.ToString("yyyy年MM月dd日") != worksheet.Cells[Chart_DateTime_Row_Index, chartDataColumn].Value.ToString())
-            //            {
-            //                chartDataColumn++;
-            //            }
-            //            worksheet.Cells[Chart_Data_Row_Index + i * 2, chartDataColumn].Value = Decimal.Round((zong - hesuan) / zong * 100.0m, 2);
-            //            worksheet.Cells[Chart_Data_Row_Index + i * 2 + 1, chartDataColumn].Value = Decimal.Round((zong - jihua) / zong * 100.0m, 2);
-            //        }
-            //    }
-
-            //worksheet.Cells[Summary_Row_Index, 有效监控站数_Column_Index].Formula = string.Format("SUM(C5:C8)");
-            //worksheet.Cells[Summary_Row_Index, 监测站供热面积_Column_Index].Formula = string.Format("Round(SUM(D5:D8),2)");
-            //worksheet.Cells[Summary_Row_Index, 回温超标站个数_Column_Index].Formula = string.Format("SUM(E5:E8)");
-            //worksheet.Cells[Summary_Row_Index, 实际超核算供热量站个数_Column_Index].Formula = string.Format("SUM(F5:F8)");
-            //worksheet.Cells[Summary_Row_Index, 实际超核算供热量站面积_Column_Index].Formula = string.Format("Round(SUM(G5:G8),2)");
-            //worksheet.Cells[Summary_Row_Index, 核算执行到位率_Column_Index].Formula = string.Format("Round((SUM(D9,-G9) / D9),2)");
-            //worksheet.Cells[Summary_Row_Index, 实际超计划供热量站个数_Column_Index].Formula = string.Format("SUM(I5:I8)");
-            //worksheet.Cells[Summary_Row_Index, 实际超计划供热量站面积_Column_Index].Formula = string.Format("Round(SUM(J5:J8),2)");
-            //worksheet.Cells[Summary_Row_Index, 计划执行到位率_Column_Index].Formula = string.Format("Round((SUM(D9,-J9) / D9),2)");
         }
     }
 }
